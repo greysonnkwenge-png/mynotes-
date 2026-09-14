@@ -1,0 +1,499 @@
+@title: ICT Teaching Notes
+@subtitle: First Term · Complete Instructional Resource
+@class: Upper Sixth
+@banner: Information & Communication Technology · Upper Sixth · First Term 2026–2027
+@header: ICT Teaching Notes  ·  UPPER SIXTH  ·  First Term
+@accent: 2F5BEA
+@meta: Subject | Information & Communication Technology (ICT) — distinct from the Computer Science series; ICT notes emphasise selection, configuration, use and responsible practice of digital technology
+@meta: Framework | National Harmonised Upper Sixth Progression Sheet 2026–2027 for ICT (MINESEC, Inspectorate of Pedagogy in charge of the Teaching of Computer Science)
+@meta: Coverage | Weeks 1–13 · Lessons 1–46 · nine Integration Activities · Evaluations 1–2 with remediation. Modules: Applying AI; Computer Networks (fundamentals, classification, design, topologies, equipment, set-up, security, data protection, validation, transmission, media, peripheral control, protocols, OSI, error detection); Internet Technologies and Services; Electronic Services and E-Learning; Simple Web Pages with HTML
+@meta: Excluded | Second and Third Term content (Lesson 47 Styling Web Pages onward)
+@meta: Weekly workload | 8 periods per week
+@meta: Pedagogical approach | Competency-Based Approach: scenario- and project-based lessons; every practical objective is performed in the computer room or simulated with printed material where equipment is limited
+@meta: Assessment points | Evaluation No 1 & Remediation No 1 (Week 5); Evaluation No 2 & Remediation No 2 (Week 10); Integration Activities in Weeks 2, 3, 4, 5, 6, 7, 9, 12 and 13
+@howto: These notes are the primary teaching resource for the First Term of Upper Sixth ICT. They follow the national progression sheet lesson by lesson: every objective in the sheet appears verbatim as a learning objective, and each is matched by scaffolded explanation, a contextualised example, a practical or classroom activity and at least one assessment item. Second-Term content (web styling from Lesson 47 onward, project management, advanced spreadsheets, databases, multimedia) is deliberately excluded.
+@howto: **How ICT differs from Computer Science in this series.** The Computer Science notes explain how networks and systems work from the inside (protocol algorithms, addressing arithmetic, programming). These ICT notes prepare learners to **choose, set up, use, secure and evaluate** networked and internet technologies for real organisations — a school, a clinic, a cooperative, a council — and to judge their social impact. Where a topic appears in both series (AI, network security, the OSI model), the ICT treatment is decision- and application-oriented.
+@howto: **Lesson structure.** Each lesson provides: learning objectives (verbatim from the sheet); a timed lesson outline (introduction / core / conclusion) with teacher and learner activities; scaffolded core content with definitions, comparison tables and step sheets; real-world examples from Cameroon and modern industry; visual-learning placeholders describing diagrams to draw or project; a common misconception to address; a classroom or practical activity; and a formative-assessment set with homework. The sheet's nine "Integration activities" lessons are written as scenario tasks with criteria and a rubric, integrating the preceding lessons.
+@howto: **Equipment-light options.** Where a school has few computers, each practical includes a no-computer alternative (paper simulations, role-play of protocols, projected demonstrations with learner call-outs, rotation schedules). Free tools are preferred: Teachable Machine, Cisco Packet Tracer (free with Networking Academy account), Ubuntu, VirtualBox, LibreOffice, Notepad++/VS Code, Jitsi Meet, Google Workspace for Education.
+@howto: **People to highlight.** Vint Cerf & Bob Kahn (TCP/IP), Tim Berners-Lee (the Web), Radia Perlman (spanning tree), Hedy Lamarr (frequency hopping), Fei-Fei Li and Timnit Gebru (AI), Rebecca Enonchong (AppsTech), Arthur Zang (Cardiopad), Churchill Nanje (Njorku), Alain Nteff (GiftedMom) — showing that networks and the internet are built by women and men, including Cameroonians.
+
+= Module 1 — Impacting Society with Digital Technology: Applying Artificial Intelligence
+**Weeks 1–2 · Lessons 1–6**
+**Category of action:** Applying Artificial Intelligence to improve on working and living standards.
+**Context:** The term opens by revisiting and deepening AI competences: the concept and types of AI, ethics and responsible use, techniques and intelligent systems (smart school, city, health, home), machine learning with Teachable Machine, and how AI systems are developed (and why Python dominates). Lesson 6 integrates these in a scenario task.
+
+# Lesson 1: The Concept of Artificial Intelligence
+
+> OBJ:
+  - Define AI and explain its history and development.
+  - Identify and describe the main types of AI.
+  - Explain common application areas of AI.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 8 min | Play 30 seconds of a voice assistant answering a question in French and English; ask "Is it thinking?" – gather definitions. | Offer definitions; vote. |
+| Core 1 | 22 min | Define AI (Turing, McCarthy, modern definitions); intelligence tasks (perceive, reason, learn, decide, communicate); history timeline 1943–2026 (McCulloch-Pitts, Turing Test 1950, Dartmouth 1956, expert systems, AI winters, Deep Blue 1997, ImageNet 2012, AlphaGo 2016, transformers 2017, ChatGPT 2022, multimodal agents 2024–26). | Build timeline cards. |
+| Core 2 | 25 min | Types of AI by capability (Narrow/ANI, General/AGI, Super/ASI) and by functionality (reactive, limited memory, theory of mind, self-aware); symbolic vs statistical/learning AI; generative vs discriminative. | Classify ten systems. |
+| Core 3 | 35 min | Application areas with Cameroonian/African cases: health (Cardiopad, malaria detection), agriculture (PlantVillage Nuru), finance (MoMo fraud detection, credit scoring), education (adaptive learning, translation), transport (route optimisation), language (Masakhane), security, media, customer service; benefits and questions raised. | Application map by sector. |
+| Conclusion | 10 min | Exit ticket; preview ethics. | Answer. |
+
+## Core content
+
+### 1.1 Defining artificial intelligence
+
+> DEF:
+  **Artificial intelligence (AI)** is the branch of computing concerned with building systems that perform tasks normally requiring **human intelligence** – perceiving (vision, speech), understanding language, reasoning, learning from experience, planning and making decisions – and that can adapt their behaviour to new data or situations.
+
+Landmark definitions: John McCarthy (1956) – "the science and engineering of making intelligent machines"; Alan Turing (1950) – the imitation game as a practical test; modern textbooks (Russell & Norvig) – agents that perceive their environment and act rationally to maximise success. In ICT practice, AI is a **capability embedded in tools** – filters in Gmail, face unlock, predictive text, recommendation feeds, chatbots – rather than a single machine.
+
+### 1.2 History and development
+
+| Period | Milestone | Significance |
+| 1943–1956 | McCulloch–Pitts artificial neuron (1943); Turing's "Computing Machinery and Intelligence" (1950); Dartmouth workshop coins "AI" (1956) | Foundations; AI becomes a field |
+| 1956–1974 | Logic Theorist, ELIZA chatbot (1966), Shakey the robot; perceptron | Optimism – symbolic reasoning and early neural nets |
+| 1974–1980 | First **AI winter** – funding cuts after unmet promises | Limits of computing power and data |
+| 1980–1987 | **Expert systems** (MYCIN, XCON) in medicine/industry; Japan's Fifth Generation project | AI enters business; rule-based knowledge |
+| 1987–1993 | Second AI winter | Expert systems costly to maintain |
+| 1997–2011 | Deep Blue beats Kasparov (1997); statistical machine learning; Roomba (2002); DARPA self-driving challenges; IBM Watson wins Jeopardy! (2011); Siri (2011) | Data-driven AI, consumer assistants |
+| 2012–2016 | **AlexNet** wins ImageNet (2012) – deep learning boom; GPUs; AlphaGo beats Lee Sedol (2016) | Deep neural networks dominate vision/speech |
+| 2017–2021 | **Transformer** architecture (2017); BERT, GPT-2/3; AlphaFold solves protein folding (2020) | Large language models; scientific AI |
+| 2022–2026 | **ChatGPT** (Nov 2022), Stable Diffusion/Midjourney; GPT-4, Gemini, Claude, Llama (open weights); multimodal models; **AI agents** and on-device AI in phones; AI regulation (EU AI Act 2024, AU Continental AI Strategy 2024, UNESCO Recommendation); African LLM projects for local languages | Generative AI in everyday work; governance debates |
+
+Drivers of development: exponential growth in **computing power** (Moore's law, GPUs/TPUs), **big data** from the internet and sensors, **algorithmic advances** (backpropagation, CNNs, transformers), open-source tools (Python libraries), cloud computing and investment.
+
+### 1.3 Types of AI
+
+| Classification | Type | Description | Examples |
+| **By capability** | **Artificial Narrow Intelligence (ANI / weak AI)** | Excels at one task or domain; cannot transfer skills | Spam filters, face recognition, ChatGPT (broad but still narrow), self-driving perception, chess engines |
+| | **Artificial General Intelligence (AGI / strong AI)** | Human-level ability across any intellectual task – not yet achieved; active research and debate | Hypothetical |
+| | **Artificial Super Intelligence (ASI)** | Would surpass human intelligence in all domains – speculative | Hypothetical |
+| **By functionality** | **Reactive machines** | Respond to current input, no memory | Deep Blue, simple rule bots |
+| | **Limited memory** | Learn from historical data, use recent past for decisions | Most modern ML: self-driving cars, recommendation systems, LLMs |
+| | **Theory of mind** | Would understand emotions, beliefs, intentions of others – emerging research (affective computing) | Prototype social robots |
+| | **Self-aware** | Consciousness – hypothetical | – |
+| **By approach** | **Symbolic (rule-based/GOFAI)** | Hand-coded rules, logic, knowledge bases, search | Expert systems, chess search, planners |
+| | **Machine learning / statistical** | Learns patterns from data; includes **deep learning** (neural networks) | Image classifiers, speech recognition, LLMs |
+| | **Hybrid / neuro-symbolic** | Combines both | Modern assistants with tool use |
+| **By output** | **Discriminative/predictive** vs **Generative** | Classify/predict vs create new text, images, audio, code | Fraud detector vs ChatGPT/DALL·E |
+
+### 1.4 Common application areas
+
+| Area | Applications | Cameroon / Africa examples |
+| **Health** | Medical imaging diagnosis, triage chatbots, drug discovery, epidemic prediction, remote monitoring | **Cardiopad** (Arthur Zang) tele-cardiology; AI malaria/TB detection from microscope images; GiftedMom maternal-health SMS assistant |
+| **Agriculture** | Crop disease detection, yield prediction, precision irrigation, market-price forecasting, drone mapping | PlantVillage Nuru app for cassava disease; weather advisories to farmers by SMS |
+| **Finance & commerce** | Fraud detection, credit scoring, chatbots, recommendation engines, dynamic pricing | MTN/Orange MoMo fraud-detection models; mobile lending scoring; Jumia recommendations |
+| **Education** | Adaptive learning, automated marking, tutoring, translation, accessibility | Khan Academy's Khanmigo, Duolingo; French–English translation for bilingual schools |
+| **Transport & logistics** | Route optimisation, ride-hailing matching, autonomous vehicles, traffic prediction | Yango/Uber matching; delivery route planning in Douala |
+| **Language & communication** | Speech recognition, machine translation, chatbots, content moderation | **Masakhane** African-language NLP; Google Translate adding African languages; call-centre bots |
+| **Security & governance** | Face recognition, cyber-threat detection, document verification, smart surveillance | Airport biometric gates; ANTIC threat monitoring |
+| **Media & entertainment** | Recommendations (YouTube, Netflix), generative art/music, deepfakes (risk), game AI | Boomplay recommendations for Cameroonian artists |
+| **Industry & energy** | Predictive maintenance, quality inspection, robotics, smart grids | ENEO load forecasting; brewery quality control |
+| **Environment** | Wildlife monitoring, deforestation detection, climate modelling | Camera-trap species identification in Dja reserve |
+| **Everyday productivity** | Assistants (Siri, Google Assistant, Copilot), predictive text, photo enhancement, smart replies | Phones used daily by learners |
+
+> EXAMPLE:
+  **A day of AI in Yaoundé.** 06:30 the phone unlocks with face recognition (ANI, deep learning); 07:00 Google Maps predicts a 40-minute trip via Poste Centrale (traffic prediction); 09:00 a teacher uses an AI translator to prepare a bilingual worksheet; 12:00 MTN's fraud model blocks a suspicious MoMo transfer (limited-memory ML); 16:00 a farmer in Obala photographs a cassava leaf and Nuru diagnoses mosaic disease; 20:00 YouTube recommends Cameroonian music. None of these systems could do the others' job – all are narrow AI.
+
+> VISUAL:
+  **Figure 1.1 – AI timeline 1950–2026** with icons: Turing test, Dartmouth, ELIZA, expert systems, two "winter" snowflakes, Deep Blue, ImageNet/AlexNet, AlphaGo, Transformer, ChatGPT, agents. **Figure 1.2 – Types of AI grid.** Two axes: capability (Narrow → General → Super) and functionality (Reactive → Limited memory → Theory of mind → Self-aware), with today's systems clustered in "Narrow × Limited memory". **Figure 1.3 – Application-area wheel** with sector icons and one Cameroonian example per sector.
+
+> MISCONCEPTION:
+  "ChatGPT understands like a human, so AGI exists." Large language models are powerful narrow systems that predict text; they lack grounded understanding, reliable reasoning and general adaptation. "AI is new." The field is 70 years old; what is new is scale, data and accessibility.
+
+> ACTIVITY:
+  **AI in my world (30 min, groups).** (1) Sort 20 cards (spam filter, calculator, ChatGPT, thermostat, Cardiopad, chess app, voice assistant, Excel SUM, self-driving car, Nuru, deepfake tool, robot vacuum…) into AI / not AI, then classify AI cards by capability, functionality and approach. (2) Each group builds a sector poster: three AI applications, one African example, one benefit, one concern. (3) Timeline race: order 12 milestone cards; explain why the two AI winters occurred.
+
+## Formative assessment
+
+> ASSESS:
+  1. Define artificial intelligence and list five human abilities it seeks to reproduce.
+  2. Outline the history of AI, naming one milestone from each of four periods and explaining the AI winters.
+  3. Distinguish narrow, general and super AI; explain why current systems are narrow.
+  4. Describe the four functionality types of AI with an example of each that exists today.
+  5. Compare symbolic AI with machine learning.
+  6. Explain three application areas of AI with a Cameroonian or African example for each.
+  **Homework:** Write one page: "Three AI applications that could improve living or working standards in my community" – for each, the type of AI, the data it would need and one risk.
+
+---
+
+# Lesson 2: AI Ethics and Responsible Use
+
+> OBJ:
+  - Explain ethical issues associated with AI.
+  - Examine the potential risks and benefits of AI.
+  - Discuss principles for the responsible use of AI.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 8 min | Dilemma: a school uses AI to predict which learners will fail and streams them accordingly. Fair? | Quick debate. |
+| Core 1 | 30 min | Ethical issues: bias and discrimination, privacy and surveillance, transparency/explainability ("black box"), accountability, misinformation and deepfakes, intellectual property and consent for training data, job displacement, autonomy and manipulation, safety, environmental cost, concentration of power, digital divide; case studies (COMPAS, facial-recognition errors, Amazon hiring tool, deepfake election videos). | Issue–case matching. |
+| Core 2 | 25 min | Risks vs benefits table across sectors; short-term vs long-term risks; who benefits/who bears risk; risk assessment framework (likelihood × impact). | Complete risk–benefit grid for two applications. |
+| Core 3 | 30 min | Principles for responsible AI: fairness, transparency, accountability, privacy, safety/robustness, human oversight, inclusiveness, sustainability, beneficence; frameworks (UNESCO Recommendation 2021 – Cameroon signatory; OECD principles; EU AI Act risk tiers; AU Continental AI Strategy 2024; Cameroon Law 2024/017 on personal data); responsible-user rules for learners (verification, disclosure, no harmful generation, data protection, critical thinking); school AI policy drafting. | Draft class AI charter. |
+| Conclusion | 7 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 2.1 Ethical issues associated with AI
+
+| Issue | Explanation | Illustrative case |
+| **Bias and discrimination** | Models trained on unrepresentative or historically biased data reproduce and amplify unfairness | Facial recognition error rates far higher for dark-skinned women (Gender Shades study, Joy Buolamwini); Amazon's hiring tool penalising women's CVs; credit scoring excluding informal-sector workers |
+| **Privacy and surveillance** | AI enables mass collection and analysis of personal data – faces, voices, location, behaviour | Smart-city cameras tracking citizens; apps profiling users for ads; voice assistants always listening |
+| **Transparency and explainability** | Deep models are "black boxes": decisions (loan refusal, exam grading) cannot be easily explained or challenged | UK 2020 A-level algorithm downgrading students from poorer schools |
+| **Accountability** | Who is responsible when AI harms – developer, deployer, user? | Self-driving car fatalities; medical AI misdiagnosis |
+| **Misinformation and deepfakes** | Generative AI produces convincing false text, images, audio and video at scale | Fake political speeches; voice-clone scams; fabricated news |
+| **Intellectual property and consent** | Training on copyrighted or personal data without permission; ownership of AI outputs; plagiarism | Artists' and authors' lawsuits against image/text generators |
+| **Employment and economic disruption** | Automation of clerical, creative and service tasks; deskilling; unequal gains | Call-centre and translation jobs; but new AI roles |
+| **Autonomy and manipulation** | Recommendation algorithms exploit attention; persuasive chatbots; dark patterns | Social-media addiction; targeted political ads |
+| **Safety and robustness** | Errors, adversarial attacks, unintended behaviour in critical systems | Medical, transport, weapons |
+| **Autonomous weapons** | Lethal decisions delegated to machines | International debate on bans |
+| **Environmental cost** | Training and running large models consumes enormous energy and water | Data-centre footprints |
+| **Concentration of power and the digital divide** | A few companies/countries control frontier AI; Global South as data source not beneficiary; language exclusion | African languages under-served; data labelling outsourced at low pay |
+| **Children and vulnerable users** | Exposure to harmful content, over-reliance, emotional attachment to chatbots | Companion apps; homework outsourcing |
+
+### 2.2 Risks and benefits
+
+| Domain | Benefits | Risks |
+| Health | Earlier diagnosis, access to expertise in rural clinics, drug discovery | Misdiagnosis, biased datasets, privacy of health data, over-reliance |
+| Education | Personalised tutoring, translation, accessibility, teacher workload relief | Cheating, loss of critical skills, inequitable access, surveillance of learners |
+| Economy & work | Productivity, new industries, financial inclusion | Job losses, inequality, deskilling, gig precarity |
+| Governance & security | Efficient services, fraud and crime detection | Mass surveillance, biased policing, disinformation, cyber-attacks |
+| Environment & agriculture | Climate modelling, precision farming, wildlife protection | Energy consumption, e-waste, dependence on foreign platforms |
+| Society & culture | Creativity tools, local-language technology, connection | Deepfakes, manipulation, cultural homogenisation, isolation |
+| Long-term | Scientific breakthroughs | Loss of human control, misuse by malicious actors, concentration of power |
+
+Weighing: assess **likelihood × severity × who is affected**; prefer applications with high benefit, controllable risk and human oversight; risks are not equally distributed – the vulnerable often bear them.
+
+### 2.3 Principles for responsible use of AI
+
+| Principle | Meaning | In practice (school / organisation / individual) |
+| **Fairness & non-discrimination** | Outcomes must not disadvantage groups | Test on diverse data; audit results; include local data |
+| **Transparency & explainability** | People know when AI is used and why it decided | Label AI content; explainable models for high-stakes uses |
+| **Accountability** | Humans remain responsible | Named owners; appeal processes; logs |
+| **Privacy & data protection** | Minimal, lawful, secure data use | Consent; anonymise; comply with Law 2024/017 |
+| **Safety, security & robustness** | Systems work reliably and resist attack | Testing, monitoring, fallback |
+| **Human oversight & autonomy** | Humans can override; no manipulation | "Human in the loop" for grading, medical, legal decisions |
+| **Inclusiveness & accessibility** | Benefits for all, including languages and disabilities | Local-language support; assistive uses |
+| **Sustainability** | Consider environmental and social cost | Efficient models; purpose-driven use |
+| **Beneficence / public good** | AI should improve well-being | Prioritise health, education, agriculture |
+
+Frameworks: **UNESCO Recommendation on the Ethics of AI (2021)** – adopted by 193 states including Cameroon; **OECD AI Principles (2019)**; **EU AI Act (2024)** – unacceptable/high/limited/minimal-risk tiers; **AU Continental AI Strategy (2024)**; national data-protection law (Cameroon Law No. 2024/017) and cybercrime law (2010/012).
+
+**Responsible-user rules for learners:** verify AI outputs; disclose AI assistance in schoolwork; never generate harmful, deceptive or non-consensual content; protect personal data (do not paste others' data into chatbots); think critically – AI is a tool, not an authority; respect copyright; report misuse.
+
+> EXAMPLE:
+  **The scholarship-screening AI.** A foundation in Douala pilots an AI to rank 5,000 applications. Audit findings: it favoured applicants from three elite lycées (bias from past awardees), could not explain rankings (opacity), stored ID scans on a foreign server without consent (privacy), and staff accepted its rankings without review (no oversight). Fix: rebalanced training data, a transparent scoring rubric, local encrypted storage with consent, human panels reviewing borderline cases, and publication of the process – responsible AI is a set of design decisions.
+
+> VISUAL:
+  **Figure 2.1 – Ethics issues map**: a central AI chip with twelve issue spokes, each with a case icon. **Figure 2.2 – Risk–benefit balance**: a scale weighing benefits against risks with "who is affected?" labels. **Figure 2.3 – Responsible-AI wheel**: nine principles around "human oversight", with the UNESCO/AU/EU frameworks as an outer ring.
+
+> MISCONCEPTION:
+  "AI decisions are neutral because they are mathematical." Data and design carry human choices and history. "Ethics slows innovation." Responsible design prevents costly failures and builds trust.
+
+> ACTIVITY:
+  **Ethics board (45 min, groups).** Each group receives an AI deployment proposal (school attendance face recognition; AI marking of essays; MoMo credit scoring; council smart cameras; AI health chatbot in Pidgin). Produce: issues raised (≥4), risk–benefit grid, three conditions for approval based on the principles, and a verdict. Present 3 minutes; class votes. Then co-write a ten-point class AI charter.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain five ethical issues associated with AI, each with an example.
+  2. Examine the benefits and risks of AI in health and in education (two of each).
+  3. Why are AI risks unequally distributed? Give an African example.
+  4. State and explain six principles for responsible AI use.
+  5. Name two international frameworks for AI ethics and one Cameroonian law relevant to AI data use.
+  6. Propose four rules for responsible AI use by learners.
+  **Homework:** Write a 300-word position paper: "Should our school use AI to grade essays?" using at least four principles and a risk–benefit analysis.
+
+---
+
+# Lesson 3: AI Techniques and Intelligent Systems
+
+> OBJ:
+  - Describe common AI techniques and their applications.
+  - Explain the characteristics of intelligent systems (smart school, smart city, smart health, smart home).
+  - Compare AI techniques and intelligent systems based on their applications.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Video/photo tour of a smart home; "Which techniques make it smart?" | Speculate. |
+| Core 1 | 34 min | Techniques: machine learning (supervised, unsupervised, reinforcement), deep learning/neural networks (CNN, RNN, transformers), natural language processing, computer vision, speech recognition/synthesis, expert systems/rule-based reasoning, fuzzy logic, search and optimisation (genetic algorithms), planning, robotics, knowledge graphs, recommender systems, generative AI. For each: idea, inputs/outputs, applications. | Technique cards. |
+| Core 2 | 30 min | Intelligent systems: characteristics (sensing, connectivity/IoT, data analytics/AI, automation, adaptation, user interaction, integration, security); smart school, smart city, smart health, smart home – components, services, benefits, challenges; Cameroon initiatives (Digital Cameroon 2020, smart-city pilots in Douala/Yaoundé, e-health). | Design a smart-school block diagram. |
+| Core 3 | 22 min | Comparison: which techniques power which systems; comparing techniques by data needs, explainability, cost, accuracy, typical tasks; comparing systems by scale, stakeholders, data sensitivity, infrastructure. | Matrix completion. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 3.1 Common AI techniques
+
+| Technique | Core idea | Typical inputs → outputs | Applications |
+| **Machine learning (ML)** | Algorithms learn patterns from data instead of explicit rules: **supervised** (labelled examples → prediction), **unsupervised** (find structure – clustering, anomaly detection), **reinforcement** (agent learns by reward) | Tables, images, text → labels, numbers, groups, actions | Spam filtering, price prediction, customer segmentation, fraud detection, game agents |
+| **Deep learning / artificial neural networks** | Many-layered networks of artificial neurons learn hierarchical features; **CNNs** for images, **RNN/LSTM** for sequences, **transformers** for language and multimodal data | Pixels, audio, text → classes, text, embeddings | Image recognition, speech-to-text, translation, LLMs, medical imaging |
+| **Natural language processing (NLP)** | Understanding and generating human language: tokenisation, sentiment analysis, entity extraction, translation, summarisation, question answering, chatbots | Text/speech → meaning, text | Chatbots, translation, content moderation, document search |
+| **Computer vision** | Interpreting images/video: classification, object detection, segmentation, face recognition, OCR | Images/video → labels, boxes, text | Security cameras, disease detection, quality inspection, autonomous vehicles |
+| **Speech recognition & synthesis** | Convert speech to text (ASR) and text to natural speech (TTS) | Audio ↔ text | Voice assistants, dictation, accessibility, IVR |
+| **Expert systems / rule-based reasoning** | Knowledge base of IF–THEN rules + inference engine, encoding human expertise; explainable | Facts → conclusions/recommendations | Medical diagnosis support, loan approval rules, troubleshooting guides, tax software |
+| **Fuzzy logic** | Reasoning with degrees of truth (0–1) instead of yes/no for imprecise concepts ("warm", "fast") | Sensor values → smooth control | Washing machines, air-conditioners, camera autofocus, ABS brakes |
+| **Search & optimisation (incl. genetic algorithms, swarm)** | Explore possible solutions to find the best under constraints; evolutionary methods mimic natural selection | Problem model → best plan/schedule | Timetabling, route planning, network design, logistics |
+| **Planning & decision systems** | Sequences of actions to reach goals; Bayesian networks for uncertainty | Goals, state → action plans | Robotics, game AI, supply chains |
+| **Robotics** | Perception + planning + control in physical agents | Sensors → motor actions | Manufacturing, drones, surgical robots, farm robots |
+| **Knowledge graphs & semantic reasoning** | Entities and relationships enabling inference | Structured facts → answers | Search engines, recommendation, enterprise data |
+| **Recommender systems** | Collaborative and content-based filtering predict preferences | User history → ranked items | YouTube, Jumia, Boomplay, Netflix |
+| **Generative AI** | Models (LLMs, diffusion, GANs) generate new text, images, audio, video, code | Prompt → content | Writing assistants, design, code completion, synthetic data |
+
+### 3.2 Intelligent systems
+
+> DEF:
+  An **intelligent system** is an integrated environment in which **sensors, connected devices (IoT), data analytics and AI** monitor conditions, make or support decisions and **automate or optimise services** for people – adapting over time. "Smart" systems combine hardware, networks, data and AI.
+
+**Characteristics:** (1) **sensing/perception** – sensors, cameras, meters; (2) **connectivity** – IoT networks, Wi-Fi/4G/5G/LoRa, cloud; (3) **data collection and analytics/AI** – real-time and historical; (4) **automation and control** – actuators, alerts, rules; (5) **adaptation/learning** – improve with data; (6) **user interaction** – apps, dashboards, voice; (7) **integration/interoperability** – subsystems share data; (8) **security and privacy** – protection of data and control; (9) **goal orientation** – efficiency, safety, comfort, sustainability.
+
+| System | Components | Services | Benefits | Challenges |
+| **Smart school** | Learning management system, adaptive learning, biometric/RFID attendance, smart boards, CCTV analytics, energy sensors, school app, timetable optimiser, e-library | Personalised learning, automated attendance and reporting, parent communication, resource optimisation, safety monitoring | Better outcomes, teacher time saved, transparency | Cost, connectivity/power, data privacy of minors, teacher training, digital divide |
+| **Smart city** | Traffic sensors and adaptive lights, smart metering (water/electricity), waste-bin sensors, public Wi-Fi, surveillance analytics, e-government portals, environmental sensors, digital payments, open-data platforms | Traffic management, utility efficiency, emergency response, citizen services, pollution monitoring | Reduced congestion and losses, better services, planning data | Very high cost, surveillance/privacy, inequality between districts, maintenance, cyber-risk; Cameroon: pilots for smart lighting, traffic cameras, digital addressing in Douala/Yaoundé |
+| **Smart health** | Electronic health records, telemedicine, wearables/remote monitoring, AI diagnosis support, hospital information systems, drug-supply tracking, epidemic dashboards | Remote consultation, early warning, decision support, efficient logistics | Access for rural areas, faster/more accurate care, cost savings | Data sensitivity, reliability, regulation, connectivity, trust; Cameroon: Cardiopad, DHIS2 health data, telemedicine pilots |
+| **Smart home** | Smart speakers/assistants, smart bulbs and plugs, thermostats, security cameras and locks, sensors (motion, smoke, leak), smart TV, solar/battery management, hubs (Google Home, Alexa, Home Assistant) | Voice control, automation routines, remote monitoring, energy saving, security alerts | Comfort, safety, efficiency, accessibility for elderly/disabled | Cost, dependence on internet/power, privacy (always-on microphones), vendor lock-in, hacking of IoT devices |
+
+### 3.3 Comparing techniques and systems
+
+| Technique | Data needed | Explainability | Cost/compute | Best for | Weak at |
+| Expert systems | Little data, much expert time | High | Low | Well-defined rules (diagnosis checklists) | Learning, uncertainty, novelty |
+| Classical ML | Moderate labelled data | Medium (trees, regression) | Low–medium | Tabular prediction, fraud, scoring | Raw images/audio |
+| Deep learning | Large data | Low (black box) | High (GPUs) | Vision, speech, language | Small data, explanation |
+| NLP/LLMs | Huge text corpora | Low | Very high to train, moderate to use | Language tasks, assistants | Facts, reasoning reliability |
+| Fuzzy logic | Expert rules | High | Very low | Smooth control of appliances | Complex perception |
+| Optimisation/GA | Problem model | Medium | Medium | Scheduling, routing, design | Perception |
+| Reinforcement learning | Simulated experience | Low | High | Games, robotics, control | Real-world safety |
+
+| Intelligent system | Dominant techniques | Scale | Data sensitivity | Infrastructure demand |
+| Smart home | Speech recognition, rule automation, simple ML, computer vision (cameras) | Household | Medium–high (intimate life) | Low (Wi-Fi, hub) |
+| Smart school | Adaptive-learning ML, NLP tutors, vision/RFID attendance, optimisation (timetables) | Institution | High (minors) | Medium |
+| Smart health | Deep learning imaging, expert-system decision support, NLP records, IoT monitoring | Facility → national | Very high | Medium–high |
+| Smart city | Computer vision traffic, optimisation, IoT analytics, predictive ML, knowledge graphs | Municipal | High (citizens) | Very high |
+
+> EXAMPLE:
+  **Smart Lycée de Bafoussam (concept).** RFID cards register attendance (sensing) and notify parents by SMS (connectivity/interaction); an adaptive maths platform adjusts exercises (supervised ML); a genetic algorithm builds the timetable (optimisation); a Pidgin/French chatbot answers admission questions (NLP); solar-battery sensors cut generator use (analytics/automation); cameras detect after-hours intrusion (vision). The steering committee adds a data-protection policy and human review of any AI recommendation – the smart school is a system, not a gadget.
+
+> VISUAL:
+  **Figure 3.1 – Technique family tree**: AI → symbolic (expert systems, fuzzy, search/planning) and learning (ML → supervised/unsupervised/RL → deep learning → CNN/RNN/transformers → generative AI), with NLP, vision, speech, robotics as application branches. **Figure 3.2 – Intelligent-system layer diagram**: sensing layer → network layer → data/AI layer → application/services layer → users, with security spanning all. **Figure 3.3 – Smart-school block diagram** (as in the example) with technique labels.
+
+> MISCONCEPTION:
+  "Smart = has an app." Smartness requires sensing, data and adaptive decision-making, not remote control alone. "Deep learning is always best." For small data or where explanations are required, rules or classical ML often win.
+
+> ACTIVITY:
+  **Design a smart system (45 min, groups).** Choose smart school, city block, clinic or home in a Cameroonian context. Produce a labelled block diagram (sensors, network, data/AI, services, users, security), assign an AI technique to each service with justification from the comparison table, list three benefits, three challenges and two privacy safeguards. Gallery walk with peer feedback using a checklist of the nine characteristics.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe six AI techniques and one application of each.
+  2. Distinguish supervised, unsupervised and reinforcement learning.
+  3. Explain the characteristics of intelligent systems; illustrate five of them with a smart home.
+  4. Compare a smart city and a smart health system in components, services and challenges.
+  5. Which technique would you choose for: a loan-approval checklist; identifying crop disease from photos; a school timetable; a voice assistant? Justify.
+  6. Compare expert systems and deep learning on data needs, explainability and cost.
+  **Homework:** Produce a one-page comparison table of two intelligent systems observed or researched in Cameroon (techniques, benefits, risks) and a paragraph recommending which to prioritise in your town.
+
+---
+
+# Lesson 4: Machine Learning
+
+> OBJ:
+  - Define Machine Learning (ML) and explain its relationship with AI.
+  - Explain the basic principles of Machine Learning.
+  - Build and test simple Machine Learning models using Teachable Machine.
+
+## Lesson outline (2 periods, 100 min – computer room with webcams or phones)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Show 10 mango vs 10 orange photos, then a new fruit: "How did you know?" – learning from examples. | Explain. |
+| Core 1 | 18 min | Define ML; AI ⊃ ML ⊃ deep learning (Venn); traditional programming (rules + data → answers) vs ML (data + answers → rules/model); types (supervised: classification/regression; unsupervised: clustering; reinforcement). | Notes; Venn. |
+| Core 2 | 26 min | Principles: data (features, labels), training/validation/test split, model and parameters, loss/error, optimisation (gradient descent intuition), generalisation, overfitting/underfitting, evaluation metrics (accuracy, precision/recall, confusion matrix), bias in data, iteration; ML pipeline. | Paper "train a classifier" activity. |
+| Core 3 | 42 min | **Teachable Machine** (teachablemachine.withgoogle.com): image project (e.g., "pen / eraser / hand" or "healthy vs diseased leaf" photos), classes, capture 30–50 samples each, train, preview, test with new items; audio project (clap vs whistle); pose project; export (TensorFlow.js/Lite) and embed. Experiments: fewer samples, one-sided lighting, confusing background – observe accuracy; confusion matrix in "Under the hood". No-webcam alternative: upload phone photos. | Build, test and improve two models; record accuracy. |
+| Conclusion | 8 min | Exit ticket; discuss bias observed. | Answer. |
+
+## Core content
+
+### 4.1 Machine learning and its relationship with AI
+
+> DEF:
+  **Machine learning (ML)** is a subset of AI in which systems **learn patterns from data** to make predictions or decisions **without being explicitly programmed** for each rule. **Deep learning** is a subset of ML using multi-layer neural networks. AI is the broad goal; ML is the dominant technique for achieving it today.
+
+| Approach | Input | Output |
+| Traditional programming | Rules (program) + data | Answers |
+| Machine learning | Data + answers (labels) | Rules (model) → used to answer new data |
+
+### 4.2 Basic principles
+
+| Principle | Explanation |
+| **Data: features and labels** | Each example is described by **features** (pixel values, age, income, words); in supervised learning it has a **label** (cat/dog, price, spam/not). Quality and representativeness of data determine the model – "garbage in, garbage out" |
+| **Types of learning** | **Supervised** – learn mapping from features to labels: **classification** (discrete classes) and **regression** (numbers). **Unsupervised** – find structure without labels: **clustering**, dimensionality reduction, anomaly detection. **Reinforcement** – agent learns actions from rewards |
+| **Model and parameters** | A model is a function with adjustable **parameters** (weights); training adjusts them. Model families: linear/logistic regression, decision trees, k-nearest neighbours, support vector machines, neural networks |
+| **Training** | Show examples repeatedly (**epochs**); measure the **loss/error** between predictions and labels; adjust weights to reduce loss (**gradient descent** – step downhill on the error surface; **learning rate** = step size) |
+| **Train / validation / test split** | Train on ~70–80 %, tune on validation, evaluate on unseen **test** data – measures **generalisation** |
+| **Overfitting vs underfitting** | Overfitting: memorises training data (high train accuracy, poor test accuracy) – fix with more/diverse data, simpler model, regularisation. Underfitting: too simple to capture the pattern – use richer features or model |
+| **Evaluation metrics** | **Accuracy** (correct/total); **confusion matrix** (true/false positives/negatives); **precision** (of predicted positives, how many correct) and **recall** (of actual positives, how many found) – vital when classes are imbalanced (disease detection); for regression, mean error |
+| **Bias and fairness** | Unbalanced or unrepresentative data → biased predictions (e.g., only light-skin faces, only one dialect); check class balance and test across groups |
+| **Iteration and deployment** | Collect → prepare → train → evaluate → improve → deploy → monitor (data drift) |
+| **Transfer learning** | Reusing a large pre-trained model and retraining only the last layers on a small dataset – how Teachable Machine trains in seconds |
+
+### 4.3 Building and testing with Teachable Machine
+
+| Step | Image project (e.g. "Healthy leaf / Diseased leaf / No leaf") |
+| 1 | Open teachablemachine.withgoogle.com ▸ Get Started ▸ **Image Project ▸ Standard** |
+| 2 | Rename Class 1/2, add Class 3; for each class **Webcam ▸ Hold to Record** 40–60 samples varying angle, distance, background and lighting (or **Upload** phone photos) |
+| 3 | **Train Model** (default: 50 epochs, batch 16, learning rate 0.001 – Advanced shows them); training is transfer learning on MobileNet in the browser – no data leaves the device |
+| 4 | **Preview**: show new items; watch class probability bars; test edge cases (partly hidden leaf, different leaf) |
+| 5 | **Advanced ▸ Under the hood**: accuracy per class, **confusion matrix**, loss curve – identify weak classes |
+| 6 | Improve: add samples for confused classes, balance counts, diversify backgrounds, remove mislabelled samples; retrain and compare |
+| 7 | **Export Model** ▸ TensorFlow.js (upload to shareable link) or download; embed snippet in a web page (Lesson 46 link); Lite for phones/Raspberry Pi |
+| Variants | **Audio project** (background noise + "clap" + "whistle", 20 one-second samples each); **Pose project** ("sitting straight" vs "slouching" – ergonomics reminder) |
+
+Experiments to teach principles: (a) train with 5 vs 50 samples per class → underfitting/generalisation; (b) record one class only in bright light → the model learns lighting, not the object (**spurious correlation/bias**); (c) unbalanced classes (60 vs 10) → biased predictions and misleading accuracy – read precision/recall; (d) test with a person/leaf not in training → generalisation; (e) change epochs/learning rate → training dynamics.
+
+> EXAMPLE:
+  **From Teachable Machine to a farm tool.** Learners in Foumbot train a three-class model on 150 phone photos of tomato leaves (healthy, early blight, leaf curl). First accuracy 92 % – but the confusion matrix shows leaf curl confused with healthy when photographed indoors; adding 40 outdoor samples raises recall for leaf curl from 70 % to 90 %. They export to TensorFlow Lite, embed it in a simple web page and the agriculture club uses it during a field visit – noting it is an aid, not a diagnosis, and that the dataset covers only local varieties.
+
+> VISUAL:
+  **Figure 4.1 – AI ⊃ ML ⊃ Deep learning Venn diagram** with example systems in each ring. **Figure 4.2 – ML pipeline**: data collection → labelling → split → training (loss curve descending) → evaluation (confusion matrix) → deployment → monitoring loop. **Figure 4.3 – Overfitting vs underfitting**: three plots (too simple line, good fit, wiggly memorising curve) with train/test accuracy bars. **Figure 4.4 – Teachable Machine screen**: three class panels with sample thumbnails, Train button, Preview probability bars.
+
+> MISCONCEPTION:
+  "High training accuracy means a good model." Only accuracy on **unseen** test data counts. "More data always fixes it." More of the *same biased* data reinforces bias – diversity matters. "The model understands leaves." It correlates pixel patterns; it can latch onto backgrounds or lighting.
+
+> ACTIVITY:
+  **ML lab (50 min, pairs).** (1) Paper warm-up: classify 12 "fruit" cards by two features on a grid; draw a decision boundary; test with 3 new cards. (2) Teachable Machine image model with three classes; record accuracy and confusion matrix before/after improvement; document the bias experiment (lighting). (3) Audio or pose model of choice. (4) Export one model and open the generated web page. (5) Reflection sheet: features, labels, classes, samples per class, epochs, accuracy, weakest class, cause, fix, one ethical note (whose images, consent). No-webcam alternative: teacher-provided photo sets uploaded from a shared folder.
+
+## Formative assessment
+
+> ASSESS:
+  1. Define machine learning and explain its relationship with AI and deep learning using a diagram.
+  2. Contrast traditional programming with machine learning.
+  3. Explain features, labels, training, testing and generalisation.
+  4. What are overfitting and underfitting? How would you detect and fix overfitting?
+  5. Interpret a confusion matrix (given) and compute accuracy, precision and recall for one class.
+  6. Describe the steps to build, test and improve an image model in Teachable Machine and one experiment that reveals data bias.
+  **Homework:** Build (or plan on paper if no device) a Teachable Machine model solving a small local problem (sorting waste types, recognising school uniforms vs not, coins); report data, results and limits in half a page.
+
+---
+
+# Lesson 5: Developing AI Systems
+
+> OBJ:
+  - Describe the major stages involved in developing an AI system.
+  - Identify programming languages and tools used in AI development.
+  - Explain why Python is widely used in AI development.
+
+## Lesson outline (2 periods, 100 min – computer room preferable)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | "You have been asked to build an AI that predicts which learners need extra maths help. Where do you start?" | Brainstorm steps. |
+| Core 1 | 30 min | Stages: problem definition and feasibility; data collection; data preparation (cleaning, labelling, splitting); model selection; training; evaluation; tuning; deployment (app, API, edge); monitoring and maintenance; ethics/governance throughout (CRISP-DM / ML lifecycle). Roles (data scientist, ML engineer, domain expert). | Map the maths-help project onto stages. |
+| Core 2 | 24 min | Languages and tools: Python (NumPy, pandas, scikit-learn, TensorFlow, PyTorch, Keras, OpenCV, NLTK/spaCy, Hugging Face), R, Java, C++, Julia, JavaScript (TensorFlow.js), MATLAB, Prolog/Lisp (historic); environments: Jupyter/Colab, VS Code, Anaconda; data tools (SQL, Excel), cloud (Google Cloud AI, AWS, Azure), AutoML, no-code (Teachable Machine, Orange, KNIME), APIs (OpenAI, Gemini), hardware (GPUs/TPUs, Raspberry Pi/Arduino for edge). | Tool taxonomy. |
+| Core 3 | 32 min | Why Python: simple readable syntax, huge AI/data libraries, community, glue language over fast C/C++ backends, notebooks, portability, free and open source, industry/academia standard; demo: 12-line scikit-learn classifier in Colab/offline Python (Iris or a marks dataset) with train/test split and accuracy; read and annotate the code. | Run/annotate script; modify test size. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 5.1 Major stages of developing an AI system
+
+| Stage | Key activities | Outputs | Pitfalls |
+| **1. Problem definition & feasibility** | Define the goal and success metric; is AI the right tool? stakeholders, constraints (data, budget, ethics, law), risk classification | Project brief, metric (e.g. recall ≥ 0.9) | Vague goals; solving the wrong problem |
+| **2. Data collection** | Identify sources (databases, sensors, surveys, public datasets, web); obtain consent/licences; volume and representativeness | Raw dataset, data inventory | Bias, privacy violations, insufficient data |
+| **3. Data preparation** | Clean (missing values, duplicates, errors), label/annotate, transform (normalise, encode), feature engineering, split train/validation/test, document (datasheets) | Clean labelled dataset | 60–80 % of effort; leakage between splits |
+| **4. Model selection** | Choose approach (rules, classical ML, deep learning, pre-trained model/LLM), baseline first, consider explainability and compute | Candidate models | Over-complex choices |
+| **5. Training** | Fit the model; hyper-parameters (epochs, learning rate); hardware (CPU/GPU/cloud); experiment tracking | Trained model | Overfitting; unreproducible runs |
+| **6. Evaluation** | Test on unseen data; metrics; fairness across groups; error analysis; compare to baseline and human performance | Evaluation report | Testing on training data |
+| **7. Tuning & iteration** | Adjust data, features, model, hyper-parameters; repeat 3–6 | Improved model | Endless tuning without value |
+| **8. Deployment** | Integrate into product: web/mobile app, API/cloud service, embedded/edge device; user interface; documentation; security | Running system | Ignoring users; latency; cost |
+| **9. Monitoring & maintenance** | Track performance and **data drift**, feedback loops, retraining schedule, incident response, updates | Dashboards, retrained versions | "Set and forget" |
+| **Cross-cutting: ethics & governance** | Privacy, consent, bias audits, transparency, human oversight, compliance (Law 2024/017), impact assessment | Ethics review, model card | Treated as afterthought |
+
+### 5.2 Programming languages and tools
+
+| Category | Examples | Role |
+| **Languages** | **Python** (dominant), **R** (statistics), **Java/Scala** (enterprise, big data – Spark), **C++** (performance, robotics, game AI, model backends), **Julia** (scientific), **JavaScript/TypeScript** (TensorFlow.js in browsers), **MATLAB** (engineering), **Prolog/Lisp** (classic symbolic AI), SQL (data) | Writing models, pipelines and applications |
+| **Python libraries** | **NumPy** (arrays), **pandas** (tables), **Matplotlib/Seaborn** (plots), **scikit-learn** (classical ML), **TensorFlow/Keras** and **PyTorch** (deep learning), **OpenCV** (vision), **NLTK/spaCy/Hugging Face Transformers** (NLP), XGBoost | Ready-made algorithms |
+| **Environments** | **Jupyter Notebook**, **Google Colab** (free cloud GPUs), VS Code, PyCharm, Anaconda | Interactive coding and documentation |
+| **Data & big-data tools** | Excel/LibreOffice Calc, SQL databases, Apache Spark, Hadoop, Kaggle datasets, Label Studio (annotation) | Storing, labelling, processing data |
+| **Cloud AI platforms & APIs** | Google Vertex AI, AWS SageMaker, Azure ML, OpenAI/Gemini/Claude APIs, Hugging Face Hub | Training at scale, hosted models |
+| **No-code / low-code & AutoML** | **Teachable Machine**, Orange, KNIME, Google AutoML, Lobe | Prototyping without programming |
+| **Hardware** | GPUs (NVIDIA), TPUs, edge devices (Raspberry Pi, Arduino with TinyML, Jetson), smartphones (NPUs) | Training and deployment |
+| **MLOps & deployment** | Git/GitHub, Docker, Flask/FastAPI, TensorFlow Lite, ONNX, MLflow | Versioning, serving, monitoring |
+
+### 5.3 Why Python dominates AI development
+
+| Reason | Explanation |
+| **Simple, readable syntax** | Close to pseudocode; researchers and students focus on ideas, not boilerplate; fast prototyping |
+| **Rich ecosystem of libraries** | Almost every algorithm available: scikit-learn, TensorFlow, PyTorch, pandas, OpenCV – tested and documented |
+| **Performance through "glue"** | Heavy computation runs in optimised C/C++/CUDA underneath; Python orchestrates – best of both |
+| **Community and learning resources** | Largest AI community, tutorials, Kaggle notebooks, Stack Overflow, free courses |
+| **Notebooks and interactivity** | Jupyter/Colab support experimentation, visualisation and sharing |
+| **Free, open source, cross-platform** | Runs on Windows, Linux, macOS, Raspberry Pi; no licence cost – important for Cameroonian schools and start-ups |
+| **Integration** | Connects to web frameworks (Flask, Django), databases, cloud APIs, IoT devices |
+| **Industry and academic standard** | Used by Google, Meta, OpenAI, universities; most job postings and papers |
+
+```
+# Minimal supervised ML in Python (scikit-learn): predict Pass/Fail from study hours & attendance
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+X = [[2,60],[8,95],[5,80],[1,50],[9,98],[4,70],[7,90],[3,65],[6,85],[2,55]]   # features: hours/week, attendance %
+y = ["Fail","Pass","Pass","Fail","Pass","Fail","Pass","Fail","Pass","Fail"]  # labels
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+model = DecisionTreeClassifier().fit(X_train, y_train)      # training
+print("Accuracy:", accuracy_score(y_test, model.predict(X_test)))  # evaluation
+print("New learner 5 h, 75%:", model.predict([[5,75]]))      # deployment-style prediction
+```
+
+> EXAMPLE:
+  **Building "MoMo Guard" (a fraud-detection AI) – stages in action.** Problem: detect fraudulent transfers with recall ≥ 95 % and few false alarms. Data: 2 million anonymised transactions with fraud labels (consent via terms; Law 2024/017 compliance). Preparation: remove duplicates, engineer features (amount vs history, time, new device), split by time. Model: gradient-boosted trees (explainable enough) baseline, then a neural net. Training on cloud GPUs; evaluation shows bias against rural users with irregular patterns → threshold adjusted per segment. Deployment as an API scoring transactions in 50 ms; monitoring detects drift when new scam types appear → monthly retraining. Tools: Python, pandas, scikit-learn, XGBoost, PyTorch, MLflow, FastAPI, Docker.
+
+> VISUAL:
+  **Figure 5.1 – AI development lifecycle** as a loop of nine stages with an "ethics & governance" ring around it and typical tools under each stage. **Figure 5.2 – Tool stack pyramid**: hardware → languages → libraries → environments → platforms/APIs → applications. **Figure 5.3 – Annotated Python script** with callouts: import, features/labels, split, train, evaluate, predict.
+
+> MISCONCEPTION:
+  "AI development is mostly coding models." Most time goes to problem framing, data work and deployment/monitoring. "Python is slow so unsuitable." The heavy lifting runs in compiled backends; Python's productivity wins.
+
+> ACTIVITY:
+  **Plan and prototype (50 min).** (1) Groups map a chosen problem (predicting learners at risk; classifying market produce; triaging clinic messages) onto the nine stages with concrete data sources, metrics, tools and two ethical safeguards – present as a one-page project canvas. (2) Individually run the scikit-learn script (Colab, local Python, or paper trace if no computer): annotate each line, change test_size to 0.5, add a new learner, note the accuracy change and why it is unreliable with 10 rows. (3) Tool hunt: match 12 tool cards to stages.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe the major stages of developing an AI system and one pitfall at each of four stages.
+  2. Why does data preparation consume most of the effort? Give three preparation tasks.
+  3. Identify six languages or tools used in AI development and their roles.
+  4. Distinguish scikit-learn, TensorFlow/PyTorch and Teachable Machine by purpose and user.
+  5. Explain five reasons why Python is widely used in AI development.
+  6. In the sample script, identify the features, labels, training step and evaluation step.
+  **Homework:** Produce an "AI project canvas" for a community problem: goal and metric, data (source, consent), preparation, model type, tools (with Python libraries), deployment target, monitoring plan, ethical safeguards.
+
+---
+
+# Lesson 6: Integration Activities — Applying AI to Improve Living and Working Standards
+
+> ACTIVITY:
+  **Context.** The Regional Delegation launches a "Smart Community" challenge: teams must propose and prototype an AI-based solution that improves living or working standards in their locality (health post triage, crop-disease advice, market-price prediction, school attendance and early-warning, waste sorting, water-point monitoring, local-language information chatbot).
+  **Task (groups of 3–4, 2 periods + preparation).**
+  1. **Define** (Lesson 1): the problem, the type of AI involved (capability/functionality/approach) and the application area; justify why AI adds value.
+  2. **Technique and system** (Lesson 3): select the AI technique(s) and describe the intelligent system architecture (sensing, connectivity, data/AI, services, users, security) in a labelled diagram.
+  3. **Prototype** (Lesson 4): build a Teachable Machine model (image/audio/pose) or, where no device is available, a paper-trained decision rule from a small dataset; report samples per class, accuracy, confusion matrix, one improvement iteration and one bias experiment.
+  4. **Development plan** (Lesson 5): map the full solution onto the nine development stages, naming tools/languages (Python libraries) and deployment target, with a monitoring plan.
+  5. **Ethics** (Lesson 2): identify four ethical issues, a risk–benefit grid and the responsible-AI principles and laws applied (UNESCO, Law 2024/017), including data consent and human oversight.
+  6. **Present** (8 min): pitch with demo of the prototype; answer a panel's questions.
+  **Criteria.** Relevance and clarity of problem and AI classification; sound technique/system design; working, evaluated prototype with evidence of iteration; realistic development plan and tools; depth of ethical analysis; presentation quality and teamwork.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Problem & AI classification | Precise, well-justified, correct types | Mostly correct | Vague or partly incorrect | Missing |
+| Technique & system design | Appropriate techniques, complete layered diagram with security | Minor gaps | Incomplete | Inappropriate |
+| Prototype & evaluation | Works; accuracy/confusion matrix reported; iteration and bias experiment documented | Works; limited evaluation | Partially works | None |
+| Development plan & tools | All stages, realistic tools, monitoring | Most stages | Few stages | Absent |
+| Ethics & responsibility | Four issues, grid, principles, law, safeguards | Three issues, principles | Superficial | Missing |
+| Presentation & teamwork | Clear demo, shared roles, confident answers | Clear | Uneven | Weak |
+
+---

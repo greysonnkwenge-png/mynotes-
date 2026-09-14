@@ -1,0 +1,557 @@
+= Module 6 — Learning with Computers: E-services, E-learning and Simple Web Pages
+**Weeks 12–13 · Lessons 42–46**
+**Category of action:** Describing and using e-services (e-commerce, e-health, e-government); analysing applications, benefits and challenges of e-services; explaining computer-assisted learning and e-learning delivery; developing simple web pages with HTML.
+**Context:** Learners examine the electronic services that increasingly mediate citizens' lives (42–43), understand how computers assist learning (44), integrate these ideas (45) and finish the term by building their own web pages (46).
+
+# Lesson 42: E-services — E-commerce, E-health and E-government
+
+> OBJ:
+  - Define e-services and identify the main types (e-commerce, e-health, e-government, e-banking, e-learning…).
+  - Describe how e-commerce, e-health and e-government services operate.
+  - Use an e-service platform to perform a simple transaction or procedure (e.g., search a product, book an appointment, download a form).
+
+## Lesson outline (2 periods, 100 min – computer room/phones)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | "Which of these did your family do this month without visiting an office?" (pay a bill, buy online, check results, send money). | Raise hands; discuss. |
+| Core 1 | 20 min | E-services: definition; characteristics (anytime/anywhere, self-service, automation, digital payment, data-driven); main types with Cameroonian and global examples: **e-commerce** (B2C, B2B, C2C, m-commerce, social commerce), **e-health**, **e-government** (G2C, G2B, G2G), e-banking/mobile money, e-learning (Lesson 44), e-ticketing/transport, e-agriculture, e-tourism, utilities (ENEO/Camwater bills). | Type–example matrix. |
+| Core 2 | 35 min | How each operates: **e-commerce** (storefront/catalogue → cart → checkout → payment gateway (MoMo, Orange Money, card, cash on delivery) → order management → logistics/delivery → reviews; marketplaces vs own shops; WhatsApp/Facebook commerce; security – HTTPS, OTP, escrow), **e-health** (electronic health records, appointment booking, telemedicine, e-prescriptions, health information portals, DHIS2 reporting, mobile health SMS, lab results online, health insurance claims; privacy), **e-government** (portals, online forms, e-tax (impots.cm – DGI), e-visa, business registration (APME/CFCE), exam results (GCE Board, OBC), civil status/ID projects, e-procurement (COLEPS), digital payments of fees; identity/authentication; interoperability). | Process flowcharts. |
+| Core 3 | 32 min | Hands-on: perform simple transactions/procedures (safe, no money): search and compare a product on Jumia (or a demo store), add to cart, read checkout options; book a demo appointment/locate a health facility on an e-health portal; download a form from an e-government site (e.g. DGI tax form, GCE registration guidelines, passport requirements) or check a results portal; note the URL, HTTPS, authentication and data requested. Step sheet + safety rules. | Complete tasks; record evidence. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 42.1 Definition and types of e-services
+
+> DEF:
+  **E-services (electronic services)** are **services delivered over electronic networks – mainly the internet and mobile networks – through websites, apps or USSD/SMS**, allowing users to obtain information, complete transactions or access public and private services without physical presence.
+
+| Type | Meaning | Global examples | Cameroon examples |
+| **E-commerce** | Buying/selling goods and services online: **B2C** (business to consumer), **B2B**, **C2C** (person to person), **m-commerce** (mobile), **social commerce** (via social apps) | Amazon, Alibaba, eBay, Shopify stores | **Jumia Cameroon**, Glotelho, Kikuu; WhatsApp/Facebook/Instagram shops; Yango/Gozem ride-hailing; food delivery apps |
+| **E-health** | Health services and information via ICT: records, telemedicine, appointments, e-prescriptions, health data systems | NHS App (UK), Teladoc, Doctolib (France) | DHIS2 national health data; telemedicine pilots (Cardiopad by Arthur Zang), Gifted Mom / mHealth SMS for mothers, hospital appointment apps, health-insurance apps, COVID-19 vaccination platforms |
+| **E-government** | Government services to citizens (**G2C**), businesses (**G2B**) and between agencies (**G2G**) online | Estonia e-Residency, gov.uk, India's Aadhaar/UMANG | **DGI impots.cm** (tax declaration/payment), e-visa (evisacam), GCE Board & OBC results portals, CONFEMEN/MINESEC portals, COLEPS e-procurement, business creation (CFCE), ENEO/Camwater e-billing, digital ID/civil status projects, MINFOPRA services |
+| **E-banking & mobile money** | Banking and payments online/mobile | PayPal, Revolut, M-Pesa | **MTN MoMo**, Orange Money, bank apps (Afriland, UBA, Ecobank), Diool, Maviance/Smobilpay |
+| **E-learning** | Courses and learning via ICT (Lesson 44) | Coursera, Khan Academy | MINESEC e-learning, university LMS |
+| **E-ticketing / e-transport** | Tickets, bookings, ride-hailing | Booking.com, Uber | Bus companies' online booking, Camair-Co, Yango |
+| **E-agriculture** | Market prices, advice, input ordering | Farmerline, iCow | Agrix Tech, cocoa price SMS services |
+| **Utilities & telecoms self-service** | Bills, recharges, subscriptions | – | ENEO MyEasyLight, MTN/Orange apps and USSD |
+| **E-tourism, e-recruitment, e-justice** | Reservations, jobs, case tracking | LinkedIn, Indeed | Njorku, MINTOUL portals |
+
+Characteristics: 24/7 availability, self-service, automation, remote access, digital identity/authentication, electronic payment, data collection/analytics, multi-channel (web, app, USSD, SMS for feature phones), personalisation.
+
+### 42.2 How e-commerce, e-health and e-government operate
+
+| Stage of e-commerce | What happens | Technologies / actors |
+| 1 Storefront & catalogue | Products with images, prices, stock, categories, search and filters | Web/app front-end, database, CMS (WooCommerce, Shopify), marketplace platform |
+| 2 Account & cart | Customer registers/logs in; adds items | Authentication, session cookies |
+| 3 Checkout | Delivery address, shipping method/cost, promo codes, order summary | Forms with validation (Lesson 25) |
+| 4 **Payment** | Payment gateway processes MoMo/Orange Money (USSD push + PIN), cards (Visa/Mastercard with OTP/3-D Secure), PayPal, or **cash on delivery** (common in Cameroon due to trust) | Gateway APIs (Maviance, CinetPay, Flutterwave), HTTPS/TLS, PCI-DSS |
+| 5 Order management | Confirmation e-mail/SMS, invoice, seller notified, stock updated | Back-office/ERP, SMTP/SMS APIs |
+| 6 Fulfilment & logistics | Packing, courier/agent delivery, tracking, pick-up points | Logistics partners, GPS |
+| 7 After-sales | Returns, refunds, reviews/ratings, customer support (chat/WhatsApp) | CRM, chatbots |
+| Variants | Marketplace (many sellers, platform escrow) vs own shop; **social commerce** – catalogue on WhatsApp Business, payment by MoMo, delivery by moto-taxi | – |
+| Security & trust | HTTPS, OTP, escrow/cash on delivery, verified sellers, reviews, data-protection law | – |
+
+| E-health component | Operation | Example |
+| Electronic health records (EHR/EMR) | Patient data stored centrally; accessible to authorised clinicians; access control and audit (Lesson 24) | OpenMRS in some hospitals |
+| Appointment booking & queue | Online/app/USSD booking; SMS reminders | Hospital apps; Doctolib model |
+| **Telemedicine/teleconsultation** | Video/phone consultation; remote diagnostics (Cardiopad transmits ECGs to cardiologists) | Rural clinics ↔ specialists |
+| E-prescriptions & pharmacy | Digital prescriptions verified at pharmacies; stock systems | Pilot programmes |
+| Health information & mHealth | Portals, chatbots, SMS campaigns (maternal health, vaccination) | Gifted Mom, MINSANTE WhatsApp lines |
+| Health data systems | Facilities report weekly to **DHIS2**; dashboards for epidemics | National HMIS |
+| Lab/imaging results online | Patient portals; PACS for images | Hospitals in Douala/Yaoundé |
+| Insurance & payments | Claims, mobile money for fees | Insurance apps |
+| Constraints | Privacy/consent, connectivity, digital literacy, interoperability, power | – |
+
+| E-government component | Operation | Example |
+| Information portals | Laws, procedures, forms, announcements | Ministry sites (.gov.cm), spm.gov.cm |
+| Online forms & downloads | PDF/online forms to prepare files | DGI forms, passport requirements, GCE registration |
+| Transactional services | Declare/pay taxes online, apply for e-visa, register a business, check results | **impots.cm**, evisacam.cm, CFCE, GCE Board results |
+| Identity & authentication | Taxpayer number (NIU), passwords/OTP, digital ID projects | DGI account, e-visa reference |
+| Payments | Mobile money/bank integration | Tax and fee payments via MoMo |
+| Back-office & interoperability | Databases, workflow, G2G data exchange | Civil status, customs (CAMCIS), e-procurement (COLEPS) |
+| Benefits/challenges | Convenience, transparency, reduced corruption vs digital divide, trust, uptime, data protection (Law 2024/017) | – |
+
+### 42.3 Using an e-service platform (hands-on)
+
+**Safety rules:** use only HTTPS official domains (check the URL as in Lesson 40); no real payments or personal IDs in class; never enter card/MoMo PINs on a shared PC; use demo accounts where needed; log out.
+
+| Task (choose two or three) | Steps | Evidence to record |
+| **E-commerce – search and compare a product** | 1. Open jumia.cm (or a demo store). 2. Search "laptop 8GB". 3. Filter by price and rating; sort. 4. Open two products; compare specs, seller rating, delivery fee/time, return policy. 5. Add one to cart; view cart; proceed to checkout **up to** the payment-method page (stop). 6. Note payment options (MoMo, card, cash on delivery). | Screenshots; comparison table; URL; HTTPS; data requested |
+| **E-health – locate a facility or book a (demo) appointment** | 1. Open a health portal/app (MINSANTE site, a hospital site, or a demo booking form). 2. Find the nearest facility and its services/hours; 3. Fill a demo appointment form (fictitious data) noting validation rules; 4. Read the privacy notice. | Facility info; form fields; privacy notes |
+| **E-government – download a form / check a procedure** | 1. Open impots.cm ▸ Forms, or the GCE Board site, or the passport service page. 2. Locate the required form/guide (e.g. annual declaration form, GCE registration timetable, passport requirements list). 3. Download the PDF; verify its source. 4. List the documents and steps required; 5. Note authentication needed for transactional steps. | PDF saved; step list; URL check |
+| **Mobile money / utility (simulation)** | Use the USSD menu tree printed by the teacher (*126#, #150#) to simulate paying an ENEO bill – steps only. | Menu path; security steps (PIN) |
+
+> EXAMPLE:
+  **Paul's Saturday of e-services in Yaoundé.** 08:00 – pays the ENEO bill via MoMo USSD (utility e-service); 09:00 – orders a phone charger on Jumia, chooses cash on delivery (e-commerce); 10:00 – books his mother's follow-up appointment on the hospital app and receives an SMS reminder (e-health); 11:00 – downloads his father's tax declaration form from impots.cm and later watches him file it online (e-government); 12:00 – checks Concours results on the ministry portal. Not one queue – but each step required a phone, data, literacy and trust; his grandmother in the village would have needed help with all five.
+
+> VISUAL:
+  **Figure 42.1 – E-services map** with icons for each type and Cameroonian logos/platforms. **Figure 42.2 – E-commerce order flowchart** (browse → cart → checkout → payment gateway → confirmation → delivery → review) with security checkpoints. **Figure 42.3 – E-health ecosystem** (patient app, EHR, telemedicine, pharmacy, DHIS2 reporting). **Figure 42.4 – E-government service model** (citizen/business → portal → authentication → back-office systems → payment → outcome) and a screenshot mock-up of a form-download page with the URL highlighted.
+
+> MISCONCEPTION:
+  "E-commerce means paying online." Cash on delivery and MoMo on delivery are e-commerce too – the transaction is initiated online. "E-government is just a website with information." Full e-government is transactional (declare, pay, register, receive documents).
+
+> ACTIVITY:
+  **E-service explorers (50 min).** (1) Type–example matrix completed with two local examples per type. (2) Hands-on tasks from the table above (two or three), with evidence sheets. (3) Process mapping: draw the e-commerce flowchart for a WhatsApp-based shop vs Jumia; draw the e-visa or tax-declaration flow. (4) Accessibility check: how would a user with a feature phone or no literacy access each service (USSD, agents, kiosks)? (5) No-computer alternative: printed screenshots/USSD trees; paper walkthrough of an order and a form download.
+
+## Formative assessment
+
+> ASSESS:
+  1. Define e-services and list six types with one Cameroonian example each.
+  2. Distinguish B2C, B2B and C2C e-commerce with examples.
+  3. Describe the stages of an online purchase from catalogue to delivery, naming the technologies involved at payment.
+  4. Describe three e-health services and three e-government services and how they operate.
+  5. Outline the steps to download a form from an e-government portal safely, and to compare two products on an e-commerce site.
+  6. Why is cash on delivery common in Cameroonian e-commerce, and what security features build trust online?
+  **Homework:** With a family member, carry out (or observe) one real e-service task (bill payment, results check, form download, online purchase) and write a one-page account: steps, channel (web/app/USSD), authentication, payment, problems and what would help first-time users.
+
+---
+
+# Lesson 43: Applications, Benefits and Challenges of E-services
+
+> OBJ:
+  - Analyse the applications of e-services in different sectors (education, health, finance, administration, commerce).
+  - Evaluate the benefits and challenges of e-services for citizens, businesses and government.
+  - Explore e-government platforms and assess their usability and accessibility.
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Story: a farmer in Ndop receiving cocoa prices by SMS vs a graduate stuck because a portal is down on the deadline day. | React. |
+| Core 1 | 25 min | Sector analysis: **education** (registration/results portals, LMS, digital libraries, scholarship applications, school fees via MoMo), **health** (records, telemedicine, vaccination campaigns, drug authentication (mPedigree-style), insurance), **finance** (mobile money, online banking, micro-loans/credit scoring, insurance, remittances, crowdfunding), **administration** (tax, customs CAMCIS, civil status, procurement, licences, e-visa, public-sector HR SIGIPES), **commerce** (marketplaces, social commerce, logistics, payments, advertising); for each: applications, users, enabling technologies, indicators of adoption. | Sector cards. |
+| Core 2 | 30 min | Benefits vs challenges matrix per stakeholder – **citizens** (convenience, time/cost savings, transparency, inclusion of remote areas vs digital divide, literacy, cost of data/devices, trust, privacy, fraud), **businesses** (market reach, lower costs, efficiency, data, formalisation vs competition, cybersecurity, logistics, payment fraud, regulation, skills), **government** (efficiency, revenue, reduced corruption, better data, service quality vs investment, legacy systems, interoperability, capacity, resistance to change, security, exclusion risks, sustainability/power). Cameroonian evidence: mobile-money penetration, ANTIC cyber-incident reports, 2024 data-protection law, connectivity gaps; global frameworks (UN E-Government Development Index – Cameroon's rank; SDGs). | Stakeholder evaluation. |
+| Core 3 | 32 min | Explore e-government platforms hands-on: at least two of impots.cm, evisacam.cm, GCE Board results, CFCE business creation, MINESEC/MINESUP portals, a council site; **usability heuristics** checklist (Nielsen-inspired: clarity, navigation, consistency, feedback, error prevention/recovery, efficiency, help), **accessibility** checklist (WCAG basics: text alternatives, contrast, keyboard navigation, font resizing, plain language, French/English, mobile friendliness, low-bandwidth, offline/USSD alternatives), performance (load time, HTTPS, uptime), trust signals (contact, privacy policy, official domain). Groups audit and score; propose improvements. | Platform audits. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 43.1 Applications of e-services by sector
+
+| Sector | Applications | Users | Enabling technologies | Cameroon examples |
+| **Education** | Online registration and results (GCE, Concours, BEPC/Probatoire/Bac), LMS and e-learning, digital libraries/OER, scholarship and university applications, fee payment via mobile money, school management systems, timetables/report cards, virtual classes | Learners, parents, teachers, ministries | Web portals, LMS (Moodle, Classroom), payment APIs, SMS | GCE Board results portal, OBC/MINESEC results, university online pre-registration (UY1, UB), fee payment via MoMo/Express Union, MINESEC e-learning platform |
+| **Health** | Electronic records, appointment systems, telemedicine, e-prescriptions, health information/chatbots, vaccination and epidemic dashboards, drug-authentication SMS, insurance claims, blood-bank locators | Patients, clinicians, MINSANTE, insurers | EHR software, video, DHIS2, SMS/USSD, IoT (Cardiopad) | DHIS2, Cardiopad, Gifted Mom, COVID-19 vaccination portal, hospital apps |
+| **Finance** | Mobile money (transfers, bill pay, merchant pay, savings), online/mobile banking, micro-loans with digital credit scoring, insurance, remittances, crowdfunding, stock/forex apps, payroll | Individuals, SMEs, banks, MFIs | USSD/apps, APIs, KYC systems, AI scoring | MTN MoMo, Orange Money, Afriland/UBA apps, Diool, Maviance, WorldRemit/Wave inflows |
+| **Administration (e-government)** | Tax declaration/payment, customs (CAMCIS), business registration, e-visa/passports, civil status/ID, e-procurement (COLEPS), public-service HR/payroll (SIGIPES), land registry pilots, licences/permits, council services, open data | Citizens, businesses, civil servants | Portals, digital identity, interoperability platforms, payment gateways | DGI impots.cm, CAMCIS, evisacam, CFCE, COLEPS, SIGIPES, MINFOPRA |
+| **Commerce** | Marketplaces, own web shops, social commerce, classified ads, logistics/tracking, digital marketing, loyalty, B2B procurement, ride-hailing and delivery | Consumers, traders, SMEs, logistics firms | E-commerce platforms, payment gateways, GPS, social media APIs | Jumia, Glotelho, Kikuu, WhatsApp shops, Yango/Gozem, Jumia Food |
+| Agriculture, energy, transport, tourism | Price information, extension advice, input e-vouchers; smart metering; ticketing; bookings | Farmers, utilities, travellers | SMS/USSD, IoT, apps | Agrix Tech, ENEO MyEasyLight, bus e-tickets |
+
+### 43.2 Benefits and challenges by stakeholder
+
+| Stakeholder | Benefits | Challenges |
+| **Citizens** | Convenience 24/7 and from anywhere (no travel from Kumbo to Yaoundé for a form); time and cost savings; **transparency** (published fees, tracking, fewer intermediaries and bribes); access for remote/disabled users; faster services (results in minutes); financial inclusion via mobile money; information and choice | **Digital divide** (rural coverage, data/device cost, electricity); digital and language literacy; **trust** (fear of fraud, unclear procedures); **privacy and data protection**; fraud/phishing and impersonation; system downtime on deadline days; lack of human help; exclusion of the elderly/informal sector; dependence on phones/SIM registration |
+| **Businesses** | Wider markets (national/diaspora/export); lower transaction and marketing costs; efficiency and automation; payment traceability; data on customers; formalisation and access to credit; faster government procedures (registration in days) | Competition from global platforms; **cybersecurity** (fraud, chargebacks, hacked accounts); logistics and addressing (no street numbers); payment failures/fees; regulatory compliance (taxes, data law); skills shortage; connectivity costs; counterfeit and trust issues on marketplaces |
+| **Government** | Efficiency and cost reduction; **increased revenue** (tax base widening, less leakage); reduced corruption; better data for planning (DHIS2, tax analytics); improved service quality/image; interoperability between agencies; crisis resilience (COVID-19) | High investment and maintenance; legacy systems and paper archives; **interoperability** and data standards; skills and capacity; **resistance to change** and vested interests; cybersecurity and sovereignty (hosting, backups); uptime/power; risk of excluding citizens; legal frameworks (e-signature, data protection – Law 2024/017); sustainability of donor-funded platforms |
+
+Evaluation lens: measure benefits (time saved, cost, uptake %, revenue, satisfaction) against challenges; propose mitigations – multi-channel access (USSD, agents/kiosks, community centres), local-language interfaces, offline modes, strong authentication with simple UX, awareness campaigns, help desks, open standards/APIs, cybersecurity investment, data-protection compliance, phased rollout with feedback.
+
+### 43.3 Exploring and assessing e-government platforms
+
+> KEY:
+  **Usability** – how easily and efficiently users achieve their goals; **accessibility** – whether people with disabilities, low literacy, old devices or weak connections can use the service at all. Good e-government must be usable, accessible, secure and trustworthy.
+
+| Dimension | Checklist questions (score 0–2 each) |
+| **Findability & navigation** | Is the service easy to find from the home page/Google? Clear menus, breadcrumbs, search? |
+| **Clarity & language** | Plain language? Both French and English? Steps and required documents listed? Fees stated? |
+| **Consistency & design** | Consistent layout, official branding, readable fonts, no clutter? |
+| **Feedback & status** | Confirmations, progress indicators, reference numbers, SMS/e-mail notifications? |
+| **Error prevention & recovery** | Validation with helpful messages (Lesson 25)? Can users correct mistakes? Save and resume? |
+| **Efficiency** | Number of steps/clicks; pre-filled data; no repeated data entry; mobile-friendly forms |
+| **Help & support** | FAQs, guides/videos, contact (phone/e-mail/chat), response quality |
+| **Accessibility (WCAG basics)** | Alt text for images, sufficient contrast, keyboard navigation, text resizing, captions, simple structure/headings, screen-reader compatibility |
+| **Inclusion & channels** | Works on low-end phones/2G? USSD/SMS or agent alternative? Offline forms? Local languages/audio? |
+| **Performance & availability** | Load time on 3G; uptime (test at different times); page weight |
+| **Security & trust** | HTTPS and correct official domain; privacy policy; secure login/OTP; contact details; data-protection compliance; no suspicious ads |
+| **Overall value** | Does it complete the transaction end-to-end (apply → pay → receive)? or only information? |
+
+**Audit procedure:** choose a platform and a realistic task (e.g. "find and download the tax declaration form", "check O-Level results for a given centre", "start an e-visa application to the payment step"); time the task; count steps; note obstacles; run a mobile view (F12 ▸ device toolbar) and a contrast/alt-text check (browser accessibility tools, WAVE extension); score with the checklist; write three prioritised recommendations.
+
+> EXAMPLE:
+  **Two portals, two experiences.** Auditing the GCE results portal: task completed in 3 steps and 40 s on a phone, HTTPS official domain, but tiny fonts, no alt text and downtime at peak – usability high, accessibility medium, availability low; recommendation: CDN/caching and SMS results channel. Auditing a business-registration portal: bilingual, clear document list, OTP login, but a 12-step form without save/resume and error messages in one language only; a diaspora entrepreneur in Belgium abandons at step 9 – recommendation: save-and-resume, bilingual validation messages, progress bar. Both audits show the difference between publishing information online and delivering a usable, inclusive service.
+
+> VISUAL:
+  **Figure 43.1 – Sector wheel of e-service applications** with Cameroonian examples per sector. **Figure 43.2 – Stakeholder benefit/challenge matrix** as a 3×2 grid with icons. **Figure 43.3 – E-government maturity ladder**: information → interaction (forms) → transaction (pay/apply) → integration (joined-up, proactive services); place local platforms on the ladder. **Figure 43.4 – Usability & accessibility scorecard** mock-up with radar chart for an audited portal, plus mobile vs desktop screenshots.
+
+> MISCONCEPTION:
+  "If a service is online, everyone can use it." Inclusion requires channels for those without smartphones, data, literacy or sight. "Usability is cosmetic." Abandoned applications, wrong declarations and help-desk overload are costly consequences of poor usability.
+
+> ACTIVITY:
+  **E-government audit (55 min, groups of three).** (1) Sector cards: each group prepares a 90-second brief on one sector's applications with a local example and an adoption indicator. (2) Stakeholder debate: groups argue benefits/challenges from the viewpoint of a rural citizen, an SME owner and a ministry CIO; record mitigations. (3) Platform audit: complete the checklist and timed task on two platforms (one national, one council/ministry); produce a scorecard and three recommendations; present. (4) Redesign sketch: paper wireframe of one improved form page (labels, validation messages, progress bar, language toggle, mobile layout). (5) No-computer alternative: printed screenshots of portals for audit; paper wireframes.
+
+## Formative assessment
+
+> ASSESS:
+  1. Analyse the applications of e-services in education, health, finance, administration and commerce, giving two examples per sector.
+  2. Evaluate three benefits and three challenges of e-services for citizens, businesses and government respectively.
+  3. Propose four measures to reduce the exclusion caused by the digital divide in e-government.
+  4. Distinguish usability from accessibility and list five criteria for each.
+  5. Describe how you would audit an e-government platform and what evidence you would collect.
+  6. Place three Cameroonian platforms on the e-government maturity ladder and justify.
+  **Homework:** Audit one e-government or e-service platform of your choice with the checklist (timed task, scores, screenshots), and write a one-page memo to its managers with three prioritised, justified improvements.
+
+---
+
+# Lesson 44: Computer-Assisted Learning and E-learning
+
+> OBJ:
+  - Define computer-assisted learning (CAL) and e-learning and outline their development.
+  - Describe the delivery of e-learning through servers (LMS, web platforms), CD-ROMs/DVDs and e-books.
+  - Evaluate the advantages and limitations of e-learning compared with traditional learning.
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | How did you last learn something new outside class – YouTube, WhatsApp group, app, book? | Share. |
+| Core 1 | 20 min | Definitions: **CAL/CAI** (computer used as a tutor/tool/drill – tutorials, drill-and-practice, simulations, games, problem solving), **e-learning** (learning delivered through digital technologies and networks: online courses, LMS, MOOCs, blended/hybrid, mobile learning, microlearning), related terms (CBT, distance learning, virtual classroom, flipped classroom, adaptive learning, AI tutors); development: 1960s PLATO, 1980s CD-ROM courseware, 1990s web, 2000s LMS (Moodle 2002)/Web 2.0, 2008–12 MOOCs (Coursera, edX, Khan Academy), 2010s mobile apps, 2020 pandemic shift, 2023+ generative-AI tutors; Cameroon: distance-learning programmes, MINESEC/MINESUP platforms, university e-learning centres. | Concept map; timeline. |
+| Core 2 | 35 min | Delivery modes: **servers/online** – LMS (Moodle, Google Classroom, Teams for Education, Canvas), MOOC platforms, video (YouTube), web apps, live virtual classes, mobile apps – architecture (client–server, cloud), features (content, quizzes, forums, gradebook, tracking, SCORM/xAPI), requirements (connectivity, accounts); **CD-ROM/DVD & offline media** – packaged courseware, encyclopaedias (Encarta), language courses, offline copies of Wikipedia/Khan Academy (Kiwix, RACHEL servers, Raspberry Pi content servers) – valuable where internet is weak; **e-books** – formats (PDF, EPUB, MOBI), readers (Kindle, phones, tablets), interactive e-books, OER textbooks, digital libraries (Project Gutenberg, OpenStax, African Storybook), audio-books, accessibility (text-to-speech). Hands-on: explore a Moodle/Classroom demo course; open an EPUB; browse an offline Kiwix library. | Explore platforms; compare delivery. |
+| Core 3 | 32 min | Evaluation vs traditional learning: advantages (flexibility, access, cost at scale, self-pacing, rich media/simulations, tracking/analytics, personalisation, updating content, inclusion of remote learners), limitations (connectivity/device/power, self-discipline and dropout, reduced social interaction and mentoring, practical/lab skills, assessment integrity, teacher training, quality control, screen fatigue, cost of production); comparison table; blended learning as synthesis; criteria for evaluating an e-learning resource; case studies (2020 closures in Cameroon; a rural school with a Raspberry Pi content server). | Comparison; resource evaluation. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 44.1 Definitions and development
+
+> DEF:
+  **Computer-assisted learning (CAL)** – also computer-assisted/aided instruction (CAI) – is the **use of computers to support teaching and learning**, with software acting as tutor (tutorials, drill and practice), tool (simulations, modelling, word processing) or tutee (learners programming the computer). **E-learning (electronic learning)** is **learning delivered and supported through digital technologies and networks** – online courses, learning management systems, virtual classrooms, mobile apps and digital content – whether fully online, blended with face-to-face teaching, or offline on digital media.
+
+| Term | Meaning |
+| Tutorial software | Presents content step by step with checks (e.g. typing tutors, Khan Academy lessons) |
+| Drill and practice | Repetitive exercises with feedback (maths facts, vocabulary apps like Duolingo) |
+| Simulation & educational games | Safe experimentation (PhET physics sims, virtual chemistry labs, flight simulators, Minecraft Education) |
+| Computer-based training (CBT) | Self-paced training modules, often corporate/vocational |
+| Distance learning | Learners and teachers separated in space/time (correspondence → radio/TV → online) |
+| **LMS (Learning Management System)** | Platform hosting courses, materials, activities, quizzes, grades (Moodle, Canvas, Google Classroom, Teams) |
+| **MOOC** | Massive Open Online Course (Coursera, edX, FutureLearn, OpenClassrooms) |
+| Blended/hybrid learning; flipped classroom | Mix of online and in-person; content at home, practice in class |
+| Mobile learning (m-learning), microlearning | Learning via phones in short units (apps, WhatsApp lessons, SMS quizzes) |
+| Adaptive learning & AI tutors | Software adjusting difficulty/paths to the learner; chat-based tutors (Module 1) |
+| Virtual classroom | Live online lessons with video, whiteboard, chat (Lesson 40) |
+
+| Period | Development |
+| 1960s–70s | PLATO system (University of Illinois) – first large CAI network; Skinner's teaching machines; Logo (Papert) |
+| 1980s | Personal computers in schools; drill software; BBC Micro; early authoring tools |
+| 1990s | Multimedia **CD-ROM** courseware and encyclopaedias (Encarta), the Web, first online courses |
+| 2000s | LMS era (Blackboard, **Moodle 2002**), SCORM standards, Web 2.0 (wikis, YouTube 2005), Khan Academy 2008 |
+| 2011–2015 | **MOOCs** (Stanford AI course, Coursera, edX), tablets, e-books, flipped classrooms, Google Classroom (2014) |
+| 2016–2019 | Mobile-first learning, gamification, analytics, OER growth, African EdTech (Eneza, uLesson) |
+| 2020–2022 | COVID-19 school closures – emergency remote teaching (radio/TV/WhatsApp/Zoom); Cameroon's MINESEC distance-learning programmes on CRTV and online |
+| 2023– | Generative-AI tutors and content creation, adaptive platforms, micro-credentials, offline-first content servers for low-connectivity areas |
+
+### 44.2 Delivery of e-learning
+
+| Delivery channel | How it works | Examples | Requirements | Strengths | Limits |
+| **Servers – LMS/web platforms (online)** | Content and activities hosted on a web server/cloud; learners log in through browsers/apps; teacher creates courses, uploads resources, sets quizzes/assignments/forums; system tracks progress and grades; standards (SCORM, xAPI, LTI) allow content interchange | **Moodle** (open source, school-hostable), **Google Classroom**, **Microsoft Teams for Education**, Canvas, Schoology; MOOC platforms; YouTube channels; virtual classes on Meet/Zoom; mobile apps (Duolingo, uLesson); MINESEC/MINESUP e-learning portals | Internet connectivity, devices, accounts, server/cloud hosting, teacher digital skills | Anywhere/anytime, always updated, interaction (forums, live classes), analytics, scalable | Depends on connectivity/power/data cost; digital divide; hosting costs; needs moderation |
+| **Offline media – CD-ROM/DVD/USB and local content servers** | Courseware, videos and encyclopaedias distributed physically or preloaded; run on PCs without internet; modern equivalent: **offline content servers** (Kiwix offline Wikipedia, RACHEL, Kolibri/Khan Academy Lite on a Raspberry Pi serving the school Wi-Fi) | Encarta, language CDs, exam-revision DVDs, textbook companion discs; Kiwix; Kolibri; USB packs of MINESEC videos | Computer with drive/USB or a local server + LAN/Wi-Fi (no internet) | Works without internet, no data costs, fast, controlled content | Content can become outdated; no live interaction; physical distribution; drives now rare on laptops |
+| **E-books and digital texts** | Digital books in **PDF**, **EPUB** (reflowable), MOBI/AZW (Kindle); read on phones, tablets, e-readers, PCs; may include search, highlights, notes, dictionary, text-to-speech, embedded video/quizzes (interactive e-books); distributed via stores, libraries or OER repositories | OpenStax textbooks, Project Gutenberg, African Storybook, Bookshare (accessible), school PDF notes, Kindle/Google Play Books, Cameroonian publishers' digital textbooks | Reader app/device; storage; (download once – offline afterwards) | Portable library, searchable, cheap/free OER, accessibility features, easy to update | Screen reading fatigue, DRM restrictions, piracy, device dependence, no interaction unless interactive |
+| Broadcast & messaging (complementary) | TV/radio lessons, WhatsApp/Telegram groups, SMS quizzes | CRTV school programmes (2020), WhatsApp revision groups | Basic phone/TV | Reach without internet/smartphones | One-way; limited feedback |
+
+**Typical blended set-up for a Cameroonian school:** Google Classroom or a school-hosted Moodle for assignments and quizzes; a Raspberry Pi/PC **offline server** with Kiwix and Khan Academy videos on the lab Wi-Fi; PDF/EPUB notes on phones; WhatsApp class group for reminders; occasional Meet sessions with guest experts; printed packs for learners without devices.
+
+### 44.3 Evaluating e-learning against traditional learning
+
+| Criterion | E-learning | Traditional (face-to-face) |
+| Flexibility of time/place | Anytime, anywhere; self-paced | Fixed timetable and location |
+| Access & scale | Reaches remote learners and thousands at once; MOOCs from top universities | Limited by classrooms and teachers; travel |
+| Cost | Low per learner at scale; high initial content/platform cost; learner bears data/device costs | Buildings, staff, travel; low technology cost |
+| Interaction & mentoring | Forums, chat, video; can feel isolated; less spontaneous | Rich human interaction, immediate feedback, role models, peer learning |
+| Personalisation | Adaptive paths, repeat videos, analytics, AI tutors | Depends on class size; teacher's intuition |
+| Content richness & currency | Multimedia, simulations, instantly updated | Textbooks age; practicals real |
+| Practical/hands-on skills | Simulations partial; labs, sports, arts hard | Direct practice |
+| Discipline & completion | Requires self-motivation; MOOC completion often < 10 % | Structure and supervision |
+| Assessment | Auto-graded quizzes, analytics; integrity challenges (proctoring) | Supervised exams; slower feedback |
+| Inclusion | Helps some (mobility, remote) – excludes those without devices/connectivity/literacy | Excludes those far away or with mobility issues |
+| Teacher role | Designer, facilitator, needs digital skills | Instructor, mentor |
+| Social & emotional development | Limited | Strong (school life) |
+| Resilience | Continues during crises (pandemic, strikes) | Interrupted |
+| **Best of both** | **Blended learning** – online content and practice, in-person discussion, labs and support | – |
+
+Criteria for evaluating an e-learning resource: learning objectives clear and aligned; accuracy and authority; interactivity and feedback; accessibility (language, captions, low bandwidth, offline option); usability; assessment quality; cost/licence (OER preferred); cultural relevance (Cameroonian syllabus/examples); data privacy for minors; evidence of effectiveness.
+
+> EXAMPLE:
+  **Two schools in 2020 and after.** During closures, School A relied on Zoom lessons – 30 % of learners joined (data, devices, power). School B distributed PDF notes and WhatsApp voice explanations, ran CRTV-synchronised revision and, on reopening, installed a 60,000 XAF Raspberry Pi with Kiwix, Khan Academy Lite and the teachers' videos on the lab Wi-Fi; learners now revise from phones at school without internet, submit quizzes on a Moodle hosted on the same Pi, and use Google Classroom at home when they have data. School B's blended, offline-first design shows how delivery via servers, offline media and e-books can be combined to fit local realities.
+
+> VISUAL:
+  **Figure 44.1 – CAL/e-learning concept map** (tutorial, drill, simulation, LMS, MOOC, blended, mobile, AI tutor) with a development timeline. **Figure 44.2 – Delivery architectures**: (a) cloud LMS ↔ internet ↔ learners; (b) offline content server on school LAN/Wi-Fi; (c) e-book flow from OER repository to devices – with requirement icons (internet, power, device). **Figure 44.3 – Comparison chart** e-learning vs traditional as a balanced scale leading to a "blended" centre. **Figure 44.4 – Screenshot mock-ups** of a Moodle course page, a Kiwix library and an EPUB reader with highlights/text-to-speech.
+
+> MISCONCEPTION:
+  "E-learning means watching videos." Effective e-learning includes practice, feedback, interaction and assessment. "E-learning needs internet." Offline servers, CD/USB content and downloaded e-books deliver e-learning without connectivity.
+
+> ACTIVITY:
+  **E-learning explorers (55 min).** (1) Platform tour: log into a demo Moodle/Google Classroom course – submit an assignment, take a quiz, post in a forum; list the LMS features observed. (2) Offline media: browse Kiwix (offline Wikipedia) or a Khan Academy Lite/Kolibri server on the lab network; compare speed and content freshness with the online version. (3) E-books: open the same text as PDF and EPUB on a phone/PC; test reflow, search, highlight, text-to-speech; note accessibility differences. (4) Evaluation: score two e-learning resources (one local, one MOOC) with the criteria list; decide which suits a Form 3 learner in a rural school and why. (5) Design task: propose a blended plan for one subject in your school (online, offline, e-book, printed) with a budget under 100,000 XAF. (6) No-computer alternative: sample screenshots and printed course pages; role-play an LMS workflow with paper "submissions".
+
+## Formative assessment
+
+> ASSESS:
+  1. Define CAL and e-learning and distinguish tutorial, drill-and-practice and simulation software.
+  2. Outline five milestones in the development of e-learning.
+  3. Describe e-learning delivery via servers/LMS, via CD-ROM/offline media and via e-books, with requirements, strengths and limits of each.
+  4. What is an LMS? Name three and five features.
+  5. Evaluate e-learning against traditional learning on six criteria and explain why blended learning is often recommended.
+  6. List six criteria for evaluating an e-learning resource for Cameroonian learners.
+  **Homework:** Review one e-learning resource you can access (app, YouTube channel, MOOC, e-book, offline pack) with the criteria list; write a 250-word review and a recommendation to your school's ICT committee on how it could be delivered (online, offline server, e-book).
+
+---
+
+# Lesson 45: Integration Activities — Designing a Digital Services and Learning Programme
+
+> ACTIVITY:
+  **Context.** The Parent–Teacher Association of your school wants to (a) move fee payment, results consultation and enrolment online, (b) partner with the district hospital for a student e-health card and vaccination reminders, (c) help parents use e-government services, and (d) launch a blended e-learning programme that works with unreliable internet. They need a feasibility study and a demonstrator.
+  **Task (groups of 4, 2 periods).**
+  1. **E-services design** (Lesson 42): describe how the school's e-services would operate – enrolment form → validation → fee payment via MoMo/Orange Money → receipt → results portal; draw the process flowchart with authentication and payment gateway; specify channels (web, USSD/SMS, agent desk) for parents without smartphones; identify the e-health integration (appointment/reminder flow, consent and data protection) and two e-government services parents most need (tax form, civil status/ID, exam registration) with step-by-step guides.
+  2. **Benefits, challenges and usability** (Lesson 43): a stakeholder benefit/challenge matrix (parents, school, hospital, ministry) with mitigations; a usability/accessibility audit of one existing platform the school already depends on (results portal or a bank/MoMo app) using the checklist, with a scorecard and improvements; a bilingual, mobile-first wireframe (paper or Canva/Figma) of the enrolment-and-payment page applying validation messages, progress bar and accessibility rules.
+  3. **E-learning delivery plan** (Lesson 44): choose and justify the delivery mix – cloud LMS (Google Classroom/Moodle), offline content server (Raspberry Pi with Kiwix/Kolibri) and e-books (PDF/EPUB OER), plus WhatsApp/printed fallbacks; budget under 500,000 XAF; teacher-training outline; evaluation criteria for the resources; comparison with the current traditional approach and expected benefits/limitations.
+  4. **Demonstrator**: (a) a working demo enrolment form with validation (Google Forms/Sheets or a spreadsheet with Data Validation) and a simulated payment confirmation e-mail; (b) a demo course in Classroom/Moodle with one resource, one quiz and one assignment; (c) if possible, a Kiwix/Kolibri page served on the lab network or an EPUB opened on a phone; (d) a short screen recording or live walk-through.
+  5. **Deliver** a 6–8 page feasibility report (PDF, produced collaboratively with version history) and an 8-minute presentation with the demonstrator; e-mail the report to the teacher with proper etiquette.
+  **Criteria.** Correct and complete e-service process design with inclusive channels and data-protection awareness; rigorous stakeholder analysis and evidence-based platform audit; realistic, costed e-learning delivery plan that fits local constraints; working demonstrator; quality of report, wireframe and presentation; collaboration and communication evidence.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| E-services process design | Complete flows (enrolment, payment, results, e-health, e-gov guides), inclusive channels, security/consent addressed | Complete with minor gaps | Partial | Incoherent |
+| Stakeholder analysis & audit | Rich matrix with mitigations; audit with scores, evidence and prioritised fixes; strong wireframe | Good analysis, adequate audit | Superficial | Missing |
+| E-learning delivery plan | Justified mix, costed, training and evaluation criteria, honest limitations | Justified, less detailed | Generic | Unrealistic |
+| Demonstrator | Form with validation, confirmation e-mail, demo course, offline/e-book element working | Most elements work | One element | None |
+| Report, presentation & collaboration | Professional, bilingual-aware, within time, clear collaboration evidence, proper e-mail | Clear | Basic | Weak |
+
+---
+
+# Lesson 46: Developing Simple Web Pages with HTML
+
+> OBJ:
+  - Describe the structure of an HTML document and the role of tags and attributes.
+  - Use basic HTML tags (headings, paragraphs, lists, links, images, tables) and attributes to create content.
+  - Create and display simple web pages using a text editor and a web browser.
+
+## Lesson outline (3 periods, 150 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Open any web page ▸ right-click ▸ View page source; "This is what the browser reads." Recall URLs and HTTP (Lessons 32, 40). | Observe source. |
+| Core 1 | 30 min | HTML basics: what HTML is (HyperText Markup Language, W3C/WHATWG standard, HTML5); document structure (`<!DOCTYPE html>`, `<html lang>`, `<head>` with `<meta charset>`, `<title>`; `<body>`); **elements, tags** (opening/closing, void elements), **attributes** (name="value" – `href`, `src`, `alt`, `width`, `id`, `class`, `lang`, `target`), nesting and indentation, comments, case, whitespace; separation from CSS (style) and JavaScript (behaviour) – mention only. Live-code a first page in Notepad/Notepad++/VS Code/gedit; save as `.html`; open in browser; edit–save–refresh cycle. | Create first page. |
+| Core 2 | 60 min | Basic tags with attributes: headings `<h1>`–`<h6>`, paragraphs `<p>`, line break `<br>`, horizontal rule `<hr>`, emphasis `<strong>`, `<em>`, lists `<ul>`, `<ol>`, `<li>` (with `type`/`start`), links `<a href target>` (absolute, relative, e-mail, anchors), images `<img src alt width height>`, tables `<table>`, `<tr>`, `<th>`, `<td>` (`border`, `colspan`, `rowspan`, `<caption>`), semantic containers `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<div>`, `<span>`; simple inline `style` attribute and a `<style>` block for colour/font (light touch); `<meta name="viewport">` for mobile. Worked example built progressively: "My School" page. | Follow along; type and test. |
+| Core 3 | 44 min | Hands-on project: two-page mini-site (home + about) linked to each other, with an image folder, a table, lists, an external link and an e-mail link; validate at validator.w3.org; view on a phone via the lab share or by opening the file. Debugging common errors (unclosed tags, wrong path, missing quotes). | Build, test, validate. |
+| Conclusion | 10 min | Gallery walk; exit ticket; preview of Second Term topics (not covered here). | Show pages; answer. |
+
+## Core content
+
+### 46.1 HTML, tags and attributes
+
+> DEF:
+  **HTML (HyperText Markup Language)** is the standard language for **structuring content on web pages**. An HTML document is plain text containing **elements** marked up with **tags** – keywords in angle brackets such as `<p>` … `</p>` – that tell the browser what each piece of content is (heading, paragraph, link, image, table). **Attributes** are name–value pairs inside an opening tag (e.g. `<img src="logo.png" alt="School logo">`) that provide extra information or settings for the element.
+
+| Concept | Explanation | Example |
+| **Element** | Opening tag + content + closing tag | `<h1>Welcome</h1>` |
+| **Tag** | Markup keyword in `< >`; closing tag has `/` | `<p>` … `</p>` |
+| **Void (empty) element** | No content or closing tag | `<br>`, `<hr>`, `<img>`, `<meta>`, `<link>` |
+| **Attribute** | `name="value"` in the opening tag; several allowed; lower-case; quotes | `<a href="https://www.gceboard.cm" target="_blank">` |
+| **Nesting** | Elements inside elements, properly closed in reverse order | `<p>This is <strong>important</strong>.</p>` |
+| **Comment** | Ignored by browser | `<!-- navigation starts here -->` |
+| **Whitespace** | Multiple spaces/newlines collapse to one space | Use `<br>` or `<p>` for breaks |
+| **Case & extension** | Tags lower-case by convention; files `.html`; `index.html` = default home page | – |
+| Global attributes | Usable on most elements | `id`, `class`, `style`, `title`, `lang` |
+
+**Document structure:**
+
+```
+<!DOCTYPE html>                       <!-- tells the browser this is HTML5 -->
+<html lang="en">                      <!-- root element; language of the page -->
+  <head>                              <!-- information ABOUT the page (not displayed) -->
+    <meta charset="UTF-8">            <!-- character encoding (accents, symbols) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My School – Home</title>   <!-- shown in the tab/bookmarks/search results -->
+  </head>
+  <body>                              <!-- everything displayed -->
+    <h1>Welcome to GBHS Etoug-Ebe</h1>
+    <p>Founded in 1979, our school serves over 3,000 learners.</p>
+  </body>
+</html>
+```
+
+### 46.2 Basic tags and attributes
+
+| Purpose | Tags | Key attributes | Example |
+| Headings | `<h1>` (most important, one per page) to `<h6>` | `id` (anchor target) | `<h2 id="contact">Contact us</h2>` |
+| Paragraphs & text | `<p>`, `<br>` (line break), `<hr>` (thematic break), `<strong>` (important – bold), `<em>` (emphasis – italic), `<span>` (inline container), `<blockquote>`, `<pre>`, `<code>` | `style` (inline CSS, sparingly) | `<p>Motto: <em>Work, Discipline, Success</em></p>` |
+| Unordered list | `<ul>` with `<li>` items | `style="list-style-type: square"` (CSS) | `<ul><li>Sciences</li><li>Arts</li></ul>` |
+| Ordered list | `<ol>` with `<li>` | `type="1|A|a|I|i"`, `start="3"`, `reversed` | `<ol type="A"><li>Form 1</li><li>Form 2</li></ol>` |
+| Description list | `<dl>`, `<dt>`, `<dd>` | – | Glossaries |
+| **Links (hyperlinks)** | `<a>` | **`href`** (destination: absolute URL, relative path, `#anchor`, `mailto:`, `tel:`), `target="_blank"` (new tab), `title` | `<a href="about.html">About us</a>`; `<a href="https://www.minesec.gov.cm" target="_blank">MINESEC</a>`; `<a href="mailto:info@school.cm">E-mail</a>`; `<a href="#contact">Contact</a>` |
+| **Images** | `<img>` (void) | **`src`** (path/URL), **`alt`** (text alternative – accessibility/SEO, shown if image fails), `width`, `height` (pixels), `title` | `<img src="images/school.jpg" alt="Main building of GBHS Etoug-Ebe" width="400">` |
+| **Tables** | `<table>`, `<caption>`, `<thead>`, `<tbody>`, `<tr>` (row), `<th>` (header cell), `<td>` (data cell) | `border="1"` (legacy; prefer CSS), `colspan`, `rowspan`, `scope="col"` | See worked example |
+| Page structure (semantic) | `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`, generic `<div>` | `id`, `class` | Layout blocks |
+| Media & embeds | `<audio controls src>`, `<video controls width src>`, `<iframe src>` | `controls`, `autoplay`(avoid) | Embedding a Meet/YouTube |
+| Forms (preview) | `<form>`, `<input type>`, `<label>`, `<button>` | `type="text|email|number"`, `required`, `min`, `max`, `pattern` (validation – Lesson 25) | `<input type="email" required>` |
+| Metadata & style | `<meta>`, `<link rel="stylesheet" href="style.css">`, `<style>` | – | Basic colours/fonts |
+| Special characters | Entities | – | `&amp;` &, `&lt;` <, `&copy;` ©, `&eacute;` é, `&nbsp;` |
+
+**Worked example – "My School" home page (`index.html`):**
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GBHS Etoug-Ebe – Home</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; color: #222; }
+    header { background: #1B2A49; color: white; padding: 15px; }
+    nav a { margin-right: 15px; color: #F2A900; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #999; padding: 6px 10px; }
+    th { background: #EEF1F7; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Government Bilingual High School Etoug-Ebe</h1>
+    <p><em>Work – Discipline – Success</em></p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About us</a>
+    <a href="#timetable">Timetable</a>
+    <a href="https://www.minesec.gov.cm" target="_blank">MINESEC</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>Founded in <strong>1979</strong>, our school in Yaoundé offers the
+         <a href="about.html#programmes">Anglophone and Francophone</a> sub-systems
+         to more than 3,000 learners.</p>
+      <img src="images/school.jpg" alt="Main building with the school flag" width="420">
+    </section>
+
+    <section>
+      <h2>Departments</h2>
+      <ul>
+        <li>Sciences</li>
+        <li>Arts and Languages</li>
+        <li>Computer Science &amp; ICT</li>
+      </ul>
+      <h3>Steps to enrol</h3>
+      <ol>
+        <li>Download the form</li>
+        <li>Pay fees by mobile money</li>
+        <li>Submit documents at the secretariat</li>
+      </ol>
+    </section>
+
+    <section id="timetable">
+      <h2>ICT Club timetable</h2>
+      <table>
+        <caption>Weekly sessions – First Term</caption>
+        <tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Room</th></tr>
+        <tr><td>Tuesday</td><td>14:00 – 15:30</td><td>Lab 1</td></tr>
+        <tr><td>Thursday</td><td>14:00 – 15:30</td><td>Lab 2</td></tr>
+        <tr><td colspan="3">Saturday sessions announced on the notice board</td></tr>
+      </table>
+    </section>
+  </main>
+
+  <hr>
+  <footer>
+    <p>&copy; 2026 GBHS Etoug-Ebe · <a href="mailto:ictclub@gbhs-etougebe.cm">ictclub@gbhs-etougebe.cm</a></p>
+  </footer>
+</body>
+</html>
+```
+
+### 46.3 Creating and displaying pages with a text editor and browser
+
+**Step sheet:** 1. Create a project folder `myschool` with a sub-folder `images`; copy a photo into `images/school.jpg` (compress to < 300 KB). 2. Open a **plain-text editor**: Notepad (Windows), **Notepad++** or **VS Code** (free, syntax colouring, auto-close tags), gedit/Kate (Linux), TextEdit in plain-text mode (Mac) – **never** Word. 3. Type the document structure; **File ▸ Save As** ▸ `index.html` ▸ "All files" type ▸ encoding UTF-8. 4. Double-click the file (or drag into a browser) – the page opens with a `file:///` URL. 5. **Edit–save–refresh** (F5) cycle: add headings, paragraphs, lists; check after each change. 6. Add the image with `alt`; if it does not display, check the path (relative to the HTML file) and file name case. 7. Create `about.html` with the same head, a heading, a paragraph and a link back to `index.html`; link the two pages; add `id="programmes"` to a section and link to it. 8. Add the table; try `colspan`. 9. Add an external link with `target="_blank"` and a `mailto:` link. 10. Right-click ▸ **Inspect** (F12) to see the DOM and fix errors; use validator.w3.org ▸ "Validate by File Upload" and fix warnings. 11. View on a phone: open from a shared folder/USB or through the lab's local web server (Python: `python -m http.server 8000` in the folder → `http://<lab-ip>:8000`). 12. Optional publish: GitHub Pages or Netlify Drop (free) – the page gets a real URL (link to Lesson 40).
+
+| Common error | Symptom | Fix |
+| Unclosed tag (`<p>`, `<li>`, `<table>`) | Layout runs on; everything bold/italic | Close tags; indent; use editor highlighting |
+| Wrong image path or case (`Images/School.JPG`) | Broken image icon; alt text shown | Match exact path and case; relative to HTML file |
+| Missing quotes on attributes with spaces | Attribute breaks | Always `name="value"` |
+| Saved as `.txt` or with Word | Code displayed as text or garbled | Save as `.html` plain text, UTF-8 |
+| Accents show as `Ã©` | Wrong encoding | `<meta charset="UTF-8">` and save file as UTF-8 |
+| Link opens nothing | `href` typo or file missing | Check target file exists in the same folder |
+| Table without borders | Default no borders | CSS `border` or `border="1"` |
+
+> EXAMPLE:
+  **From notebook to browser in one lesson.** A learner in Garoua types the "My School" page in Notepad++, saves `index.html`, and sees her heading in Firefox within two minutes. Her image fails to load – the folder is `Images` but she typed `images`; she fixes the case. She adds a table of ICT Club sessions, a `mailto:` link to the club and a link to the GCE Board with `target="_blank"`. The validator flags a missing `alt` – she adds "Learners in the computer lab". Served with `python -m http.server`, the page opens on classmates' phones over the lab Wi-Fi, and she recognises the URL parts from Lesson 40: `http://192.168.1.20:8000/index.html`.
+
+> VISUAL:
+  **Figure 46.1 – Anatomy of an element**: opening tag with attributes, content, closing tag – colour-coded; a void element beside it. **Figure 46.2 – HTML document tree**: html → head (meta, title) and body (header, nav, main ▸ sections ▸ h2/p/img/ul/table, footer). **Figure 46.3 – Side-by-side**: source code of the worked example and the rendered page with arrows linking each tag to its visual result. **Figure 46.4 – Edit–save–refresh loop** and a "debugging checklist" card; screenshot of the W3C validator and DevTools inspector.
+
+> MISCONCEPTION:
+  "HTML is a programming language." It is a markup language describing structure; logic comes from JavaScript. "More `<br>` and spaces make layout." Use structural elements and CSS; HTML collapses whitespace. "`alt` is optional." It is essential for accessibility and appears when images fail.
+
+> ACTIVITY:
+  **Build your mini-site (90 min, individual, lab).** (1) Create `index.html` following the step sheet – structure, headings, two paragraphs with `<strong>`/`<em>`, an unordered and an ordered list, an image with `alt` and `width`, a 3×3 table with headers and one `colspan`, links (internal page, anchor, external in new tab, `mailto:`), footer with `&copy;`. (2) Create `about.html` (your class/club) linked both ways. (3) Validate both pages; fix all errors. (4) Peer test: a classmate clicks every link and checks the image on a phone; record issues fixed. (5) Extension: add a `<style>` block with two colours and a font; add a `<video>` or `<audio>` element; embed a map `<iframe>`. (6) No-computer alternative: write the HTML for a given page mock-up on paper; "render" a classmate's HTML by drawing what a browser would show; tag-matching cards (tag ↔ purpose ↔ attributes).
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe the structure of an HTML document (doctype, html, head, body) and the purpose of `<meta charset>` and `<title>`.
+  2. Explain the difference between a tag, an element and an attribute with an example of each; name three void elements.
+  3. Write the HTML for: a level-2 heading; a paragraph with one bold word; an ordered list of three steps starting at 5; a link to about.html opening in a new tab; an image with alt text 200 px wide; a 2×2 table with headers.
+  4. Explain the role of the `href`, `src` and `alt` attributes and the difference between absolute and relative paths.
+  5. List the steps to create a web page in a text editor and display it in a browser; name three common errors and their fixes.
+  6. Why should `alt` text always be provided, and why is HTML not called a programming language?
+  **Homework:** Complete a three-page personal mini-site (home, hobbies/portfolio, contact) with all the basic elements, validated and zipped (`.zip` with `images/` folder) – submit by e-mail with a proper subject and message (Lesson 39); include a 100-word reflection on the errors you debugged.
+
+---
+
+= First Term Consolidation and Revision
+
+## Term overview
+
+| Week | Lessons | Module / theme | Key competences |
+| 1 | 1–4 | AI: concept, ethics, techniques, machine learning | Define/history/types of AI; responsible use; intelligent systems; build and test an ML model |
+| 2 | 5–8 | Developing AI systems; Integration; network fundamentals | AI development stages/tools; network vs stand-alone; complexity, benefits, limits, interoperability |
+| 3 | 9–12 | Integration; network types; choosing a network; Integration | LAN/MAN/WAN/CAN/PAN comparison; network selection for an organisation |
+| 4 | 13–16 | Architecture; topologies; comparing topologies; Integration | P2P vs client/server; mesh/star/ring/bus/tree; topology choice |
+| 5 | 17–18 (+ Eval 1) | Network equipment; Evaluation/Remediation 1; setting up a P2P network | Modem/hub/switch/router/NOS; practical set-up and test |
+| 6 | 19–22 | Selecting equipment; Integration; intranet/extranet; VPNs & privacy | Equipment selection; intranet/extranet design; VPN, firewall, digital signature set-up |
+| 7 | 23–26 | Security (CIA); data protection & access control; validation vs verification; Integration | Threats and controls; encryption/permissions; data checks |
+| 8 | 27–30 | Transmission modes; broadband/narrowband; transmission types; media | CSMA/CD–CA, duplex modes; bandwidth classes; serial/parallel, sync/async, analog/digital; guided/unguided media |
+| 9 | 31–34 | Peripheral control; protocols; OSI; Integration | Buffers/interrupts/polling/handshaking; TCP/IP protocols; seven layers |
+| 10 | (Eval 2) 35–36 | Evaluation/Remediation 2; error detection & parity; internet history | Parity/checksum/CRC/ARQ; internet growth, pros/cons, impact |
+| 11 | 37–40 | Connectivity & browsers; social networks & collaboration; e-mail & search; telework, videoconferencing, URLs, cookies | Access technologies; browser features; collaborative tools; e-mail with attachments; search operators; virtual meetings |
+| 12 | 41–44 | Integration; e-services; applications/benefits/challenges; CAL & e-learning | E-commerce/e-health/e-government; platform audits; e-learning delivery |
+| 13 | 45–46 | Integration; HTML web pages | Digital services programme; simple web pages |
+
+## Cross-module threads
+
+- **From concept to decision:** every module moves from definitions (AI types, network types, protocols, e-services) to justified choices for a Cameroonian organisation – a school, clinic, cooperative or council.
+- **Security and trust everywhere:** AI ethics (L2), VPN/firewall/digital signatures (L22), CIA and access control (L23–24), validation (L25), error detection (L35), safe browsing and phishing-proof URLs (L37, L40), cookies and data-protection law (L40), trust in e-services (L42–43).
+- **Layers and protocols as a map:** OSI (L33) ties together media (L30), access methods and duplex (L27), transmission types (L29), TCP/IP protocols (L32), error checking (L35), URLs/HTTP (L40, L46).
+- **Practical competence:** Teachable Machine (L4), P2P set-up (L18), VPN (L22), permissions and validation (L24–25), Wireshark/commands (L31–33), e-mail and search (L39), virtual meeting (L40), e-service tasks and audits (L42–43), LMS/offline server (L44), HTML pages (L46).
+- **Inclusion and the digital divide:** narrowband/USSD channels (L28), rural connectivity choices (L30, L37), accessibility of e-government (L43), offline e-learning (L44), `alt` text (L46).
+
+## Twenty revision questions
+
+1. Define artificial intelligence, distinguish narrow from general AI and give three application areas with Cameroonian examples.
+2. State four ethical principles for responsible AI use and explain one risk (bias or privacy) with an example.
+3. Describe the stages of developing an AI system and explain why Python is widely used.
+4. Compare LAN, MAN, WAN, CAN and PAN on coverage, speed, cost and users.
+5. Contrast peer-to-peer and client/server architectures and recommend one for a 12-PC cybercafé and for a 300-user university faculty.
+6. Draw star, bus, ring, mesh and tree topologies; give two advantages and two disadvantages of star and mesh.
+7. Distinguish hub, switch, router and modem; list the equipment for a two-block school network with justification.
+8. Explain intranet, extranet and VPN; describe how a VPN, firewall rules and digital signatures protect a remote worker.
+9. Define confidentiality, integrity and availability; give one threat and one control for each.
+10. Differentiate validation from verification; give three validation checks and two verification methods for a student-registration form.
+11. Explain CSMA/CD and CSMA/CA; classify walkie-talkies, Wi-Fi, switched Ethernet and TV broadcasting by transmission mode.
+12. Differentiate broadband from narrowband and choose the appropriate type for farm sensors and for telemedicine.
+13. Contrast serial/parallel, synchronous/asynchronous and analog/digital transmission, with a diagram for each pair.
+14. Describe UTP, coaxial, fibre, Wi-Fi, microwave and satellite; choose a medium for two buildings 300 m apart and justify.
+15. Explain buffers, interrupts, interrupt priorities, polling and handshaking, and identify the technique in three scenarios.
+16. Describe the functions of IP, TCP, UDP, HTTP, DNS and DHCP; explain how TCP achieves reliability.
+17. List the seven OSI layers with a function, a PDU and a protocol for each; map ten protocols to layers.
+18. Compute even and odd parity for two 7-bit codes; explain what parity can and cannot detect and how CRC and ARQ improve on it.
+19. Outline the history of the internet (five milestones), compare fibre, 4G and satellite connectivity, and describe six browser privacy features.
+20. Describe how an online purchase, a tax e-declaration and a blended e-learning programme operate; label the parts of a URL; write the HTML for a page with a heading, a paragraph, a list, an image, a link and a table.
+
+## Exam preparation guidance
+
+- **Structured answers:** define → explain → example → (where asked) justify a choice with criteria. Use tables for comparisons (network types, topologies, media, protocols, e-learning vs traditional).
+- **Diagrams earn marks:** topologies, signal-flow arrows for transmission modes, encapsulation/OSI ladders, waveforms, URL anatomy, e-commerce flowcharts, HTML document trees – practise drawing them quickly and labelling.
+- **Practical readiness:** be able to set up sharing between two PCs, configure a VPN client, set folder permissions, apply spreadsheet validation, run `ipconfig`/`ping`/`tracert`/`nslookup`, send an e-mail with attachments, schedule a secure video meeting, audit a website, and hand-code a valid HTML page.
+- **Local context:** anchor examples in Cameroon (MoMo/USSD, Camtel fibre, WACS/ACE landings, DHIS2, impots.cm, GCE portals, the 2010 cybercrime and 2024 data-protection laws) – examiners reward relevant, accurate contextualisation.
+- **Vocabulary bank:** keep a glossary of the term's key terms (from AI to `alt` attribute) with one-sentence definitions; revise it in pairs with quick-fire questions.
+- **Timing:** allocate marks-per-minute; answer all parts; for "evaluate/compare" questions give both sides and a reasoned conclusion.
+
+*End of First Term teaching notes – Upper Sixth ICT. Second Term content is intentionally excluded.*

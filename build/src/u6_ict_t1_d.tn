@@ -1,0 +1,789 @@
+= Module 4 — Data Transmission: Modes, Types, Media, Peripheral Control and Protocols
+**Weeks 8–10 · Lessons 27–35 (+ Evaluation and Remediation No 2)**
+**Category of action:** Differentiating modes of data transmission; identifying different transmission types; classification of transmission media; description of peripheral device control mechanisms; using common protocols in data transmission; executing different correctness-checking methods.
+**Context:** From how devices share a medium and in which direction data flows (27), through bandwidth classes (28), serial/parallel, synchronous/asynchronous and analog/digital (29), guided and unguided media (30), peripheral control (31), protocols and TCP/IP (32), the OSI model (33), an integration activity (34), Evaluation No 2, to error detection and parity (35).
+
+# Lesson 27: Modes of Data Transmission
+
+> OBJ:
+  - Explain logical topology methods (CSMA/CD, CSMA/CA).
+  - Describe different transmission modes (simplex, half-duplex, full duplex).
+  - Illustrate the direction of signal flow for a given data transmission scenario.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Everyone talk at once for 10 seconds; then use a "raise hand" rule; then two people on walkie-talkies saying "over". | Experience the ideas. |
+| Core 1 | 34 min | Logical topology vs physical; media-access methods: **CSMA/CD** (Ethernet on shared media/hubs: listen, transmit, detect collision, jam, random back-off; why switches made it obsolete), **CSMA/CA** (Wi-Fi: listen, wait DIFS + random back-off, optional RTS/CTS, ACK; hidden-node problem; why collisions cannot be detected in radio); token passing and polling as alternatives; logical bus vs logical ring. Simulation game. | Play protocol games. |
+| Core 2 | 30 min | Transmission modes: **simplex** (one direction only), **half-duplex** (both directions, one at a time), **full-duplex** (both simultaneously); examples; relation to media/devices (hub half-duplex, switch full-duplex; Wi-Fi half-duplex; fibre pairs full-duplex); bandwidth implications. | Classify devices. |
+| Core 3 | 22 min | Illustrating signal-flow direction: diagrams with arrows for scenarios (TV broadcast, keyboard→PC, walkie-talkie, phone call, video call, sensor to controller, printer status, Wi-Fi client–AP, switch port). | Draw scenarios. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 27.1 Logical topology and media-access methods
+
+> DEF:
+  The **logical topology** describes **how data actually flows and how devices gain access to the shared medium**, regardless of the physical wiring. When several devices share one medium (a coaxial bus, a hub, a Wi-Fi channel), a **media access control (MAC) method** decides who may transmit and how collisions are handled.
+
+| Method | Full name | Where used | How it works |
+| **CSMA/CD** | Carrier Sense Multiple Access with **Collision Detection** | Classic Ethernet on coaxial bus or hubs (half-duplex, logical bus); IEEE 802.3 | 1. **Carrier sense**: listen – if the medium is busy, wait. 2. **Multiple access**: if idle, transmit. 3. **Collision detection**: while sending, monitor the wire; if another signal overlaps (voltage anomaly) a **collision** occurred. 4. Send a **jam signal** so all stations notice. 5. Each colliding station waits a **random back-off** time (binary exponential back-off – doubles range after each collision) and retries. Effective when the medium is short and load is moderate; performance collapses under heavy load. **Switched full-duplex Ethernet has no collisions, so CSMA/CD is now dormant** |
+| **CSMA/CA** | Carrier Sense Multiple Access with **Collision Avoidance** | **Wi-Fi** (IEEE 802.11), some sensor networks | Radios cannot transmit and listen simultaneously on one channel, so collisions cannot be detected – they must be **avoided**: 1. Listen; if busy, wait until idle. 2. Wait an inter-frame space (**DIFS**) plus a **random back-off** counted only while idle. 3. Transmit the frame. 4. Receiver replies with an **ACK**; no ACK → assume collision/loss and retry with longer back-off. Optional **RTS/CTS** handshake (Request/Clear to Send) reserves the channel and solves the **hidden-node problem** (two clients that cannot hear each other but both reach the AP). Overheads make Wi-Fi **half-duplex** and less efficient than wired |
+| Token passing | – | Token Ring, FDDI, some industrial networks (logical ring) | A special frame (token) circulates; only the holder transmits – no collisions, deterministic delay |
+| Polling | – | Mainframe terminals, Bluetooth master–slave, some IoT | A controller asks each device in turn whether it has data |
+
+Logical vs physical examples: a hub-based **physical star** is a **logical bus** (everyone hears everything; CSMA/CD); Token Ring wired as a physical star through a MAU is a **logical ring**; a switched star is point-to-point per port (no shared medium); Wi-Fi around an AP is a physical star but a logical shared bus (CSMA/CA).
+
+### 27.2 Transmission modes
+
+> DEF:
+  The **transmission mode** (direction mode) defines the **direction(s) in which data can flow between two devices**: **simplex** – one direction only; **half-duplex** – both directions but only one at a time; **full-duplex** – both directions simultaneously.
+
+| Mode | Direction of flow | Characteristics | Examples |
+| **Simplex** | A → B only; B never sends back | Full channel capacity in one direction; no feedback/acknowledgement possible on the same link | Radio and TV broadcasting; keyboard → computer; mouse → computer; computer → monitor/projector; sensor → data logger; pager; public-address system; one-way fibre in some CCTV systems |
+| **Half-duplex** | A ↔ B, one at a time (turn-taking) | Shared channel; devices must switch between send and receive; needs a protocol for turns (CSMA, "over") | Walkie-talkies/two-way radio; **Wi-Fi** on one channel; classic Ethernet with hubs; Bluetooth (time-division); USB 2.0; RS-485 buses; citizen band radio; a single-lane bridge with signals |
+| **Full-duplex** | A ↔ B simultaneously | Two channels (separate wires/fibres, frequency or time separation); highest throughput; no turn-taking | Telephone calls (landline/mobile); **switched Ethernet** (separate transmit/receive pairs, 1 Gbps each way); fibre links (two fibres); video calls; USB 3.x; full-duplex radio with different frequencies (FDD 4G) |
+
+Device notes: a **hub** forces half-duplex; a **switch** port negotiates full-duplex (mismatch causes late collisions/slow links); **Wi-Fi 6/7** still half-duplex per channel though MU-MIMO/OFDMA serve several clients at once; mobile networks achieve full-duplex via separate uplink/downlink frequencies (FDD) or time slots (TDD).
+
+### 27.3 Illustrating signal flow for scenarios
+
+| Scenario | Mode | Diagram description (arrows) |
+| CRTV television broadcast to homes | Simplex | Transmitter → many receivers; single arrowhead |
+| Keyboard typing into a PC | Simplex | Keyboard → PC (status LEDs are a separate simplex control channel) |
+| Security guards using walkie-talkies | Half-duplex | A → B while push-to-talk; then B → A; double arrow with "one at a time" label |
+| Phone call between Yaoundé and Douala | Full-duplex | A ⇄ B simultaneous double arrows |
+| Laptop on Wi-Fi downloading while uploading | Half-duplex at the radio level | Laptop ⇄ AP with alternating slots; CSMA/CA back-off boxes |
+| PC to switch to server (Gigabit Ethernet) | Full-duplex | PC ⇄ switch ⇄ server on separate pairs |
+| Temperature sensor → irrigation controller | Simplex | Sensor → controller |
+| Controller → valve actuator | Simplex | Controller → valve |
+| Video conference | Full-duplex | Both cameras/mics streaming simultaneously |
+| Printer receiving a job and reporting "paper out" | Full- or half-duplex depending on interface (USB 2.0 half; Ethernet full) | Two arrows with interface note |
+| 20 PCs on a hub | Half-duplex, logical bus, CSMA/CD | Star drawn; all frames broadcast; collision burst illustration |
+
+> EXAMPLE:
+  **A school assembly and its network.** The principal on the PA system is **simplex** (nobody can reply through the speakers). Prefects coordinating on walkie-talkies are **half-duplex** ("over"). The ICT teacher's phone call to a supplier is **full-duplex**. In the lab, 40 PCs on a Gigabit switch are full-duplex point-to-point links; the staffroom laptops on Wi-Fi share one channel with **CSMA/CA** – which is why 30 simultaneous video streams stutter while 30 wired PCs do not.
+
+> VISUAL:
+  **Figure 27.1 – CSMA/CD flowchart** (listen → idle? → transmit → collision? → jam → random back-off → retry) and **CSMA/CA flowchart** (listen → DIFS + back-off → transmit → ACK received? → retry); a hidden-node sketch (two laptops far apart, AP in the middle) with RTS/CTS arrows. **Figure 27.2 – Three modes**: one-lane one-way road (simplex), one-lane two-way road with signals (half-duplex), two-lane road (full-duplex), each paired with a device example. **Figure 27.3 – Scenario sheet** of eight diagrams with arrowheads to complete.
+
+> MISCONCEPTION:
+  "Wi-Fi is full-duplex because I can download and upload at the same time." At the radio level frames alternate very fast – it is half-duplex; the apparent simultaneity is time sharing. "Collisions happen on switched networks." Full-duplex switched ports eliminate them; CSMA/CD only mattered on shared media.
+
+> ACTIVITY:
+  **Protocol games and diagrams (45 min).** (1) CSMA/CD game: eight learners around a "bus" (rope); message cards; a collision occurs when two speak in the same beat – both roll dice for back-off; count successful frames per minute at low vs high load. (2) CSMA/CA game: learners cannot hear those beyond two seats (hidden nodes); add RTS/CTS via a referee "AP" and compare collisions. (3) Draw signal-flow diagrams for ten scenario cards and label the mode; justify two ambiguous ones (USB, Bluetooth). (4) Lab check: read the duplex setting of a PC NIC (`Get-NetAdapter | fl` / `ethtool eth0`) and the Wi-Fi channel; explain each.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain CSMA/CD step by step and why it is no longer needed on modern switched Ethernet.
+  2. Explain CSMA/CA and why Wi-Fi uses avoidance rather than detection; what problem does RTS/CTS solve?
+  3. Distinguish logical from physical topology with the hub-star example.
+  4. Describe simplex, half-duplex and full-duplex with two examples each.
+  5. Illustrate with arrow diagrams the signal flow for: a TV broadcast; walkie-talkies; a Gigabit Ethernet link; a Wi-Fi client; a keyboard.
+  6. Why is a duplex mismatch between a PC and a switch a problem?
+  **Homework:** Find eight devices/systems at home or school, sketch their signal flow with arrows and classify the mode; note which use a shared medium and the access method.
+
+---
+
+# Lesson 28: Broadband and Narrowband Transmission
+
+> OBJ:
+  - Define broadband and narrowband transmission.
+  - Differentiate between broadband and narrowband transmissions.
+  - Identify the appropriate transmission type used in a given communication situation.
+
+## Lesson outline (1 period, 50 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 4 min | Compare a garden hose and a river; an SMS and a Netflix stream. | Discuss. |
+| Core 1 | 14 min | Definitions: bandwidth (Hz and bit/s), **narrowband** (small bandwidth, single channel/low data rate – baseband signalling often), **broadband** (wide bandwidth, high data rate, multiple channels multiplexed – FDM/OFDM); technical vs regulatory definitions (ITU/regulators: broadband ≥ 256 kbps historically, now commonly ≥ 25/3 Mbps or more); baseband vs broadband signalling (Ethernet is baseband; cable/DSL/4G are broadband). | Notes. |
+| Core 2 | 16 min | Differentiation table: bandwidth, data rate, channels, technologies, cost, applications, latency, coverage; examples: narrowband – telephone voice channel (300–3,400 Hz), dial-up 56 kbps, GSM SMS/2G GPRS, LoRaWAN/NB-IoT sensors, VHF radio, telemetry, satellite phone; broadband – ADSL/VDSL, fibre FTTH, cable, 4G/5G, Wi-Fi, satellite broadband (Starlink), leased lines. | Complete table. |
+| Core 3 | 12 min | Identifying the appropriate type for situations: video conferencing school, IoT soil sensors, emergency voice radio, rural clinic e-mail, e-learning platform, smart meter readings, CCTV streaming, MoMo USSD transaction. | Scenario matching. |
+| Conclusion | 4 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 28.1 Definitions
+
+> DEF:
+  **Bandwidth** is the capacity of a channel – the range of frequencies it can carry (Hz) or, in practice, the maximum data rate (bit/s). **Narrowband transmission** uses a **small bandwidth/low data rate**, typically **one channel** at a time, suited to voice, text and small sensor data. **Broadband transmission** uses a **wide bandwidth** carrying **large data rates and often many simultaneous channels** (voice, video, internet) by **multiplexing** (frequency-division, OFDM, wavelength-division) – suited to multimedia and internet services.
+
+Related distinction: **baseband** signalling sends one digital signal occupying the whole cable (Ethernet, USB); **broadband** signalling modulates data onto carrier frequencies so many signals share the medium (cable TV/internet, DSL, cellular, Wi-Fi). Regulatory thresholds for "broadband internet" have risen from ITU's historic 256 kbps to typical national definitions of 25–100 Mbps download.
+
+### 28.2 Differentiating broadband and narrowband
+
+| Criterion | Narrowband | Broadband |
+| **Bandwidth** | Small (e.g. 3 kHz voice; up to a few hundred kHz) | Wide (MHz to GHz) |
+| **Data rate** | Low – bit/s to a few hundred kbit/s (dial-up 56 kbps; GPRS 40–80 kbps; NB-IoT ~ 250 kbps; LoRa 0.3–50 kbps) | High – Mbit/s to Gbit/s (ADSL 8–24 Mbps; 4G 10–100 Mbps; fibre 100 Mbps–10 Gbps; 5G up to Gbps) |
+| **Channels** | Usually a single channel; one service at a time (voice OR data) | Many channels multiplexed simultaneously (voice + video + data) |
+| **Signalling** | Often baseband or simple modulation | Modulated onto carriers (FDM/OFDM/QAM), WDM on fibre |
+| **Latency/robustness** | Can be robust over long distances and noise; long range at low power (IoT radios) | Higher rates need better signal quality; range/wall penetration trade-offs |
+| **Cost & power** | Low cost, low power (batteries last years) | Higher equipment/subscription cost, more power |
+| **Typical technologies** | PSTN voice line, dial-up modem, 2G GSM/GPRS, SMS/USSD, VHF/UHF two-way radio, pagers, telemetry/SCADA links, LoRaWAN, Sigfox, NB-IoT, satellite phones, RS-232 links | ADSL/VDSL, FTTH/GPON fibre, cable (DOCSIS), 3G/4G/5G mobile broadband, Wi-Fi, WiMAX, microwave links, satellite broadband (VSAT, Starlink), leased lines/MPLS |
+| **Applications** | Voice calls, SMS/USSD (mobile money), sensor readings, alarms, GPS trackers, emergency radio, simple e-mail | Web browsing, video streaming/conferencing, cloud services, e-learning, gaming, CCTV, large file transfer, VoIP at scale |
+| **Coverage in Cameroon** | Near-universal (GSM, radio) | Growing in cities (fibre, 4G); patchy in rural areas |
+
+### 28.3 Identifying the appropriate transmission type
+
+| Communication situation | Appropriate type | Reasoning |
+| School video conferencing and e-learning platform | **Broadband** (fibre/4G ≥ 20 Mbps) | High data rate, multiple streams |
+| Soil-moisture sensors on a cocoa farm reporting hourly | **Narrowband** (LoRaWAN/NB-IoT/SMS) | Tiny data, long battery life, long range, low cost |
+| Emergency voice communication for forest rangers | **Narrowband** (VHF/UHF two-way radio, satellite phone) | Robust, wide coverage, no infrastructure |
+| Rural health centre sending weekly reports by e-mail | Narrowband acceptable (2G/GPRS/SMS-based DHIS2) ; broadband if telemedicine | Small text data; upgrade for imaging |
+| Mobile-money transaction via USSD/SMS | **Narrowband** | Works on any phone/2G; a few bytes |
+| Streaming CCTV from 16 cameras to a security room | **Broadband** (Gigabit LAN/fibre) | Continuous video |
+| Smart electricity-meter readings | **Narrowband** (NB-IoT/GPRS/PLC) | Periodic small packets |
+| City hospital PACS imaging and telemedicine | **Broadband** (fibre, leased line) | Large images, real-time video |
+| Weather station telemetry from a remote mountain | **Narrowband** (radio/satellite telemetry) | Low volume, remote |
+| Household of five streaming, gaming and working from home | **Broadband** (FTTH/4G/5G) | Multiple simultaneous high-rate services |
+
+> EXAMPLE:
+  **One cooperative, two networks.** The coffee cooperative in Dschang installs **LoRaWAN narrowband** sensors on drying beds (temperature/humidity every 15 minutes, batteries lasting 3 years, gateway 8 km away) and a **fibre broadband** line at the office for the e-commerce site, video calls with buyers in Europe and cloud accounting. Using 4G broadband modems for sensors would have cost more, drained batteries and failed where coverage is weak; using narrowband for video calls is impossible.
+
+> VISUAL:
+  **Figure 28.1 – Pipe analogy**: narrow pipe with one trickle (voice/SMS) vs wide pipe subdivided into many channels (video, voice, data) – FDM shown as coloured bands on a frequency axis. **Figure 28.2 – Data-rate scale (log)**: dial-up, GPRS, NB-IoT, 3G, ADSL, 4G, Wi-Fi, fibre, 5G positioned with icons. **Figure 28.3 – Cameroon coverage sketch**: GSM everywhere, 4G/fibre in cities, LoRa/satellite for rural sensors.
+
+> MISCONCEPTION:
+  "Narrowband is obsolete." IoT, mobile money (USSD) and emergency radio rely on it because it is cheap, robust and long-range. "Broadband means fibre only." Any wide-band, multiplexed, high-rate medium qualifies – 4G/5G, cable, satellite, Wi-Fi.
+
+> ACTIVITY:
+  **Match the channel (30 min).** (1) Measure: run a speed test on the lab connection and on a 2G/3G phone (if available); place results on the log scale. (2) Card sort: 16 technology cards into narrowband/broadband with data rate estimates. (3) Scenario clinic: for ten situations choose the type and specific technology, justify with data volume, coverage, power and cost; present two contrasting cases.
+
+## Formative assessment
+
+> ASSESS:
+  1. Define bandwidth, narrowband transmission and broadband transmission.
+  2. Differentiate broadband from narrowband on bandwidth, data rate, channels, cost and applications.
+  3. Distinguish baseband from broadband signalling with an example of each.
+  4. Give four narrowband and four broadband technologies with typical data rates.
+  5. Identify the appropriate transmission type for: farm sensors; telemedicine; USSD mobile money; a smart city CCTV network; ranger radios – justify.
+  6. Why does mobile money still use narrowband channels?
+  **Homework:** List the communication services you used this week, classify each as narrowband or broadband, estimate the data volume and identify the technology.
+
+---
+
+# Lesson 29: Types of Data Transmission
+
+> OBJ:
+  - Explain and contrast serial and parallel data transmission methods.
+  - Differentiate between synchronous and asynchronous transmission and identify their use in given situations.
+  - Illustrate and differentiate between analog and digital signals.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Pass 8 cards one by one along one line vs 8 learners each passing one card at once. | Experience serial vs parallel. |
+| Core 1 | 30 min | **Serial** (one bit at a time on one line; long distance; USB, Ethernet, SATA, RS-232, PCIe lanes, fibre) vs **parallel** (several bits simultaneously on multiple lines; short distance; old printer port, PATA/IDE, internal buses, memory); comparison (speed, cost, distance, skew/crosstalk, complexity); why modern high-speed links are serial. Bit rate vs baud. | Comparison table. |
+| Core 2 | 30 min | **Asynchronous** (each character framed by start/stop bits, no shared clock, idle gaps; keyboards, RS-232, UART/Arduino serial, modems) vs **synchronous** (continuous blocks/frames timed by a shared or embedded clock, sync bits/preamble; Ethernet, USB, HDLC, SONET, bus transfers); efficiency calculations (10 bits per 8-bit char = 80 %); situations. | Efficiency calculation; scenario matching. |
+| Core 3 | 27 min | **Analog** (continuous, infinite values; sine wave – amplitude, frequency, phase; sound, voltage from a microphone, AM/FM radio, old telephone) vs **digital** (discrete states, usually binary square wave; noise immunity, regeneration, compression, encryption, storage); conversion (ADC – sampling rate, resolution; DAC), modems (modulation ASK/FSK/PSK/QAM); illustrate waveforms; where each is used today. | Draw waveforms; label. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 29.1 Serial versus parallel transmission
+
+> DEF:
+  In **serial transmission** the bits of a byte are sent **one after another over a single channel** (one wire pair or fibre). In **parallel transmission** **several bits (e.g. 8, 16, 32) are sent simultaneously over separate lines**, one bit per line, plus control lines.
+
+| Criterion | Serial | Parallel |
+| Lines/channels | One data line (plus ground/pair) per direction | Multiple data lines (8/16/32/64) + control |
+| Bits per clock | 1 per line (modern links use several lanes – each still serial) | Many at once |
+| Distance | **Long** (metres to kilometres – fibre, Ethernet 100 m, RS-232 15 m) | **Short** (centimetres to a few metres) – **clock skew** (bits arriving at different times) and **crosstalk** between lines worsen with length and speed |
+| Cost & cabling | Cheaper, thinner cables, fewer pins | Expensive, thick multi-core cables, big connectors |
+| Speed today | Very high – Gbps per lane (USB 3/4, SATA 6 Gbps, PCIe lanes, 10/100 G Ethernet, fibre Tbps) | Historically faster at low clock rates; now limited by skew; used inside chips/short buses (RAM) |
+| Complexity | Needs serialisation/deserialisation (SerDes), framing | Simpler logic but timing alignment hard at speed |
+| Examples | **USB**, **Ethernet**, SATA, PCIe, RS-232/RS-485, HDMI/DisplayPort (serial lanes), fibre optics, Bluetooth/Wi-Fi/cellular (all serial), SPI/I²C/UART on Arduino | Old **Centronics printer port** (LPT), **PATA/IDE** ribbon cables, ISA/PCI buses, memory buses (DDR – 64-bit), internal CPU buses, GPIO banks |
+| Trend | Dominant for all external and most internal high-speed links | Confined to very short, on-board paths |
+
+Bit rate (bits/s) vs baud rate (symbols/s): with multi-level modulation one symbol carries several bits (QAM-256 → 8 bits per symbol).
+
+### 29.2 Synchronous versus asynchronous transmission
+
+> DEF:
+  **Asynchronous transmission** sends data **one character (byte) at a time**, each framed by a **start bit** and one or more **stop bits** (optionally a parity bit); sender and receiver keep separate clocks resynchronised by each start bit; gaps of any length may occur between characters. **Synchronous transmission** sends **large blocks/frames of bits continuously**, with sender and receiver **synchronised by a shared or embedded clock** (preamble/sync bytes at the frame start); no start/stop bits per character.
+
+| Criterion | Asynchronous | Synchronous |
+| Timing | Independent clocks; start bit resynchronises each character | Common/embedded clock; continuous stream during a frame |
+| Framing | Start bit + 7–8 data bits + optional parity + 1–2 stop bits per character | Preamble/sync flag + header + long data block + trailer (CRC) |
+| Overhead / efficiency | High overhead – e.g. 8 data bits in a 10-bit frame → **80 %** efficient (lower with parity + 2 stop bits) | Low overhead – 1,500-byte Ethernet payload with ~26 bytes framing → ~98 % |
+| Speed | Low to moderate (300 bps–a few Mbps) | High (Mbps to Gbps) |
+| Cost/complexity | Simple, cheap hardware (UART) | More complex (clock recovery, buffering) |
+| Error handling | Per character (parity) | Per block (CRC) – more powerful |
+| Suits | **Irregular, bursty, low-volume data** – keyboard/mouse input, terminal sessions, modem links, microcontroller debug (Arduino Serial 9600 8N1), GPS NMEA output, barcode scanners | **Continuous, high-volume data** – LAN/WAN links (Ethernet, SONET/SDH, HDLC/PPP), USB, disk transfers, video streams, memory-to-CPU transfers |
+
+| Situation | Choice | Reason |
+| Typing on a keyboard/terminal | Asynchronous | Unpredictable timing, one character at a time |
+| Downloading a 2 GB film over Ethernet | Synchronous | Large continuous blocks, efficiency |
+| Arduino sending sensor values to a PC over USB-serial | Asynchronous (UART 9600 8N1) | Simple, low rate |
+| Bank's leased line between data centres | Synchronous (SDH/PPP) | Constant high throughput |
+| Old dial-up modem sending text | Asynchronous | Character framing |
+| Streaming video from a camera over USB 3 | Synchronous (isochronous) | Steady stream |
+
+### 29.3 Analog and digital signals
+
+> DEF:
+  An **analog signal** is **continuous** in time and amplitude – it can take any value within a range and varies smoothly (a sine wave), e.g. sound pressure, a microphone's voltage, AM/FM radio waves. A **digital signal** is **discrete** – it takes a limited number of distinct levels (usually two: 0 and 1) and changes in steps (a square wave); computers process and store data digitally.
+
+| Criterion | Analog | Digital |
+| Values | Infinite, continuous | Finite, discrete (binary) |
+| Waveform | Smooth (sine); parameters **amplitude, frequency, phase** | Square/pulse; levels (0 V/5 V), bit duration |
+| Noise | Noise adds permanently and accumulates with each amplification | Regenerated at each repeater – noise below threshold is removed; error detection/correction possible |
+| Processing | Analog circuits (amplifiers, filters) | Computers: compression, encryption, storage, copying without loss |
+| Bandwidth use | Efficient for simple signals; limited multiplexing | Needs more bandwidth per channel raw, but compression and TDM recover it |
+| Examples | Human voice, vinyl records, cassette tapes, analog TV/radio, thermometer with mercury, old landline local loop, analog CCTV | Computer data, digital TV (DVB), CDs/MP3, mobile networks (2G onward), VoIP, fibre links, digital cameras |
+| Conversion | **ADC** (analog → digital): **sampling** at a rate ≥ 2 × highest frequency (Nyquist; CD 44.1 kHz), **quantisation** with n-bit resolution (16-bit = 65,536 levels), encoding | **DAC** (digital → analog) for speakers/screens; **modems** modulate digital data onto analog carriers (ASK/FSK/PSK/QAM) for phone lines, radio, cable |
+| Illustration | Draw a sine wave; mark one cycle (period), amplitude; a "noisy" wavy copy | Draw a square wave for 1 0 1 1 0 0 1; mark bit duration; show a noisy square wave still read correctly |
+
+Everyday chain: your voice (analog) → phone microphone → ADC → digital 4G packets → DAC in the listener's phone → speaker (analog). Sensors (temperature, light) are analog and enter Arduino/PLC through ADC pins; Wi-Fi/4G radio waves are analog carriers modulated with digital data.
+
+> EXAMPLE:
+  **Inside a Douala radio station.** Presenter's voice is **analog** into the microphone; the mixer's ADC digitises it (48 kHz, 24-bit); the studio PC stores and streams it **digitally** over a **serial**, **synchronous** Ethernet link to the transmitter site; the FM transmitter modulates the audio onto an **analog** carrier heard on car radios; the station's web stream reaches phones as digital packets over 4G, then a DAC and headphones make it analog again. Meanwhile the old studio clock still talks to the PC by **asynchronous** RS-232.
+
+> VISUAL:
+  **Figure 29.1 – Serial vs parallel**: one lane with bits in a row vs eight lanes with a byte across, showing skew on the long parallel cable. **Figure 29.2 – Asynchronous character frame** (start, 8 data, parity, stop) vs **synchronous frame** (preamble, header, long payload, CRC), with efficiency figures. **Figure 29.3 – Waveforms**: analog sine (amplitude/frequency/phase labelled) and digital square wave for a bit pattern; noise added to both showing regeneration of the digital one; an ADC staircase (sampling/quantisation).
+
+> MISCONCEPTION:
+  "Parallel is always faster than serial." At high frequencies skew and crosstalk cripple parallel links; serial lanes at Gbps win. "Digital signals are not affected by noise." They are, but as long as noise stays below the decision threshold the bits are recovered exactly; beyond that, errors occur (hence Lesson 35).
+
+> ACTIVITY:
+  **Signals lab (45 min).** (1) Human transmission: send "ICT" in ASCII serially (one learner, bit by bit) and in parallel (8 learners) – time it and introduce "skew" by delaying one learner. (2) Frame it: encode "OK" asynchronously (8N1) and compute efficiency; then as one synchronous frame with a 2-byte header/trailer. (3) Waveforms: with a free oscilloscope/audio app (or graph paper) draw the microphone waveform for a whistle (analog) and the square wave of a serial byte; sketch sampling at two rates. (4) Identify the transmission type (serial/parallel, sync/async, analog/digital) for eight interfaces in the lab (USB, HDMI, Ethernet, old LPT, audio jack, Wi-Fi, SATA, Arduino serial).
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain and contrast serial and parallel transmission; why are modern high-speed links serial?
+  2. Give three examples of each and state a typical distance limit.
+  3. Differentiate synchronous and asynchronous transmission; draw the frame of each.
+  4. Compute the efficiency of asynchronous transmission using 8 data bits, 1 parity and 2 stop bits.
+  5. Identify the transmission type for: a keyboard; an Ethernet download; an Arduino serial monitor; a leased line.
+  6. Illustrate analog and digital signals with labelled waveforms and differentiate them on values, noise and processing; explain ADC sampling and quantisation.
+  **Homework:** Draw an annotated diagram of a phone call between two mobile phones showing every analog/digital conversion and identifying serial/synchronous links along the path.
+
+---
+
+# Lesson 30: Transmission Media (Guided and Unguided)
+
+> OBJ:
+  - Describe guided (wired) transmission media (e.g., copper wire, coaxial cable, optical fibre…).
+  - Describe unguided (wireless) transmission media (e.g., Bluetooth, microwave, Wi-Fi…).
+  - Choose an appropriate transmission medium for a given context.
+
+## Lesson outline (2 periods, 100 min – samples of cables)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Pass round UTP, coaxial, fibre patch cord; show a Wi-Fi AP, Bluetooth speaker, satellite dish photo. | Handle; guess speeds. |
+| Core 1 | 35 min | **Guided media**: twisted pair (UTP/STP; categories 5e/6/6a/7/8; RJ-45; 100 m; 1–40 Gbps; cost; noise), coaxial (RG-6/RG-59; cable TV/internet, CCTV, antennas; shielding), **optical fibre** (single-mode vs multi-mode; total internal reflection; km distances; Tbps; immune to EMI; fragile/cost; connectors SC/LC; submarine cables landing in Cameroon), also power-line and legacy telephone line (DSL). Construction, how signals travel, advantages/disadvantages. | Media fact cards. |
+| Core 2 | 30 min | **Unguided media** (electromagnetic waves through air/space): radio waves (**Wi-Fi** 2.4/5/6 GHz standards 802.11n/ac/ax/be, **Bluetooth** 2.4 GHz classes, cellular 2G–5G, LoRa, AM/FM), **microwave** (terrestrial point-to-point links, line of sight, 1–40 GHz; satellite GEO/MEO/LEO – VSAT, Starlink), infrared (remote controls, IrDA), NFC/RFID; frequency vs range/penetration; licensing (ART). | Spectrum diagram. |
+| Core 3 | 22 min | Choosing a medium: criteria (distance, bandwidth, cost, interference/EMI, security, mobility, installation constraints, environment, scalability); decision table; scenarios (lab desks, two buildings 300 m apart, village 40 km from fibre, ISP backbone, mobile clinic, IoT sensors, hospital MRI room). | Scenario decisions. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 30.1 Guided (wired) transmission media
+
+> DEF:
+  **Guided media** confine signals to a **physical path** (copper conductor or glass/plastic fibre). **Unguided media** transmit **electromagnetic waves through air or space** without a physical conductor (radio, microwave, infrared, light).
+
+| Medium | Construction & signal | Standards / speeds | Max distance | Advantages | Disadvantages | Uses |
+| **Twisted-pair copper (UTP/STP)** | 4 pairs of insulated copper wires twisted to cancel interference; **UTP** unshielded, **STP/FTP** with foil/braid; electrical signals; RJ-45 connectors | Cat 5e (1 Gbps), **Cat 6** (1 Gbps/10 Gbps to 55 m), Cat 6a (10 Gbps), Cat 7/8 (25–40 Gbps short); telephone Cat 3 | **100 m** per segment (90 m + patch cords) | Cheap, easy to install/terminate, flexible, ubiquitous, supports PoE | Limited distance, susceptible to EMI/crosstalk (UTP), can be tapped, lower bandwidth than fibre | LAN desks, patch panels, phones, PoE cameras/APs, DSL local loop |
+| **Coaxial cable** | Central copper conductor, dielectric insulator, braided/foil **shield**, outer jacket; signal between core and shield | RG-59 (CCTV), RG-6 (TV/cable internet – DOCSIS 3.1 up to 10 Gbps shared), 10BASE2/5 legacy Ethernet | 100s of metres (185–500 m Ethernet legacy; km for CATV with amplifiers) | Good shielding against EMI, higher bandwidth than UTP, durable | Bulky, harder to install, expensive per metre vs UTP, single core (shared bus historically) | Cable TV/internet, satellite dish feeds, CCTV, antenna links, some broadband distribution |
+| **Optical fibre** | Glass (or plastic) core + cladding + buffer/jacket; **light pulses** (laser/LED) guided by **total internal reflection**; **single-mode** (9 µm core, laser, long distance) vs **multi-mode** (50/62.5 µm, LED/VCSEL, shorter); connectors SC, LC, ST | 1–100 Gbps per wavelength; **WDM** → Tbps; 1000BASE-LX/SX, 10GBASE-LR/SR | Multi-mode 300–550 m (10 G); **single-mode 10–80 km** without repeater; submarine thousands of km with amplifiers | **Huge bandwidth**, **immune to EMI** and lightning-induced currents, very low attenuation, secure (hard to tap), light and thin | Higher cost of equipment/splicing, fragile (bend radius), skilled installation, cannot carry power | Backbones between buildings/floors, MAN/WAN, ISP and submarine cables (SAT-3/WACS at Douala, ACE at Kribi, SAIL Kribi–Fortaleza), FTTH (Camtel Blue), data centres, hospital imaging |
+| Power-line (PLC/HomePlug) | Data over electrical wiring | 200 Mbps–2 Gbps nominal | Within a building | No new cabling | Noise, variable | Homes |
+| Telephone line (DSL) | Existing copper pair | ADSL 24 Mbps, VDSL 100 Mbps | 1–5 km from exchange | Reuses lines | Distance-dependent | Legacy broadband |
+
+### 30.2 Unguided (wireless) transmission media
+
+| Medium | Frequency / range | Standards / speeds | Characteristics | Uses |
+| **Radio – Wi-Fi (WLAN)** | 2.4 GHz (longer range, more interference, 3 non-overlapping channels), 5 GHz (faster, shorter), 6 GHz (Wi-Fi 6E/7); indoor 20–50 m, outdoor 100 m+ | 802.11n (Wi-Fi 4, 600 Mbps), **802.11ac** (Wi-Fi 5, Gbps), **802.11ax** (Wi-Fi 6/6E, 9.6 Gbps), 802.11be (Wi-Fi 7) | Licence-free, shared half-duplex medium (CSMA/CA), walls attenuate, security via WPA2/WPA3 | Homes, offices, schools, hotspots |
+| **Radio – Bluetooth (WPAN)** | 2.4 GHz; Class 1 ≈ 100 m, Class 2 ≈ 10 m; BLE for low power | Bluetooth 5.x: 2 Mbps (BLE), up to 3 Mbps classic | Low power, frequency hopping (Hedy Lamarr's idea), pairing security | Headsets, wearables, keyboards, file transfer, IoT beacons |
+| **Radio – cellular (2G–5G)** | 700 MHz–3.5 GHz (5G mmWave 26 GHz+); cell radius 1–30 km | 2G GPRS/EDGE (kbps), 3G (Mbps), **4G LTE** (10–100+ Mbps), **5G** (100 Mbps–Gbps, low latency) | Licensed spectrum (MTN, Orange, Camtel via ART), mobility, wide coverage | Mobile broadband, MoMo, IoT (NB-IoT/LTE-M) |
+| **Radio – LPWAN (LoRa, Sigfox, NB-IoT)** | Sub-GHz (868 MHz); 2–15 km | 0.3–50 kbps | Very low power, long range, tiny data | Agriculture, metering, tracking |
+| **Radio – broadcast & two-way** | AM/FM/VHF/UHF | Analog/digital audio; DVB-T2 TV | Wide coverage | Radio/TV, ranger/police radios |
+| **Microwave – terrestrial** | 1–40 GHz; **line of sight** between towers/dishes, 30–50 km per hop | 100 Mbps–10 Gbps per link | Fast to deploy vs fibre trenching, affected by rain (higher bands), obstacles, needs masts; licensed bands (or 5 GHz/60 GHz licence-free) | Linking buildings/towns, mobile-tower backhaul, ISP links in hilly regions (West, North-West) |
+| **Microwave – satellite** | C/Ku/Ka bands 4–30 GHz; **GEO** 36,000 km (latency ~600 ms), **MEO**, **LEO** (Starlink ~550 km, latency 20–50 ms) | VSAT 1–50 Mbps; LEO 50–200+ Mbps | Coverage anywhere (rural, sea, disaster), expensive per Mbps, rain fade, dish alignment | Rural connectivity, banks/ATMs in remote areas, broadcasting, backup links, GPS (one-way) |
+| **Infrared** | 300 GHz–400 THz light; line of sight, few metres | IrDA up to 4–16 Mbps (legacy) | Cannot pass walls (secure, no interference), cheap | Remote controls, some sensors, short links |
+| **NFC / RFID** | 13.56 MHz (NFC, < 10 cm); RFID LF/HF/UHF up to ~10 m | kbps | Very short range, contactless | Payments, ID cards, attendance, inventory |
+| **Free-space optics / Li-Fi** | Visible/IR light beams | Gbps | Line of sight, weather sensitive | Building links, research |
+
+General rule: **lower frequencies travel further and penetrate walls better but carry less data; higher frequencies carry more data but need line of sight and are absorbed by rain, walls and foliage.**
+
+### 30.3 Choosing an appropriate medium
+
+| Criterion | Ask | Favours |
+| **Distance** | Metres, hundreds of metres, kilometres? | UTP ≤ 100 m; fibre/microwave for longer; satellite for anywhere |
+| **Bandwidth needed** | Mbps or Gbps? growth? | Fibre > UTP Cat 6 > Wi-Fi > cellular > LPWAN |
+| **Cost** | Budget for materials, installation, subscriptions | UTP cheapest per port; wireless avoids trenching; satellite highest per Mbps |
+| **Interference / environment** | Motors, lightning, MRI, rain, dust, hills | Fibre immune to EMI; STP in noisy plants; microwave suffers rain; Wi-Fi 2.4 GHz crowded |
+| **Security** | Sensitive data? | Fibre hardest to tap; wired better than wireless; wireless needs strong encryption |
+| **Mobility** | Do users move? | Wi-Fi, cellular, Bluetooth |
+| **Installation constraints** | Can we dig/trunk? heritage building? rivers/roads to cross? | Wireless bridges, microwave; PLC |
+| **Reliability & availability** | Uptime needs; power at repeaters | Fibre very reliable; wireless weather-dependent; dual media for redundancy |
+| **Scalability** | Future upgrades | Fibre (upgrade optics not cable), Cat 6a |
+| **Regulation** | Licensed spectrum? | Licence-free Wi-Fi/5 GHz vs ART-licensed microwave/cellular |
+
+| Context | Recommended medium | Justification |
+| Desks in a computer lab | **UTP Cat 6** to a switch | Short runs, cheap, Gigabit, PoE |
+| Staffroom and library mobile devices | **Wi-Fi 6** APs | Mobility; wired backhaul |
+| Two school blocks 300 m apart | **Single-mode fibre** (or 5 GHz point-to-point bridge if trenching impossible) | > 100 m, lightning isolation, future bandwidth |
+| Village clinic 40 km from the nearest fibre, hilly | **Microwave link** if line of sight; else **LEO satellite (Starlink)** or 4G | Distance, terrain, cost |
+| ISP backbone Douala–Yaoundé | **Fibre** | Tbps capacity, reliability |
+| Wireless headset for a receptionist | **Bluetooth** | Personal range, low power |
+| Cocoa-farm sensors over 10 km | **LoRaWAN** | Long range, low power, tiny data |
+| Hospital MRI room and factory floor with heavy motors | **Fibre** (or STP for short runs) | EMI immunity |
+| Mobile-money agent in a market | **Cellular 3G/4G** | Mobility, coverage |
+| Home in an old rented house (no drilling allowed) | **Wi-Fi mesh** or **power-line** adapters | No cabling |
+| Bank ATM in a remote town | **VSAT** with 4G backup | Coverage and redundancy |
+
+> EXAMPLE:
+  **Connecting Lycée de Mbouda's new science block (250 m across a road).** Options: UTP – impossible (> 100 m, road); coaxial – legacy, no; **single-mode fibre in a duct under the road** – 1 Gbps now, 10 Gbps later, lightning-safe, but trenching permit and splicing needed (≈ 600,000 XAF); **5 GHz wireless bridge** – installed in a day for 150,000 XAF, 300–800 Mbps, but rain/interference risk and half-duplex; **microwave licensed link** – overkill. Decision: wireless bridge now (budget, speed of deployment), fibre when the road is next dug – with the bridge kept as backup. The criteria table, not fashion, drove the choice.
+
+> VISUAL:
+  **Figure 30.1 – Cable cross-sections**: UTP (4 twisted pairs, RJ-45 pinout), coaxial (core, dielectric, shield, jacket), fibre (core, cladding, buffer; light zig-zagging by total internal reflection; single vs multi-mode). **Figure 30.2 – Electromagnetic spectrum band** from radio (AM/FM, LoRa, cellular, Wi-Fi, Bluetooth) through microwave (terrestrial, satellite) to infrared/visible light, annotated with range vs data-rate trend. **Figure 30.3 – Media decision matrix** (contexts × criteria) and a campus map showing UTP in buildings, fibre between blocks, wireless bridge to the annex, Wi-Fi zones, and a satellite/4G backup.
+
+> MISCONCEPTION:
+  "Fibre is fragile so unreliable." Properly installed fibre is the most reliable medium; only careless bending or digging harms it. "Wireless is slower than cable in all cases." Modern microwave/Wi-Fi 6 can exceed old Cat 5e; but shared, half-duplex and weather-affected wireless is less predictable than fibre/UTP.
+
+> ACTIVITY:
+  **Media lab and decision workshop (50 min).** (1) Identify and describe five media samples (construction, connector, speed, distance); terminate a UTP cable with T568B and test it (if tools available). (2) Wi-Fi survey: use a phone analyser app to record signal strength and channels in three locations; explain 2.4 vs 5 GHz findings. (3) Scenario decisions: for eight contexts choose and justify the medium with the criteria table; include cost estimates from a price list. (4) Map the media used from a lab PC to a website: UTP → fibre backbone → ISP fibre → submarine cable → … and note where wireless might replace each hop.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe UTP, coaxial cable and optical fibre (construction, speed, distance, advantages, disadvantages, uses).
+  2. Distinguish single-mode from multi-mode fibre and explain total internal reflection.
+  3. Describe Wi-Fi, Bluetooth, cellular, terrestrial microwave and satellite as unguided media, with frequency, range and uses.
+  4. Why do higher frequencies carry more data but travel less far? Give two consequences for network design.
+  5. Choose and justify a medium for: lab desks; two buildings 400 m apart; a village 50 km from fibre; sensors on a plantation; an MRI room.
+  6. State five criteria for choosing a transmission medium.
+  **Homework:** Produce a poster (A4) of guided vs unguided media with a labelled diagram of each medium and a "when to use" box; add one Cameroonian example per medium (e.g. WACS cable at Limbe, Camtel FTTH, MTN 4G, ranger VHF).
+
+---
+
+# Lesson 31: Peripheral Device Control Mechanisms
+
+> OBJ:
+  - Explain the meaning and role of buffers, interrupts, interrupt priorities, polling and handshaking in controlling peripheral devices.
+  - Differentiate between the various techniques used to control communication between the computer and peripheral devices.
+  - Determine the technique used to control a device in a given network scenario.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Why can you keep typing while a document prints and a download continues? Why does a 3 GHz CPU not wait for a 30-page-per-minute printer? | Hypothesise. |
+| Core 1 | 40 min | The speed gap between CPU and peripherals; **buffers** (temporary memory holding data between devices of different speeds – printer buffer, keyboard buffer, network card ring buffers, video streaming buffer, spooling; double buffering), **interrupts** (signal from device to CPU requesting attention; interrupt handler/ISR; saving state; IRQ lines; hardware vs software interrupts), **interrupt priorities** (which interrupt is served first – power failure > clock > disk > network > keyboard > printer; nested interrupts, masking), **polling** (CPU repeatedly checks device status – simple but wastes CPU time; used for very fast or simple devices, USB host polling, some sensors), **handshaking** (exchange of control signals to agree readiness – RTS/CTS, ACK/NAK, XON/XOFF; hardware and software flow control; TCP three-way handshake as network handshaking), DMA as a related mechanism. | Concept map. |
+| Core 2 | 30 min | Differentiating techniques: interrupt-driven vs polling (CPU efficiency, latency, complexity, suitability), buffering vs handshaking (data staging vs readiness signalling), software vs hardware flow control, programmed I/O vs DMA; comparison table; typical device–technique pairing. | Comparison table. |
+| Core 3 | 17 min | Determining the technique in network scenarios: printer on the LAN with print spooler (buffer + handshaking), NIC receiving frames (interrupts + ring buffer, interrupt coalescing), Wi-Fi RTS/CTS (handshaking), TCP connection set-up (handshake) and flow control (window = buffer), USB webcam (host polling), keyboard (interrupt), UPS signalling power loss (high-priority interrupt), streaming video (buffer), sensor network gateway polling nodes. | Scenario worksheet. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 31.1 Mechanisms for controlling peripheral devices
+
+> KEY:
+  Peripherals (keyboard, printer, disk, network card, camera) are **much slower than the CPU** and operate **asynchronously**. Control mechanisms let the CPU and devices cooperate efficiently: **buffers** absorb speed differences, **interrupts** let devices call the CPU only when needed, **interrupt priorities** decide urgency, **polling** lets the CPU check devices on a schedule, and **handshaking** lets devices agree they are ready before data flows.
+
+| Mechanism | Meaning | Role | Examples |
+| **Buffer** | A **temporary storage area** (in RAM or on the device) that holds data while it is transferred between two devices or processes working at **different speeds** or times | Smooths speed mismatch; lets the CPU dump data and continue; handles bursts; enables **spooling** (jobs queued on disk for a printer); **double buffering** lets one buffer fill while the other empties (video, graphics) | **Printer buffer** (document stored so the PC is free while pages print), **keyboard buffer** (keystrokes typed faster than processed), **NIC receive/transmit ring buffers**, disk cache, **video-streaming buffer** (a few seconds ahead to survive network jitter), sound-card buffer, TCP send/receive windows |
+| **Interrupt** | A **signal sent by a device (or software) to the CPU** indicating it needs attention – data ready, operation complete, error | CPU **suspends** the current program, **saves its state**, runs the **interrupt service routine (ISR/handler)** for that device, then **restores** and resumes; avoids the CPU waiting idly; supports multitasking | Keyboard key press, mouse movement, **NIC "frame received"**, disk "transfer complete", timer/clock tick, printer "out of paper", UPS "power failure", **software interrupts/system calls**, exceptions (divide by zero) |
+| **Interrupt priorities** | Each interrupt source has a **priority level**; when several arrive together, or a new one arrives during a handler, the **highest priority is served first**; lower ones wait (or higher ones **nest**/pre-empt); some can be **masked** temporarily | Ensures critical events (power failure, hardware faults) are never delayed by trivial ones (printer ready) | Typical order: power failure/hardware error > system clock/timer > disk/DMA > network > keyboard/mouse > printer > low-priority devices; managed by the **interrupt controller (PIC/APIC)** and OS |
+| **Polling** | The CPU (or controller) **periodically checks the status register of a device** ("Do you have data? Are you ready?") in a loop or at intervals | Simple hardware, predictable timing; but **wastes CPU cycles** when nothing is ready and adds latency between polls; best for very fast/simple devices or when interrupt rates would be overwhelming | **USB host polling** of devices (mouse polled every 1–8 ms), simple microcontroller sensor loops (Arduino `digitalRead` in `loop()`), SNMP monitoring polling switches, gateways polling sensor nodes, legacy parallel port status |
+| **Handshaking** | An **exchange of control signals** between sender and receiver to **establish readiness, synchronise and confirm** transfer ("Ready to send?" – "Clear to send" – data – "Acknowledged") | Prevents data loss/overflow (**flow control**), confirms link parameters, detects errors (ACK/NAK) | Hardware: **RTS/CTS** and DTR/DSR lines on serial ports; **STROBE/BUSY/ACK** lines on the old printer port; software: **XON/XOFF** characters; network: **TCP three-way handshake** (SYN, SYN-ACK, ACK), **Wi-Fi RTS/CTS**, TLS handshake, Bluetooth pairing, HDMI/USB negotiation of capabilities |
+| Related: **DMA** (Direct Memory Access) | A DMA controller transfers data between a device and memory **without the CPU** moving each byte; the CPU is interrupted only when the block is complete | High-speed disk, network and graphics transfers | NIC/SSD transfers |
+| Related: **Device driver & I/O controller** | Software/hardware that implements these mechanisms for a specific device | Abstraction for the OS | Printer driver, NIC driver |
+
+### 31.2 Differentiating the techniques
+
+| Comparison | Distinction |
+| **Interrupt-driven I/O vs polling** | Interrupt: device initiates, CPU free until needed – **efficient**, low latency, more complex hardware/software (handlers, priorities). Polling: CPU initiates checks – **simple, deterministic**, but wastes CPU when idle and delays response to the polling interval; can be preferable when events are extremely frequent (interrupt storms → "interrupt coalescing"/NAPI switch NICs to polling under load) |
+| **Buffering vs handshaking** | Buffering **stores data** to bridge speed differences; handshaking **exchanges control signals** to agree when to send. They combine: handshaking (flow control) stops the sender when the buffer is nearly full |
+| **Hardware vs software handshaking/flow control** | Hardware uses dedicated wires (RTS/CTS) – fast, reliable; software uses in-band characters (XON/XOFF) – works over any link but can be confused by binary data |
+| **Interrupt priority vs first-come** | Priorities ensure critical devices pre-empt; without priorities a slow printer could delay a power-failure warning |
+| **Programmed I/O vs DMA** | Programmed I/O: CPU copies every word (with interrupts or polling); DMA: controller copies blocks, CPU interrupted once |
+| **Spooling vs simple buffering** | Spooling queues whole jobs on disk for a shared slow device (printer) – multiple users; buffering is generally smaller and transient |
+
+| Device / situation | Dominant technique(s) | Why |
+| Keyboard, mouse (PS/2) | Interrupt | Rare, unpredictable events |
+| Mouse/keyboard on USB | Host **polling** (1–8 ms) | USB design – host-controlled bus |
+| Printer | **Buffer/spooler** + **handshaking** (BUSY/ACK or network flow control) + low-priority interrupt | Very slow device; many users |
+| Network interface card | **Interrupts** (frame arrival) with **ring buffers**, DMA; polling mode under heavy load | Bursty high-speed traffic |
+| Hard disk/SSD | Interrupt on completion + DMA + cache buffer | Block transfers |
+| Video streaming | **Buffer** (seconds ahead) | Jitter tolerance |
+| UPS power-loss signal | **High-priority interrupt** | Must pre-empt everything to save state |
+| Serial sensor/modem | Handshaking (RTS/CTS or XON/XOFF) + buffer | Slow link flow control |
+| Arduino reading a button | Polling in loop (or `attachInterrupt` for immediate response) | Simplicity vs responsiveness |
+
+### 31.3 Determining the technique in network scenarios
+
+| Scenario | Technique(s) | Explanation |
+| Twenty learners send documents to the lab's network printer at once; PCs stay usable | **Spooling/buffering** on the print server; **handshaking** (printer signals busy/ready; TCP flow control) | Jobs queued on disk; printer pulls data at its pace |
+| A file server's NIC receives thousands of frames per second | **Interrupts** with **ring buffers** and **DMA**; **interrupt coalescing/polling** under load | Efficient handling of bursts without an interrupt per frame |
+| Two laptops far apart on the same Wi-Fi keep colliding until the AP enables RTS/CTS | **Handshaking** (RTS/CTS) | Channel reserved before data |
+| A browser connects to a website: SYN, SYN-ACK, ACK, then data flows with window sizes advertised | **Handshaking** (TCP three-way) + **buffering/flow control** (receive window) | Connection set-up and speed matching |
+| A YouTube video plays smoothly despite 4G fluctuations | **Buffer** | Pre-loaded seconds absorb jitter |
+| The monitoring server checks every switch's status every 60 s via SNMP | **Polling** | Regular status checks; devices do not initiate |
+| An SNMP switch sends a "port down" trap immediately | **Interrupt-like event notification** (trap) | Device-initiated alert – interrupt model |
+| Power fails; the UPS signals the server via USB and a clean shutdown starts, pausing backups | **High-priority interrupt** | Critical event pre-empts lower tasks |
+| A USB webcam in a video call | **Host polling** with **isochronous buffers** | USB host schedules transfers |
+| Gateway collects data from 50 LoRa sensors by asking each in turn | **Polling** | Master–slave |
+| A serial barcode scanner tells the PC to pause because its buffer is full | **Handshaking / flow control** (XOFF or CTS low) + **buffer** | Prevents overflow |
+
+> EXAMPLE:
+  **One print job, five mechanisms.** A teacher clicks Print on a 40-page PDF. The document is rendered and written to the **spool buffer** on the print server (the teacher continues working). The server opens a TCP connection to the printer – a **handshake** (SYN/SYN-ACK/ACK) – and sends data while the printer advertises how much its **buffer** can accept (flow control). When paper runs out, the printer sends a status message; on the server this arrives as a NIC **interrupt** whose priority is below the disk and clock interrupts but is still serviced within microseconds; the spooler pauses the job. Meanwhile the server's monitoring agent **polls** the printer every 30 s for toner level.
+
+> VISUAL:
+  **Figure 31.1 – Speed-gap timeline**: CPU nanoseconds vs printer seconds, with a buffer drawn as a reservoir between a fast tap and a slow drain. **Figure 31.2 – Interrupt cycle**: running program → interrupt signal → save state → ISR → restore → resume, with a priority stack showing a network interrupt pre-empted by a power-failure interrupt. **Figure 31.3 – Polling loop vs interrupt** side by side (CPU busy-wait circle vs CPU free with a doorbell). **Figure 31.4 – Handshaking sequences**: RTS/CTS timing, XON/XOFF, TCP three-way handshake arrows.
+
+> MISCONCEPTION:
+  "Buffers make transfers faster." They do not speed up the slow device – they free the fast one and smooth bursts. "Polling is always inefficient." For very high event rates or trivially simple systems, polling can be more efficient and predictable than storms of interrupts.
+
+> ACTIVITY:
+  **Mechanism detectives (45 min).** (1) Role-play: one "CPU" and five "devices"; run a polling round then an interrupt round with priority cards – count wasted CPU turns and measure response time for a "power failure" event. (2) Lab observation: print a large document and watch the spooler queue (Windows print queue / CUPS); open Task Manager/`cat /proc/interrupts` to see interrupt counts rising while moving the mouse and during a download; capture a TCP handshake in Wireshark; view the streaming buffer in a video player's stats. (3) Scenario worksheet: determine the technique(s) for twelve network/device scenarios and justify. (4) Arduino (if available): compare a button read by polling in `loop()` vs `attachInterrupt()`.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain the meaning and role of buffers, interrupts, interrupt priorities, polling and handshaking, each with an example.
+  2. Describe what the CPU does when an interrupt arrives; why are priorities necessary?
+  3. Differentiate interrupt-driven I/O from polling on CPU efficiency, latency, complexity and suitability; give a case where polling is better.
+  4. Distinguish buffering from handshaking and explain how they cooperate in flow control.
+  5. Determine the technique used: a network printer queue; a NIC under heavy traffic; a UPS power-loss signal; SNMP monitoring; TCP connection set-up; a video stream.
+  6. What is spooling and why is it used for shared printers?
+  **Homework:** Trace the sending of a photo from a phone to a friend via Wi-Fi and the internet, identifying at least one buffer, one interrupt, one polling instance and two handshakes along the way, with a labelled diagram.
+
+---
+
+# Lesson 32: Network Protocols and Their Roles in Data Transmission
+
+> OBJ:
+  - Explain the meaning and role of network protocols in data transmission.
+  - Discuss the functions of protocols (e.g., IP, TCP, HTTP…) in communication.
+  - Evaluate how TCP/IP and other protocols facilitate reliable and efficient data transmission.
+
+## Lesson outline (2 periods, 100 min – computer room helpful)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Two learners "phone" each other in different languages without rules; then with a script (greeting, turn-taking, confirmation). Protocol = agreed rules. | Reflect. |
+| Core 1 | 20 min | Definition and roles of protocols (syntax, semantics, timing; addressing, segmentation, encapsulation, routing, error detection/correction, flow/congestion control, connection management, security); standards (IETF RFCs, IEEE, W3C); protocol suites/stacks; ports. | Notes. |
+| Core 2 | 40 min | Functions of key protocols: **IP** (addressing, packetising, routing, best-effort; IPv4/IPv6), **TCP** (connection-oriented, reliable, ordered, flow/congestion control, ports), **UDP** (connectionless, fast), **HTTP/HTTPS** (web request/response, methods, status codes, TLS), **DNS** (names → IP), **DHCP** (automatic addressing), **SMTP/POP3/IMAP** (e-mail), **FTP/SFTP** (files), **SSH**, **ARP**, **ICMP** (ping/traceroute), **Ethernet/Wi-Fi** (link), **TLS**, **SMB**, **NTP**, VoIP (SIP/RTP). Demos: `ipconfig`, `nslookup`, `ping`, `tracert`, browser dev tools (HTTP headers), Wireshark capture of DNS→TCP handshake→HTTP. | Protocol cards; observe capture. |
+| Core 3 | 26 min | Evaluating TCP/IP: how reliability is achieved (sequence numbers, ACKs, retransmission, checksums, ordering), efficiency (windowing, congestion control, pipelining, header compression, UDP where speed matters, QUIC/HTTP-3), scalability and interoperability (layering, open standards), weaknesses (IPv4 exhaustion, no built-in security → TLS/IPsec, latency of handshakes, head-of-line blocking) and how other protocols complement; case: a video call vs file download. | Evaluation table; debate. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 32.1 Meaning and role of network protocols
+
+> DEF:
+  A **network protocol** is a **set of agreed rules and formats** governing how devices **exchange data** – what messages look like (**syntax**), what they mean (**semantics**) and when/in what order they are sent (**timing**). Protocols allow devices from different manufacturers to interoperate; they are defined in open standards (IETF **RFCs** for internet protocols, IEEE 802 for Ethernet/Wi-Fi, W3C for web formats).
+
+| Role of protocols | What it ensures | Example |
+| **Addressing & identification** | Every device/application is reachable | IP addresses, MAC addresses, port numbers, domain names |
+| **Encapsulation & framing** | Data wrapped with headers/trailers at each layer | Ethernet frame → IP packet → TCP segment → HTTP message |
+| **Segmentation & reassembly** | Large messages split into manageable units and rebuilt in order | TCP segments, IP fragmentation |
+| **Routing & forwarding** | Path selection across networks | IP + routing protocols (OSPF, BGP) |
+| **Connection management** | Set-up, maintenance, tear-down of sessions | TCP handshake/FIN, SIP calls |
+| **Error detection & recovery** | Corrupted/lost data detected and retransmitted | Checksums, CRC, ACK/retransmit |
+| **Flow & congestion control** | Sender does not overwhelm receiver or network | TCP windows, slow start |
+| **Sequencing** | Correct order | Sequence numbers |
+| **Security** | Confidentiality, integrity, authentication | TLS, IPsec, WPA3, SSH |
+| **Service functions** | Name resolution, configuration, time, e-mail transfer, file transfer | DNS, DHCP, NTP, SMTP, FTP |
+| **Interoperability** | Heterogeneous systems communicate | Open standards |
+
+### 32.2 Functions of key protocols
+
+| Protocol | Layer (TCP/IP) | Function | Key facts |
+| **IP – Internet Protocol** | Internet | **Addresses** hosts and **routes packets** between networks; best-effort, connectionless (no guarantee of delivery/order) | **IPv4** 32-bit (192.168.1.10; ~4.3 billion, exhausted → NAT), **IPv6** 128-bit (2001:db8::1); header has source/destination, TTL; routers forward hop by hop |
+| **TCP – Transmission Control Protocol** | Transport | **Reliable, ordered, connection-oriented** delivery between applications (ports): three-way handshake, sequence numbers, acknowledgements, retransmission, checksum, flow control (window), congestion control | Used by web, e-mail, file transfer, SSH; port 80/443/25/22 |
+| **UDP – User Datagram Protocol** | Transport | **Connectionless, fast, no reliability** – minimal header; application handles losses | DNS, VoIP/video calls (RTP), streaming, gaming, DHCP; port 53/67 |
+| **HTTP / HTTPS – HyperText Transfer Protocol (Secure)** | Application | **Client–server request/response** for web resources: methods GET/POST/PUT/DELETE, headers, status codes (200 OK, 301, 404, 500); HTTPS adds **TLS** encryption/authentication | Port 80 / **443**; HTTP/2 multiplexing, HTTP/3 over QUIC (UDP) |
+| **DNS – Domain Name System** | Application | Translates **names to IP addresses** (www.minesec.gov.cm → 41.x.x.x) via hierarchical servers (root → .cm → minesec.gov.cm); caching | UDP/TCP 53; record types A, AAAA, MX, CNAME |
+| **DHCP – Dynamic Host Configuration Protocol** | Application | Automatically assigns **IP address, mask, gateway, DNS** to devices (Discover–Offer–Request–Ack) | UDP 67/68; leases |
+| **SMTP / POP3 / IMAP** | Application | E-mail: **SMTP** sends/relays (port 25/587), **POP3** downloads (110/995), **IMAP** synchronises folders on the server (143/993) | Secured with TLS |
+| **FTP / SFTP / FTPS** | Application | File transfer; FTP plaintext (20/21) – replaced by **SFTP** (over SSH, 22) or FTPS | Uploading websites, backups |
+| **SSH** | Application | Encrypted remote command line and tunnels | Port 22; replaces Telnet |
+| **TLS/SSL** | Between transport and application | Encryption, integrity, server/client authentication via certificates | Underlies HTTPS, SMTPS, IMAPS, VPNs |
+| **ARP** | Link/Internet boundary | Maps IP address → MAC address on a LAN | `arp -a` |
+| **ICMP** | Internet | Diagnostics and errors: **ping** (echo), **traceroute**, "destination unreachable", TTL exceeded | Not for data transfer |
+| **Ethernet (IEEE 802.3) / Wi-Fi (802.11)** | Network access/link | Framing, MAC addressing, media access (CSMA/CD/CA), error detection (CRC) on the local link | Switches and APs operate here |
+| **SMB/CIFS, NFS** | Application | File and printer sharing on LANs | Windows shares, Samba |
+| **NTP** | Application | Clock synchronisation | Logs, certificates depend on time |
+| **SIP / RTP** | Application | VoIP call set-up (SIP) and real-time media transport (RTP over UDP) | WhatsApp/Zoom-like services use similar |
+| **SNMP** | Application | Network device monitoring/management | Polling and traps (Lesson 31) |
+| Routing protocols (OSPF, BGP) | Internet | Routers exchange routes; BGP glues the internet's networks | ISPs |
+
+**Encapsulation example (loading a web page):** browser HTTP GET → TCP segment (src port 52344, dst 443) → IP packet (src 192.168.1.10, dst 172.217.x.x) → Ethernet frame (src MAC PC, dst MAC router) → bits on UTP; the router strips the frame, routes the packet; the server reverses the process. Before this: DHCP gave the address, DNS resolved the name, ARP found the router's MAC, TCP/TLS handshakes established the session.
+
+### 32.3 Evaluating how TCP/IP and other protocols facilitate reliable and efficient transmission
+
+| Goal | How TCP/IP achieves it | Complementary protocols | Limitations & mitigations |
+| **Reliability** | TCP: **sequence numbers** order segments; **acknowledgements** confirm receipt; **retransmission** after time-out or duplicate ACKs; **checksums** detect corruption; connection state ensures completeness | Link-layer **CRC** discards corrupted frames early; Wi-Fi link ACKs; TLS integrity | IP alone is unreliable by design (keeps routers simple); UDP applications must add their own recovery (or accept loss – voice) |
+| **Efficiency** | **Sliding window** sends many segments before waiting for ACKs; **congestion control** (slow start, congestion avoidance) adapts to network capacity; **Nagle/delayed ACK** reduce small packets; large MTU/jumbo frames; **UDP** for low-overhead real-time traffic; **HTTP/2 multiplexing**, **HTTP/3/QUIC** cut handshake latency | DNS caching; compression (HTTP gzip); CDNs; header compression | TCP handshake + TLS add round trips (bad on 600 ms satellite); **head-of-line blocking**; bufferbloat; mitigations: QUIC, TCP Fast Open, tuned windows, edge caching |
+| **Scalability & routing** | IP's hierarchical addressing and routers forward billions of packets; BGP/OSPF find paths; TTL prevents loops | NAT stretched IPv4; **IPv6** solves exhaustion | IPv4 exhaustion, NAT breaks end-to-end; IPv6 adoption uneven in Cameroon |
+| **Interoperability & flexibility** | **Layering**: any application over TCP/UDP, IP over any link (Ethernet, Wi-Fi, 4G, fibre, satellite); open RFC standards | Ethernet/802.11 standards; DNS/DHCP automate configuration | Layer violations by middleboxes (NAT, firewalls) complicate new protocols |
+| **Security** | Not built into original TCP/IP | **TLS/HTTPS, IPsec/VPN, SSH, WPA3, DNSSEC** add confidentiality/integrity/authentication | Plain HTTP/FTP/Telnet still exist; spoofing of IP/ARP; DDoS |
+| **Quality of service** | Best-effort IP; DiffServ marking | Wi-Fi WMM, switch QoS, RTP timing | Congestion still hurts real-time traffic |
+| **Verdict** | TCP/IP delivers reliable transport on top of unreliable networks efficiently enough to run the global internet; the trade-off is complexity in end hosts and latency from handshakes | – | Modern evolution (QUIC, IPv6, TLS 1.3) addresses the main weaknesses |
+
+Case: **file download vs video call.** The 2 GB download uses **TCP** – every byte must arrive in order; delays are acceptable; congestion control shares the line fairly. The video call uses **UDP/RTP** – a lost packet is skipped rather than retransmitted (a late frame is useless); jitter buffers and forward error correction maintain quality; SIP over TCP/UDP sets up the call. Choosing the right transport protocol per application is itself an efficiency decision.
+
+> EXAMPLE:
+  **Registering for the GCE online from a cybercafé in Maroua.** DHCP gives the PC an address; DNS resolves the Board's portal; ARP finds the router; TCP's three-way handshake then TLS handshake set up a secure session (≈ 4 round trips – noticeable on the café's satellite backup link); HTTPS GET/POST carry the form; TCP retransmits segments lost on a noisy 4G hop so the payment confirmation arrives intact; ICMP lets the technician `ping`/`tracert` when the link drops. Protocol design – reliability where it matters, tolerance elsewhere – is why the registration succeeds over an imperfect network.
+
+> VISUAL:
+  **Figure 32.1 – Encapsulation stack**: HTTP message inside TCP segment inside IP packet inside Ethernet frame, with header fields (ports, IPs, MACs) shown and the devices that read each (switch – MAC, router – IP, server – port). **Figure 32.2 – TCP reliability diagram**: three-way handshake, segments with sequence numbers, ACKs, a lost segment retransmitted, sliding window. **Figure 32.3 – Protocol map by function**: addressing (IP, ARP, DNS, DHCP), transport (TCP, UDP), applications (HTTP, SMTP/IMAP, FTP/SFTP, SSH, SMB, SIP/RTP), security (TLS, IPsec, WPA3), diagnostics (ICMP, SNMP). **Figure 32.4 – Wireshark capture** annotated: DNS query/response, SYN/SYN-ACK/ACK, TLS Client Hello, HTTP/2 data.
+
+> MISCONCEPTION:
+  "IP guarantees delivery." IP is best-effort; TCP provides reliability. "HTTPS is a different protocol from HTTP." It is HTTP carried inside TLS. "UDP is bad because it loses data." For real-time media, timeliness beats completeness – UDP is the right choice.
+
+> ACTIVITY:
+  **Protocols in action (50 min, pairs, lab).** (1) Commands: `ipconfig /all` (DHCP lease, DNS), `nslookup www.camtel.cm`, `arp -a`, `ping`, `tracert 8.8.8.8` – annotate which protocol each uses. (2) Browser dev tools ▸ Network: open a page; record request method, status codes, headers, TLS version, number of connections. (3) Wireshark (lab filter `dns || tcp.flags.syn==1 || tls.handshake`): capture a page load; identify DNS, three-way handshake, TLS handshake; count retransmissions during a deliberately degraded link. (4) Role-play "reliable delivery": send a 10-card message across the room with a lossy courier; implement sequence numbers, ACKs and retransmission; then a "UDP" round for a live "video" – discuss. (5) Evaluation paragraph: how TCP/IP made your capture reliable and where efficiency was lost (handshakes, retransmissions).
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain what a network protocol is and describe six roles protocols play in data transmission.
+  2. Discuss the functions of IP, TCP, UDP, HTTP/HTTPS, DNS and DHCP.
+  3. Describe the encapsulation of an HTTP request down to the Ethernet frame and name the device that reads each address.
+  4. Explain how TCP achieves reliable transmission (four mechanisms) and how it achieves efficiency (two mechanisms).
+  5. Evaluate TCP/IP: two strengths, two weaknesses and the protocols that mitigate the weaknesses.
+  6. Why do video calls use UDP while downloads use TCP?
+  **Homework:** Produce a one-page "protocol journey" comic/diagram of sending an e-mail with an attachment from Gmail to a friend on Yahoo, naming every protocol involved in order (DHCP, DNS, TCP, TLS, HTTPS, SMTP, IMAP…) and where reliability and security are provided.
+
+---
+
+# Lesson 33: Protocol Suites and the OSI Reference Model
+
+> OBJ:
+  - Explain the role of protocol suites in network communication.
+  - Describe the seven layers of the OSI reference model and their functions.
+  - Relate network protocols to the appropriate layers of the OSI reference model.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Sending a parcel abroad: writer → packer → courier → customs → plane → … each with their own rules; the parcel passes down and up layers. | Map to networking. |
+| Core 1 | 20 min | Protocol suites: definition (a coordinated set of protocols working together in layers), why suites (division of labour, interoperability, modularity, independent evolution, troubleshooting), examples (TCP/IP suite, OSI protocols, AppleTalk/IPX legacy, Bluetooth stack, Zigbee); TCP/IP 4/5-layer model vs OSI 7-layer; ISO's OSI (1984) as reference for teaching/design. | Suite diagram. |
+| Core 2 | 45 min | The seven OSI layers bottom-up: **Physical** (bits, media, connectors, voltages, hubs/repeaters), **Data Link** (frames, MAC addresses, error detection, media access; switches, bridges, NICs; LLC/MAC sublayers), **Network** (packets, logical IP addressing, routing; routers), **Transport** (segments, ports, reliability, flow control; TCP/UDP), **Session** (establish/manage/terminate dialogues; checkpoints; NetBIOS, RPC, SIP aspects), **Presentation** (data format, encoding, compression, encryption; ASCII/Unicode, JPEG/MPEG, TLS aspects), **Application** (network services to user apps; HTTP, SMTP, DNS, FTP). Encapsulation/decapsulation, PDUs (bits, frames, packets, segments, data), mnemonics ("Please Do Not Throw Sausage Pizza Away"; "All People Seem To Need Data Processing"), devices per layer, troubleshooting bottom-up. | Layer cards; encapsulation walk-through. |
+| Core 3 | 22 min | Relating protocols to layers: mapping table (Ethernet/Wi-Fi/PPP/ARP – 1–2; IP/ICMP/IPsec/OSPF – 3; TCP/UDP – 4; NetBIOS/RPC/PPTP – 5; TLS/SSL, JPEG, MPEG, ASCII, encryption/compression – 6; HTTP, HTTPS, DNS, DHCP, SMTP, IMAP, FTP, SSH, SMB, SNMP – 7); TCP/IP mapping; devices and addresses per layer; exam-style classification. | Mapping exercise. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 33.1 Protocol suites
+
+> DEF:
+  A **protocol suite (stack)** is a **coordinated set of protocols, organised in layers, that together provide complete network communication** – each protocol handling one aspect (physical signalling, addressing, reliable delivery, application services) and passing data to the layer above or below through defined interfaces. The **TCP/IP suite** is the suite of the internet; the **OSI model** is the ISO's seven-layer **reference model** used to describe, design and compare suites.
+
+| Why suites and layering | Explanation |
+| **Division of labour** | Each layer solves one problem well (IP routes; TCP makes it reliable; HTTP formats web messages) |
+| **Interoperability** | Any vendor implementing the layer standards can communicate |
+| **Modularity & independent evolution** | Wi-Fi 7 replaces Wi-Fi 5 without changing HTTP; HTTP/3 changes without new cables |
+| **Abstraction** | Application developers ignore cables and routes; hardware designers ignore applications |
+| **Troubleshooting** | Faults isolated layer by layer (cable → IP config → DNS → application) |
+| **Reuse** | One transport (TCP) serves thousands of applications |
+
+| Suite / model | Layers | Notes |
+| **OSI reference model (ISO 7498, 1984)** | 7: Physical, Data Link, Network, Transport, Session, Presentation, Application | Conceptual reference; OSI's own protocols (X.400, X.500 partially live on in LDAP/certificates) |
+| **TCP/IP suite (DoD model)** | 4: Network Access (Link), Internet, Transport, Application (5-layer variant splits Physical/Data Link) | The suite actually running the internet; OSI layers 5–7 merged into Application |
+| Legacy suites | IPX/SPX (Novell), AppleTalk, NetBEUI, SNA | Replaced by TCP/IP |
+| Specialised stacks | Bluetooth, Zigbee/Thread, cellular (LTE/5G) stacks, industrial (Modbus, PROFINET) | Own lower layers; often carry IP |
+
+### 33.2 The seven layers of the OSI model
+
+| Layer | Name | Function | PDU | Addressing | Devices | Example protocols/standards |
+| **7** | **Application** | Provides **network services directly to user applications** (web, e-mail, file transfer, name resolution, remote access); defines message formats and dialogues for services | Data | URLs, e-mail addresses (application-level) | Gateways, proxies, application firewalls, servers | HTTP/HTTPS, DNS, DHCP, SMTP/POP3/IMAP, FTP/SFTP, SSH, Telnet, SMB, SNMP, NTP, SIP |
+| **6** | **Presentation** | **Translates data formats** between application and network: character encoding (ASCII, Unicode/UTF-8), data structures, **compression** (gzip, JPEG, MPEG), **encryption/decryption** (TLS/SSL functions) | Data | – | – | TLS/SSL (often placed 5–6), ASCII, UTF-8, JPEG, PNG, MPEG, MP3, XML/JSON encodings, ASN.1 |
+| **5** | **Session** | **Establishes, manages, synchronises and terminates sessions (dialogues)** between applications; checkpoints and recovery; dialogue control (half/full duplex); authentication of sessions | Data | Session IDs | – | NetBIOS, RPC, PPTP/L2TP (tunnel sessions), SIP (call sessions), SOCKS, session aspects of TLS/HTTP cookies |
+| **4** | **Transport** | **End-to-end delivery between processes**: **segmentation/reassembly**, **port numbers**, **reliability** (TCP: ACKs, retransmission, ordering), **flow and congestion control**, or fast connectionless service (UDP) | **Segment** (TCP) / Datagram (UDP) | **Port numbers** (80, 443, 53, 25…) | Firewalls (stateful), load balancers | **TCP, UDP**, SCTP, QUIC |
+| **3** | **Network** | **Logical addressing and routing of packets across multiple networks**; path determination, fragmentation, TTL | **Packet** | **IP addresses** (IPv4/IPv6) | **Routers**, layer-3 switches | **IP** (v4/v6), ICMP, IPsec, ARP (border with L2), routing protocols OSPF/BGP/RIP |
+| **2** | **Data Link** | Reliable transfer of **frames** across a **single link**: physical (MAC) addressing, framing, **error detection (CRC)**, **media access control** (CSMA/CD, CSMA/CA), flow control on the link; sublayers **LLC** (802.2) and **MAC** | **Frame** | **MAC addresses** (48-bit) | **Switches**, bridges, NICs, access points | **Ethernet (802.3)**, **Wi-Fi (802.11)**, PPP, HDLC, Frame Relay, ATM, VLAN tagging (802.1Q), STP |
+| **1** | **Physical** | Transmission of **raw bits** over the medium: electrical/optical/radio **signals**, voltages, bit timing, connectors, pinouts, cable specs, modulation, topology at the wire level, duplex | **Bits** | – | Hubs, repeaters, cables, connectors, transceivers, modems (partly), media converters | RJ-45/Cat 6 (TIA-568), fibre standards, 100BASE-TX/1000BASE-T signalling, DSL, USB physical layer, Bluetooth/Wi-Fi radio layer, RS-232 |
+
+**Encapsulation:** sending host passes data down – each layer adds its header (and Data Link a trailer/CRC): Data → Segment (TCP header with ports) → Packet (IP header with addresses) → Frame (Ethernet header with MACs + FCS) → Bits. The receiver **decapsulates** upward. Intermediate devices operate up to their layer: a switch reads frames (L2), a router packets (L3), a firewall segments/applications (L4–7).
+
+**Mnemonics:** bottom-up "**P**lease **D**o **N**ot **T**hrow **S**ausage **P**izza **A**way"; top-down "**A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing".
+
+**TCP/IP mapping:** OSI 5–7 → Application; 4 → Transport; 3 → Internet; 1–2 → Network Access (Link + Physical).
+
+### 33.3 Relating protocols to OSI layers
+
+| Protocol / standard | OSI layer | Reason |
+| HTTP, HTTPS (application semantics), DNS, DHCP, SMTP, POP3, IMAP, FTP, SFTP, SSH, Telnet, SMB, NFS, SNMP, NTP, LDAP | **7 – Application** | Provide services to applications |
+| TLS/SSL (encryption/format), JPEG, GIF, PNG, MPEG, MP3, ASCII, Unicode, gzip, XML/JSON encoding | **6 – Presentation** | Data representation, compression, encryption |
+| NetBIOS, RPC, PPTP, L2TP (session set-up), SIP (dialogue), SOCKS, session management of TLS | **5 – Session** | Dialogue establishment/management |
+| TCP, UDP, SCTP, QUIC (transport functions) | **4 – Transport** | End-to-end, ports, reliability |
+| IPv4, IPv6, ICMP, IPsec, IGMP, OSPF, BGP, RIP | **3 – Network** | Logical addressing/routing |
+| Ethernet (802.3), Wi-Fi (802.11 MAC), PPP, HDLC, ARP (L2/L3 boundary), VLAN 802.1Q, STP, Bluetooth link layer, MAC addresses | **2 – Data Link** | Framing, MAC, link error detection |
+| Cat 5e/6 UTP & RJ-45 (TIA-568), fibre (1000BASE-LX), 100BASE-TX signalling, DSL modulation, radio frequencies of Wi-Fi/Bluetooth/4G, USB electrical spec, hubs/repeaters | **1 – Physical** | Bits and signals on media |
+
+Address/device summary: Layer 1 – no address (hub/cable); Layer 2 – MAC (switch/AP/NIC); Layer 3 – IP (router); Layer 4 – port (stateful firewall); Layer 7 – URL/hostname (proxy/web server). Troubleshooting **bottom-up**: link light (L1) → `ipconfig`/ARP (L2–3) → `ping` gateway/`tracert` (L3) → `telnet host 443`/port checks (L4) → browser/DNS/application errors (L5–7).
+
+> EXAMPLE:
+  **A WhatsApp message through the layers.** L7: WhatsApp's messaging protocol formats "On arrive à 8h"; L6: text encoded UTF-8 and encrypted end-to-end (Signal protocol); L5: the chat session with the server is maintained/resumed; L4: TCP (or QUIC/UDP) segments with ports; L3: IP packets routed from the phone through MTN's core to WhatsApp servers; L2: LTE/Wi-Fi frames with MAC/radio link addressing and CRC; L1: radio waves at 1.8 GHz (LTE) or 2.4/5 GHz (Wi-Fi). At the recipient, the layers unwrap in reverse. When the message shows one grey tick, troubleshooting climbs from L1 (signal bars) to L7 (server status).
+
+> VISUAL:
+  **Figure 33.1 – The OSI ladder**: seven coloured layers with function, PDU, address, device and protocol examples per layer, and the TCP/IP four layers aligned alongside. **Figure 33.2 – Encapsulation/decapsulation**: data gaining TCP, IP, Ethernet headers/trailer down the sender's stack, crossing switch (L2) and router (L3) in the middle (drawn only up to their layer), and unwrapping at the receiver. **Figure 33.3 – Protocol-to-layer map**: protocol logos/labels placed on the ladder; ARP/TLS straddling boundaries. **Figure 33.4 – Bottom-up troubleshooting flowchart** with commands per layer.
+
+> MISCONCEPTION:
+  "The internet runs OSI." It runs TCP/IP; OSI is the reference model used to describe it. "Each protocol fits exactly one layer." Some span or straddle (ARP, TLS, SIP); layering is a teaching and design aid, and TCP/IP merges 5–7.
+
+> ACTIVITY:
+  **Layer relay and mapping (45 min).** (1) Human stack: seven learners per team, each a layer with a coloured envelope (header); pass a message down, across a "switch" (opens only two envelopes) and a "router" (three), and up the other side; time it; then inject faults (wrong MAC, bad CRC, missing port) and see which layer detects them. (2) Mapping game: 30 protocol/device/address cards placed on a wall ladder; justify borderline cases (ARP, TLS, modem). (3) Troubleshooting drill: for five symptoms ("no link light", "APIPA address", "ping gateway OK but no web", "certificate error", "page 404") identify the layer and the check. (4) Compare OSI and TCP/IP models in a two-column table.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain what a protocol suite is and give three reasons why network communication is organised in layers.
+  2. Describe the seven OSI layers and their functions, naming the PDU and one device or address type for each.
+  3. Explain encapsulation and decapsulation using a web request; which layers do a switch, a router and a stateful firewall operate at?
+  4. Relate the following to OSI layers: HTTP, TLS, TCP, UDP, IP, ICMP, Ethernet, Wi-Fi radio, RJ-45, DNS, ARP, NetBIOS, JPEG, SMTP.
+  5. Map the OSI layers to the TCP/IP model.
+  6. Give a mnemonic for the OSI layers and describe bottom-up troubleshooting with a command per layer.
+  **Homework:** Create an A4 OSI reference chart (layer, function, PDU, address, devices, ≥ 3 protocols each, TCP/IP alignment) and annotate it with the path of an e-mail through the layers.
+
+---
+
+# Lesson 34: Integration Activities — Analysing and Optimising Data Transmission for an Organisation
+
+> ACTIVITY:
+  **Context.** A district hospital complains: video consultations with specialists in Yaoundé stutter, Wi-Fi in the wards is unreliable, the new digital X-ray machine 120 m from the server room cannot be connected with the UTP cable the electrician ran, sensors in the vaccine fridges must report temperatures around the clock, and the network printer queue "freezes" the reception PC. The board asks for a transmission analysis and improvement plan.
+  **Task (groups of 3–4, 2 periods).**
+  1. **Modes and access methods** (Lesson 27): identify the transmission mode (simplex/half/full-duplex) and access method (CSMA/CA, switched full-duplex) for each traffic type (video call, ward Wi-Fi, X-ray transfer, sensor reports, printing) with arrow diagrams; explain why ward Wi-Fi with 60 devices per AP stutters.
+  2. **Bandwidth class and transmission types** (Lessons 28–29): classify each need as narrowband or broadband; specify serial/parallel, synchronous/asynchronous and analog/digital aspects (e.g. fridge sensors: analog → ADC → asynchronous narrowband LoRa/NB-IoT; X-ray: digital synchronous serial Gigabit/fibre).
+  3. **Media selection** (Lesson 30): choose media for the X-ray link (> 100 m: fibre vs media converters vs wireless bridge), the specialist link (fibre vs 4G with QoS), ward Wi-Fi redesign (5 GHz, AP count), sensors (LPWAN) – with a criteria-based justification and cost estimate.
+  4. **Peripheral control** (Lesson 31): explain the printer-queue freeze in terms of buffering/spooling and handshaking, and propose the fix (print server with spooler, correct driver, interrupt/priority note); identify polling vs event-driven monitoring for the fridge sensors.
+  5. **Protocols and OSI** (Lessons 32–33): list the protocols for each service (video: SIP/RTP over UDP with QoS; X-ray: DICOM over TCP/TLS; sensors: MQTT/CoAP over UDP/TCP; printing: IPP/TCP; management: SNMP), place them on the OSI ladder, and explain how TCP/IP reliability/efficiency choices (TCP vs UDP, QoS marking, window sizes on the WAN) improve each service; include a bottom-up troubleshooting procedure for the video stutter.
+  6. **Deliver** a four-page report with diagrams (signal-flow arrows, media plan, OSI mapping table) and a 6-minute presentation; if the lab allows, demonstrate a Wireshark capture distinguishing TCP and UDP flows and a duplex/speed check on a NIC.
+  **Criteria.** Correct identification of modes, access methods and transmission types; sound, justified media choices; accurate explanation of peripheral control issues; correct protocol/OSI mapping and TCP/IP evaluation; quality of diagrams, report and presentation.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Modes, access methods & types | All traffic correctly classified with diagrams and reasons | Minor errors | Several errors | Incorrect |
+| Media selection | Criteria-based, costed, appropriate for all five needs | Appropriate, less justified | Partly appropriate | Inappropriate |
+| Peripheral control analysis | Buffering/spooling/handshaking/polling correctly applied and fix proposed | Mostly correct | Superficial | Missing |
+| Protocols & OSI | Complete mapping, TCP/UDP/QoS reasoning, troubleshooting procedure | Mostly complete | Partial | Absent |
+| Report & presentation | Professional diagrams, clear, within time | Clear | Basic | Weak |
+
+---
+
+# Evaluation No 2 and Remediation No 2 (Week 10)
+
+> ASSESS:
+  **Evaluation No 2 (2 periods).** Covers Lessons 17–34: network equipment; setting up a P2P network; selecting equipment and designing a network; intranet/extranet; VPNs and privacy protocols; computer and network security; data protection and access control; validation and verification; transmission modes and CSMA/CD–CA; broadband/narrowband; serial/parallel, synchronous/asynchronous, analog/digital; guided/unguided media; peripheral control mechanisms; protocols and TCP/IP; protocol suites and the OSI model.
+  **Suggested structure (60 marks):** Part A – 15 MCQ/short items (15 marks); Part B – structured questions (30 marks), e.g. (i) identify components from a diagram, differentiate hub/switch/router, list equipment for a two-block school with factors; (ii) design intranet/extranet/VPN for a described organisation, explain digital signatures and the firewall rules for the VPN; (iii) CIA threat table and access-control plan with RBAC and encryption; (iv) validation rules and verification methods for a given form; (v) classify scenarios by transmission mode, access method, bandwidth class and transmission type; choose media for three contexts with criteria; (vi) determine peripheral-control techniques in scenarios; (vii) map twelve protocols to OSI layers and explain TCP reliability; Part C – **practical (15 marks)**: set up sharing between two PCs and verify with ping/share access; configure Data Validation and double entry in a spreadsheet; set folder permissions for a group; (optional) capture and identify a TCP handshake or connect a VPN client.
+  **Remediation No 2 (1–2 periods).** From item analysis: (1) equipment/design – station rotation and design canvas rework; (2) security block – "fix the breach" case with encryption/permissions redo on the lab server; (3) transmission – card sorts and waveform drawing clinic; (4) protocols/OSI – human-stack relay and mapping wall; (5) peer tutoring and a short re-test on the weakest objectives for under-performing learners before Lesson 35.
+
+---
+
+# Lesson 35: Error Detection and Data Transfer Checks
+
+> OBJ:
+  - Identify errors that may occur during data transmission.
+  - Describe data transfer checking mechanisms used to detect transmission errors.
+  - Explain parity checks as methods of error detection.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Whisper game: a 12-word sentence passed along eight learners – compare start and end. | Observe errors. |
+| Core 1 | 20 min | Sources and types of errors: noise (thermal, impulse – lightning, motors), attenuation, distortion, crosstalk, interference, timing/jitter, collisions, hardware faults; **single-bit errors**, **burst errors**, lost/duplicated/out-of-order packets; bit error rate (BER); consequences. | Error taxonomy. |
+| Core 2 | 40 min | Detection mechanisms: **parity** (even/odd; how computed; what it catches/misses; two-dimensional parity/block check), **checksum** (sum of words, one's complement – IP/TCP/UDP), **cyclic redundancy check (CRC)** (polynomial division; Ethernet FCS CRC-32; strength against bursts), **hash/message digest** (MD5/SHA for files), **echo/loopback check**, **ARQ** (stop-and-wait, go-back-N, selective repeat – ACK/NAK, timers, sequence numbers), check digits (link to validation), forward error correction (Hamming codes, Reed–Solomon – correction not only detection), TCP/IP layered checking. Worked examples. | Compute checksums/CRC-lite. |
+| Core 3 | 27 min | Parity in depth: even and odd parity bit calculation on 7-bit ASCII; receiver check; detection of odd numbers of flipped bits; failure on even numbers; 2-D (row/column) parity detecting and correcting single errors; parity in RAM (ECC), RS-232 (8E1), RAID 5; exercises. | Parity exercises. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 35.1 Errors during data transmission
+
+> DEF:
+  A **transmission error** occurs when the data received differs from the data sent – bits flipped, lost, duplicated or delivered out of order – because signals are corrupted by physical impairments or because of device/protocol failures.
+
+| Cause | Description | Typical effect |
+| **Noise** – thermal (white), **impulse** (lightning, motors, switching), intermodulation | Random or spiky unwanted signals added to the medium | Random single-bit errors (thermal); **burst errors** – many consecutive bits (impulse) |
+| **Attenuation** | Signal weakens over distance until levels are misread | Errors increase with cable length/rain on radio |
+| **Distortion** | Different frequencies travel at different speeds/lose amplitude – pulses spread | Inter-symbol interference, misread bits at high rates |
+| **Crosstalk & interference** | Coupling between adjacent pairs/channels; other radios (microwave ovens, neighbouring Wi-Fi) | Corrupted frames, retransmissions |
+| **Timing/jitter & synchronisation loss** | Clock drift, variable delay | Misframed characters, dropped samples in real time |
+| **Collisions** | Two stations transmit on a shared medium | Garbled frames (CSMA/CD detects) |
+| **Hardware faults** | Bad connectors, damaged cable, faulty NIC/port, duplex mismatch | Frame errors, CRC errors on switch counters |
+| **Congestion/software** | Buffer overflow, routing loops | Lost, duplicated, out-of-order packets |
+
+| Error type | Description |
+| **Single-bit error** | Exactly one bit changed (0→1 or 1→0) – common in parallel/short links |
+| **Burst error** | Two or more consecutive (or clustered) bits changed – common on serial links hit by impulse noise; length = first to last corrupted bit |
+| **Lost / dropped** | Frame/packet never arrives (discarded after CRC failure or buffer overflow) |
+| **Duplicated / out-of-order** | Retransmission or multipath routing effects |
+| **Bit error rate (BER)** | Errors ÷ bits transmitted (fibre ~10⁻¹², copper 10⁻⁷…10⁻⁹, radio worse) |
+
+### 35.2 Data-transfer checking mechanisms
+
+| Mechanism | How it works | Detects | Where used | Limits |
+| **Parity check** | One extra bit makes the count of 1s even (even parity) or odd (odd parity); receiver recounts | Any **odd number** of flipped bits (esp. single-bit) | RS-232/UART (8E1, 8O1), memory (parity RAM), some buses | Misses even numbers of errors; cannot locate/correct (1-D) |
+| **Two-dimensional (block) parity / LRC** | Parity per row (character) and per column (block check character) | All 1-, 2-, 3-bit errors and most bursts; **locates and corrects single-bit errors** (row × column intersection) | Older block protocols, teaching, some tape/RAID concepts | Some 4-bit patterns escape |
+| **Checksum** | Sender adds data words (e.g., 16-bit) with one's-complement arithmetic and sends the complement; receiver sums everything – result should be all 1s (or zero) | Many random errors | **IP header, TCP, UDP** checksums; simple file checks | Weak against some patterned errors (swapped words, compensating errors) |
+| **Cyclic redundancy check (CRC)** | Data treated as a binary polynomial, divided (mod-2, XOR) by a generator polynomial; remainder (CRC bits) appended; receiver divides – zero remainder = OK | All single and double errors, all odd-count errors, **all bursts up to the CRC length** (32 bits for CRC-32), > 99.9999 % of longer bursts | **Ethernet FCS (CRC-32)**, Wi-Fi, USB, Bluetooth, ZIP files, disk sectors, PPP/HDLC | Detection only; corrupted frames are discarded – recovery by upper layers |
+| **Hash / message digest** | Cryptographic hash (MD5, **SHA-256**) of the whole file compared with the published value | Any change (accidental or malicious) | File downloads, backups, software packages, digital signatures | Slower; needs trusted reference value |
+| **Echo / loopback check** | Receiver sends the data back; sender compares | Errors on the round trip | Terminals, testing links, `ping` | Doubles traffic; cannot tell which direction failed |
+| **Automatic Repeat reQuest (ARQ)** | Receiver sends **ACK** for good frames (NAK or silence for bad); sender **retransmits** after NAK/time-out; **sequence numbers** prevent duplicates. Variants: **stop-and-wait**, **go-back-N**, **selective repeat** (sliding windows) | Recovers from detected errors and losses | **TCP**, Wi-Fi link ACKs, Bluetooth, modems | Adds delay; needs buffers/timers; useless for real-time (use FEC) |
+| **Sequence numbers & timers** | Detect missing, duplicated, reordered units | Loss/ordering | TCP, RTP | – |
+| **Check digits** | Computed digit on identifiers (Luhn, ISBN) | Typing/transposition errors | Input validation (Lesson 25) | Data-entry, not transmission noise |
+| **Forward error correction (FEC)** | Extra redundant bits let the receiver **correct** errors without retransmission – **Hamming codes** (single-error correcting), Reed–Solomon, convolutional/LDPC/Turbo codes | Corrects limited errors | CDs/DVDs, QR codes, satellite/deep-space links, 4G/5G, DSL, ECC RAM, digital TV | Overhead; limited correction capacity |
+| **Layered checking in TCP/IP** | Ethernet CRC discards bad frames; IP header checksum; TCP checksum + ARQ ensures end-to-end integrity; application hashes/TLS MACs add security-grade integrity | Defence in depth | Everywhere | – |
+
+Worked checksum (8-bit, simplified): data 10110011 + 01101001 = 1 00011100 → wrap carry → 00011101; checksum = complement = 11100010. Receiver adds data + checksum → 11111111 (all 1s) = no error detected.
+
+CRC-lite (mod-2 division): data 1101011011, generator 10011 (degree 4) → append 0000, XOR-divide → remainder 1110 → transmit 11010110111110; receiver divides the whole string by 10011 → remainder 0000 = accepted.
+
+### 35.3 Parity checks in depth
+
+> DEF:
+  A **parity check** appends one **parity bit** to a group of data bits so that the total number of 1s is **even** (even parity) or **odd** (odd parity). The receiver counts the 1s; a wrong count reveals that an error occurred.
+
+| Data (7-bit ASCII) | Number of 1s | Even parity bit | Transmitted (even) | Odd parity bit | Transmitted (odd) |
+| A = 1000001 | 2 | 0 | 1000001**0** | 1 | 1000001**1** |
+| C = 1000011 | 3 | 1 | 1000011**1** | 0 | 1000011**0** |
+| T = 1010100 | 3 | 1 | 1010100**1** | 0 | 1010100**0** |
+| ! = 0100001 | 2 | 0 | 0100001**0** | 1 | 0100001**1** |
+
+Receiver (even parity): receives 10100101 → count 1s = 4 (even) → accepted. Receives 10100111 → 5 (odd) → **error detected**, frame rejected/retransmission requested. Receives 10100110 (two bits flipped from the original 10100101 → actually bits 7 and 8 changed) → count 4 → **error not detected** – the weakness: an **even number of flipped bits** preserves parity. Parity therefore detects **all odd-count errors** (100 % of single-bit errors) but no even-count errors, and cannot say **which** bit is wrong.
+
+**Two-dimensional parity (block check):** arrange characters as rows; add a parity bit per row and a parity **row** (column parity/BCC) at the end. A single-bit error flips one row parity and one column parity – their intersection **locates the bit**, which can be **corrected**; double errors are detected (not always corrected); bursts within a block are usually caught.
+
+```
+Even parity, 4 characters (row parity right, column parity bottom)
+  1 0 1 1 0 0 1 | 0
+  1 1 0 0 1 0 1 | 0
+  0 1 1 1 0 1 0 | 0
+  1 0 0 1 1 1 1 | 1
+  ---------------
+  1 0 0 1 0 0 1 | 1   <- column parity row
+Receiver finds row 2 parity wrong AND column 3 parity wrong  ->  bit (row 2, col 3) flipped  -> corrected.
+```
+
+Uses: serial links (8E1/8O1 settings), parity/ECC memory (servers), RAID 5 (parity block reconstructs a failed disk), legacy tape, simple sensors. Modern high-speed links prefer **CRC** (stronger) plus **ARQ/FEC**; parity survives where hardware must be simple.
+
+> EXAMPLE:
+  **Lightning season in Bamenda.** A school's outdoor UTP run to the annex picks up impulse noise during storms: switch counters show rising **CRC errors** on that port, TCP retransmissions climb and the LMS slows. Diagnosis: burst errors from induced currents – Ethernet's CRC-32 catches and discards corrupted frames (no silent corruption), TCP's ARQ retransmits, so data stays correct but throughput collapses. Fix: replace the outdoor copper with **fibre** (immune) and add surge arrestors. Meanwhile the old serial weather station using **even parity** occasionally logged impossible values – a two-bit flip that parity cannot see; adding a checksum in its software solved it.
+
+> VISUAL:
+  **Figure 35.1 – Error gallery**: clean square wave vs noisy (single-bit flip) vs impulse burst corrupting six bits; attenuation/distortion sketches. **Figure 35.2 – Parity calculator**: byte with 1s counted, even/odd parity bit added, receiver check; a second panel showing a 2-bit error escaping. **Figure 35.3 – 2-D parity grid** with the erroneous bit at the row/column intersection highlighted. **Figure 35.4 – Layered checks**: Ethernet CRC → IP checksum → TCP checksum + ACK/retransmission → application hash/TLS MAC; an ARQ timeline with a lost frame, time-out and retransmission. **Figure 35.5 – CRC division** worked example.
+
+> MISCONCEPTION:
+  "Parity corrects errors." Simple parity only detects (odd counts); correction needs 2-D parity, Hamming/FEC or retransmission. "CRC makes the data reliable." CRC detects and discards; reliability comes from retransmission (ARQ) at the link or transport layer.
+
+> ACTIVITY:
+  **Error lab (50 min, pairs).** (1) Parity drill: encode your initials in ASCII with even and odd parity; partner flips 1, 2 or 3 bits secretly – detect or not; tabulate results and explain. (2) Build a 2-D parity block for a 4-character word, flip one bit, locate and correct; flip two and discuss. (3) Compute an 8-bit checksum and verify; compute a CRC with generator 1011 on an 8-bit message (paper). (4) Verify a downloaded file's SHA-256 against the published hash; alter one byte with a hex editor and re-hash. (5) Lab counters: read CRC/error counters on a managed switch (or `netstat -e` / `ip -s link`) before and after wiggling a damaged cable; explain ARQ's role in keeping downloads correct. (6) Noisy-channel game: send frames across the room with a "noise" learner flipping cards; implement ACK/NAK and sequence numbers.
+
+## Formative assessment
+
+> ASSESS:
+  1. Identify six causes of errors during data transmission and distinguish single-bit from burst errors.
+  2. Describe parity, checksum, CRC, hash comparison, echo check and ARQ as data-transfer checking mechanisms, stating where each is used.
+  3. Compute the even and odd parity bits for 1011010 and 1110001; show a received byte that passes even parity despite being wrong.
+  4. Explain why parity detects all odd-count errors but no even-count errors, and how two-dimensional parity can correct a single-bit error.
+  5. Why is CRC preferred to parity for Ethernet frames? What happens to a frame that fails the CRC?
+  6. Distinguish error detection from error correction; give one example of FEC and one of ARQ.
+  **Homework:** Prepare a worked-example sheet: (a) parity for the ASCII codes of "GCE" (even and odd); (b) a 2-D parity block with one injected error located and corrected; (c) an 8-bit checksum verification; (d) a paragraph on which mechanisms protect an e-mail from a Yaoundé laptop to a London server, layer by layer.
+
+---
