@@ -1,0 +1,531 @@
+= Module 5 — The Internet: Connectivity, Services, Collaboration and Remote Work
+**Weeks 10–12 · Lessons 36–41**
+**Category of action:** Describing the history and growth of the internet; identifying connectivity technologies and browser features; using social networks and collaborative environments responsibly; using internet services (e-mail, information retrieval); explaining teleworking and videoconferencing, URLs and cookies; setting up a teleconferencing platform.
+**Context:** Learners move from how the internet arose (36), how we connect and browse (37), how we collaborate (38), how we use e-mail and search well (39), to working and meeting remotely (40), ending with an integration activity (41).
+
+# Lesson 36: The Internet — History, Growth, Advantages and Disadvantages
+
+> OBJ:
+  - Define the internet and outline its history and growth.
+  - Explain the advantages and disadvantages of the internet.
+  - Describe the impact of the internet on society (education, business, communication).
+
+## Lesson outline (1 period, 50 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 4 min | "What did people do before the internet to…?" (send a letter, find a fact, buy a ticket). | Compare. |
+| Core 1 | 16 min | Definition (global network of networks using TCP/IP); history timeline: 1969 ARPANET (UCLA–Stanford), 1971 e-mail (Ray Tomlinson), 1974/1983 TCP/IP (Cerf & Kahn; flag day), 1984 DNS, 1989–91 World Wide Web (Tim Berners-Lee at CERN; HTML/HTTP/URL), 1993 Mosaic browser, 1998 Google, 2004 Facebook/Web 2.0, 2007 iPhone/mobile internet, 2010s cloud & streaming, 2020s 5G, IoT, AI; growth figures (1995 16 million users → 2025 ≈ 5.5 billion, ~68 % of humanity; Cameroon ≈ 40–45 % penetration, mobile-first); Cameroon milestones (1990s Camnet, SAT-3 2002, WACS/ACE 2012–2017, 4G 2015, Camtel fibre, digital-ID projects); governance (ICANN, IETF, W3C, ISOC; ART/ANTIC in Cameroon). | Timeline sheet. |
+| Core 2 | 14 min | Advantages (information access, communication, education, commerce, services, entertainment, remote work, innovation, civic participation) vs disadvantages (misinformation, privacy loss, cybercrime, addiction, cyberbullying, inappropriate content, digital divide, cultural homogenisation, environmental cost, job displacement); balanced evaluation. | T-chart. |
+| Core 3 | 12 min | Impact on society: **education** (MOOCs, e-learning, OER, Cameroon GCE/Concours info, YouTube tutorials; but inequality), **business** (e-commerce, MoMo, digital marketing, gig work, start-ups – Jumia, Kiro'o Games, Diool; remote services), **communication** (e-mail, WhatsApp, social media, diaspora ties, citizen journalism; misinformation); health, government, culture. | Impact matrix. |
+| Conclusion | 4 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 36.1 Definition, history and growth
+
+> DEF:
+  The **internet** is the **global "network of networks"** – millions of private, public, academic, business and government networks interconnected through **TCP/IP** protocols, routers and high-capacity links, allowing any connected device to exchange information with any other. The **World Wide Web** is one service on the internet (pages linked by hyperlinks, accessed via HTTP with browsers) – alongside e-mail, file transfer, messaging, streaming and more.
+
+| Year | Milestone |
+| 1957–62 | Sputnik → US ARPA; Licklider's "Galactic Network"; packet-switching ideas (Baran, Davies, Kleinrock) |
+| **1969** | **ARPANET** – first four nodes (UCLA, SRI, UCSB, Utah); first message "LO" |
+| 1971 | **E-mail** (Ray Tomlinson, the @ sign) |
+| 1973–74 | Cerf & Kahn design **TCP/IP**; the word "internet" |
+| 1983 | ARPANET switches to TCP/IP (1 January – "flag day"); **DNS** (1984) |
+| 1989–91 | **Tim Berners-Lee** invents the **World Wide Web** at CERN (HTML, HTTP, URL, first browser/server) |
+| 1993 | Mosaic graphical browser; web goes public; NSFNET opens to commerce |
+| 1995–98 | Amazon, eBay, Yahoo!, **Google**; Windows 95 with TCP/IP; dial-up boom |
+| 2001–07 | Wikipedia, broadband, Skype, Facebook (2004), YouTube (2005), **iPhone (2007)** – mobile internet; Web 2.0 |
+| 2008–15 | Android, cloud computing, 4G, WhatsApp, streaming (Netflix), social media dominance |
+| 2016–25 | 5G, IoT, video conferencing boom (COVID-19), LEO satellites, generative AI; ≈ **5.5 billion users** (~68 %) |
+| **Cameroon** | 1990s: first ISPs/Camnet; **2002 SAT-3** cable at Douala; 2012 WACS (Limbe), 2017 ACE & SAIL (Kribi); 3G 2014, **4G 2015**; Camtel Blue FTTH; mobile money boom; internet penetration ≈ 40–45 %; ANTIC (cybersecurity), ART (regulation), .cm domain |
+
+Growth drivers: cheaper devices (smartphones), mobile networks, submarine fibre, open standards, useful services (search, social, payments), falling data prices. Governance: **ICANN** (names/numbers), **IETF** (protocols), **W3C** (web standards), **ISOC**, regional registries (AFRINIC for Africa).
+
+### 36.2 Advantages and disadvantages
+
+| Advantages | Disadvantages |
+| **Information access** – encyclopaedic knowledge, news, research, open data | **Misinformation/fake news**, information overload, unreliable sources |
+| **Communication** – instant, cheap, global (e-mail, chat, video calls) | **Privacy loss** – tracking, data harvesting, surveillance |
+| **Education** – e-learning, MOOCs, tutorials, OER, remote classes | **Digital divide** – unequal access (rural, cost, gender), widening inequality |
+| **Commerce & finance** – e-commerce, online banking, mobile money, global markets for small producers | **Cybercrime** – scams, phishing, fraud, identity theft, ransomware |
+| **Services** – e-government, e-health, e-ticketing, job search | **Addiction & health** – screen time, sleep loss, sedentary habits |
+| **Entertainment & culture** – streaming, gaming, creativity platforms | **Cyberbullying & harassment**; inappropriate/violent content |
+| **Work & innovation** – remote work, freelancing, cloud tools, start-ups | **Job displacement** and precarious gig work |
+| **Civic participation** – awareness, petitions, transparency | Manipulation, hate speech, polarisation; **cultural homogenisation** |
+| **Efficiency & cost savings** for organisations | **Dependence & outages**; **environmental cost** (energy, e-waste) |
+
+### 36.3 Impact on society
+
+| Domain | Positive impact | Challenges | Cameroon context |
+| **Education** | Access to courses (Coursera, Khan Academy, YouTube), digital libraries, virtual labs, teacher collaboration, remote exams info, AI tutors | Unequal access, distraction, plagiarism, quality control | MINESEC/MINESUP portals; e-learning during 2020 school closures; university MOOC pilots; cybercafés as study hubs; the gap between urban and rural schools |
+| **Business** | E-commerce (Jumia, Glotelho), digital payments (MTN MoMo, Orange Money), online marketing (Facebook/WhatsApp Business), cloud tools for SMEs, freelancing (Upwork), start-ups (Kiro'o Games, Diool, Njorku) | Fraud, taxation, logistics, competition from global platforms, connectivity costs | Mobile money > bank accounts; informal traders selling via WhatsApp; ANTIC's cybersecurity role |
+| **Communication** | Family/diaspora ties (WhatsApp calls), instant news, social movements, citizen journalism, community groups | Misinformation, hate speech, shutdowns, surveillance, loss of face-to-face skills | Diaspora remittances coordinated online; 2017 internet shutdown in NW/SW regions and its economic effect |
+| Health | Telemedicine, health information, appointment systems, DHIS2 data | Self-diagnosis errors, data privacy | Mobile health campaigns (vaccination reminders) |
+| Government | E-services, transparency, online procedures (visas, taxes) | Digital exclusion, security | Impots.cm online tax filing, e-visa, digital ID projects |
+| Culture & entertainment | Music/film distribution (Cameroonian artists on YouTube/Spotify), gaming, languages online | Piracy, dominance of foreign content | Makossa/bikutsi streaming; local content creators |
+
+> EXAMPLE:
+  **Three generations, one village near Bafoussam.** Grandmother remembers walking to the post office to send a telegram; her son built a plantain business in 2012 using SMS orders and now runs it through WhatsApp Business and MoMo; his daughter attends a virtual coding club, sells crafts on Instagram and video-calls cousins in Belgium. The same family also lost 80,000 XAF to a phishing SMS and worries about the granddaughter's screen time – advantages and disadvantages coexist.
+
+> VISUAL:
+  **Figure 36.1 – Timeline ribbon** from ARPANET (1969) to AI era (2025) with icons; a parallel Cameroon lane (SAT-3, WACS, 4G, MoMo). **Figure 36.2 – Growth curve** of internet users worldwide and in Cameroon (log or linear), highlighting the smartphone inflection. **Figure 36.3 – Balance scale** infographic weighing advantages vs disadvantages. **Figure 36.4 – Impact web**: internet at the centre with spokes to education, business, communication, health, government, culture, each with a plus and minus card.
+
+> MISCONCEPTION:
+  "The internet and the Web are the same." The Web is one application layer service; e-mail, WhatsApp, online games and IoT use the internet without the Web. "The internet was invented by one person/company." It emerged from decades of collaborative research and open standards.
+
+> ACTIVITY:
+  **Internet story and debate (35 min).** (1) Timeline build: groups order 15 event cards (world + Cameroon) and add one event they research quickly. (2) Interview homework shared: what a parent/grandparent did before the internet for three tasks. (3) Structured debate: "The internet has done more good than harm for Cameroonian youth" – two teams, evidence required per claim. (4) Impact matrix: each group completes one domain with a local example and presents in 1 minute.
+
+## Formative assessment
+
+> ASSESS:
+  1. Define the internet and distinguish it from the World Wide Web.
+  2. Outline five milestones in the history of the internet with dates, and two milestones for Cameroon.
+  3. Explain three factors behind the internet's growth.
+  4. Give five advantages and five disadvantages of the internet.
+  5. Describe the impact of the internet on education, business and communication, with a Cameroonian example for each.
+  6. Which organisations govern internet names, protocols and web standards?
+  **Homework:** Write a 300-word reflective essay "How the internet changed my community" including at least three advantages, two disadvantages and one proposal to reduce the digital divide.
+
+---
+
+# Lesson 37: Internet Connectivity Technologies and Web Browsers
+
+> OBJ:
+  - Identify and describe different technologies used to connect to the internet (dial-up, DSL, fibre, satellite, mobile networks…).
+  - Compare internet connection technologies in terms of speed, cost, availability and reliability.
+  - Identify and use the features of a web browser (tabs, bookmarks, history, extensions, privacy settings…).
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | "How does this lab reach the internet? How does your phone? Grandparents' village?" | Share. |
+| Core 1 | 25 min | Connectivity technologies: **dial-up** (56 kbps over phone line; legacy), **DSL** (ADSL/VDSL over copper; distance-limited), **cable** (DOCSIS; rare in Cameroon), **fibre** (FTTH/FTTB via GPON – Camtel Blue, Orange/MTN fibre), **mobile networks** (2G/3G/4G/5G; dongles/MiFi, tethering; the dominant access in Cameroon), **fixed wireless** (WiMAX legacy, LTE/5G FWA, ISP microwave), **satellite** (VSAT GEO, LEO Starlink), public Wi-Fi/hotspots, leased lines/MPLS for businesses; ISP roles, modems/routers, IP allocation. | Technology cards. |
+| Core 2 | 25 min | Comparison table: speed, latency, cost (installation, monthly – XAF), availability (urban/rural), reliability, mobility, suitability; measuring with speed tests; choosing for scenarios. | Comparison + speed test. |
+| Core 3 | 35 min | Web browsers (Chrome, Firefox, Edge, Safari, Opera, Brave; mobile) – features and hands-on: address/omnibox, **tabs** (pin, group, restore), **bookmarks/favourites** (folders, bar, export), **history** (search, clear), downloads manager, **extensions/add-ons** (ad blockers, password managers, translators; risks), **privacy settings** (cookies, tracking protection, incognito/private mode, clearing data, site permissions – camera/mic/location, HTTPS-only mode, safe browsing, password manager, sync), reader mode, find in page, zoom, print to PDF, developer tools, keyboard shortcuts, default search engine, profiles, accessibility. Step sheet. | Guided browser tour and tasks. |
+| Conclusion | 10 min | Exit ticket + reflection. | Answer. |
+
+## Core content
+
+### 37.1 Internet connection technologies
+
+> KEY:
+  An **Internet Service Provider (ISP)** connects your home, school or phone to the internet through an **access technology** – wired (dial-up, DSL, cable, fibre) or wireless (mobile networks, fixed wireless, satellite). The right choice depends on where you are, what you need and what you can pay.
+
+| Technology | How it works | Typical speed | Latency | Cost (Cameroon, indicative) | Availability | Reliability | Notes |
+| **Dial-up** | Modem converts data to audio tones over a voice phone line; occupies the line | ≤ 56 kbps | High | Very low equipment; per-minute call charges | Wherever a landline exists (rare now) | Poor (drops) | Obsolete; historical |
+| **DSL (ADSL/VDSL)** | Data on high frequencies of the copper phone line; always-on; splitter/filter; speed falls with distance from exchange | ADSL 2–24 Mbps down; VDSL up to 100 Mbps | 10–40 ms | Moderate | Urban areas with copper (Camtel legacy) | Moderate (line quality) | Being replaced by fibre |
+| **Cable (DOCSIS)** | Data over coaxial TV cable, shared neighbourhood segment | 50 Mbps–1 Gbps | 10–30 ms | Moderate | Limited in Cameroon | Good; slows at peak | Common in Europe/US |
+| **Fibre (FTTH/FTTB)** | Light over optical fibre to the building; GPON ONT + router | 20 Mbps–1 Gbps+ symmetrical possible | 2–10 ms | Installation 25,000–100,000 XAF; 20–50k XAF/month (Camtel Blue, MTN/Orange fibre offers) | Cities, main streets, new estates | Excellent (immune to interference, cuts by road works) | Best for schools/offices/heavy homes |
+| **Mobile broadband (3G/4G/5G)** | Cellular radio via phone, dongle, MiFi or router with SIM | 3G 1–10 Mbps; **4G 10–100 Mbps**; 5G 100 Mbps–1 Gbps | 30–60 ms (4G), 10–20 ms (5G) | Pay-as-you-go data bundles (e.g. 500–20,000 XAF); router 20–60k XAF | **Widest in Cameroon** (4G in towns and along roads; 3G/2G rural) | Variable (congestion, coverage, power cuts at towers) | Dominant access method; tethering |
+| **Fixed wireless access (FWA)** | ISP antenna/microwave or LTE/5G router at a fixed location; line of sight for microwave | 5–500 Mbps | 10–50 ms | Installation + monthly; often for businesses | Towns; hills need LOS | Good; weather-sensitive at high bands | Local ISPs (e.g. Creolink, Yoomee legacy) |
+| **Satellite – GEO (VSAT)** | Dish to geostationary satellite 36,000 km | 2–50 Mbps | 500–700 ms | High (dish 300k–1M XAF; expensive monthly) | Anywhere with sky view | Rain fade; otherwise steady | Remote sites, banks, NGOs |
+| **Satellite – LEO (Starlink & similar)** | Phased-array dish to low-orbit constellation | 50–250 Mbps | 20–50 ms | Kit ~ 300–400k XAF; ~ 30–60k XAF/month | Anywhere licensed/sky view | Good; power hungry | Rural game-changer where licensed |
+| **Public Wi-Fi / hotspots** | Access via a venue's connection (café, campus, "Wi-Fi zones") | Varies | Varies | Free/low | Cities | Variable; security risk | Use VPN/HTTPS |
+| **Leased line / MPLS / dedicated fibre** | Guaranteed dedicated bandwidth with SLA | 10 Mbps–10 Gbps symmetric | Low | High | Business districts | Excellent with SLA | Banks, universities, data centres |
+
+### 37.2 Comparing and choosing
+
+| Scenario | Best fit | Reason |
+| Urban school with 60 PCs and e-learning | **Fibre** (with 4G backup) | Speed, reliability, cost per Mbps |
+| Rural school 30 km from any fibre | **4G FWA** if coverage; else **LEO satellite**; VSAT as last resort | Availability |
+| Student at home with one laptop and a phone | **4G bundle/tethering** or entry fibre | Cost, flexibility |
+| NGO clinic in a remote area | **LEO satellite** + solar power | Anywhere coverage, latency OK for video |
+| Bank branch needing guaranteed uptime | **Leased line/fibre + VSAT or 4G backup** | SLA and redundancy |
+| Traveller/field worker | **Mobile broadband** | Mobility |
+
+Measure before deciding: run speed tests (download/upload Mbps, latency ms, jitter) at different times; ask neighbours; check ISP coverage maps; compute cost per GB or per Mbps; consider power (fibre ONTs and satellite kits need electricity/UPS).
+
+### 37.3 Web browser features
+
+> DEF:
+  A **web browser** is application software that **requests, receives, renders and lets you interact with web resources** (HTML pages, images, video, web apps) via HTTP/HTTPS – e.g. Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari, Opera, Brave; mobile equivalents. Its **rendering engine** (Blink, Gecko, WebKit) turns HTML/CSS/JavaScript into the page you see.
+
+| Feature | What it does | How to use (Chrome/Firefox/Edge) | Tips & risks |
+| **Address bar / omnibox** | Enter URLs or search terms; shows padlock (HTTPS) and site info | Type and Enter; click padlock for certificate/permissions | Check the domain carefully (phishing look-alikes) |
+| **Tabs** | Multiple pages in one window; pin, group, mute, reopen closed | Ctrl+T new, Ctrl+W close, Ctrl+Shift+T reopen, Ctrl+Tab switch, right-click ▸ Pin/Add to group | Too many tabs slow RAM; use tab groups/search |
+| **Bookmarks / favourites** | Save pages for later; folders; bookmarks bar; import/export HTML | Ctrl+D; Ctrl+Shift+B toggle bar; Bookmark manager (Ctrl+Shift+O) | Organise by subject; export as backup |
+| **History** | List of visited pages by date; search; clear | Ctrl+H; Ctrl+Shift+Del to clear | Shared computers – clear or use private mode |
+| **Downloads manager** | Tracks files; open/show in folder; pause/resume | Ctrl+J | Scan downloads; beware .exe from unknown sites |
+| **Extensions / add-ons** | Small programs adding features – ad/tracker blockers (uBlock Origin), password managers (Bitwarden), translators, screenshot tools, reader/accessibility | Chrome Web Store / Firefox Add-ons; Manage extensions | Extensions see your browsing – install only trusted ones; review permissions; remove unused |
+| **Private / incognito mode** | No history, cookies or form data kept after closing | Ctrl+Shift+N (Chrome/Edge), Ctrl+Shift+P (Firefox) | Does **not** hide you from ISP/school/websites; not a VPN |
+| **Privacy & security settings** | Cookie controls (block third-party), tracking protection, Do Not Track/GPC, clear data on exit, **site permissions** (camera, microphone, location, notifications, pop-ups), safe browsing/phishing warnings, HTTPS-only mode, password manager and breach alerts, sync controls | Settings ▸ Privacy and security; Firefox Enhanced Tracking Protection Strict | Review permissions regularly; block notifications spam; use strong unique passwords with the manager or a dedicated one |
+| **Search engine choice** | Default engine (Google, Bing, DuckDuckGo, Ecosia) | Settings ▸ Search engine | Privacy-focused options exist |
+| **Reader mode / zoom / find** | Distraction-free reading; Ctrl +/– zoom; Ctrl+F find in page | Toolbar icons | Accessibility |
+| **Print / save as PDF / screenshots** | Keep copies of pages | Ctrl+P ▸ Save as PDF; Ctrl+S | Citations for schoolwork |
+| **Developer tools** | Inspect HTML/CSS, network requests, console | F12 / Ctrl+Shift+I | Useful for Lesson 46 HTML |
+| **Profiles & sync** | Separate work/personal data; sync bookmarks across devices | Profile icon | Sign out on shared PCs |
+| **Autofill & passwords** | Saves addresses, cards, passwords | Settings ▸ Autofill | Never save on shared PCs |
+| **Pop-up blocker, download protection, sandboxing** | Built-in security | On by default | Keep the browser **updated** |
+
+**Step sheet – "Set up a safe, organised browser" (Chrome/Edge, adaptable):** 1. Update: Menu ▸ Help ▸ About – install updates. 2. Create a profile with your name (shared lab). 3. Settings ▸ Privacy and security ▸ Third-party cookies ▸ Block; Security ▸ Enhanced protection; Site settings ▸ Notifications ▸ Don't allow; Camera/Microphone ▸ Ask. 4. Enable "Always use secure connections". 5. Set default search engine. 6. Install one trusted extension (uBlock Origin) and review its permissions. 7. Create bookmark folders "ICT", "GCE", "Careers"; bookmark three sites; show the bookmarks bar. 8. Open five tabs, pin one, group two, close and reopen one. 9. Open History, search for a site, delete one entry; open a private window and explain what it does/does not hide. 10. Print a page to PDF into your folder.
+
+> EXAMPLE:
+  **Choosing a connection for a home in Bertoua.** Options: no DSL on the street; fibre 800 m away (not yet); 4G strong (speed test 35/12 Mbps, 45 ms) with a MiFi at 30,000 XAF and 20 GB for 10,000 XAF; Starlink kit 350,000 XAF (too expensive for now). Decision: 4G router with an external antenna, migrate to fibre when it arrives. On the family laptop the learner sets up separate browser profiles, blocks third-party cookies, installs an ad blocker to save data, bookmarks her revision sites and uses private mode only on the cybercafé PC – knowing it does not hide her from the café's network.
+
+> VISUAL:
+  **Figure 37.1 – Access technologies map**: a town with fibre along main roads, 4G towers, an FWA mast on a hill, a VSAT dish at a bank, a LEO dish on a rural clinic, DSL from an old exchange – each labelled with speed/latency/cost badges. **Figure 37.2 – Comparison radar chart** (speed, latency, cost, availability, reliability, mobility) for fibre, 4G, satellite, DSL. **Figure 37.3 – Annotated browser window**: omnibox with padlock, tabs (pinned/grouped), bookmarks bar, menu, extension icons, profile, downloads, and the Privacy settings panel with key toggles. **Figure 37.4 – Private-mode myth-buster** showing what is and isn't hidden.
+
+> MISCONCEPTION:
+  "Incognito makes me anonymous." It only stops local history/cookies; the ISP, school network, employer and sites still see you. "Faster Mbps always means better." Latency and reliability matter more for video calls; satellite GEO has decent Mbps but 600 ms delay.
+
+> ACTIVITY:
+  **Connect and browse (55 min, lab).** (1) Speed-test the lab connection and a phone hotspot; record download/upload/latency; identify the access technology of each (ISP name, device). (2) Connectivity clinic: for six scenarios recommend a technology with cost estimates from ISP price lists (research online). (3) Complete the browser step sheet; screenshot evidence of: blocked third-party cookies, bookmark folders, a tab group, cleared history item, site permission settings, an extension's permissions. (4) Privacy audit: check which sites have camera/mic/location permissions on a lab browser and revoke unnecessary ones. (5) No-computer alternative: paper browser mock-up labelling features; card sort of connection technologies by speed/cost/availability.
+
+## Formative assessment
+
+> ASSESS:
+  1. Identify and describe six technologies used to connect to the internet.
+  2. Compare fibre, 4G mobile broadband, DSL and satellite (GEO and LEO) in terms of speed, latency, cost, availability and reliability.
+  3. Recommend a connection for: an urban school; a rural clinic; a travelling salesperson – justify.
+  4. Name eight browser features and explain the purpose of each.
+  5. Explain what private/incognito mode does and does not do.
+  6. List five privacy settings you should configure in a browser and why extensions can be risky.
+  **Homework:** Survey five households/businesses about their internet connection (technology, ISP, speed test, monthly cost, problems); tabulate and recommend improvements; also write a one-page browser safety guide for younger students.
+
+---
+
+# Lesson 38: Social Networks and Collaborative Environments
+
+> OBJ:
+  - Describe social networking platforms and their features.
+  - Explain the benefits and risks of social networks.
+  - Use collaborative environments and tools (e.g., Google Workspace, Microsoft Teams, shared documents) for group work.
+
+## Lesson outline (2 periods, 100 min – computer room/phones)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Poll: platforms used, hours per day; one good and one bad experience. | Respond. |
+| Core 1 | 20 min | Social networking platforms – definition, categories (general: Facebook, X, Instagram, TikTok, Snapchat; messaging: WhatsApp, Telegram; professional: LinkedIn; video: YouTube; discussion: Reddit, Discord; local groups), common features (profiles, connections/followers, feeds & algorithms, posts/stories/reels, likes/comments/shares, messaging, groups/pages/communities, live streaming, hashtags, notifications, marketplace, ads, privacy controls, verification), business models (attention & data → ads). | Feature matrix. |
+| Core 2 | 25 min | Benefits (connection, information, learning communities, business/marketing, activism, support, creativity, employment) vs risks (privacy/data harvesting, misinformation, cyberbullying, scams/impersonation, addiction/algorithmic design, mental health, oversharing/digital footprint, predators, hate speech, legal consequences – Cameroon's 2010 cybercrime law); safe-use practices (privacy settings, 2FA, think-before-posting, verify sources, report/block, digital footprint audit). | Risk-mitigation table; privacy check on own account. |
+| Core 3 | 40 min | Collaborative environments: cloud suites (**Google Workspace** – Docs/Sheets/Slides/Drive/Meet/Chat/Classroom; **Microsoft 365** – Word/Excel/PowerPoint online, OneDrive, **Teams**, SharePoint), project tools (Trello, Notion, Asana), communication (Slack/Discord/WhatsApp groups), wikis/shared notes (Wikipedia model, OneNote), version control (GitHub) mention; features: **real-time co-editing**, comments & suggestions, sharing permissions (viewer/commenter/editor; link vs people), version history, chat/video, task assignment, notifications, offline mode. Hands-on: shared document workflow. | Guided collaborative task. |
+| Conclusion | 10 min | Reflection and exit ticket. | Answer. |
+
+## Core content
+
+### 38.1 Social networking platforms and their features
+
+> DEF:
+  A **social networking platform** is an online service that lets users **create profiles, connect with others and share content** (text, images, video, live streams) within networks of friends, followers or communities. **Collaborative environments** are online spaces and tools where groups **work together on shared documents, projects and communication** – often in real time, from different places.
+
+| Category | Examples | Typical use |
+| General social | Facebook, Instagram, X (Twitter), TikTok, Snapchat, Threads | Sharing life updates, news, entertainment |
+| Messaging-centred | **WhatsApp** (dominant in Cameroon), Telegram, Signal, Messenger | Groups, voice notes, business chats |
+| Professional | LinkedIn | Careers, networking, recruitment |
+| Video/creator | YouTube, TikTok, Twitch | Learning, entertainment, monetised content |
+| Discussion/community | Reddit, Discord, Quora, Facebook Groups | Interest communities, support |
+| Local/niche | Cameroonian Facebook groups (job boards, "Douala Astuces"), alumni WhatsApp groups | Community information |
+
+| Feature | Description | Note |
+| Profile | Name, photo, bio, contact – your public identity | Control what is visible |
+| Connections | Friends (mutual), followers (one-way), contacts | Accepting strangers = risk |
+| Feed & algorithm | Stream of posts ranked by engagement prediction | Designed to maximise time spent |
+| Posts, stories, reels/shorts, live | Content formats: permanent, 24-hour, short video, live streaming | Live/stories still get screenshotted |
+| Reactions, comments, shares/retweets | Engagement; virality | Sharing spreads misinformation fast |
+| Direct messaging | Private chats, voice/video calls | Scams often start in DMs |
+| Groups, pages, channels, communities | Topic or organisation spaces; admins/moderators | Useful for classes and clubs |
+| Hashtags, mentions, tagging | Discovery and notification | Tagging others reveals location/links |
+| Notifications | Push alerts | Manage to reduce addiction |
+| Marketplace/shops, ads, promotions | Commerce; targeted advertising based on your data | Business model of "free" platforms |
+| Privacy & safety settings | Audience selectors, blocking, reporting, 2FA, activity/download data, ad preferences | Review termly |
+| Verification badges | Authenticity of accounts (now sometimes paid) | Not proof of truth |
+
+### 38.2 Benefits and risks
+
+| Benefits | Risks | Safe practices |
+| **Connection** with family, friends, diaspora; support networks | **Privacy loss** – oversharing, data harvesting, location leaks | Set posts to friends-only; disable location; audit apps connected to your account |
+| **Information & awareness** – news, alerts, opportunities (scholarships, jobs) | **Misinformation/fake news**, deepfakes, rumours (e.g. false exam-date posts) | Verify with official sources; check dates/authors; reverse-image search |
+| **Learning communities** – study groups, tutorials, expert Q&A | **Distraction & addiction** – endless feeds, notifications; sleep loss | Time limits (Digital Wellbeing/Screen Time), notification control |
+| **Business & marketing** – WhatsApp Business, Facebook shops, influencer income | **Scams & fraud** – fake sellers, "MoMo double" scams, phishing links, impersonation | Never pay strangers in advance; check profiles; report impersonation |
+| **Activism & civic voice** | **Cyberbullying, harassment, hate speech** | Block/report; keep evidence; tell an adult; laws (Cameroon Law 2010/012 on cybersecurity and cybercrime punishes online harassment/defamation) |
+| **Creativity & self-expression** | **Mental health** – comparison, FOMO, body image | Curate feeds; follow positive accounts; breaks |
+| **Employment** – LinkedIn networking, portfolio | **Digital footprint** – posts seen by schools/employers years later | "Grandmother test" before posting; review old posts |
+| **Emergency communication** | **Predators & grooming**, sextortion | Never share intimate images; report; privacy settings for minors |
+| Cheap communication (data vs airtime) | **Account hacking** | Strong unique password + 2FA; beware login links |
+
+### 38.3 Collaborative environments and tools
+
+| Tool / suite | Components | Collaboration features | Best for |
+| **Google Workspace** (free with Gmail; Education edition for schools) | Docs, Sheets, Slides, Forms, Drive, Meet, Chat, Calendar, Classroom, Keep, Sites | Real-time co-editing with coloured cursors; comments and @mentions; **Suggesting mode**; **version history** with named versions; share with people or link (Viewer/Commenter/Editor); Drive shared folders; Meet video; Classroom assignments; offline mode | Schools, group projects, light document work |
+| **Microsoft 365** | Word/Excel/PowerPoint (desktop + online), OneDrive, **Teams**, SharePoint, OneNote, Forms, Planner, Outlook | Co-authoring in Office files; comments/track changes; Teams channels, chat, meetings, file tabs, assignments (Teams for Education); SharePoint sites; Planner boards | Organisations already on Office; schools with Microsoft licences |
+| Messaging/communities | WhatsApp groups/communities, Telegram, Slack, Discord | Channels, threads, file sharing, calls, polls, pinned messages | Quick coordination; class groups |
+| Project/task management | Trello, Asana, Notion, Planner, ClickUp | Kanban boards, tasks, due dates, assignments, checklists | Organising a group project |
+| Shared notes & wikis | OneNote, Notion, Google Keep, MediaWiki, Confluence | Shared notebooks, linked pages, history | Knowledge bases, study notes |
+| Design & whiteboards | Canva (teams), Figma, Miro, Jamboard alternatives | Simultaneous design, sticky notes | Posters, brainstorming |
+| Code | GitHub/GitLab | Version control, issues, pull requests | Programming projects |
+| Video meetings | Google Meet, Teams, Zoom, Jitsi Meet (free/open source) | Screen share, recording, breakout rooms, chat | Remote classes (Lesson 40) |
+
+**Good practice for group work:** agree tools and naming conventions; one shared folder with clear ownership; use Suggesting/track changes for reviews; @mention for specific requests; comment threads resolved when done; version history instead of "final_v3_REAL.docx"; assign tasks with deadlines on a board; short check-in meetings; respect data/time (compressed images, async messages); permissions – Editor only for members, Viewer for teachers unless required; export a PDF at each milestone; keep an offline copy.
+
+**Step sheet – shared document workflow (Google Docs; Microsoft Word Online similar):** 1. Leader creates "Group 3 – E-services report" in a shared Drive folder. 2. Share ▸ add members as **Editor**, teacher as **Commenter**; copy link with "Restricted". 3. Members open simultaneously; each writes their section (observe coloured cursors). 4. Reviewer switches to **Suggesting**; author accepts/rejects. 5. Insert comments with @name for questions; resolve when addressed. 6. File ▸ Version history ▸ Name current version "Draft 1"; view a previous version and restore a paragraph. 7. Insert a chart from a shared Sheet; Slides linked. 8. Add tasks to a Trello/Planner board with owners and dates. 9. Hold a 10-minute Meet check-in with screen share. 10. Download as PDF and submit via Classroom/Teams.
+
+> EXAMPLE:
+  **A Yaoundé students' association goes digital.** Their WhatsApp community (announcements channel + subgroups) replaced 40 phone calls per event; membership data lives in a shared Google Sheet with Editor rights for two secretaries only; flyers are co-designed in Canva; the annual report is written by five members in one Google Doc with Suggesting mode and named versions; meetings with alumni in France run on Meet. After a fake "fundraising" page impersonated them, they verified their Facebook page, enabled 2FA for all admins and published official contact channels – benefits harvested, risks managed.
+
+> VISUAL:
+  **Figure 38.1 – Anatomy of a social platform**: profile card, feed with algorithm "engine", post types, reactions, DMs, groups, ads – with privacy toggles highlighted. **Figure 38.2 – Benefit/risk see-saw** with safe-practice weights. **Figure 38.3 – Collaborative workspace screenshot mock-up**: Google Doc with three coloured cursors, a comment thread, Suggesting mode change, sharing dialog (Editor/Commenter/Viewer), version history panel; a Teams channel beside it. **Figure 38.4 – Group-work workflow**: plan (board) → create (shared docs) → review (suggestions/comments) → meet (video) → publish (PDF).
+
+> MISCONCEPTION:
+  "Deleted posts are gone." Screenshots, caches and platform backups persist – assume permanence. "Sharing the link with 'Anyone with the link – Editor' is fine." Anyone who receives the link (forwarded) can edit or delete; restrict to people and roles.
+
+> ACTIVITY:
+  **Collaborate for real (55 min, groups of four, lab/phones).** (1) Privacy audit: each learner reviews one platform's privacy settings (audience, location, 2FA, connected apps) using a checklist and fixes at least three items (screenshots without personal data). (2) Misinformation check: analyse three viral Cameroonian posts (teacher-provided) with a verification checklist. (3) Shared-document sprint: complete the step sheet to co-write a one-page "Safe social media guide for Form 1" – each member a section, one reviewer in Suggesting mode, named versions, task board, 5-minute video check-in, PDF export. (4) Reflection: what worked, conflicts (simultaneous edits), how permissions were set and why. (5) No-computer alternative: "paper Google Doc" – one sheet passed around with coloured pens as cursors and sticky-note comments.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe four categories of social networking platforms with examples and eight common features.
+  2. Explain five benefits and five risks of social networks, each with a safe practice.
+  3. What is a digital footprint and why does it matter for future employment?
+  4. Describe three collaborative tools and the features that support group work (co-editing, comments, permissions, version history).
+  5. Explain the difference between Viewer, Commenter and Editor sharing roles and between "restricted" and "anyone with the link".
+  6. Outline a workflow for a four-person group producing a shared report.
+  **Homework:** Produce, in a shared document with at least two classmates (version history as evidence), a one-page digital-citizenship charter for your class; individually, write a 150-word reflection on your own social-media habits and one change you will make.
+
+---
+
+# Lesson 39: Internet Services — E-mail and Information Retrieval
+
+> OBJ:
+  - Identify and describe common internet services (e-mail, WWW, FTP, VoIP, instant messaging, cloud services…).
+  - Create an e-mail account and send an e-mail with an attachment.
+  - Perform effective information retrieval using search engines (keywords, operators, evaluating sources).
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | "What did you do online this week?" – map to services. | Brainstorm. |
+| Core 1 | 20 min | Internet services table: **WWW**, **e-mail**, **FTP/file sharing/cloud storage**, **VoIP/video calls**, **instant messaging**, streaming, social networking, e-commerce/payments, cloud computing (SaaS/PaaS/IaaS), search engines, online gaming, remote access (SSH/RDP), IoT services, newsgroups/forums, e-learning; protocols and examples per service. | Service–protocol matrix. |
+| Core 2 | 40 min | E-mail in depth: how e-mail works (client → SMTP → recipient's server → IMAP/POP3 → client; webmail), address anatomy, headers (To/Cc/Bcc/Subject), attachments (size limits ~25 MB; cloud links; formats; compress), etiquette (subject line, greeting, concise, signature, reply vs reply-all, forward), folders/labels/filters, spam/phishing recognition, security (2FA, recovery, HTTPS), professional address for GCE/university applications. **Hands-on step sheet**: create a Gmail/Outlook account (or use lab accounts), set up profile & 2FA, compose and send an e-mail with an attached document and an image to the teacher and Cc a classmate, reply, forward, create a label/folder and a filter, add a signature. | Create account; send e-mail with attachment. |
+| Core 3 | 27 min | Information retrieval: search engines (Google, Bing, DuckDuckGo; how indexing/ranking works), choosing **keywords** (specific nouns, synonyms, remove stop words), **operators** (quotes " ", minus –, OR, site:, filetype:, intitle:, define:, .., *; Tools ▸ time range; image/reverse search; Google Scholar), refining queries, **evaluating sources** (CRAAP: Currency, Relevance, Authority, Accuracy, Purpose; domain clues .gov.cm/.edu/.org; cross-checking; bias; AI-generated content caution), citing sources, saving/organising findings. Hands-on search challenge. | Search challenge; source evaluation. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 39.1 Common internet services
+
+| Service | Description | Protocols / technologies | Examples |
+| **World Wide Web (WWW)** | Linked hypertext pages and web applications accessed by browsers | HTTP/HTTPS, HTML/CSS/JS, URLs, DNS | News sites, portals, web apps |
+| **E-mail** | Store-and-forward electronic messages with attachments to addresses user@domain | SMTP (send), IMAP/POP3 (receive), webmail over HTTPS | Gmail, Outlook.com, Yahoo, institutional mail |
+| **File transfer & cloud storage** | Upload/download and synchronise files; sharing links | FTP/SFTP, HTTPS, WebDAV | Google Drive, OneDrive, Dropbox, WeTransfer, FileZilla |
+| **VoIP & video calling** | Voice/video over IP instead of circuit telephony | SIP, RTP/SRTP, WebRTC | WhatsApp calls, Zoom, Meet, Teams, Skype |
+| **Instant messaging & chat** | Real-time text, voice notes, media, groups | XMPP, proprietary (Signal protocol E2E encryption) | WhatsApp, Telegram, Messenger, Signal |
+| **Search engines** | Index and rank web content for queries | Crawlers, HTTPS | Google, Bing, DuckDuckGo |
+| **Social networking** | Profiles, sharing, communities (Lesson 38) | HTTPS APIs | Facebook, TikTok, LinkedIn |
+| **Streaming media** | On-demand/live audio-video | HTTPS/DASH/HLS, RTMP | YouTube, Netflix, Spotify, Boomplay |
+| **E-commerce & online payments** | Buying/selling, digital payments | HTTPS, payment APIs, USSD | Jumia, MoMo/Orange Money, PayPal |
+| **Cloud computing** | On-demand computing resources: **SaaS** (apps), **PaaS** (platforms), **IaaS** (servers/storage) | HTTPS, virtualisation | Google Workspace (SaaS), Microsoft 365, AWS/Azure (IaaS) |
+| **E-learning** | Courses, LMS, MOOCs | HTTPS, LMS (Moodle, Classroom) | Coursera, Khan Academy, MINESEC e-learning |
+| **Remote access** | Control a distant computer/terminal | SSH, RDP, VNC, VPN | IT support, servers |
+| **Online gaming** | Multiplayer games, e-sports | UDP/TCP, WebSocket | PUBG Mobile, eFootball |
+| **Forums, newsgroups, wikis, blogs** | Discussion and publishing | HTTPS (legacy NNTP) | Reddit, Wikipedia, WordPress |
+| **IoT & mapping services** | Connected devices; location services | MQTT, HTTPS, GPS | Google Maps, smart meters |
+| **E-government & e-services** | Official procedures online (Lesson 42–43) | HTTPS | Tax filing, e-visa |
+
+### 39.2 E-mail
+
+> DEF:
+  **Electronic mail (e-mail)** is a store-and-forward service for exchanging messages and attached files between addresses of the form **username@domain** (e.g. nadia.fotso@gmail.com). Messages travel from the sender's client to their mail server (SMTP), across the internet to the recipient's mail server (SMTP), where they wait until the recipient's client downloads (POP3) or synchronises (IMAP) them – or reads them via webmail.
+
+| Element | Description |
+| Address | `username@domain` – local part + @ + mail domain (gmail.com, minesec.gov.cm) |
+| **To / Cc / Bcc** | Main recipients / copied (visible) / blind copies (hidden – use for mass mails to protect privacy) |
+| **Subject** | Short, specific ("Application for Form 5 Science Club – Nadia Fotso") |
+| Body | Greeting, purpose in the first lines, clear paragraphs, courteous close, **signature** (name, class/role, contact) |
+| **Attachments** | Files sent with the message; limits (Gmail/Outlook ≈ 25 MB – larger via Drive/OneDrive link); prefer PDF for documents, compressed images; name files clearly; scan for viruses |
+| Reply / Reply all / Forward | Reply to sender; reply to everyone (use sparingly); forward to a new recipient (remove sensitive history) |
+| Folders/labels, filters, archive, search, stars | Organisation and automation (e.g. label all mail from school) |
+| Spam/junk, phishing | Unsolicited or fraudulent mail – check sender address, links (hover), urgency, spelling; never send passwords/PINs; report |
+| Security | Strong password, **2-step verification**, recovery phone/e-mail, HTTPS webmail, log out on shared PCs, beware attachments (.exe, macros) |
+| Etiquette (netiquette) | Professional address, proper subject, no ALL CAPS, proofread, respond within a reasonable time, respect confidentiality, avoid heavy attachments |
+| Webmail vs client | Browser (Gmail.com, Outlook.com) vs app (Outlook, Thunderbird, mobile Mail) configured with IMAP/SMTP |
+
+**Step sheet – create an account and send an e-mail with an attachment (Gmail; Outlook.com similar):** 1. Go to gmail.com ▸ Create account ▸ For my personal use. 2. Enter first/last name, date of birth, gender. 3. Choose a professional username (firstname.lastname; add digits if taken); create a strong password (12+ chars, mixed) and confirm. 4. Add a recovery phone/e-mail; verify code by SMS. 5. Accept terms; skip optional offers. 6. Settings ▸ See all settings ▸ General ▸ Signature: "Nadia Fotso | Upper Sixth Science | Lycée Bilingue de Yaoundé"; Save. 7. Google Account ▸ Security ▸ 2-Step Verification ▸ turn on (phone prompt/SMS). 8. **Compose**: To = teacher's address; Cc = classmate; Subject = "ICT Lesson 39 – Practical submission – Nadia Fotso"; Body = greeting, one paragraph describing the attachment, close, signature. 9. Click the **paper-clip** ▸ select `Lesson39_report.pdf` (< 25 MB) and an image; wait for upload; (for a large file: Drive icon ▸ insert link). 10. Proofread; **Send**; open Sent to confirm. 11. Open the teacher's reply; **Reply** with a thank-you; **Forward** the original to yourself with the history trimmed. 12. Create label "ICT" and a filter (from: teacher → apply label, never spam). 13. Mark a sample phishing mail as spam; report it. 14. Sign out (shared PC).
+
+### 39.3 Effective information retrieval
+
+> KEY:
+  A **search engine** crawls the web, indexes pages and ranks results by relevance, authority, freshness and location. Effective retrieval means choosing **precise keywords**, using **operators** to refine, and **evaluating** results critically before using or citing them.
+
+| Technique | How | Example |
+| **Keywords** | Use specific nouns and distinctive terms; drop stop words; add context (place, year, format); try synonyms and the language of experts | `cameroon GCE ICT syllabus 2026 pdf` instead of `what is the ict syllabus` |
+| **Exact phrase " "** | Forces the phrase | `"transmission media" guided unguided` |
+| **Exclude –** | Removes a term | `jaguar speed -car` |
+| **OR / \|** | Either term | `telework OR telecommuting cameroon` |
+| **site:** | Within a domain/type | `site:minesec.gov.cm calendrier`; `site:.edu machine learning` |
+| **filetype:** | Specific files | `filetype:pdf OSI model tutorial` |
+| **intitle: / inurl:** | Words in title/URL | `intitle:"lesson plan" networking` |
+| **define:** | Definitions | `define:extranet` |
+| **Number range ..** | Ranges | `laptop 200000..300000 XAF` |
+| **Wildcard *** | Unknown word | `"internet was invented in *"` |
+| Tools ▸ time range, language, region | Recency and locale | Past year for prices |
+| **Reverse image search** | Verify images | Google Lens / TinEye |
+| **Google Scholar, library databases, Wikipedia references** | Academic sources | Scholar: `"digital divide" Cameroon` |
+| AI answer engines | Useful summaries; **verify** – can hallucinate; follow citations | – |
+
+| Evaluating a source – CRAAP test | Questions | Red flags |
+| **Currency** | When published/updated? Do links work? | Undated; old statistics for fast-changing topics |
+| **Relevance** | Does it answer your question at the right level/context (Cameroon)? | Off-topic, foreign context assumed universal |
+| **Authority** | Who wrote it? Credentials? Institution? Domain (.gov.cm, .edu, ITU, WHO)? Contact info? | Anonymous, no about page, look-alike domains |
+| **Accuracy** | Evidence, references, verifiable facts, consistent with other reputable sources? Spelling/grammar? | No sources, sensational, contradicts consensus |
+| **Purpose** | Inform, teach, sell, persuade, entertain? Bias? Ads? Sponsored? | Hidden agenda, clickbait, "miracle" claims |
+
+Also: **cross-check** ≥ 2 independent sources; distinguish primary/secondary sources; note **date accessed**; cite (APA/MLA or a simple format: author, title, site, URL, date); organise with bookmarks/Zotero/notes; respect copyright/licensing (Creative Commons for images).
+
+> EXAMPLE:
+  **Researching "impact of Starlink on rural education in Cameroon".** Poor: `starlink cameroon schools good?` → blogs and ads. Better: `"Starlink" Cameroon schools OR education 2024..2026 site:.cm OR site:.org` → ministry/NGO reports; `filetype:pdf "satellite internet" Africa education ITU` → ITU study; Scholar for peer-reviewed papers; reverse-image check on a viral photo of a "Starlink classroom" reveals it was taken in Kenya. CRAAP test rejects a sensational blog (no author, 2021 data, selling kits) and keeps the ITU report and a MINPOSTEL communiqué. The e-mail to the teacher attaches the sourced summary as PDF with a proper subject line.
+
+> VISUAL:
+  **Figure 39.1 – Internet services wheel** with icons and protocols. **Figure 39.2 – E-mail journey**: sender's client → SMTP server → internet → recipient's server → IMAP/POP3/webmail → recipient; labelled with ports and where TLS protects it. **Figure 39.3 – Annotated compose window**: To/Cc/Bcc, subject, body structure, attachment clip, Drive link, send. **Figure 39.4 – Search operator cheat sheet** and a **CRAAP scorecard** with a sample site scored.
+
+> MISCONCEPTION:
+  "The first result is the best/true." Ranking mixes relevance, popularity and ads; evaluate. "Bcc is sneaky." It protects recipients' privacy in group mails. "An attachment that is a .zip from a known sender is safe." Accounts get hijacked – verify unexpected attachments.
+
+> ACTIVITY:
+  **E-mail and search lab (55 min).** (1) Complete the e-mail step sheet: account (or lab account), signature, 2FA, send an e-mail with a PDF and image attached to the teacher with a classmate in Cc; reply and forward; create a label and filter; identify two phishing signs in a sample. (2) Search challenge (20 min): ten questions requiring operators (e.g. "Find a PDF from a Cameroonian government site about the 2026 school calendar"; "Find the year Camtel's SAT-3 landing was inaugurated with two sources"; "Find a Creative-Commons image of a fibre cable"); record query, operator used, source URL, CRAAP score. (3) Source evaluation: score three given pages with the CRAAP rubric and justify accept/reject. (4) No-computer alternative: paper e-mail form with headers/attachment checklist; operator-matching cards; printed pages for CRAAP scoring.
+
+## Formative assessment
+
+> ASSESS:
+  1. Identify and describe eight common internet services, naming a protocol and an example for each.
+  2. Explain how an e-mail travels from sender to recipient, naming the protocols.
+  3. List the steps to create an e-mail account and send a message with an attachment; explain To, Cc and Bcc.
+  4. State six rules of e-mail etiquette and four signs of a phishing e-mail.
+  5. Write refined search queries using at least four operators for a given research question.
+  6. Apply the CRAAP test to evaluate a source; why cross-check?
+  **Homework:** Send the teacher an e-mail (proper subject, greeting, signature) attaching a one-page PDF answering a research question of your choice, with three sources evaluated using CRAAP and the exact queries/operators used; Cc a study partner.
+
+---
+
+# Lesson 40: Teleworking, Videoconferencing, URLs and Cookies
+
+> OBJ:
+  - Explain teleworking/telecommuting and videoconferencing and their advantages and disadvantages.
+  - Describe the structure of URLs and the role of cookies in web browsing.
+  - Set up and use a teleconferencing platform (e.g., Zoom, Google Meet, Microsoft Teams) for a virtual meeting.
+
+## Lesson outline (2 periods, 100 min – computer room, webcams/phones)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Recall 2020: how did lessons, church, business continue? | Share. |
+| Core 1 | 25 min | **Teleworking/telecommuting** (working from home/remote location using ICT; forms: full remote, hybrid, mobile work, freelancing; requirements: connectivity, devices, VPN/cloud, collaboration tools, policies), **videoconferencing** (real-time audio-video meetings; features: screen share, chat, recording, breakout rooms, whiteboard, polls, captions, waiting room, virtual backgrounds); advantages/disadvantages for employees, employers, society (commuting, cost, flexibility, productivity vs isolation, blurred boundaries, security, digital divide, power/connectivity in Cameroon); telemedicine, virtual classes, remote interviews. | Pros/cons matrix. |
+| Core 2 | 25 min | **URL structure**: scheme (https), subdomain/host/domain/TLD (www.minesec.gov.cm; ccTLD .cm), port (:443), path (/exams/2026/results.html), query string (?class=U6&lang=en), fragment (#top); URL encoding; absolute vs relative; shorteners and risks; reading URLs to spot phishing. **Cookies**: small text key–value files stored by the browser per site; purposes (session management/login, preferences, shopping cart, analytics, **tracking/advertising**); first-party vs third-party; session vs persistent; secure/HttpOnly flags; consent banners (GDPR-style; Cameroon's 2024 personal-data law); managing cookies in browser settings; alternatives (local storage, fingerprinting). | Dissect URLs; inspect cookies (DevTools). |
+| Core 3 | 37 min | **Set up a teleconferencing platform** – step sheet (Google Meet; Zoom and Teams noted; Jitsi as no-account option): create account, schedule meeting with calendar invite and link, settings (waiting room/lobby, passcode, host controls, mute on entry, recording permissions), join etiquette (camera, mute, lighting, name), run: admit participants, share screen/slides, use chat, raise hand, polls, breakout rooms, captions, record, end and share recording/notes; low-bandwidth tips (audio-only, camera off, 4G fallback, dial-in). Learners host a 10-minute mock meeting. | Host/participate in a mock meeting. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 40.1 Teleworking/telecommuting and videoconferencing
+
+> DEF:
+  **Teleworking (telecommuting)** is **performing one's job away from the traditional workplace** – at home, a co-working space or on the move – using ICT (internet, cloud tools, VPN, e-mail, videoconferencing) to communicate with colleagues and access work systems. **Videoconferencing** is a **live, two-way audio and video meeting between two or more participants at different locations** over a network, usually with screen sharing, chat and recording.
+
+| Perspective | Advantages | Disadvantages |
+| **Employees** | No commute (time, transport cost, traffic in Douala/Yaoundé); flexibility; work–life balance; access to jobs anywhere (freelancing for foreign clients in USD/EUR); inclusion for people with disabilities or caring duties | Isolation, blurred boundaries/overwork, home distractions, costs of power/data/equipment borne at home, fewer promotion signals, need for self-discipline |
+| **Employers** | Lower office costs; access to wider talent; continuity during crises (COVID-19, strikes); often higher productivity for focused work; measurable outputs | Management/supervision challenges; team cohesion; **security risks** (home Wi-Fi, personal devices, phishing); onboarding harder; digital tools cost; legal/insurance questions |
+| **Society/environment** | Less traffic and pollution; decentralisation (jobs outside big cities); resilience | Digital divide (rural connectivity, cost of data, electricity outages); erosion of local commerce near offices; surveillance software concerns |
+| **Videoconferencing specifically** | Saves travel; records meetings; brings experts/specialists to remote schools and clinics (telemedicine, virtual classes); inclusive features (captions) | Bandwidth demands (0.5–3 Mbps per stream), latency/jitter problems; "Zoom fatigue"; technical failures; security ("Zoombombing" without waiting rooms/passcodes); reduced non-verbal communication |
+
+Forms of telework: fully remote, **hybrid** (2–3 days), mobile work (sales, field staff), telecentres/co-working hubs (e.g. ActivSpaces Buea, Douala tech hubs), freelancing platforms. Requirements: reliable connectivity (fibre/4G + backup), a suitable device, **VPN** or cloud access to work systems (Lessons 21–22), collaboration tools (Lesson 38), security policy (MFA, encryption, updates), ergonomics and clear communication norms. Related services: telemedicine, e-learning, remote interviews, remote court hearings.
+
+### 40.2 URLs and cookies
+
+> DEF:
+  A **URL (Uniform Resource Locator)** is the **address of a resource on the internet**, specifying the protocol (scheme), the host (domain) and the path (plus optional port, query and fragment). A **cookie** is a **small piece of text data that a website stores in your browser** and that the browser sends back to that site with later requests – used to remember sessions, preferences and, often, to track users.
+
+```
+https://www.minesec.gov.cm:443/exams/2026/results.html?class=U6&lang=en#top
+ │        │   │       │   │  │   │                       │                  │
+ scheme   sub domain  TLD port path                     query string       fragment
+ (protocol) domain  (2nd-level + ccTLD .cm)             (parameters key=value, & separated)  (position in page)
+```
+
+| Part | Meaning | Example / notes |
+| **Scheme/protocol** | How to access | `https://` (secure web), `http://`, `ftp://`, `mailto:`, `file://` |
+| **Subdomain** | Sub-section/server of the domain | `www`, `mail`, `results`, `portal` |
+| **Domain name** | Registered name; read right to left: **TLD** (.com, .org, .edu, .gov; country codes **.cm**, .fr, .uk), second-level (minesec.gov), further levels | Phishers use look-alikes: `minesec-gov.cm.example.ru`, `mtn-momo-bonus.com` – the real domain is the part just before the TLD |
+| **Port** | Service port (usually hidden – default 80/443) | `:8080` for some intranet apps |
+| **Path** | Folder/file on the server | `/exams/2026/results.html` |
+| **Query string** | Parameters after `?`, separated by `&` | `?q=osi+model&hl=en` – search terms, filters, tracking IDs (utm_source) |
+| **Fragment** | Position within the page after `#` | `#top`, `#section3` |
+| URL encoding | Special characters as %XX | space → `%20`, é → `%C3%A9` |
+| Absolute vs relative | Full URL vs path relative to the current page (used in HTML links – Lesson 46) | `images/logo.png` |
+| Shorteners | bit.ly, tinyurl hide the destination | Preview before clicking; phishing risk |
+
+| Cookie aspect | Description |
+| Content | Name=value pairs (e.g. `session_id=8f3a…`, `lang=fr`, `cart=12,45`), domain, path, expiry, flags |
+| **Session cookie** | Deleted when the browser closes – keeps you logged in during a visit |
+| **Persistent cookie** | Stored until expiry (days–years) – "remember me", preferences, tracking |
+| **First-party** | Set by the site you visit – login, cart, settings |
+| **Third-party** | Set by other domains embedded in the page (ad networks, analytics, social buttons) – **cross-site tracking** and profiling; increasingly blocked by browsers |
+| Legitimate roles | Session management (login), personalisation (language, theme), shopping carts, analytics (visits), security tokens (CSRF) |
+| Concerns | Tracking across sites, targeted advertising, profiling; cookie theft (session hijacking) – flags `Secure` (HTTPS only) and `HttpOnly` (no script access), `SameSite` |
+| Consent & law | Cookie banners (EU GDPR/ePrivacy); Cameroon's **Law No. 2024/017 on personal data protection** and ANTIC guidance require transparency and consent for personal data processing |
+| Managing | Browser settings: block third-party cookies, clear on exit, site exceptions; private mode; extensions; DevTools ▸ Application ▸ Cookies to inspect |
+| Alternatives/beyond cookies | Local storage, browser fingerprinting, tracking pixels, login-based tracking |
+
+### 40.3 Setting up and using a teleconferencing platform
+
+| Platform | Account | Free limits | Strengths |
+| **Google Meet** | Google account | 60 min for 3+ participants (1:1 up to 24 h); 100 participants | Simple, browser-based, Calendar/Classroom integration, low bandwidth mode |
+| **Zoom** | Zoom account (host only) | 40 min group meetings; 100 participants | Breakout rooms, polls, rich host controls, works on weak links |
+| **Microsoft Teams** | Microsoft account / school 365 | 60 min; 100 participants (free) | Channels, files, assignments (Education) |
+| **Jitsi Meet** | None needed (open source) | Unlimited (meet.jit.si or self-hosted) | Privacy, no account, self-hostable on a school server |
+| WhatsApp video | Phone number | 32 participants | Ubiquitous, low bandwidth; few controls |
+
+**Step sheet – Google Meet (Zoom/Teams equivalents in brackets):**
+**A. Prepare (host).** 1. Sign in at meet.google.com (zoom.us / teams.microsoft.com). 2. **Schedule**: Google Calendar ▸ Create ▸ title "ICT Club – Virtual meeting", date/time, add guests (e-mails), "Add Google Meet video conferencing", description with agenda; Save & send invites (Zoom: Schedule ▸ set passcode, waiting room, mute on entry; Teams: Calendar ▸ New meeting ▸ Meeting options – lobby). 3. Meeting settings: Host management ON (only host can share/mute), Quick access OFF so guests knock (waiting room), captions language. 4. Test: Settings (gear) ▸ audio/video devices, preview, lighting (face the window), background blur, headset to avoid echo. 5. Prepare slides/documents; close unneeded apps; plug in the charger; have a phone hotspot as backup.
+**B. Run the meeting.** 6. Join 5 min early; admit participants from the lobby; welcome and state agenda/rules (mute when not speaking, raise hand, use chat for questions). 7. **Present now** ▸ A tab / window / entire screen – share slides (share a Chrome tab for video with audio). 8. Use **Chat** for links, **Raise hand** queue, **Polls/Q&A**, **Breakout rooms** (Meet Workspace/Zoom/Teams) for 5-minute group tasks, **Whiteboard** (Jamboard alternatives/Zoom whiteboard). 9. **Record** (with consent; announce) – Meet Workspace/Zoom/Teams; otherwise assign a note-taker. 10. Manage: mute noisy mics, remove disruptive participants, lock the meeting (Zoom) once everyone is in. 11. Close: summarise decisions and actions, thank participants, **End call for everyone**.
+**C. After.** 12. Share recording link/notes via e-mail or the class group; collect feedback (Form); store the recording in the shared Drive with restricted permissions.
+**D. Participant etiquette & low bandwidth.** Join from a quiet, well-lit place; camera on when possible, mute otherwise; name displayed correctly; dress appropriately; do not share meeting links publicly; on weak 4G: turn off video/reduce to 360p, use audio-only or dial-in numbers (Zoom/Teams), close other downloads, prefer wired or sit near the router; with power cuts, keep a charged phone as fallback.
+
+> EXAMPLE:
+  **A parent–teacher conference goes hybrid at a Limbe college.** The ICT prefect schedules a Meet in Calendar (link + passcode lobby), tests audio, shares the results slides from a Chrome tab and runs a poll on Saturday classes; parents in Douala and Germany join, two on audio-only 3G. A parent reads the invitation URL carefully – `meet.google.com/abc-defg-hij` – and rejects a forwarded look-alike `meet-google.com-join.info`. Later, when the school's website asks her to accept cookies, she allows only essential cookies and blocks third-party ones; her session cookie keeps her logged into the results portal until she closes the browser.
+
+> VISUAL:
+  **Figure 40.1 – Telework ecosystem**: home worker with laptop → VPN → company cloud/server; collaboration tools; hybrid calendar; pros/cons badges. **Figure 40.2 – URL anatomy diagram** with colour-coded parts and a phishing look-alike comparison. **Figure 40.3 – Cookie lifecycle**: first request → server Set-Cookie → stored → sent back; first- vs third-party illustrated with an ad network across two sites. **Figure 40.4 – Annotated Meet/Zoom interface**: mute/camera, present, chat, raise hand, participants/lobby, record, breakout rooms, captions, end; plus a "low-bandwidth checklist" card.
+
+> MISCONCEPTION:
+  "Cookies are viruses." They are plain text, cannot execute; the concern is privacy/tracking. "HTTPS means the site is trustworthy." It only means the connection is encrypted – phishing sites also use HTTPS; read the domain. "Recording a meeting is always allowed." Inform participants and obtain consent; store recordings securely.
+
+> ACTIVITY:
+  **Virtual meeting studio (55 min).** (1) URL dissection: label all parts of five URLs (including one with query/fragment and two phishing look-alikes); decode two URL-encoded strings. (2) Cookie inspection: open DevTools ▸ Application/Storage ▸ Cookies on a news site; list first- vs third-party cookies, session vs persistent; block third-party cookies and reload; observe. (3) Host a mock meeting: groups of five rotate as host/participants – schedule with invite, lobby, screen share of a slide, chat question, poll, 3-minute breakout, (simulated) recording, proper closing; peers score with a checklist; one round in "low-bandwidth mode" (video off). (4) Telework debate: "Cameroonian companies should adopt hybrid work" – use the pros/cons matrix and local constraints (power, data cost). (5) No-computer alternative: paper storyboard of the meeting flow and a URL/cookie worksheet.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain teleworking and videoconferencing; give three advantages and three disadvantages of each from an employee's and an employer's viewpoint.
+  2. Label the parts of `https://results.gceboard.cm/2026/olevel.php?centre=1042&sort=name#list` and explain each.
+  3. How can reading a URL help detect a phishing site? Give an example.
+  4. Describe what cookies are, three legitimate uses and two privacy concerns; distinguish first-party/third-party and session/persistent cookies.
+  5. List the steps to schedule, secure, run and close a virtual meeting on a platform of your choice, including three host controls and three low-bandwidth tips.
+  6. Which Cameroonian law governs personal data and what does it imply for websites using cookies?
+  **Homework:** Schedule and host a 10-minute virtual meeting with two classmates (screenshot of the invite and participant list – no personal data of others beyond names), then write a one-page report: platform settings used, problems met, and an evaluation of teleworking feasibility for a chosen Cameroonian job.
+
+---
+
+# Lesson 41: Integration Activities — Connecting, Collaborating and Communicating Online
+
+> ACTIVITY:
+  **Context.** Your ICT club has been asked by a rural partner school (200 learners, 4G coverage, no fibre, intermittent power) to design and demonstrate a "Connected School" starter programme: how they will get online, browse safely, use social platforms responsibly, run e-mail and research, and hold virtual classes with your school.
+  **Task (groups of 4, 2 periods).**
+  1. **History and impact brief** (Lesson 36): a half-page introduction on why the internet matters for a Cameroonian school, with two advantages, two risks and one digital-divide measure.
+  2. **Connectivity plan** (Lesson 37): compare three feasible access technologies for the partner school (4G router, FWA, LEO satellite) on speed, latency, cost (installation and monthly in XAF), availability, reliability and power; recommend one with a backup; specify a standard browser configuration (privacy settings, extensions policy, bookmarks folder) for the lab.
+  3. **Digital-citizenship kit** (Lesson 38): a one-page social-media safety charter and a description of the collaborative environment (Google Workspace for Education or Microsoft 365) with sharing-permission rules; the kit itself must be produced collaboratively in a shared document with version history and comments as evidence.
+  4. **Services pack** (Lesson 39): a step-by-step guide for teachers to create professional e-mail accounts, send attachments and set up labels/filters; a research skills card (keywords, five operators, CRAAP test) with a worked example on a Cameroonian topic; send the pack to the teacher by e-mail with attachments and proper etiquette.
+  5. **Virtual class pilot** (Lesson 40): schedule and host a 15-minute demonstration virtual lesson linking both "schools" (two rooms or two groups), with lobby/passcode, screen sharing, chat, a poll and a low-bandwidth fallback; annotate the meeting URL and explain the cookies/consent notice on the platform; include a telework/tele-teaching feasibility note for the partner school's staff.
+  6. **Deliver** a 6–8 page programme document (PDF) plus a 7-minute presentation, and a 2-minute recorded segment (or live demo) of the virtual lesson.
+  **Criteria.** Accuracy and completeness across the five lessons; justified, costed connectivity choice; quality and safety of the digital-citizenship and services materials; successful, well-managed virtual meeting; evidence of genuine collaboration (version history, comments, task board); e-mail etiquette; presentation quality.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Internet context & impact | Precise history/impact points, local examples, balanced | Adequate | Thin | Missing/inaccurate |
+| Connectivity & browser plan | Three options compared on all criteria, costed, justified recommendation with backup; complete browser policy | Justified, minor gaps | Partial comparison | Unjustified |
+| Digital citizenship & collaboration | Clear charter, correct permissions rules, strong collaboration evidence | Good charter, some evidence | Basic | Little evidence |
+| E-mail & research pack | Correct, complete steps; operators and CRAAP applied in a worked example; e-mail sent properly | Mostly complete | Errors | Not sent/incomplete |
+| Virtual lesson | Secure, smooth, all features used, fallback demonstrated, URL/cookies explained | Smooth with minor issues | Basic meeting | Failed |
+| Document & presentation | Professional, clear, within time | Clear | Basic | Weak |
+
+---

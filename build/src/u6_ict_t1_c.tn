@@ -1,0 +1,785 @@
+= Module 3 — Selecting and Configuring Network Components; Implementing Network Security
+**Weeks 5–7 · Lessons 17–26 (+ Evaluation and Remediation No 1)**
+**Category of action:** Selection and configuration of network components; implementation of network security.
+**Context:** Learners identify network equipment (17), sit Evaluation No 1, then set up and test a peer-to-peer network (18), plan equipment for an organisation (19) and integrate (20). Security follows: intranets and extranets (21), VPNs and privacy (22), computer and network security (23), data protection and access control (24), data validation and verification (25), and Integration Activity (26).
+
+# Lesson 17: Network Equipment
+
+> OBJ:
+  - Explain the role of key network components (modem, hub, router, NOS…).
+  - Differentiate between the various network components based on their functions.
+  - Identify the appropriate network components required for a computer network.
+
+## Lesson outline (2 periods, 100 min – equipment on display)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Pass round a NIC, patch cable, switch, old hub, router, modem/ONT, access point. | Handle; guess roles. |
+| Core 1 | 45 min | Components and roles: NIC, transmission media/connectors (RJ-45, fibre SC/LC), **hub**, **switch** (MAC table, full duplex, managed/unmanaged, PoE), **bridge**, **router** (IP routing, NAT, DHCP, firewall), **modem** (DSL/cable/fibre ONT/4G), **access point**, wireless router combo, **repeater/extender**, **gateway**, **firewall** appliance, **server**, **NOS** (Windows Server, Linux, roles), patch panel, UPS; layer of operation. Demo a switch's MAC learning with ping and ARP. | Component fact cards. |
+| Core 2 | 25 min | Differentiation: hub vs switch vs router; modem vs router; AP vs router; repeater vs bridge; managed vs unmanaged; NOS vs desktop OS; comparison by function, OSI layer, addressing used, collision/broadcast domains, intelligence. | Comparison table. |
+| Core 3 | 20 min | Identifying components for a given network: home; 20-PC lab; two-block school; branch office – list, quantity, justification. | Component lists. |
+| Conclusion | 5 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 17.1 Key network components and their roles
+
+| Component | Role | Key facts |
+| **Network interface card (NIC)** | Connects a device to the medium; frames data; has a unique **MAC address** (48-bit, e.g. 3C:52:82:1A:9F:07) | Wired (Ethernet RJ-45) or wireless (Wi-Fi); onboard in most devices; speed 100 Mbps/1 Gbps/2.5 Gbps; OSI layers 1–2 |
+| **Transmission media & connectors** | Carry signals | UTP Cat 5e/6/6a with **RJ-45**; fibre (single/multi-mode, SC/LC connectors); coaxial; wireless (Lesson 30) |
+| **Hub** | Multiport **repeater**: regenerates and **broadcasts** every bit to all ports; half duplex; one collision domain | Layer 1; obsolete – replaced by switches; useful for teaching/packet capture |
+| **Switch** | Connects devices in a LAN; learns **MAC addresses per port** and forwards frames **only to the destination port**; full duplex; each port its own collision domain | Layer 2 (Layer 3 switches also route); **unmanaged** (plug-and-play) vs **managed** (VLANs, QoS, monitoring, port security); **PoE** powers APs/cameras/phones; 5–48 ports; uplink/SFP ports |
+| **Bridge** | Connects two LAN segments, filtering by MAC address | Layer 2; today a two-port switch; wireless bridges link buildings |
+| **Router** | Connects **different networks** (LAN ↔ LAN, LAN ↔ internet); forwards **packets by IP address** using a routing table; separates broadcast domains; typically provides **NAT**, **DHCP**, basic **firewall**, sometimes Wi-Fi and VPN | Layer 3; home "box" combines router + switch + AP + modem; enterprise routers (Cisco, MikroTik) |
+| **Modem** | **Mo**dulator/**dem**odulator: converts digital data to the signal used by the access line and back | Types: DSL (phone line), cable (DOCSIS), **fibre ONT/ONU**, **4G/5G modem** (MiFi/dongle), satellite modem, dial-up (legacy); the interface to the ISP |
+| **Access point (AP)** | Provides **Wi-Fi** access to a wired LAN; bridges wireless clients to Ethernet | Layer 2; SSID, channel, security (WPA2/WPA3); standalone or controller-managed; PoE-powered; not a router by itself |
+| **Wireless router** | AP + router + switch (+ modem) in one box | Homes/small offices |
+| **Repeater / range extender** | Regenerates/amplifies signals to extend distance (cable) or Wi-Fi coverage | Layer 1; Wi-Fi extenders halve throughput; mesh systems are smarter |
+| **Gateway** | Device/software connecting networks using **different protocols** or acting as the default exit point (default gateway = router) | Protocol translation (VoIP gateway, IoT gateway, e-mail gateway) |
+| **Firewall (appliance/software)** | Filters traffic by rules; protects the LAN from the internet | Layer 3–7; in routers, dedicated appliances (pfSense, Fortinet), host firewalls |
+| **Server** | Provides services – file, print, web, mail, database, DHCP/DNS, authentication, LMS | Physical, virtual or cloud |
+| **Network operating system (NOS)** | Software that **manages network resources**: user accounts and authentication, file/print sharing, permissions, services (DHCP, DNS, directory), security policies, monitoring | **Windows Server** (Active Directory), **Linux** distributions (Ubuntu Server, Debian, Red Hat) with Samba/LDAP, Novell NetWare (historic); also the firmware OS of switches/routers (Cisco IOS, RouterOS) |
+| **Patch panel & structured cabling** | Terminates wall cables neatly; patch cords to switch | Racks, labelling, cable management |
+| **UPS / surge protector** | Keeps equipment running and safe through outages/surges | Essential in Cameroon |
+| **Network monitoring/management tools** | Observe traffic and faults | SNMP, ping/traceroute, Wireshark, controller software |
+
+### 17.2 Differentiating components by function
+
+| Comparison | Distinction |
+| **Hub vs switch** | Hub broadcasts to all (layer 1, shared bandwidth, collisions, half duplex); switch forwards by MAC to one port (layer 2, dedicated bandwidth per port, full duplex, secure) |
+| **Switch vs router** | Switch connects devices **within** one network using MAC addresses; router connects **different** networks using IP addresses, chooses paths, does NAT/firewall |
+| **Router vs modem** | Modem converts signals to reach the ISP (one connection); router shares that connection among many devices and routes between networks; home boxes combine both |
+| **Access point vs wireless router** | AP only adds Wi-Fi to an existing LAN (no routing/DHCP/NAT); wireless router adds routing, DHCP, NAT and usually a switch and modem |
+| **Repeater vs bridge/switch** | Repeater regenerates signal without reading addresses (layer 1); bridge/switch reads MACs and filters (layer 2) |
+| **Bridge vs router** | Bridge joins segments of the same network (MAC); router joins different networks (IP) |
+| **Gateway vs router** | Router forwards between IP networks; gateway translates between different protocols/systems (broader term); "default gateway" in PC settings is the router |
+| **Managed vs unmanaged switch** | Managed: configurable (VLANs, QoS, monitoring, port security, spanning tree); unmanaged: plug-and-play, cheaper |
+| **NOS vs desktop OS** | NOS optimised for multi-user services, security, uptime, remote management, server roles; desktop OS for one user's applications (though it can share simply) |
+| **Layer summary** | Layer 1: cable, NIC (physical), hub, repeater; Layer 2: switch, bridge, AP, NIC (MAC); Layer 3: router, layer-3 switch; Layer 3–7: firewall, gateway, proxy, servers |
+
+### 17.3 Identifying the components for a network
+
+| Network | Components required |
+| **Home** (5–10 devices) | ISP modem/ONT or 4G modem; wireless router (with 4-port switch, AP, DHCP, NAT, firewall); NICs in devices; maybe a mesh extender; surge protector |
+| **20-PC lab (star, P2P or client/server)** | 24-port switch (Gigabit, unmanaged or managed), Cat 6 patch cables/structured cabling + patch panel, NICs, router/firewall to ISP modem, one access point for staff, optional server + NOS (file/print/auth), network printer, UPS, rack |
+| **Two-block school (tree)** | Per block: 24/48-port managed PoE switch, APs, cabling; core: managed switch with fibre SFP uplinks, fibre between blocks (or wireless bridge), router/firewall with content filtering, server(s) + NOS (AD/LDAP, DHCP, DNS, file/print, LMS or cloud), ISP modem/ONT (and 4G backup), UPS per rack, monitoring software |
+| **Branch office linking to HQ** | Router with VPN and dual WAN (fibre + 4G), managed switch, AP, firewall rules, printer, UPS; VPN gateway/NOS at HQ |
+| **Cybercafé** | Switch, router/firewall with bandwidth control (MikroTik), ISP modem, PCs with NICs, print server, UPS, timer/billing software |
+
+> EXAMPLE:
+  **Inside the school's "box".** The Camtel fibre ONT (modem) converts light to Ethernet; a MikroTik **router** does NAT/DHCP/firewall and splits learners/staff into VLANs; a 48-port PoE **switch** feeds the lab and powers three **access points** (SSIDs "Staff" and "Learners"); an Ubuntu **server** runs Samba/LDAP as the **NOS** for logins and files; a **UPS** keeps the rack alive during ENEO cuts; a **wireless bridge** links the boarding house 150 m away. When the internet drops, the LAN still works because switching and the NOS do not depend on the router's WAN.
+
+> VISUAL:
+  **Figure 17.1 – Component gallery**: photos/sketches with role, layer and addressing (MAC/IP) badges: NIC, hub, switch, router, modem/ONT, AP, repeater, gateway, firewall, server/NOS, patch panel, UPS. **Figure 17.2 – Data path**: PC → NIC → switch (MAC table lookup) → router (IP routing/NAT) → modem/ONT → ISP → internet, with the device that reads each address highlighted. **Figure 17.3 – Component checklist** for home / lab / campus / branch as a matrix of ticks.
+
+> MISCONCEPTION:
+  "The Wi-Fi is down so the router is broken." Often only the AP function or the ISP link is affected; wired LAN may work. "A switch and a hub are the same box with a different name." Switches learn addresses and forward selectively – a fundamental difference for performance and security.
+
+> ACTIVITY:
+  **Component identification lab (45 min).** (1) Station rotation: identify eight physical items, state role, layer, address type, one alternative. (2) Live demo: `arp -a`/`ip neigh` and switch MAC table (managed switch or Packet Tracer) to see MAC learning; `ipconfig`/`ip route` to see the default gateway. (3) Given three organisation cards, produce the component list with quantities, key specifications (ports, PoE, Gigabit, managed) and justification. (4) Compare quotes: hub-less star with unmanaged vs managed switch – which for a lab needing learner/staff separation?
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain the role of the modem, hub, switch, router, access point and network operating system.
+  2. Differentiate hub from switch, switch from router, and modem from router.
+  3. At which OSI layer do a repeater, a switch and a router operate, and which addresses do they use?
+  4. What does a NOS do that a desktop OS does not? Name two NOS examples.
+  5. Identify the components (with quantities) for a 30-PC lab with staff Wi-Fi and internet, and for a two-block school.
+  6. Why is a UPS considered a network component in Cameroon?
+  **Homework:** Photograph or sketch the network equipment at home/school/a business; label each device with role and layer; note any missing component you would add.
+
+---
+
+# Evaluation No 1 and Remediation No 1 (Week 5)
+
+> ASSESS:
+  **Evaluation No 1 (2 periods).** Covers Lessons 1–17: AI concept, history, types and applications; AI ethics and responsible use; AI techniques and intelligent systems; machine learning and Teachable Machine; AI development stages, tools and Python; network fundamentals and stand-alone comparison; benefits, limitations, complexity and interoperability; network types by coverage and choosing for organisations; P2P vs client/server; physical topologies; network equipment.
+  **Suggested structure (60 marks):** Part A – 15 MCQ/short-answer items (15 marks); Part B – structured questions (30 marks), e.g. (i) classify four AI systems by capability/functionality and discuss two ethical issues with responsible-AI principles; (ii) interpret a confusion matrix and explain overfitting; (iii) outline the AI development stages for a given problem and justify Python; (iv) classify given networks (PAN…WAN) and compare two on four criteria; (v) recommend architecture and topology for a described organisation with advantages/disadvantages; (vi) identify the component for each function in a network diagram and differentiate hub/switch/router; Part C – **practical (15 marks)**: build and evaluate a Teachable Machine model (or paper decision boundary) and label/identify physical components and a topology from a photo/lab walk.
+  **Remediation No 1 (1–2 periods).** From item analysis: (1) AI types/ethics – card sorts and case debates; (2) ML principles – re-run the Teachable Machine bias experiment with guided reflection; (3) network classification and topology – string models and Packet Tracer/paper failure exercises; (4) equipment – station rotation with peer teaching; (5) individual feedback and a short re-test for learners below the pass mark before Lesson 18.
+
+---
+
+# Lesson 18: Setting Up a Computer Network
+
+> OBJ:
+  - Demonstrate the steps involved in setting up a basic computer network.
+  - Identify the essential equipment and how they are interconnected.
+  - Set up and test a peer-to-peer computer network.
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Show the goal: three PCs sharing a folder and a printer, pinging each other, in 60 minutes. | Predict steps. |
+| Core 1 | 15 min | Steps overview: plan (purpose, devices, topology, addresses), gather equipment (switch/router, cables, NICs), physical connection (cable, link lights), configure addressing (DHCP or static IP – same subnet), name PCs/workgroup, enable network discovery and file/printer sharing, create shares and permissions, connect from other PCs, test (ping, access share, print), secure (passwords, firewall profile Private), document. Cable-making demo (T568B) if tools exist. | Sequence cards. |
+| Core 2 | 60 min | Hands-on in groups of 3–4 PCs: connect to switch (or Wi-Fi router); set static IPs 192.168.10.x/24 (or DHCP); set workgroup "LABGROUP" and hostnames; share a folder with read/write permission for a local account; share a printer; from each PC: `ipconfig`/`ip a`, `ping` each other, open `\\PC-NAME\share`, map a drive, print; Ubuntu variant with Samba/Nautilus sharing; troubleshoot (firewall, subnet mismatch, cable). | Set up and test; record results. |
+| Core 3 | 12 min | Testing protocol and documentation: checklist, IP table, results, faults found and fixed; extend: Wi-Fi P2P via a router; ad-hoc/hotspot P2P between laptops. | Complete lab sheet. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 18.1 Steps involved in setting up a basic network
+
+| Step | Actions | Notes |
+| **1. Plan** | Define purpose (share files/printer/internet), number and location of devices, topology (star), wired/wireless, addressing scheme (e.g. 192.168.10.0/24, static or DHCP), names (PC-01…), workgroup name, who may access what | Sketch first |
+| **2. Gather equipment** | Switch (or wireless router) with enough ports, Cat 5e/6 patch cables (or Wi-Fi adapters), PCs with NICs, printer (network or shared USB), power strip/UPS; optional crimping tool, RJ-45 plugs, tester | Check NIC drivers |
+| **3. Physical connection** | Place switch centrally; connect each PC's NIC to a switch port with a straight-through cable; connect printer/router; power on; verify **link/activity LEDs** on NIC and switch | Cable ≤ 100 m; avoid running beside power lines |
+| **4. Configure addressing** | Option A: router/DHCP assigns IPs automatically. Option B (switch only): static IPs – each PC unique address in the **same subnet** (192.168.10.1, .2, .3 …; mask 255.255.255.0); gateway only if a router exists | Windows: Settings ▸ Network ▸ Ethernet ▸ IP assignment ▸ Manual; Ubuntu: Settings ▸ Network ▸ IPv4 ▸ Manual |
+| **5. Identify computers** | Unique **hostname**; same **workgroup** (Windows: System ▸ About ▸ Rename this PC (advanced) ▸ Change); Ubuntu: hostname + Samba workgroup | Restart when asked |
+| **6. Enable sharing** | Windows: set network profile **Private**; Advanced sharing settings ▸ turn on network discovery and file and printer sharing; decide on password-protected sharing (create matching local accounts) | Ubuntu: install samba, share via folder Properties ▸ Local Network Share |
+| **7. Create shares** | Right-click folder ▸ Properties ▸ Sharing ▸ Advanced Sharing ▸ Share this folder ▸ Permissions (Read / Change) + Security tab (NTFS); share the printer (Printer properties ▸ Sharing) | Use meaningful share names; least privilege |
+| **8. Connect from other PCs** | File Explorer ▸ Network or `\\PC-01\Shared`; **Map network drive** (letter, reconnect at sign-in); Add printer ▸ network printer | Ubuntu: Files ▸ Other Locations ▸ `smb://pc-01/shared` |
+| **9. Test** | `ipconfig /all` / `ip a`; **ping** each PC (and `ping` by name); access shares read/write; print a test page; measure a file-copy speed | Ping blocked? Allow ICMP or "File and Printer Sharing" in firewall |
+| **10. Secure & document** | Strong passwords on accounts, Private profile with firewall on, remove Everyone/Guest access, antivirus; record IP table, share list, permissions, cable map | Keep documentation for maintenance |
+
+### 18.2 Essential equipment and interconnection
+
+| Equipment | Quantity (4-PC example) | Interconnection |
+| Switch (5–8 ports) or wireless router | 1 | Centre of the star; each device to one port |
+| Straight-through UTP patch cables (T568B both ends) | 4–5 | PC NIC ↔ switch port; printer ↔ switch; router ↔ switch (uplink) |
+| PCs with Ethernet/Wi-Fi NICs | 4 | – |
+| Printer | 1 | Network printer to switch, or USB to one PC and shared |
+| Optional router/modem | 1 | Adds DHCP and internet; WAN port to modem, LAN port to switch |
+| Power strip/UPS | 1 | Power for switch/router |
+| Tools (optional) | – | Crimping tool, RJ-45 connectors, cable tester for making cables |
+
+Wiring reminder: **T568B** pin order – white-orange, orange, white-green, blue, white-blue, green, white-brown, brown; **straight-through** (same both ends) for PC↔switch; **crossover** (T568A one end) for PC↔PC directly (modern NICs auto-MDI-X so straight works too).
+
+### 18.3 Setting up and testing a peer-to-peer network – lab sheet
+
+```
+Group: ____   Switch port map: PC-01→1  PC-02→2  PC-03→3  PRN→4
+IP plan (static, no router):  PC-01 192.168.10.1/24   PC-02 192.168.10.2/24   PC-03 192.168.10.3/24
+Workgroup: LABGROUP     Local account on every PC: labuser / (strong password)
+Shares: PC-01 \Shared (Read/Change for labuser)   Printer: HP-LAB on PC-02 (shared)
+Tests:  [ ] link LEDs   [ ] ipconfig shows planned IP   [ ] ping 192.168.10.2   [ ] ping PC-03
+        [ ] open \\PC-01\Shared and create a file from PC-03   [ ] map drive Z:   [ ] print test page
+Faults found / fixed: ____________________________________________
+```
+
+Troubleshooting order: cable/LED → IP address and subnet (`ipconfig`) → firewall profile (Private) and discovery → credentials/permissions → name resolution (use IP instead of name) → services (Function Discovery, SMB) → antivirus blocking.
+
+> EXAMPLE:
+  **Three-PC P2P network for a secretariat in Kumba (no router).** An 8-port switch, three Cat 6 cables, static IPs 192.168.1.10–12, workgroup "SECRET". PC-A shares "Documents" (Change for account "staff") and the USB printer. PC-B and PC-C map Z: and add the printer. Pings succeed; a test file created from PC-C appears on PC-A. Fault met: PC-B could not open the share – its network profile was Public with discovery off; switching to Private fixed it. Total set-up time: 40 minutes; cost: switch + cables ≈ 25,000 XAF.
+
+> VISUAL:
+  **Figure 18.1 – Step ladder**: plan → equipment → connect → address → identify → sharing → shares → connect → test → secure/document, with icons. **Figure 18.2 – Star wiring diagram** of the lab exercise with port numbers, IPs and share names. **Figure 18.3 – Screens**: Windows IP settings dialog, Advanced sharing settings, folder Sharing tab, `ping` output, mapped drive; Ubuntu Samba share dialog. **Figure 18.4 – T568B colour order** on an RJ-45 plug.
+
+> MISCONCEPTION:
+  "If cables are connected, sharing works automatically." IP configuration, network profile, discovery and permissions all matter. "Ping fails so the network is broken." Windows firewall blocks ping by default on Public profiles – check the profile and rules.
+
+> ACTIVITY:
+  **P2P set-up race (60 min, groups of 3).** Complete the lab sheet; then swap two cables and a subnet mask deliberately for the next group to troubleshoot in five minutes. Extension: connect the group switch to the lab router, switch PCs to DHCP, verify internet + sharing still work; on laptops, create a hotspot on one and join from another (wireless P2P). No-equipment alternative: paper simulation with IP cards and "ping" tokens, plus a projected walkthrough.
+
+## Formative assessment
+
+> ASSESS:
+  1. List in order the ten steps to set up a basic network and state the purpose of each.
+  2. Identify the essential equipment for a four-PC peer-to-peer network and describe how they are interconnected.
+  3. Why must PCs in a P2P LAN without a router be in the same subnet? Give a valid IP plan for five PCs.
+  4. Describe how to share a folder with change permission and how another PC connects to it (Windows or Ubuntu).
+  5. Which commands test connectivity and configuration? Interpret "Request timed out" vs "Destination host unreachable".
+  6. Give three common faults when sharing fails and their fixes.
+  **Homework:** Write a one-page illustrated guide "Set up a two-laptop network at home (cable or hotspot) and share a folder" suitable for a Form 4 learner.
+
+---
+
+# Lesson 19: Selecting Equipment for Organisational Networks
+
+> OBJ:
+  - Select appropriate network equipment for specific organizational needs (e.g., a school).
+  - Explain the factors to consider when selecting network components.
+  - Plan and design a network setup suitable for an organization's size and purpose.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Two quotes for a school network: 8 million vs 2.5 million XAF – how to judge? | Discuss. |
+| Core 1 | 30 min | Selection factors: number of users/devices and growth, required speed (Gigabit, Wi-Fi 6), coverage and building layout, PoE needs, managed features (VLANs, QoS), reliability (redundant PSU, warranty), security features, compatibility/standards, scalability, budget and TCO, power consumption/UPS, vendor support and local availability, ease of management (cloud-managed), environment (heat, dust). Spec-sheet reading (ports, backplane, SFP, PoE budget, Wi-Fi standard, throughput). | Decode two datasheets. |
+| Core 2 | 35 min | Selecting for a school (worked example): per-block switches, core switch, APs count (coverage + density: ~25–30 devices per AP), router/firewall with filtering, server or cloud, cabling grades, UPS sizing, printers, monitoring; alternatives for clinic and small business. | Fill selection table. |
+| Core 3 | 22 min | Planning and design method: requirements → site survey → logical design (VLANs, IP plan) → physical design (topology, cable schedule, rack) → equipment list & budget → implementation phases → testing/acceptance → documentation; deliverables. | Draft a design brief. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 19.1 Factors to consider when selecting network components
+
+| Factor | Questions | Example decision |
+| **Capacity: users/devices & growth** | How many wired ports and Wi-Fi clients now/in 3–5 years? | 40 PCs → 48-port switch (20 % spare) |
+| **Performance** | Required speeds; applications (video, imaging, LMS); uplink bandwidth | Gigabit access ports, 10 G/SFP+ uplinks; Wi-Fi 6 APs |
+| **Coverage & layout** | Building materials, distances, floors, outdoor links | AP per 2–3 classrooms; fibre for > 100 m; wireless bridge for the boarding house |
+| **Features** | VLANs, QoS, PoE, link aggregation, spanning tree, content filtering, VPN, guest portal, DHCP/DNS | Managed PoE switches; firewall with web filtering for learners |
+| **Reliability & availability** | Redundant power supplies, MTBF, warranty, spare units, UPS run-time | UPS 30 min for racks; spare switch |
+| **Security** | Port security, 802.1X, WPA3, firewall depth, firmware updates | Enterprise APs with WPA2/3-Enterprise for staff |
+| **Compatibility & standards** | IEEE 802.3/802.11 compliance, interoperability with existing gear, open standards | Avoid proprietary lock-in |
+| **Scalability & modularity** | Stackable switches, adding APs under one controller, extra SFP slots | Cloud/controller-managed Wi-Fi |
+| **Cost & TCO** | Purchase + licences + power + maintenance + replacement cycle | Refurbished enterprise vs new consumer gear |
+| **Power & environment** | Consumption (PoE budget), heat, dust, lightning; solar compatibility | Fanless switches in dusty rooms; surge arrestors on outdoor links |
+| **Manageability & skills** | Local technicians' skills; remote/cloud management; monitoring | Simple GUIs (UniFi, MikroTik, TP-Link Omada) where staff are few |
+| **Vendor support & availability** | Local suppliers in Douala/Yaoundé, spare parts, warranty service, documentation | Choose brands with local presence |
+| **Regulatory** | ART licensing for outdoor radio bands, data protection | Use licence-free 5 GHz responsibly |
+
+### 19.2 Selecting equipment for a school (worked example)
+
+Scenario: 2 blocks + admin, 60 lab PCs, 80 staff devices on Wi-Fi, 1,200 learners (limited Wi-Fi in library), internet 50 Mbps fibre + 4G backup, 24 classrooms.
+
+| Need | Selected equipment | Specification & justification |
+| Lab connectivity (2 × 30 PCs) | 2 × 48-port Gigabit managed switches | Spare ports; VLAN "LAB"; 4 × SFP uplinks |
+| Admin block (10 PCs, server, printers, APs) | 1 × 24-port Gigabit **PoE+** managed switch | Powers APs/cameras; VLAN "ADMIN" |
+| Core | 1 × layer-3 switch with 10 G SFP+ ports (or router-on-a-stick for small budgets) | Inter-VLAN routing; fibre uplinks to blocks |
+| Inter-block links | Single-mode fibre (2 pairs) between blocks; 150 m boarding house: 5 GHz point-to-point bridge | Distance > 100 m; lightning isolation |
+| Wi-Fi | 10 × Wi-Fi 6 dual-band ceiling APs (staffroom, admin, library, 1 per 2–3 classrooms in pilot), controller/cloud-managed | ~25–30 devices per AP; SSIDs Staff (WPA2-Enterprise/strong PSK), Learners (portal, time limits), Guest (isolated) |
+| Internet edge | Router/firewall (MikroTik/pfSense/Fortinet) with dual WAN, content filtering, bandwidth control per VLAN | Safeguarding, fair share, failover to 4G |
+| Modem | Fibre ONT (ISP) + 4G LTE router as backup | Redundancy |
+| Servers / NOS | 1 × server (Xeon, 32 GB RAM, RAID-1 SSD, 2 × 4 TB) running Ubuntu Server/Windows Server: authentication (AD/LDAP), file/print, DHCP/DNS, LMS (Moodle) or cloud Google Workspace for Education | Central accounts and data; backup NAS + cloud |
+| Cabling | Cat 6 structured cabling, patch panels, wall outlets, labelled; racks with cable management | 25-year infrastructure; ≤ 90 m runs |
+| Power protection | 1 × 3 kVA UPS (server room), 1 × 1 kVA per block rack, surge protectors | ENEO outages; lightning season |
+| Printing | 2 × network laser printers with print server/queues | Shared, quota-managed |
+| Monitoring & tools | Controller dashboard, SNMP monitoring (LibreNMS/Zabbix), cable tester, spare switch and APs | Fast fault detection |
+| Optional | IP cameras (PoE), IP phones, digital signage | Later phases |
+
+Alternatives: **health centre** – add medical-device VLAN, higher redundancy, UPS run-time, strict firewall; **small business** – wireless router with integrated switch, one AP, cloud services, NAS for backup.
+
+### 19.3 Planning and designing a network set-up
+
+| Phase | Deliverable |
+| **1. Requirements** | Purpose, users/devices (now/future), applications and bandwidth, sites/buildings, security/compliance, budget, timeline, constraints (power, ISPs) |
+| **2. Site survey** | Floor plans, distances, cable routes, existing infrastructure, Wi-Fi survey (walls, interference), power points, rack locations, environmental risks |
+| **3. Logical design** | Architecture (client/server, cloud), VLANs (Admin, Staff, Lab, Learners, Guest, Devices), IP addressing plan (e.g. 10.10.VLAN.0/24), DHCP/DNS, naming, security policy (firewall rules, filtering, authentication), services |
+| **4. Physical design** | Topology per level (star access, tree campus), equipment placement, cable schedule (from–to, length, type), rack layout, Wi-Fi AP map, inter-building links, power/UPS |
+| **5. Equipment list & budget** | Bill of materials with specifications, quantities, unit/total costs, licences, installation labour, spares, contingency (10 %) |
+| **6. Implementation plan** | Phases (core + admin first, labs, Wi-Fi, boarding), schedule, responsibilities, risk plan, acceptance tests |
+| **7. Testing & acceptance** | Cable certification, connectivity per outlet, throughput, Wi-Fi coverage checks, failover test, security tests, user acceptance |
+| **8. Documentation & handover** | Diagrams (logical/physical), IP/VLAN tables, configurations backup, passwords vault, maintenance schedule, training |
+
+Design rules of thumb: 20–25 % spare switch ports; one AP per 25–30 concurrent devices; UTP runs ≤ 90 m + patch cords; Gigabit to desks, 10 G uplinks where possible; separate learner and admin traffic; every rack on UPS; two internet paths for critical sites; label everything.
+
+> EXAMPLE:
+  **Two quotes decoded.** Quote A (8 M XAF): Cisco Catalyst switches with 5-year support, Wi-Fi 6E APs everywhere, dedicated firewall, structured cabling certified – high TCO justification for a large private school. Quote B (2.5 M XAF): TP-Link/MikroTik managed switches, UniFi APs in key zones, MikroTik router with filtering, cabling by a local technician, refurbished server – meets requirements of a government lycée with growth path. The ICT club evaluated both against the factor list: B chosen, with an insistence on Cat 6 cabling, PoE budget adequacy, UPS in every rack and a 10 % spare-parts line.
+
+> VISUAL:
+  **Figure 19.1 – Factor wheel** for equipment selection with icons and the question for each. **Figure 19.2 – Annotated datasheet**: switch spec sheet with ports, PoE budget, switching capacity, SFP, management features highlighted and explained. **Figure 19.3 – School network design**: logical diagram (VLANs/IP plan) beside physical diagram (blocks, racks, fibre, APs, UPS), plus bill-of-materials table.
+
+> MISCONCEPTION:
+  "Consumer Wi-Fi routers are enough for a school." They cannot handle client density, VLANs or centralised management. "The cheapest quote saves money." Poor cabling and unmanaged gear cost more in downtime and replacement.
+
+> ACTIVITY:
+  **Design studio (50 min, groups).** Each group receives an organisation brief and floor plan (school, clinic, council office, hotel). Produce: requirements summary; logical design (VLAN/IP table); physical design sketch (topology, racks, APs, links); equipment list with specifications and quantities (from a supplied price list) within budget; phased plan; three risks with mitigations. Present the bill of materials and defend two selection decisions using the factor list.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain eight factors to consider when selecting network components.
+  2. Select and justify equipment for a school with two blocks, 60 lab PCs and staff Wi-Fi.
+  3. What is PoE and why is it useful in a school network? What is a PoE budget?
+  4. Distinguish managed and unmanaged switches; when is a managed switch essential?
+  5. Outline the phases of planning and designing a network and name two deliverables of each.
+  6. State four design rules of thumb (ports, APs, cable length, UPS).
+  **Homework:** Prepare a bill of materials (equipment, spec, quantity, estimated cost, justification) for networking a 15-PC cybercafé with Wi-Fi and a printer, and a half-page implementation plan.
+
+---
+
+# Lesson 20: Integration Activities — From Design to a Working Network
+
+> ACTIVITY:
+  **Context.** Your ICT club has been given a room with 8 PCs, a switch, a wireless router, cables, a printer and (optionally) an old PC to act as server, to create a "Digital Corner" for the school library, which must later connect to the school network.
+  **Task (groups, 2 periods).**
+  1. **Equipment identification and selection** (Lessons 17, 19): inventory the available components (role, layer, specifications); list any missing items with justification and a cost estimate; explain the factors guiding your choices (ports, speed, PoE, security, UPS).
+  2. **Design** (Lesson 19): requirements, logical design (workgroup or simple client/server, IP plan, share plan), physical star topology drawing with port map and cable lengths.
+  3. **Set-up and test** (Lesson 18): cable and connect all PCs and the printer; configure addressing (DHCP from the router or static), hostnames and workgroup; create shared folders with correct permissions and a shared printer; connect and test from every PC (ping, share access, printing, internet if available); secure (Private profile, strong passwords, remove guest access).
+  4. **Troubleshoot** two faults injected by the teacher (wrong subnet mask; disconnected uplink; sharing disabled) and document the diagnosis.
+  5. **Document and hand over**: one-page network documentation (diagram, IP/hostname/share table, equipment list, test results, maintenance tips) and a 4-minute demonstration.
+  **Criteria.** Correct identification and justified selection; sound design; fully working, tested, secured network; effective troubleshooting; quality of documentation and demonstration.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Identification & selection | All components correctly described; missing items justified with factors | Minor gaps | Several errors | Incorrect |
+| Design | Complete logical + physical design | Mostly complete | Partial | Missing |
+| Set-up & testing | All tests pass, secured | Most tests pass | Partially working | Not working |
+| Troubleshooting | Both faults found quickly, method documented | One fault or slow | Guessing | None |
+| Documentation & demo | Professional, complete, clear | Good | Basic | Weak |
+
+---
+
+# Lesson 21: Intranet and Extranet
+
+> OBJ:
+  - Explain the concept of an intranet and an extranet.
+  - Explain the technologies and requirements used to implement intranets and extranets.
+  - Contrast the uses of intranets and extranets in organisations.
+
+## Lesson outline (1 period, 50 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 4 min | Show the school's internal portal (or a mock) vs the public website vs a parents' results portal – who can access each? | Identify audiences. |
+| Core 1 | 14 min | Concepts: internet (public) vs **intranet** (private, internal, internet technologies) vs **extranet** (controlled access for external partners); relation diagram; examples (staff portal, LMS, HR system; supplier ordering portal, parents' portal, bank–partner links). | Venn/diagram. |
+| Core 2 | 16 min | Technologies and requirements: TCP/IP LAN/WAN, web/application servers (Apache/IIS, SharePoint, Moodle, Nextcloud, Odoo), databases, DNS internal, browsers/clients, authentication (directory/SSO, MFA), firewalls and DMZ, VPN or HTTPS/TLS gateways for extranet, access control policies, content management, e-mail/collaboration tools, bandwidth, security policies and legal agreements (NDAs, data protection). | Requirements checklist. |
+| Core 3 | 12 min | Contrast uses: audience, purpose, access control, security level, examples, risks; case study of a school with both. | Contrast table. |
+| Conclusion | 4 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 21.1 Concepts
+
+> DEF:
+  An **intranet** is a **private network internal to an organisation** that uses **internet technologies** (TCP/IP, web servers, browsers, e-mail) to share information, applications and services **only with its members** (staff, learners). An **extranet** is a **controlled extension of an intranet** that grants **selected external users** (partners, suppliers, customers, parents) secure access to specific resources, typically over the internet with authentication and encryption.
+
+| Network | Who can access | Where | Purpose | Examples |
+| **Internet** | Anyone | Global public | Public information and services | School website, e-government sites |
+| **Intranet** | Members only (staff/learners with accounts) | Inside the organisation (and via VPN) | Internal communication, documents, applications | Staff portal, LMS, HR/leave system, internal wiki, timetable, internal e-mail, shared drives via web |
+| **Extranet** | Authorised external partners | Over the internet with secure login/VPN | Collaboration and services with outside parties | Parents' results/fees portal, supplier ordering system, bank–merchant portal, insurer–hospital claims, ministry–school data platform |
+
+### 21.2 Technologies and requirements
+
+| Layer | Intranet | Extranet (additional/particular) |
+| **Network infrastructure** | LAN/CAN (switches, Wi-Fi), routers; internal IP plan; internal **DNS** (portal.school.local) | Internet connection with adequate bandwidth; public DNS name; static IP or cloud hosting |
+| **Servers & platforms** | **Web/application servers** (Apache, Nginx, IIS), portals and CMS (SharePoint, WordPress, Drupal), **collaboration** (Nextcloud, Google Workspace, Microsoft 365), LMS (Moodle), ERP/MIS (Odoo, school MIS), databases (MySQL, PostgreSQL), e-mail server or hosted mail | Same platforms exposed selectively; often a separate portal/instance for partners; APIs for system-to-system exchange |
+| **Clients** | Browsers, mobile apps on staff/learner devices | Partners' browsers/apps – must work on any device |
+| **Authentication & authorisation** | Directory service (Active Directory/LDAP), **single sign-on**, roles and permissions, password policy | Separate partner accounts or federated identity, **MFA**, strict role-based access, time-limited access, audit logs |
+| **Security** | Perimeter firewall, internal segmentation (VLANs), antivirus, HTTPS internally, backups | **DMZ** hosting the extranet server, reverse proxy/web application firewall, **HTTPS/TLS certificates**, **VPN** or zero-trust gateways, intrusion detection, data-loss prevention, penetration testing |
+| **Content & governance** | Content owners, publishing workflow, search, document management, acceptable-use policy | Contracts/NDAs, service-level agreements, data-protection compliance (Law 2024/017 – consent, minimisation), terms of use, support desk |
+| **Operations** | Administrators, monitoring, maintenance windows, training | Partner onboarding/offboarding, account lifecycle, incident response with partners |
+| **Requirements summary** | Reliable LAN, server(s) or cloud, directory, web platform, skills, policy | Everything above + internet exposure hardening, legal agreements, MFA, DMZ/VPN, certificates |
+
+### 21.3 Contrasting uses in organisations
+
+| Aspect | Intranet | Extranet |
+| **Audience** | Employees/learners | External stakeholders (parents, suppliers, customers, partner institutions, regulators) |
+| **Primary uses** | Internal communication (announcements, newsletters), document and policy repository, HR self-service (leave, payslips), internal applications (timetable, marks entry), e-learning, knowledge base, collaboration | Order and inventory sharing with suppliers, customer self-service (tracking, statements), partner project spaces, parent access to results/fees/attendance, data exchange with ministries/banks/insurers, tender portals |
+| **Access control** | Network location + login | Strong identity per external user, granular rights to specific resources, encryption in transit |
+| **Security exposure** | Lower (behind firewall); insider risk | Higher (internet-facing); needs DMZ, MFA, monitoring |
+| **Benefits** | Efficiency, consistent information, less paper, faster processes | Faster transactions with partners, transparency, reduced calls/visits, competitive service |
+| **Risks** | Outdated content, over-sharing internally, single point of failure | Data breaches, account compromise, legal liability, dependency of partners on uptime |
+| **School example** | Staff portal with schemes of work, marks entry, memos; learner LMS | Parents' portal (results, fees via MoMo), GCE Board registration link, supplier ordering for the canteen |
+| **Business example** | Company wiki, HR system, internal chat | Distributor ordering portal, customer support portal, bank–merchant API |
+
+> EXAMPLE:
+  **Collège Saint-Michel's three webs.** Public **internet** site: admissions, news. **Intranet** (Nextcloud + Moodle on a school server, LDAP logins, reachable on campus Wi-Fi and by staff VPN): lesson plans, memos, marks entry, learner courses. **Extranet** (parents' portal hosted in the DMZ behind a reverse proxy with HTTPS and SMS one-time codes): each parent sees only their children's results, attendance and fee balance, and can pay via MoMo; the canteen supplier logs into a separate ordering page. Same platforms, three access rings.
+
+> VISUAL:
+  **Figure 21.1 – Three-ring diagram**: intranet core (staff/learners), extranet ring (parents/suppliers with padlocks), internet outer ring (public), with the firewall/DMZ boundaries drawn. **Figure 21.2 – Implementation architecture**: LAN with directory, portal, LMS servers; firewall; DMZ with extranet web server/reverse proxy; internet; partner laptops with VPN/HTTPS and MFA icons. **Figure 21.3 – Use-contrast table** rendered as two columns of icons.
+
+> MISCONCEPTION:
+  "An intranet is just the internal LAN." A LAN is the infrastructure; the intranet is the internal web-style information system running on it. "An extranet means giving partners VPN access to everything." It exposes only specific resources with strict roles.
+
+> ACTIVITY:
+  **Plan our intranet and extranet (35 min, groups).** (1) List ten internal information needs and match each to an intranet service; (2) identify three external stakeholder groups and specify what each may access, how they authenticate and which security controls apply; (3) draw the architecture (LAN, servers, firewall/DMZ, internet, VPN/HTTPS); (4) list the requirements (technical, human, legal) in a checklist; (5) optional demo: browse a Moodle/Nextcloud instance internally by IP, then discuss how to expose one page externally safely.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain the concepts of intranet and extranet and how they differ from the internet.
+  2. Describe six technologies/requirements for implementing an intranet.
+  3. What additional requirements does an extranet impose, and why?
+  4. Explain the role of a DMZ, HTTPS and MFA in an extranet.
+  5. Contrast the uses of intranets and extranets in a school and in a business (two uses each).
+  6. Give two risks of each and a mitigation.
+  **Homework:** Design (one page) an intranet and an extranet for a hospital: services, users, access controls, technologies, and one data-protection obligation.
+
+---
+
+# Lesson 22: Virtual Private Networks (VPNs) and Privacy
+
+> OBJ:
+  - Describe the principles of a Virtual Private Network (VPN).
+  - Explain how protocols are used to ensure privacy and confidentiality during data transmission.
+  - Set up a secured VPN using firewalls and digital signatures.
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Public Wi-Fi at a café: demonstrate (Wireshark on a lab hub/AP) that HTTP traffic is readable; HTTPS is not. "How do remote staff reach the intranet safely?" | Observe. |
+| Core 1 | 25 min | VPN principles: tunnelling, encapsulation, encryption, authentication, integrity; types – remote-access vs site-to-site; consumer privacy VPNs vs organisational; what a VPN hides and does not; VPN protocols (IPsec/IKEv2, OpenVPN (SSL/TLS), WireGuard, L2TP/IPsec, SSTP, legacy PPTP – insecure); split vs full tunnel. | Diagrams. |
+| Core 2 | 30 min | Protocols for privacy/confidentiality: encryption (symmetric AES; asymmetric RSA/ECC), key exchange (Diffie–Hellman), hashing (SHA-256) and HMAC for integrity, **digital signatures** and **certificates** (PKI, CA) for authentication, TLS handshake (HTTPS), IPsec (AH/ESP), SSH, WPA2/3, end-to-end messaging (Signal protocol), DNS over HTTPS; how each protects confidentiality, integrity, authenticity. | Map protocols to CIA. |
+| Core 3 | 35 min | **Set-up practical**: (A) site/remote-access VPN with **WireGuard** or **OpenVPN** on a lab server/VM (or a router with built-in VPN); generate key pairs/certificates (digital signatures – OpenVPN's easy-rsa CA signs server/client certs); configure **firewall** to allow only the VPN port (UDP 51820/1194) and deny other inbound; connect a client; verify tunnel IP, `ping` intranet server, check traffic is encrypted in Wireshark; (B) simpler alternative: Windows built-in VPN client (IKEv2/SSTP) to a provided server; (C) no-server alternative: Packet Tracer site-to-site IPsec or paper walkthrough. | Follow step sheet; record checks. |
+| Conclusion | 5 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 22.1 Principles of a VPN
+
+> DEF:
+  A **Virtual Private Network (VPN)** creates a **secure, encrypted "tunnel" across a public network** (usually the internet) so that remote users or sites can communicate **as if they were on the same private network**. It is *virtual* (no dedicated physical line), *private* (encryption and authentication keep data confidential and access restricted) and a *network* (extends the LAN/intranet logically).
+
+| Principle | Explanation |
+| **Tunnelling / encapsulation** | Original packets (private IP addresses) are wrapped inside new packets addressed to the VPN gateway; intermediaries see only the outer packet |
+| **Encryption** | Inner packet is encrypted (AES-256, ChaCha20) so its contents are unreadable to ISPs, Wi-Fi owners, attackers |
+| **Authentication** | Both ends prove identity – pre-shared keys, **digital certificates**, username/password + MFA – so only authorised users/sites join |
+| **Integrity** | Hash/MAC ensures packets were not altered in transit |
+| **Addressing** | Client receives a private tunnel IP (e.g. 10.8.0.5) and routes to the internal network through the tunnel |
+| **Types** | **Remote-access VPN** (individual user → organisation; teleworkers); **site-to-site VPN** (branch LAN ↔ HQ LAN via gateways/routers, always on); **consumer/privacy VPN** (user → VPN provider → internet, hiding traffic from local network/ISP and masking IP) |
+| **Split vs full tunnel** | Split: only intranet traffic goes through the VPN; full: all traffic |
+| **What a VPN does / does not do** | Hides content and destination from the local network/ISP; gives access to internal resources; masks the user's IP from sites. Does **not** make you anonymous to the VPN provider, stop malware/phishing, or protect data at the endpoints |
+
+| VPN protocol | Basis | Notes |
+| **IPsec (IKEv2)** | Network layer; AH (integrity) / ESP (encryption); certificates or PSK | Standard for site-to-site and mobile; built into Windows/iOS/Android |
+| **OpenVPN** | SSL/TLS over UDP/TCP; certificates via its own CA | Open source, flexible, firewall-friendly (can use TCP 443) |
+| **WireGuard** | Modern, minimal; public-key cryptography (Curve25519), ChaCha20 | Very fast, simple config; in Linux kernel; used by many providers |
+| L2TP/IPsec, SSTP | Legacy/Microsoft | Still used; SSTP over 443 |
+| PPTP | Obsolete | **Insecure – never use** |
+
+### 22.2 Protocols ensuring privacy and confidentiality
+
+| Mechanism | How it works | Protects |
+| **Symmetric encryption** (AES-128/256, ChaCha20) | Same secret key encrypts and decrypts; fast – used for bulk data | Confidentiality |
+| **Asymmetric encryption** (RSA, ECC) | Public key encrypts / verifies; private key decrypts / signs; solves key distribution | Confidentiality of key exchange; authentication |
+| **Key exchange** (Diffie–Hellman / ECDH) | Two parties derive a shared secret over a public channel without sending it; **perfect forward secrecy** with ephemeral keys | Confidentiality of session keys |
+| **Hashing** (SHA-256) and **HMAC** | Fixed-size fingerprint of data; HMAC combines with a key so tampering is detected | Integrity |
+| **Digital signature** | Sender hashes the message and encrypts the hash with their **private key**; receiver decrypts with the sender's **public key** and compares hashes – proves **origin (authentication)**, **integrity** and **non-repudiation** | Authenticity, integrity |
+| **Digital certificates & PKI** | A **Certificate Authority (CA)** signs a certificate binding a public key to an identity (server name, user, device); clients trust CAs; revocation lists | Authentication of servers/clients (HTTPS padlock, VPN peers) |
+| **TLS/SSL (HTTPS, SMTPS, IMAPS, FTPS, OpenVPN)** | Handshake: server certificate → key exchange → symmetric session keys; then encrypted, integrity-checked records | Confidentiality, integrity, server (optionally client) authentication of web and mail |
+| **IPsec** | AH (authentication/integrity) and ESP (encryption + integrity) at IP layer; IKE negotiates keys with certificates/PSK | VPN tunnels |
+| **SSH** | Encrypted remote login/file transfer with host keys and user keys | Admin access, SFTP |
+| **WPA2/WPA3** | Encrypts Wi-Fi frames (AES-CCMP; SAE handshake in WPA3) | Wireless confidentiality |
+| **End-to-end encryption** (Signal protocol – WhatsApp, Signal) | Keys only on user devices; server cannot read | Messaging privacy |
+| **DNS over HTTPS/TLS** | Encrypts DNS lookups | Privacy of browsing metadata |
+| **S/MIME, PGP** | Signed/encrypted e-mail | E-mail confidentiality and authenticity |
+
+Privacy stack for a remote worker: WPA3 on the Wi-Fi → VPN tunnel (IPsec/WireGuard) to the office → HTTPS/TLS to the application → signed documents. Each layer addresses a different attacker.
+
+### 22.3 Setting up a secured VPN with firewalls and digital signatures – step sheet
+
+**Option A – OpenVPN server (Ubuntu VM/lab server) with certificate-based (digitally signed) authentication:**
+
+| Step | Action |
+| 1 | On the server: `sudo apt install openvpn easy-rsa`; `make-cadir ~/ca && cd ~/ca`; `./easyrsa init-pki`; **`./easyrsa build-ca`** (creates the Certificate Authority key that will **digitally sign** all certificates) |
+| 2 | Server identity: `./easyrsa gen-req server nopass`; `./easyrsa sign-req server server` (CA signs server cert); `./easyrsa gen-dh`; `openvpn --genkey secret ta.key` (extra HMAC) |
+| 3 | Client identity: `./easyrsa gen-req client1 nopass`; `./easyrsa sign-req client client1` → client1.crt signed by the CA |
+| 4 | Server config `/etc/openvpn/server.conf`: `port 1194`, `proto udp`, `dev tun`, `ca ca.crt`, `cert server.crt`, `key server.key`, `dh dh.pem`, `tls-auth ta.key 0`, `server 10.8.0.0 255.255.255.0`, `push "route 192.168.10.0 255.255.255.0"`, `cipher AES-256-GCM`, `auth SHA256`; enable IP forwarding (`net.ipv4.ip_forward=1`) |
+| 5 | **Firewall (ufw)**: `sudo ufw default deny incoming`; `sudo ufw allow 1194/udp`; `sudo ufw allow ssh` (from LAN only); NAT/masquerade rule for tun0 in `/etc/ufw/before.rules`; `sudo ufw enable` – only the VPN port is exposed |
+| 6 | Start: `sudo systemctl enable --now openvpn@server`; check `sudo systemctl status openvpn@server` and `ip a show tun0` |
+| 7 | Client: install OpenVPN (Windows GUI/Android app/Linux); create `client1.ovpn` with `remote <server-ip> 1194`, `client`, `dev tun`, `proto udp`, embedded `<ca>`, `<cert>`, `<key>`, `<tls-auth>`; connect |
+| 8 | **Verify**: client gets 10.8.0.x; `ping 192.168.10.5` (intranet server) succeeds; access the intranet portal; on the server `sudo tail -f /var/log/openvpn/status.log`; in Wireshark on the path only UDP 1194 ciphertext is visible; try a client with an unsigned/revoked certificate (`./easyrsa revoke client2`; `crl-verify`) – rejected |
+| 9 | Harden: strong ciphers, `tls-version-min 1.2`, per-user certificates, revoke on departure, MFA plugin, log review, firewall rate limiting |
+
+**Option B – WireGuard (simpler):** `wg genkey | tee private.key | wg pubkey > public.key` on server and client (asymmetric keys – each peer's public key authenticates it, analogous to signatures); server `/etc/wireguard/wg0.conf` with `[Interface] Address 10.9.0.1/24, ListenPort 51820, PrivateKey` and `[Peer] PublicKey <client>, AllowedIPs 10.9.0.2/32`; `ufw allow 51820/udp`; `wg-quick up wg0`; client config mirrors it with `Endpoint`; verify with `wg show` and ping.
+
+**Option C – Router/firewall appliance:** enable the built-in IPsec/OpenVPN server on MikroTik/pfSense/Fortigate, import a CA and server certificate, create user certificates, set firewall rules to permit only the VPN service from WAN, then connect with the Windows/Android client.
+
+**Option D – Windows client only:** Settings ▸ Network & Internet ▸ VPN ▸ Add ▸ Windows (built-in) ▸ IKEv2 ▸ server name, certificate or username; connect; verify in Wireshark/`ipconfig` that a tunnel adapter appears.
+
+> EXAMPLE:
+  **The Delegation's teleworking VPN.** Inspectors in Bertoua, Garoua and Buea access the ministry's intranet MIS. Solution: OpenVPN on a pfSense firewall at Yaoundé; each inspector gets a **certificate signed by the Delegation's CA** plus a password with one-time code; the firewall exposes only UDP 1194 and drops everything else; the tunnel gives 10.8.0.x addresses with routes to the MIS VLAN only (split tunnel); a departing inspector's certificate is revoked the same day. Public Wi-Fi in hotels becomes irrelevant to security because traffic inside the tunnel is AES-256 encrypted and integrity-checked.
+
+> VISUAL:
+  **Figure 22.1 – VPN tunnel diagram**: laptop at café → encrypted tunnel drawn as a pipe over the internet cloud → firewall/VPN gateway → intranet servers; inner private packet inside an outer public packet (encapsulation). **Figure 22.2 – Digital signature flow**: message → hash → encrypt with private key → signature attached; receiver decrypts with public key, re-hashes, compares; CA certificate chain drawn above. **Figure 22.3 – TLS/IPsec handshake timeline** (certificate exchange, key agreement, encrypted session). **Figure 22.4 – Firewall rule table** for the VPN server (allow UDP 1194 from any; allow SSH from LAN; deny all else) beside a Wireshark capture showing only ciphertext.
+
+> MISCONCEPTION:
+  "A VPN makes me anonymous and safe from everything." It shifts trust to the VPN endpoint and protects transport only; malware and phishing still work. "Digital signatures encrypt the message." They prove origin and integrity; confidentiality needs encryption in addition.
+
+> ACTIVITY:
+  **VPN lab (60 min, groups).** (1) Wireshark: capture HTTP vs HTTPS to see plaintext vs ciphertext (lab-only demo server). (2) Build Option A or B on a VM or router; configure the firewall to allow only the VPN port; connect two clients; verify tunnel IPs, intranet access and encrypted traffic; revoke a client and show rejection. (3) Draw the digital-signature flow used in your set-up (CA → server/client certificates) and label where confidentiality, integrity and authentication are provided. (4) Compare three VPN protocols for a school teleworking need. No-server alternative: Packet Tracer site-to-site IPsec with ACLs, or a paper walkthrough with envelopes (encapsulation) and stamps (signatures).
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe the principles of a VPN: tunnelling, encryption, authentication, integrity; distinguish remote-access from site-to-site VPNs.
+  2. Explain how TLS and IPsec ensure privacy and confidentiality of transmitted data.
+  3. How does a digital signature work and what three properties does it provide? What is the role of a Certificate Authority?
+  4. Outline the steps to set up a secured VPN with certificate authentication and firewall rules; state which port to allow.
+  5. Why is PPTP insecure and what should replace it?
+  6. Explain what a VPN does not protect against.
+  **Homework:** Produce a one-page "Teleworking security guide" for staff: VPN use, HTTPS checks, Wi-Fi rules, certificate/MFA handling, and a labelled diagram of the tunnel.
+
+---
+
+# Lesson 23: Computer and Network Security
+
+> OBJ:
+  - Explain concepts related to computer and data security (confidentiality, integrity, availability).
+  - Identify security measures used to protect computer systems (including user accounts, passwords, authentication, firewalls and security protocols).
+  - Explain how digital signatures, encryption and other security measures help protect computer systems.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Three headlines: leaked exam results; altered fee records; hospital system down after ransomware – which security property failed in each? | Match to C, I, A. |
+| Core 1 | 20 min | CIA triad in depth + authenticity, non-repudiation, accountability; threats (malware, phishing, hacking, insider, DoS, eavesdropping, theft, disasters), vulnerabilities, risk; defence in depth. | Notes; threat mapping. |
+| Core 2 | 40 min | Security measures: **user accounts** (least privilege, standard vs admin, groups, account lifecycle), **passwords** (policy, hashing, managers), **authentication** (factors, MFA, biometrics, certificates, SSO), authorisation/permissions, **firewalls** (host/network, rules, DMZ), **security protocols** (TLS/HTTPS, SSH, IPsec/VPN, WPA3, 802.1X, S/MIME, DNSSEC), antivirus/EDR, updates, encryption, backups, logging/monitoring/IDS, physical security, policies and training. Demo: create standard user, set password policy, firewall rule, check HTTPS certificate. | Measure–threat matrix. |
+| Core 3 | 27 min | How digital signatures, encryption and other measures protect systems: encryption at rest/in transit; signatures for software updates, documents, e-mail, certificates; hashing for integrity (checksums); how each supports CIA; case: secure exam-results distribution. | Case design. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 23.1 Security concepts
+
+> DEF:
+  **Computer and network security** is the protection of hardware, software, networks and **data** against unauthorised access, use, disclosure, modification, disruption or destruction. Its goals are summarised by the **CIA triad**: **Confidentiality** (only authorised parties can read data), **Integrity** (data and systems are accurate, complete and unaltered except by authorised actions) and **Availability** (systems and data are accessible when needed).
+
+| Concept | Meaning | Threats against it | Example measures |
+| **Confidentiality** | Secrecy/privacy of data | Eavesdropping (sniffing Wi-Fi), hacking, phishing, insider leaks, lost laptops, shoulder surfing | Encryption, access control, authentication, VPN/HTTPS, classification, screen locks |
+| **Integrity** | Accuracy and trustworthiness | Unauthorised modification, malware, transmission errors, tampering, forged messages | Hashing/checksums, digital signatures, permissions, version control, validation (Lesson 25), audit logs |
+| **Availability** | Timely access for authorised users | DoS/DDoS, ransomware, hardware failure, power cuts, disasters, misconfiguration | Redundancy, backups, UPS, firewalls/rate limiting, maintenance, disaster-recovery plans |
+| **Authenticity** | Assurance that users, devices and data are genuine | Spoofing, impersonation, fake sites | Authentication, certificates, digital signatures |
+| **Non-repudiation** | A party cannot deny an action | Disputes over transactions | Digital signatures, signed logs |
+| **Accountability** | Actions traceable to individuals | Shared accounts | Individual accounts, logging, auditing |
+
+**Threat → vulnerability → risk:** a **threat** (ransomware) exploits a **vulnerability** (unpatched server, untrained user) causing **impact**; **risk** = likelihood × impact; controls reduce likelihood or impact. **Defence in depth** layers physical, technical and administrative controls so one failure does not compromise everything.
+
+### 23.2 Security measures
+
+| Measure | What it does | Good practice |
+| **User accounts & authorisation** | Individual identities with **least-privilege** permissions; standard vs administrator accounts; groups/roles; account lifecycle (create, review, disable on departure); guest restrictions | No shared accounts; admin rights only for admins; quarterly reviews; disable defaults |
+| **Passwords** | Something you know; stored as salted **hashes** | Length ≥ 12 (passphrases), unique per service, manager, lockout after failures, no reuse, change on compromise; policies enforced by NOS/directory |
+| **Authentication (incl. MFA)** | Verifies identity by factors – knowledge (password/PIN), possession (phone OTP, hardware key, smart card, certificate), inherence (fingerprint, face); **MFA** combines two+; **SSO** via directory (AD/LDAP), 802.1X for network access | MFA on e-mail, admin, remote access, finance; certificates for devices/VPN |
+| **Firewalls** | Filter traffic by rules (IP, port, protocol, application, state); host firewalls (Windows Defender Firewall, ufw), network firewalls/routers, **DMZ** for public servers, web application firewalls | Default deny inbound; allow only needed services; separate VLANs; log and review |
+| **Security protocols** | **TLS/HTTPS** (web, mail), **SSH** (remote admin), **IPsec/OpenVPN/WireGuard** (VPN), **WPA2/WPA3** (Wi-Fi), **802.1X/RADIUS** (port authentication), **S/MIME/PGP** (e-mail), **DNSSEC/DoH**, **Kerberos** (domain authentication), SFTP | Disable insecure versions (HTTP, Telnet, FTP, WEP, SSLv3/TLS 1.0, PPTP) |
+| **Encryption** | At rest (BitLocker, FileVault, LUKS, encrypted phones/USB, database encryption) and in transit (above) | Encrypt laptops, backups and sensitive shares; manage keys |
+| **Digital signatures & certificates** | Verify authenticity and integrity of software updates, documents, e-mails, websites, VPN peers | Trust only signed software; check certificates |
+| **Antivirus / EDR & updates** | Detect/remove malware; patch vulnerabilities | Real-time protection, automatic updates, patch management |
+| **Backups & recovery** | Restore after loss/ransomware | 3-2-1 rule, tested restores, offline copy |
+| **Monitoring, logging, IDS/IPS** | Detect and respond to incidents | Central logs, alerts, incident-response plan |
+| **Physical security** | Prevent theft/tampering | Locked server rooms, cable locks, CCTV, disposal wiping |
+| **Policies, training & awareness** | Reduce human error | Acceptable-use policy, phishing drills, onboarding training, clean desk |
+| **Data validation & integrity checks** | Prevent bad data (Lesson 25) | Input validation, checksums |
+
+### 23.3 How digital signatures, encryption and other measures protect systems
+
+| Measure | Protects | Mechanism and example |
+| **Encryption in transit** | Confidentiality, (with MAC) integrity | TLS encrypts the parents' portal so results and MoMo payments cannot be sniffed on Wi-Fi |
+| **Encryption at rest** | Confidentiality if device/disk stolen | BitLocker on the bursar's laptop makes stolen data unreadable |
+| **Hashing / checksums** | Integrity | SHA-256 of a downloaded installer matches the publisher's; file-integrity monitoring detects altered system files |
+| **Digital signatures** | Integrity + authenticity + non-repudiation | Windows/Ubuntu verify signatures on updates before installing (blocks trojanised updates); signed PDF results from the GCE Board prove origin and detect tampering; signed e-mails stop CEO-fraud spoofing; VPN/HTTPS certificates authenticate servers |
+| **Certificates & PKI** | Authenticity of parties | Browser padlock verifies the bank's identity; only CA-signed client certificates join the VPN |
+| **Authentication & MFA** | Confidentiality, accountability | Stolen password alone cannot open e-mail |
+| **Firewalls & segmentation** | Availability, confidentiality | Blocks port scans and worms; isolates learner VLAN from admin servers |
+| **Backups & redundancy** | Availability, integrity (recovery of clean data) | Ransomware recovered from offline backup |
+| **Logging & monitoring** | Accountability, detection | Failed-login alerts reveal a brute-force attack |
+| **Least privilege** | Integrity, confidentiality | Malware run by a standard user cannot alter system files or others' data |
+
+> EXAMPLE:
+  **Securing end-of-year results distribution.** Results are entered by teachers through individual accounts with MFA (authenticity, accountability); the database is on a server in a locked room with encrypted disks (confidentiality); each result PDF is **digitally signed** by the principal's certificate so any alteration is detected and origin proven (integrity, non-repudiation); parents download through the HTTPS extranet after logging in (confidentiality in transit); the server sits behind a firewall in a DMZ with rate limiting (availability); nightly backups and a standby VM ensure availability; logs are reviewed weekly. Each CIA property is covered by at least two layers.
+
+> VISUAL:
+  **Figure 23.1 – CIA triangle** with threats outside each side and measures inside. **Figure 23.2 – Defence-in-depth rings**: policies/training → physical → perimeter (firewall/DMZ) → network (VLAN, 802.1X, VPN) → host (accounts, AV, updates, encryption) → application (TLS, validation) → data (encryption, signatures, backups). **Figure 23.3 – Signature vs encryption**: two mini-flows showing encryption (public key encrypts, private decrypts → confidentiality) vs signature (private key signs, public verifies → authenticity/integrity).
+
+> MISCONCEPTION:
+  "Security is the firewall's job." Most breaches start with people (phishing, weak passwords) – layers and training matter. "Encryption guarantees integrity." Encryption hides content; integrity needs hashes/MACs/signatures (modern protocols combine both).
+
+> ACTIVITY:
+  **Security audit and hardening (50 min, pairs, lab).** (1) Map twelve incident cards to C/I/A (or several) and to the measure that would have prevented each. (2) Hands-on: create a standard user and an admin; set password policy (length, lockout) in local policy or Ubuntu PAM; enable the host firewall with default deny inbound and allow one service; inspect a site's certificate chain in the browser; verify a downloaded file's SHA-256; if available, sign a PDF/document with a self-signed certificate (LibreOffice ▸ Digital Signatures) and show detection after editing. (3) Design the security architecture for the results-distribution case with a labelled diagram.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain confidentiality, integrity and availability with a threat and a measure for each.
+  2. Distinguish threat, vulnerability and risk; what is defence in depth?
+  3. Identify eight security measures protecting computer systems and classify them as technical, physical or administrative.
+  4. Explain how user accounts, passwords, MFA and firewalls protect systems; state three password-policy rules.
+  5. Name five security protocols and what each secures.
+  6. Explain how digital signatures and encryption protect computer systems, with one example each; why are both needed?
+  **Homework:** Audit your own digital life (e-mail, phone, social media): list ten measures, mark which you apply, and create an action plan for the gaps (MFA, updates, backups, passwords).
+
+---
+
+# Lesson 24: Data Protection and Access Control
+
+> OBJ:
+  - Explain how encryption and access rights are used to protect computer data.
+  - Describe methods used to control access to data and prevent unauthorised use.
+  - Explain the importance of protecting data confidentiality, integrity and availability.
+
+## Lesson outline (2 periods, 100 min – computer room)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | A USB stick "found" in the yard with fee records: who can read it? What if encrypted? What if file permissions? | Discuss. |
+| Core 1 | 30 min | Encryption for data protection: symmetric/asymmetric recap, at rest (full-disk, file/folder, database/column, encrypted archives, phones), in transit, in use (emerging); key management (where keys live, recovery keys, HSM), password-protected documents, hashing passwords; demo BitLocker/VeraCrypt/7-Zip AES and LibreOffice password. Access rights: read/write/execute/modify/full control, owner/group/others (Linux), ACLs (NTFS), inheritance, deny rules, share vs NTFS, database roles, application roles. Demo permission set-up. | Practise encryption and permissions. |
+| Core 2 | 35 min | Access-control methods: identification, authentication (factors), authorisation models (DAC, MAC, RBAC, ABAC), principle of least privilege, separation of duties, need-to-know, access-control lists, groups, directory services/SSO, time/location restrictions, network access control (VLANs, 802.1X, firewalls, VPN), physical access (locks, badges, biometrics), session controls (time-outs, screen lock), auditing/logging, DLP, data classification & labelling, secure disposal, preventing unauthorised use (account lockout, USB control, application whitelisting, watermarking, DRM, monitoring). | Design RBAC matrix. |
+| Core 3 | 22 min | Importance of CIA for data: legal (Law 2024/017, banking, health), trust/reputation, financial loss, safety, continuity, personal harm; case studies; consequences of breaches for individuals and organisations. | Case debate. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 24.1 Encryption and access rights for data protection
+
+| Encryption use | How it protects data | Tools / examples |
+| **Full-disk encryption** | Whole drive unreadable without key/password at boot; protects lost/stolen devices | BitLocker (Windows Pro), FileVault (macOS), LUKS (Linux), Android/iOS default encryption |
+| **File/folder/container encryption** | Selected sensitive files encrypted; portable | VeraCrypt containers, 7-Zip AES-256 archives, GPG, EFS (NTFS), encrypted USB drives (BitLocker To Go) |
+| **Document passwords** | Office/PDF files encrypted with a password | Word/LibreOffice "Save with password", PDF encryption |
+| **Database/field encryption** | Sensitive columns (ID numbers, health data) encrypted; transparent data encryption | MySQL/PostgreSQL encryption, application-level |
+| **Encryption in transit** | Data protected between systems | HTTPS/TLS, SFTP, VPN, WPA3, end-to-end messaging |
+| **Password hashing** | Stored passwords cannot be recovered even by admins | bcrypt/Argon2 with salt |
+| **Key management** | Encryption is only as safe as keys: strong passphrases, recovery keys stored offline/escrowed, rotation, hardware security modules/TPM, no keys in e-mail | Recovery key printed and kept in the safe |
+| **Backups encryption** | Protects off-site/cloud copies | Encrypted backup software, client-side encryption for cloud |
+
+| Access rights (permissions) | Meaning | Where set |
+| **Read / Write / Execute** (Linux rwx for owner, group, others; e.g. `chmod 750`) | View / modify / run or enter directory | `chmod`, `chown`, file properties |
+| **NTFS permissions** (Windows): Read, Read & Execute, List, Write, Modify, Full Control; **ACLs** with allow/deny; **inheritance** | Fine-grained control per user/group; deny overrides allow | Folder ▸ Properties ▸ Security ▸ Edit/Advanced |
+| **Share permissions** (SMB): Read, Change, Full Control – combined with NTFS (most restrictive wins) | Control access over the network | Advanced Sharing ▸ Permissions |
+| **Ownership** | Owner can change permissions | Take ownership (admins) |
+| **Application/database roles** | Rights inside an app (e.g. teacher can enter marks for own classes only; bursar sees fees) | LMS, MIS, SQL `GRANT` |
+| **Cloud sharing rights** | Viewer / commenter / editor; link vs named sharing; expiry | Google Drive, OneDrive |
+
+Practice: create groups (Teachers, Bursary, Learners), assign folder rights to groups not individuals, remove "Everyone", apply least privilege, test as a low-privilege user, document.
+
+### 24.2 Methods to control access and prevent unauthorised use
+
+| Category | Methods |
+| **Identification & authentication** | Unique user IDs; passwords/passphrases; **MFA** (OTP apps, hardware keys, SMS as last resort); biometrics; certificates/smart cards; SSO via directory (AD/LDAP); account lockout after failed attempts; CAPTCHA against bots |
+| **Authorisation models** | **DAC** (owner decides – file permissions); **MAC** (system-enforced labels – military/government); **RBAC** (rights by role – most organisations); **ABAC** (rules on attributes – time, location, device); **least privilege**, **need-to-know**, **separation of duties** (the person entering fees is not the one approving refunds) |
+| **Access-control lists & groups** | ACLs on files, folders, shares, databases, network devices; groups simplify management; periodic access reviews; disable/expire accounts (leavers, temporary staff) |
+| **Network access control** | Firewalls, VLAN segmentation, **802.1X** port/Wi-Fi authentication, MAC filtering (weak), VPN for remote access, guest isolation, NAC posture checks (updated AV before joining) |
+| **Physical access control** | Locked rooms and cabinets, badges/keys, biometric doors, visitor logs, CCTV, cable locks, disabling USB ports/boot from USB, BIOS passwords |
+| **Session & device controls** | Automatic screen lock/time-outs, single session limits, remote wipe of phones/laptops (MDM), disk encryption, restricting removable media, application whitelisting, restricting admin rights |
+| **Data classification & handling** | Labels (Public/Internal/Confidential/Restricted) driving controls; DLP to block sending restricted data outside; watermarking; DRM for documents/media; secure printing (release at printer) |
+| **Monitoring & auditing** | Log logins, file access, permission changes; alerts on anomalies; regular audits; SIEM in larger organisations |
+| **Preventing unauthorised use** | Acceptable-use policy with signed agreement; user training; usage quotas; content filtering; time-based access (lab accounts active only during class); licence management; incident reporting channel; sanctions under law (Law 2010/012) |
+| **Secure disposal** | Wipe/degauss/shred media; revoke access and collect devices when staff leave |
+
+### 24.3 Importance of protecting confidentiality, integrity and availability of data
+
+| Property | Why it matters | Consequences of failure (examples) |
+| **Confidentiality** | Personal privacy and dignity; legal duty (Law 2024/017 – personal data; medical secrecy; banking secrecy); trade secrets; safety (location of vulnerable people); exam security | Leaked learner data used for scams; exposed health status → stigma; leaked exam papers → cancelled exams; fines and prosecutions; loss of trust |
+| **Integrity** | Decisions depend on correct data (marks, diagnoses, balances, contracts); legal validity of records; fairness | Altered marks → wrong promotions; tampered prescriptions → harm; modified invoices → fraud; corrupted backups → unrecoverable |
+| **Availability** | Operations, services and safety depend on access (hospital records, results processing, mobile money, e-government) | Ransomware halts hospital; results delayed; revenue loss; emergency services blind; reputational damage |
+| **For individuals** | Identity, finances, reputation, safety | Identity theft, extortion, discrimination |
+| **For organisations** | Compliance, continuity, reputation, finances, competitiveness | Sanctions by the data-protection authority, lawsuits, closure |
+| **For society** | Trust in digital services, elections, health systems, economy | Disinformation, exclusion, systemic failures |
+
+> EXAMPLE:
+  **The bursary share.** Before: folder "FEES" shared with Everyone/Full Control on the admin PC; a learner on the lab VLAN copied it, and a former clerk's account still worked. After: data classified "Restricted"; folder moved to the server with NTFS rights – Bursary group Modify, Principal Read, inheritance blocked, Everyone removed; share permission Change for Bursary only; folder on a BitLocker-encrypted volume with the recovery key in the safe; nightly encrypted backup; admin VLAN separated from lab by firewall; accounts of leavers disabled the same day by policy; access logged and reviewed monthly; clerks trained and signing the AUP. Confidentiality, integrity and availability all improved with no new hardware.
+
+> VISUAL:
+  **Figure 24.1 – Data protection layers**: data at rest (disk/file/database encryption icons), in transit (TLS/VPN), access rights (ACL table), backups – around a document icon. **Figure 24.2 – RBAC matrix**: roles (Principal, Teacher, Bursar, Learner, Parent, IT admin) × resources (marks, fees, timetable, personal data, system config) with R/W/–. **Figure 24.3 – Windows NTFS Security tab and Linux `ls -l` output** annotated. **Figure 24.4 – Consequences map** of CIA failures for a hospital, a school and a bank.
+
+> MISCONCEPTION:
+  "A password on the folder share is enough." Share permissions without NTFS/filesystem rights, encryption and account hygiene leave many paths open. "Encryption protects data from insiders." Authorised users with keys can still misuse data – access rights, logging and least privilege address insiders.
+
+> ACTIVITY:
+  **Protect the data (55 min, pairs, lab).** (1) Encrypt: create a VeraCrypt container or 7-Zip AES archive with a passphrase; password-protect a LibreOffice/Word document; enable BitLocker To Go on a USB (if available) and store the recovery key correctly; attempt to open each without the key. (2) Access rights: create users and groups; set NTFS/`chmod` permissions for a "Marks" folder (Teachers Modify, Learners none, Principal Read); test as each user; break inheritance; add a deny rule and observe precedence; compare share vs NTFS effective access. (3) Build an RBAC matrix for a school MIS and list three other access-control methods (network, physical, session) you would add. (4) Write a five-sentence justification of why CIA protection matters for the school, citing the 2024 data-protection law.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain how encryption at rest and in transit protect data; name two tools for each.
+  2. Explain access rights: distinguish Read, Modify and Full Control (NTFS) and rwx for owner/group/others (Linux).
+  3. How do share permissions and NTFS permissions combine? Why remove "Everyone"?
+  4. Describe six methods used to control access to data and prevent unauthorised use, covering authentication, authorisation, network, physical and monitoring controls.
+  5. Define RBAC, least privilege and separation of duties with school examples.
+  6. Explain the importance of protecting confidentiality, integrity and availability of data, with one consequence of failure for each in a hospital.
+  **Homework:** Write a data-protection procedure (one page) for a class results file: classification, storage/encryption, access rights matrix, sharing method, backup, disposal, and the law that applies.
+
+---
+
+# Lesson 25: Data Validation and Verification Techniques
+
+> OBJ:
+  - Explain and contrast the concepts of data validation and verification.
+  - Describe validation techniques (e.g., range check, format check, length check…).
+  - Describe verification techniques such as visual check and double entry.
+
+## Lesson outline (1 period, 50 min – computer room helpful)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 4 min | A registration form with "Age: 250", "Phone: 6A7", "Sex: M" typed as "N" – which errors can a computer catch automatically? | Sort errors. |
+| Core 1 | 10 min | Concepts: **validation** (data is sensible, reasonable, complete, in the right format – done by the computer during entry) vs **verification** (data entered matches the original source – checks for transcription errors); GIGO; both needed; limits (valid ≠ correct). | Venn notes. |
+| Core 2 | 18 min | Validation techniques with examples and error messages: **range**, **type/character**, **format/picture**, **length**, **presence**, **lookup/list**, **check digit** (ISBN, Luhn on card numbers), **consistency/cross-field**, uniqueness, reasonableness, spell check, limit check; where implemented (spreadsheet Data Validation, forms, database constraints, web forms). Demo Data Validation in Calc/Excel and a Google Form. | Configure validation rules. |
+| Core 3 | 14 min | Verification techniques: **visual/proofreading check**, **double entry** (typing twice and comparing – passwords, account numbers, data-entry bureaux), read-back, checksums/hash comparison for transfers, parity (Lesson 35 link), reconciliation with totals (batch/control totals), sampling audits. Contrast table; combined workflow. | Double-entry exercise. |
+| Conclusion | 4 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 25.1 Validation versus verification
+
+> DEF:
+  **Data validation** is an automatic check performed by software **as data is entered or processed** to ensure it is **reasonable, complete and in the correct format** (e.g., age between 5 and 25). **Data verification** checks that data has been **transferred or entered accurately** – that it **matches the original source** (e.g., typing a phone number twice, proofreading against the paper form).
+
+| Aspect | Validation | Verification |
+| Question | "Is this data sensible/allowed?" | "Is this data exactly what was on the source?" |
+| Who/what performs it | The computer (rules in forms, spreadsheets, databases) | A person (visual check) or a process/computer comparing two copies (double entry, checksum) |
+| Errors caught | Impossible or badly formed values (age 250, missing name, wrong date format) | Transcription/typing errors that are still valid (age 15 typed as 51, wrong but valid phone number) |
+| Errors missed | Valid but wrong data (birth year 2009 instead of 2008) | Errors present in the source itself |
+| When | During input/processing | After input/transfer |
+| Both needed | Yes – validation removes impossible data; verification removes copying errors; neither guarantees truth | |
+
+**GIGO** – garbage in, garbage out: wrong input data produces wrong results however good the processing, hence input controls matter (integrity – Lesson 23).
+
+### 25.2 Validation techniques
+
+| Technique | Rule | Example | Typical error message |
+| **Presence check** | Field must not be empty | Name, matricule required | "Name is required" |
+| **Range check** | Value within limits | Mark 0–20; age 10–25; month 1–12 | "Mark must be between 0 and 20" |
+| **Type / character check** | Correct data type/characters | Fees numeric; name letters only; phone digits only | "Enter numbers only" |
+| **Format / picture check** | Matches a pattern | Date dd/mm/yyyy; Cameroon phone 6XXXXXXXX (9 digits starting with 6); e-mail contains @ and domain; matricule LL99L999 | "Phone must be 9 digits starting with 6" |
+| **Length check** | Number of characters within limits | Phone = 9 digits; password ≥ 12; postcode length | "Password must have at least 12 characters" |
+| **Lookup / list check** | Value must be in an allowed list | Sex ∈ {M, F}; Region ∈ 10 regions; Class ∈ list | Drop-down list prevents error |
+| **Check digit** | A digit computed from the others detects typing errors (transposition) | ISBN-13, credit-card **Luhn** algorithm, barcode EAN, bank account numbers, NIU | "Invalid card number" |
+| **Consistency / cross-field check** | Related fields agree | Date of leaving ≥ date of joining; if Sex = F then title ≠ Mr; total = sum of items | "End date cannot precede start date" |
+| **Uniqueness check** | No duplicates where required | Matricule, e-mail, receipt number unique | "This matricule already exists" |
+| **Reasonableness / limit check** | Plausible values relative to history/context | Electricity bill not 10× last month; salary below ceiling | Warning for review |
+| **Spell/grammar & pattern check** | Dictionary comparison | Names of towns | Suggestions |
+| **Where implemented** | Spreadsheet **Data ▸ Validation/Data Validation** (whole number between, list, date, text length, custom formula, input message, error alert); web forms (HTML `required`, `type="email"`, `pattern`, `min/max`); database constraints (NOT NULL, CHECK, UNIQUE, FOREIGN KEY, data types); application code | |
+
+```
+Spreadsheet examples (Excel/Calc Data Validation)
+  Mark        : Whole number, between 0 and 20, error "Mark must be 0–20"
+  Sex         : List  M,F
+  Phone       : Custom  =AND(ISNUMBER(B2), LEN(B2)=9, LEFT(TEXT(B2,"0"),1)="6")
+  Date of birth: Date, between 01/01/2000 and 31/12/2015
+  Matricule   : Text length equal to 8 ; uniqueness  =COUNTIF($A$2:$A$500, A2)=1
+HTML form:  <input type="tel" pattern="6[0-9]{8}" required maxlength="9">
+```
+
+### 25.3 Verification techniques
+
+| Technique | How it works | Where used | Strengths / limits |
+| **Visual check (proofreading)** | The person compares what is on screen with the source document, or reads the printed record back against the form | Small data sets, forms, before submission | Cheap; misses errors when tired; slow for large volumes |
+| **Double entry** | Data is entered **twice** (same or different operator); the system compares both and flags mismatches | Passwords and e-mail confirmation fields, bank account numbers, census/data-entry bureaux, exam-mark capture | Very effective for typing errors; doubles effort; both entries could share a source error |
+| **Read-back / call-back** | The recipient repeats data to the sender for confirmation | Phone orders, MoMo transfers (confirm recipient name), dictation | Catches hearing errors |
+| **Checksums / hash comparison** | Compare a computed value (SHA-256, MD5, CRC) of the source and copy | File downloads/transfers, backups, software distribution | Detects any change in transfer; not typing at source |
+| **Parity and transmission checks** | Extra bits detect corruption during transmission (Lesson 35) | Networks, memory | Detect, not correct (mostly) |
+| **Control / batch totals** | Sum or count of a batch computed manually and compared with the computer's total (hash totals of IDs, record counts) | Payroll, fees, exam mark sheets | Catches omitted/duplicated records |
+| **Sampling audit / reconciliation** | Check a random sample against sources; reconcile with an independent record (bank statement) | Finance, large databases | Statistical assurance |
+| **Confirmation screens** | Display entered data for user approval before saving | Online forms, ATMs | Encourages a visual check |
+
+Combined workflow for school registration: form with validation (lists, ranges, formats, required fields) → confirmation screen (visual check) → matricule and phone entered twice (double entry) → batch total of records per class compared with the paper register (control total) → random 5 % audit against source forms.
+
+> EXAMPLE:
+  **Exam-mark capture at a GCE marking centre.** Validation: marks 0–100 whole numbers, candidate number 10 digits with a check digit, script count per packet must equal the packet header (consistency). Verification: two independent clerks key each mark (double entry) and the system lists mismatches for a supervisor; packet control totals are compared; a 5 % visual audit against scripts. A clerk keying 71 instead of 17 passes validation (both valid) but fails double entry – precisely why both mechanisms exist.
+
+> VISUAL:
+  **Figure 25.1 – Validation vs verification Venn** with error examples in each region and in the intersection. **Figure 25.2 – Validation rule gallery**: form fields with each technique labelled and its error message. **Figure 25.3 – Double-entry flow**: entry 1 → entry 2 → compare → match saves / mismatch flags. **Figure 25.4 – Spreadsheet Data Validation dialog** and a web form with HTML attributes.
+
+> MISCONCEPTION:
+  "Validated data is correct data." Validation only rejects impossible or badly formed values; a wrong but plausible value passes. "Verification is the same as validation, done by a person." Verification compares against the source; it can also be automated (double entry, checksums).
+
+> ACTIVITY:
+  **Build a bullet-proof form (35 min, pairs, lab).** (1) In Calc/Excel create a class-registration sheet with validation on eight fields (presence via conditional formatting, range, list, length, format via custom formula, uniqueness, date range, cross-field). Test with 10 "dirty" records supplied by the teacher; record which errors were caught and which passed. (2) Implement double entry for phone numbers in two columns with a mismatch flag `=IF(C2<>D2,"CHECK","")`. (3) Perform a visual check of 15 records against paper forms and a control total of fees; report errors found by each method. (4) Optional: the same form in Google Forms/HTML with `required`, `pattern`, `min/max`. (5) Write a paragraph contrasting validation and verification using your findings.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain and contrast data validation and data verification, with an example of an error caught only by each.
+  2. Describe range, format, length, presence, lookup, type, check-digit and consistency checks with an example and an error message for each.
+  3. Which validation checks would you apply to: a Cameroonian phone number; a mark out of 20; a class name; a date of birth?
+  4. Describe visual check and double entry as verification techniques and give a situation where each is used.
+  5. Why can a value pass validation and still be wrong? How does double entry help?
+  6. Where can validation rules be implemented? Give one spreadsheet and one web-form example.
+  **Homework:** Design the validation and verification plan (table of fields, rules, messages, verification method) for a clinic's patient-registration form.
+
+---
+
+# Lesson 26: Integration Activities — Securing an Organisation's Networked Information System
+
+> ACTIVITY:
+  **Context.** A microfinance branch (12 staff PCs, a server, Wi-Fi for staff, a customer portal, remote auditors in Douala) suffered a data leak of customer records and several typing errors in loan amounts. The board asks your team to secure the information system and its data.
+  **Task (groups of 3–4, 2 periods).**
+  1. **Intranet/extranet design** (Lesson 21): define what stays on the intranet (core banking, HR, documents) and what the extranet offers customers and auditors; specify technologies, authentication and DMZ/reverse-proxy placement.
+  2. **VPN** (Lesson 22): design and – on the lab VM/router – configure a remote-access VPN for the auditors with certificate-based (digitally signed) authentication and firewall rules exposing only the VPN port; demonstrate an encrypted tunnel and a revoked certificate being rejected.
+  3. **Security measures** (Lesson 23): produce a CIA threat table for the branch and a defence-in-depth plan: accounts and password policy, MFA, firewall/VLAN segmentation, security protocols (HTTPS/TLS on the portal, WPA3, SSH), encryption, signatures for loan documents, updates, backups, logging, physical controls, training.
+  4. **Data protection & access control** (Lesson 24): implement on the lab server/PC an encrypted volume/archive for customer files, groups and NTFS/Linux permissions matching an RBAC matrix (Teller, Loan officer, Manager, Auditor, IT), and list the further access-control methods (session, physical, monitoring, disposal) and the legal obligations under Law 2024/017.
+  5. **Validation & verification** (Lesson 25): configure a loan-entry spreadsheet/form with at least six validation rules and a double-entry check for amounts and account numbers; test with dirty data and report.
+  6. **Report and present** (8 min): a security plan document (diagram of intranet/extranet/VPN/DMZ, threat table, RBAC matrix, validation table, evidence screenshots) and a live demonstration of the VPN, permissions and validation.
+  **Criteria.** Coherent intranet/extranet architecture; working, correctly firewalled certificate-based VPN; comprehensive, prioritised security measures mapped to CIA; correct encryption and permissions implementation with legal awareness; effective validation/verification design; quality of report and demonstration.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Intranet/extranet design | Clear separation, technologies, DMZ/authentication specified | Minor gaps | Vague | Missing |
+| VPN implementation | Works; certificates; firewall exposes only VPN; revocation shown | Works with minor issues | Partially configured | Not working |
+| Security measures | Complete defence-in-depth mapped to CIA and prioritised | Mostly complete | Generic list | Few/none |
+| Data protection & access control | Encryption + RBAC permissions implemented and tested; legal obligations cited | Implemented | Partial | Absent |
+| Validation & verification | ≥ 6 rules + double entry tested with evidence | Rules implemented | Few rules | None |
+| Report & demonstration | Professional, evidenced, clear | Clear | Basic | Weak |
+
+---

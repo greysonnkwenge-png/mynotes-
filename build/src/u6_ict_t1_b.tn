@@ -1,0 +1,648 @@
+= Module 2 — Communication, Resource Sharing in IT and Information Security: Describing and Classifying Networks
+**Weeks 2–4 · Lessons 7–16**
+**Category of action:** Description of computer networking; classification of computer networks; network design strategies; configuration of network topology based on the physical connection of computers.
+**Context:** Learners move from what a network is and why it is complex (Lessons 7–8), through classification by coverage and choosing networks for organisations (10–11), to logical architecture (13) and physical topologies (14–15). Integration activities at Lessons 9, 12 and 16 apply each block to a real organisation.
+
+# Lesson 7: Fundamentals of Computer Networks
+
+> OBJ:
+  - Describe a computer network.
+  - Compare networked computers with stand-alone systems.
+  - Identify real-world examples of computer networks (e.g., home Wi-Fi, school labs, the internet) versus standalone computer setups.
+
+## Lesson outline (1 period, 50 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Unplug the lab's switch: "What can you still do? What can't you?" | Observe; list. |
+| Core 1 | 15 min | Define network; elements (nodes/hosts, links/media, devices, protocols, NOS/services); purposes (communication, resource sharing – files, printers, internet, storage, software; centralised management; collaboration); data flow basics (sender, medium, receiver, message, protocol). | Label a diagram. |
+| Core 2 | 15 min | Stand-alone vs networked: comparison table (sharing, communication, cost, security, dependence, maintenance, performance, backup); when stand-alone is still appropriate (secure/offline systems, single-user kiosks). | Complete comparison. |
+| Core 3 | 10 min | Examples: home Wi-Fi (router + phones + TV), school lab (switch + server + PCs + printer), cybercafé, bank branch WAN, MTN mobile network, the internet; stand-alone: a shop's offline till, exam-hall PC, industrial controller, a laptop with Wi-Fi off. | Classify photos. |
+| Conclusion | 5 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 7.1 What a computer network is
+
+> DEF:
+  A **computer network** is a set of two or more computing devices (**nodes**) connected by **transmission media** (cables or wireless links) and governed by common **protocols**, so that they can **communicate and share resources** (data, files, printers, storage, internet access, applications).
+
+| Element | Role | Examples |
+| **Nodes / hosts** | Devices that send/receive data | PCs, laptops, phones, servers, printers, IP cameras, IoT sensors |
+| **Transmission media** | Carry signals | UTP cable, fibre, Wi-Fi, Bluetooth, 4G/5G, satellite |
+| **Network devices** | Connect, direct and extend traffic | Switch, router, access point, modem, hub, repeater |
+| **Protocols** | Rules for communication (format, addressing, timing, error handling) | TCP/IP, HTTP, Wi-Fi 802.11, Ethernet |
+| **Network operating system / services** | Manage users, sharing and security | Windows Server, Linux, file/print/DHCP/DNS services |
+| **Addresses** | Identify devices | IP address (192.168.1.10), MAC address |
+
+Purposes: **communication** (e-mail, messaging, video calls), **resource sharing** (files, printers, scanners, internet connection, storage, software licences), **centralised data and management** (one database, backups, user accounts, updates), **collaboration** (shared documents, LMS), **reliability** (redundant paths and copies), **cost saving** (one printer for 40 PCs), **access to services** (web, cloud, e-government).
+
+### 7.2 Networked versus stand-alone systems
+
+> DEF:
+  A **stand-alone computer** works independently – it is not connected to any other computer or network; all resources (storage, printer, software) must be attached directly to it.
+
+| Criterion | Stand-alone system | Networked system |
+| Resource sharing | None – each machine needs its own printer, files copied by USB | Shared printers, files, storage, internet, applications |
+| Communication | None (sneakernet) | Instant messaging, e-mail, video, collaboration |
+| Data management | Scattered copies, inconsistent versions | Central storage, single source of truth, central backup |
+| Administration | Each machine configured and updated separately | Central user accounts, policies, updates, monitoring |
+| Cost | Cheaper for one machine; duplicated peripherals overall | Network hardware and skills needed, but shared resources cut total cost |
+| Security | Isolated from network attacks; physical risk only | Exposed to malware, hacking, misuse – needs firewalls, accounts, policies |
+| Reliability/dependence | Failure affects one user; no dependence on others | Server/link failure can affect everyone; but redundancy and backups possible |
+| Performance | No network congestion | Shared bandwidth can slow; but access to powerful servers/cloud |
+| Scalability | Adding users means adding full machines | Easy to add nodes and services |
+| Typical use | Exam PCs, isolated control systems, tills without connectivity, personal offline work | Homes, schools, offices, banks, ISPs, the internet |
+
+### 7.3 Real-world examples
+
+| Networked | Description | Stand-alone |
+| **Home Wi-Fi** | Router/modem from Camtel/MTN links phones, laptop, smart TV and printer; shares internet and media | A laptop used offline with Wi-Fi disabled |
+| **School computer lab** | 40 PCs connected by switch to a server (files, LMS), shared printer and internet via router | An exam-hall PC deliberately isolated |
+| **Cybercafé** | PCs on a switch with a shared internet line and print server | – |
+| **Office / bank branch** | LAN per branch linked by WAN to headquarters data centre; ATMs | An offline cash till in a small shop |
+| **Hospital** | Patient-record server, imaging network, Wi-Fi for tablets | A stand-alone ultrasound machine printing directly |
+| **Mobile network** | MTN/Orange cells, core network and internet gateway serving millions | A basic phone in airplane mode |
+| **Industrial plant** | Sensors and PLCs on an industrial network | An air-gapped safety controller |
+| **The internet** | The global network of networks interconnecting billions of devices | – |
+
+> EXAMPLE:
+  **Before and after networking a Bamenda secretariat.** Before: five stand-alone PCs, one printer moved by cable, documents on USB sticks (three infected in a term), no shared internet, each PC updated separately. After a small LAN (switch, router, shared printer, a NAS for files): printing from any desk, one internet subscription shared, nightly backup of the NAS, a shared "Templates" folder, and antivirus updated centrally – but also a need for user accounts and a firewall since all machines are now exposed together.
+
+> VISUAL:
+  **Figure 7.1 – Anatomy of a small network**: PCs, laptop, phone, printer, server connected to a switch, switch to router/modem, router to the internet cloud; labels for nodes, media, devices, protocol arrows, IP addresses. **Figure 7.2 – Stand-alone vs networked**: left, three isolated PCs each with its own printer and USB stick; right, the same PCs sharing one printer, one internet line and one file server.
+
+> MISCONCEPTION:
+  "A computer with internet is stand-alone if not on a LAN." Any connection to another system makes it networked. "Networks only mean the internet." A LAN works fully without internet access.
+
+> ACTIVITY:
+  **Network detectives (25 min).** (1) Walk the lab: identify and photograph/sketch nodes, media, devices; trace the path from a PC to the internet. (2) Classify 12 photo cards as networked or stand-alone and justify. (3) Debate in pairs: "Our exam centre should keep stand-alone PCs" – list two arguments each way using the comparison table.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe a computer network and name its five essential elements.
+  2. State four purposes of networking with an example of each.
+  3. Compare networked computers with stand-alone systems on sharing, administration, security and reliability.
+  4. Give three real-world examples of computer networks and two of stand-alone set-ups, explaining why each is classified so.
+  5. When might a stand-alone system be preferred? Give two situations.
+  **Homework:** Sketch and label the network at your home or a nearby business (or describe a stand-alone set-up) and list three resources that are or could be shared.
+
+---
+
+# Lesson 8: Network Complexity and Operational Challenges
+
+> OBJ:
+  - Identify and discuss the benefits and limitations of networks.
+  - Explain the complexity involved in setting up and maintaining data communication networks.
+  - Explain the complexity of interoperability between heterogeneous systems.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Story: the school network went down during online GCE registration – causes brainstorm. | Suggest causes. |
+| Core 1 | 24 min | Benefits (sharing, communication, central management, cost, collaboration, scalability, reliability via redundancy, access to services) and limitations (cost of equipment/skills, security threats, dependence/single points of failure, performance degradation, maintenance burden, privacy, malware spread, complexity, power/connectivity in Cameroon). | Benefit/limitation grid with examples. |
+| Core 2 | 35 min | Complexity of set-up and maintenance: planning (requirements, design, budget), physical layer (cabling standards, distances, power, environment), addressing and configuration (IP schemes, DHCP, DNS, VLANs), security (firewalls, accounts, updates), scalability, monitoring and troubleshooting (layered approach, tools), documentation, skills and staffing, vendor support, cost of downtime, change management; case walk-through. | Complexity map. |
+| Core 3 | 27 min | Interoperability of heterogeneous systems: different hardware, OS (Windows/Linux/macOS/Android/iOS), vendors, protocols, data formats, versions, character sets, security models, legacy systems; why it is hard; solutions – open standards (TCP/IP, HTTP, SMB, PDF, Unicode), middleware/APIs, gateways/protocol converters, virtualisation, cloud services, standards bodies (IETF, IEEE, ISO, W3C, ITU). | Case: mixed school lab. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 8.1 Benefits and limitations of networks
+
+| Benefits | Explanation / example |
+| **Resource sharing** | One printer, one internet line, shared storage and software for many users – lower cost per user |
+| **Communication & collaboration** | E-mail, chat, video conferencing, shared documents in real time |
+| **Centralised data & management** | Single database, central backups, user accounts and policies, remote updates and monitoring |
+| **Reliability & redundancy** | Multiple paths, mirrored servers, backups mean a fault need not stop work |
+| **Scalability & flexibility** | Add users/devices/services incrementally; remote and mobile access |
+| **Access to services** | Web, cloud applications, e-government, e-learning, online banking |
+| **Speed of information** | Instant transfer instead of physical transport |
+
+| Limitations | Explanation / example |
+| **Cost** | Equipment (switches, routers, cabling, servers), software licences, skilled staff, ongoing subscriptions |
+| **Security threats** | Hacking, malware spreading across all nodes, eavesdropping, insider misuse – demands firewalls, antivirus, policies |
+| **Dependence & single points of failure** | Server, switch, ISP or power failure can halt everyone (online registration example) |
+| **Performance degradation** | Congestion when many users share bandwidth; latency on WAN links |
+| **Maintenance & management burden** | Updates, monitoring, troubleshooting, user support, documentation |
+| **Privacy concerns** | Central logs and shared storage expose personal data; monitoring of users |
+| **Complexity** | Many interacting components and vendors; specialist knowledge |
+| **Cameroon-specific constraints** | Unreliable electricity, expensive and variable bandwidth, lightning damage, dust/heat, scarcity of technicians outside cities |
+
+### 8.2 Complexity of setting up and maintaining data communication networks
+
+| Dimension | What makes it complex |
+| **Requirements & design** | Understanding users, applications, growth, budget; choosing type, topology, architecture, equipment; capacity planning; redundancy decisions; documentation |
+| **Physical infrastructure** | Structured cabling standards (Cat 6, 100 m limit, bend radius), trunking, patch panels, racks, cooling, dust, lightning/surge protection, UPS/generators, fibre for long runs, Wi-Fi surveys (walls, interference, channels) |
+| **Addressing & configuration** | IP address plans and subnets, DHCP scopes, DNS, gateways, VLANs to separate staff/learners/guests, Wi-Fi SSIDs and security, printer and server configuration, consistent naming |
+| **Security** | Firewalls and rules, user accounts and permissions, authentication (RADIUS/802.1X), encryption, updates/patching, antivirus, guest isolation, physical security, policies and training – a moving target |
+| **Services** | File/print servers, NOS, e-mail, web filtering, backup systems, LMS – each with dependencies |
+| **Scalability & change** | Adding buildings/users, new applications (video), new devices (BYOD, IoT); change control to avoid breaking things |
+| **Monitoring & troubleshooting** | Faults may lie in cable, device, configuration, ISP or software; need layered diagnosis (ping, traceroute, link lights, logs), monitoring tools, spare parts |
+| **People & skills** | Trained administrators, user support, vendor contracts, documentation to survive staff turnover |
+| **Cost & downtime** | Budgeting for replacement cycles (5–7 years), subscriptions, the cost of downtime during critical operations |
+| **Regulation & compliance** | Data protection (Law 2024/017), lawful interception rules, acceptable-use policies |
+
+Structured approach: **plan → design → procure → install → configure → test → document → operate → monitor → review**, with a maintenance schedule (preventive checks, firmware updates, backup verification, capacity review).
+
+### 8.3 Interoperability between heterogeneous systems
+
+> DEF:
+  **Interoperability** is the ability of different systems, devices, applications and organisations to **exchange data and use it meaningfully**. **Heterogeneous systems** differ in hardware, operating system, vendor, protocol, data format or version.
+
+| Source of heterogeneity | Interoperability challenge | Solution |
+| **Operating systems** (Windows, Linux, macOS, Android, iOS, ChromeOS) | Different file systems, sharing protocols, permissions, drivers | Common protocols – **SMB/CIFS** (Samba on Linux), NFS, IPP printing, WebDAV; cross-platform apps and web interfaces |
+| **Hardware & vendors** | Proprietary features, management interfaces, cables/connectors | **Open standards** (IEEE 802.3 Ethernet, 802.11 Wi-Fi, USB, Bluetooth); vendor-neutral management (SNMP) |
+| **Protocols & versions** | IPv4 vs IPv6, old vs new TLS, Wi-Fi generations, legacy devices | Dual-stack, gateways/protocol converters, backward compatibility, phased upgrades |
+| **Data formats** | .docx vs .odt, Excel vs CSV, proprietary databases, image formats, character encodings (accents!) | Open formats (**PDF, ODF, CSV, XML, JSON, Unicode UTF-8**), converters, import/export filters |
+| **Applications & databases** | Systems that cannot talk to each other (school MIS vs accounting vs LMS) | **APIs**, middleware, integration platforms, standard schemas |
+| **Security models** | Different authentication systems and policies | Single sign-on, directory services (LDAP/Active Directory), federation |
+| **Legacy systems** | Old equipment/software still in use (Windows 7 PCs, old printers) | Emulation/virtualisation, isolated VLANs, gateways, planned replacement |
+| **Cloud vs on-premises** | Mixed local and cloud services | Standard web protocols (HTTPS, REST), identity federation |
+
+Why it matters: without interoperability data is re-typed (errors), devices are duplicated, vendor lock-in raises cost, and collaboration fails. Standards bodies that make interoperability possible: **IETF** (internet protocols – RFCs), **IEEE** (Ethernet, Wi-Fi), **ISO/IEC** (OSI, document formats), **W3C** (web standards), **ITU** (telecom), Wi-Fi Alliance, Bluetooth SIG.
+
+> EXAMPLE:
+  **The mixed lab at Lycée Bilingue de Buea.** Twenty donated Windows 10 PCs, ten Ubuntu machines, teachers' MacBooks and Android phones, a 2012 HP printer and a new school-management web app. Problems: Ubuntu PCs cannot see Windows shares; the printer has no macOS driver; the accountant's Excel macros fail in LibreOffice; accented names appear as "Ngu?bi" in the exported CSV. Solutions: a Samba file server with LDAP accounts for all OSes; a print server using IPP (AirPrint) for the old printer; files exchanged in PDF/ODF/CSV UTF-8 with the web app's API used for imports; the legacy printer placed on its own VLAN. Interoperability was mostly standards and planning, not new purchases.
+
+> VISUAL:
+  **Figure 8.1 – Benefits vs limitations balance** with icons. **Figure 8.2 – Layers of network complexity**: a stacked diagram from physical (cabling, power) → addressing/configuration → security → services → people/process → compliance, each with a "what can go wrong" note. **Figure 8.3 – Interoperability hub**: Windows, Linux, macOS, Android, legacy printer and cloud app around a hub labelled "open standards (TCP/IP, SMB, IPP, PDF, UTF-8, APIs)".
+
+> MISCONCEPTION:
+  "Once a network is installed it just works." Networks need continuous maintenance, updates and monitoring. "Buying everything from one vendor removes interoperability problems." It creates lock-in and still leaves phones, cloud and legacy devices to integrate.
+
+> ACTIVITY:
+  **Complexity clinic (45 min, groups).** (1) Given a scenario (school with two blocks, 60 PCs, Wi-Fi for staff, guest access, unreliable power), list ten complexity factors and one mitigation each. (2) Incident analysis: "internet down during registration" – build a fault tree (power, ISP, router, DNS, switch, cable, malware) and a troubleshooting order. (3) Interoperability challenge: five devices/OS cards + three data-format cards – propose standards and services to make them work together; identify one legacy device to isolate.
+
+## Formative assessment
+
+> ASSESS:
+  1. Identify and discuss four benefits and four limitations of computer networks.
+  2. Explain five factors that make setting up and maintaining a data communication network complex.
+  3. Why can a network be a single point of failure? How is this risk reduced?
+  4. Define interoperability and heterogeneous systems; give three sources of heterogeneity.
+  5. Explain how open standards, APIs and gateways help heterogeneous systems interoperate; give one example of each.
+  6. Name three standards bodies and what they standardise.
+  **Homework:** Interview a technician or cybercafé owner about the hardest part of keeping their network running; write half a page linking their answers to the complexity dimensions and one interoperability issue.
+
+---
+
+# Lesson 9: Integration Activities — Networking a Real Organisation: Description and Challenges
+
+> ACTIVITY:
+  **Context.** A local organisation (choose: a primary school with 12 donated PCs; a health centre with 3 PCs and a printer; a cooperative office with 6 mixed Windows/Linux computers; a family compound with phones, a laptop and a smart TV) currently uses stand-alone machines and asks your team whether to build a network.
+  **Task (pairs, 1–2 periods).**
+  1. **Describe** (Lesson 7) the current stand-alone situation and the proposed network: nodes, media, devices, protocols and services, in a labelled diagram.
+  2. **Compare** networked vs stand-alone for this organisation using at least six criteria and conclude with a recommendation.
+  3. **Analyse** (Lesson 8) the benefits and limitations specific to the organisation, five set-up/maintenance complexity factors with mitigations (power, security, skills, cost, scalability), and two interoperability issues with standards-based solutions.
+  4. **Deliver** a two-page advisory note (word-processed, with diagram and tables) and a 4-minute briefing.
+  **Criteria.** Accurate network description; balanced, criteria-based comparison; realistic complexity and interoperability analysis; clarity of recommendation and presentation.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Network description & diagram | Complete, correct elements and services | Minor omissions | Partial | Incorrect |
+| Comparison & recommendation | ≥ 6 criteria, evidence-based conclusion | 4–5 criteria | Few criteria | Unsupported |
+| Complexity & interoperability | Five specific factors with mitigations; two interoperability solutions using standards | Mostly specific | Generic | Missing |
+| Communication | Clear note and briefing | Clear | Basic | Weak |
+
+---
+
+# Lesson 10: Types of Networks by Coverage Area
+
+> OBJ:
+  - Describe types of networks (LAN, MAN, WAN, CAN, PAN).
+  - Classify properly based on coverage a given network (e.g., home Wi-Fi setup, a university).
+  - Compare the network types in terms of coverage area, typical speed, cost, and number of devices/users supported.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Show a Bluetooth earphone, the lab, the University of Yaoundé I map, a Douala map and a world map. "Networks at what scale?" | Guess names. |
+| Core 1 | 40 min | PAN (Bluetooth, USB tethering, NFC; ~10 m), LAN (room/building; Ethernet/Wi-Fi; 100 Mbps–10 Gbps; WLAN), CAN (campus – several buildings linked by fibre; university, hospital, industrial site), MAN (city – Camtel fibre metro ring, municipal Wi-Fi, cable TV networks; 5–50 km), WAN (country/world – leased lines, MPLS, satellite, the internet); plus notes on WLAN, SAN, VPN as overlay, GAN. Technologies, ownership, examples. | Type cards. |
+| Core 2 | 25 min | Classification practice: home Wi-Fi (LAN with PAN devices), a university with 12 buildings (CAN), bank with branches nationwide (WAN), council Wi-Fi across Limbe (MAN), phone + smartwatch (PAN), the internet (WAN/GAN); ambiguous cases. | Classify 15 scenarios. |
+| Core 3 | 22 min | Comparison table: coverage, speed, cost, devices/users, ownership, media, latency, examples; graph of scale vs speed/cost. | Complete and discuss. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 10.1 Network types by coverage
+
+| Type | Coverage | Description | Technologies / media | Examples |
+| **PAN – Personal Area Network** | A few metres (≈ 1–10 m) around one person | Connects personal devices | **Bluetooth**, USB, NFC, infrared, Zigbee; WPAN | Phone + earbuds + smartwatch; laptop + wireless mouse; phone tethering |
+| **LAN – Local Area Network** | Room, floor or building (up to a few hundred metres) | Privately owned, high speed, low latency | **Ethernet** (UTP Cat 5e/6, 100 Mbps–10 Gbps), **Wi-Fi** (WLAN 802.11, 100 Mbps–several Gbps), switches, one or more access points | Home Wi-Fi, school computer lab, office, cybercafé |
+| **CAN – Campus Area Network** | Several buildings on one site (≈ 1–5 km) | Interconnects multiple LANs owned by one organisation | Fibre backbone between buildings, core switches, campus Wi-Fi | University of Buea campus, hospital complex, SONARA refinery, military base, a large lycée with several blocks |
+| **MAN – Metropolitan Area Network** | A city or metropolitan area (≈ 5–50 km) | Links LANs/CANs across a city; often operated by a telecom or municipality | Fibre metro rings, microwave links, WiMAX/4G, cable TV infrastructure | Camtel/Douala metro fibre; municipal Wi-Fi; a bank's branches within Yaoundé; cable-TV data network |
+| **WAN – Wide Area Network** | Country, continent or world (> 50 km) | Connects distant LANs/MANs; uses leased or public telecom infrastructure | Leased lines, MPLS, fibre backbones (WACS/SAT-3 submarine cables landing at Kribi/Limbe), satellite (VSAT, Starlink), 4G/5G, VPN over internet | Bank network across Cameroon, MTN core network, CEMAC interbank, **the internet** (largest WAN/GAN) |
+| Related terms | – | **WLAN** (wireless LAN), **SAN** (storage area network in data centres), **VPN** (secure logical network over a WAN), **GAN** (global) | | |
+
+### 10.2 Classifying a given network
+
+Ask: **How far apart are the nodes, who owns the infrastructure, and what links them?**
+
+| Scenario | Classification | Reasoning |
+| Home: router, two phones, laptop, smart TV; phone paired to earbuds | **LAN** (WLAN) containing **PANs** | Single dwelling; Bluetooth pairing is personal-scale |
+| University with 12 buildings linked by fibre, each with its own LAN | **CAN** | Several buildings, one site, one owner |
+| Bank with 40 branches across Cameroon linked to Douala HQ | **WAN** | National distances over telecom links |
+| Council-run Wi-Fi covering Limbe town centre and offices | **MAN** | City-wide |
+| A cybercafé with 15 PCs | **LAN** | One room |
+| Two campuses in Yaoundé (Ngoa-Ekelle and Soa) linked by leased fibre | **MAN** | Same metropolitan area, different sites |
+| Farmers' cooperative offices in Bafoussam and Dschang sharing a server via VPN | **WAN** (VPN over internet) | Different towns |
+| Smartwatch, phone and wireless headset | **PAN** | Personal devices within metres |
+| The internet | **WAN/GAN** | Global |
+
+### 10.3 Comparing network types
+
+| Criterion | PAN | LAN | CAN | MAN | WAN |
+| **Coverage** | 1–10 m | Up to ~1 km (building) | 1–5 km (site) | 5–50 km (city) | > 50 km to global |
+| **Typical speed** | 1–50 Mbps (Bluetooth), up to Gbps (USB/Wi-Fi Direct) | 100 Mbps–10 Gbps | 1–100 Gbps backbone | 100 Mbps–10 Gbps | 1 Mbps–100 Gbps per link; varies widely; internet home links 5–100 Mbps in Cameroon |
+| **Latency** | Very low | Very low (< 1 ms) | Low | Low–moderate | Higher (10–600 ms; satellite highest) |
+| **Cost** | Very low | Low–moderate | Moderate–high (fibre trenching) | High (telecom leases) | Very high (leased lines, international bandwidth); often pay-per-month |
+| **Devices/users** | 1–8 devices | 2–~1,000 | Thousands | Thousands–hundreds of thousands | Millions–billions |
+| **Ownership** | Individual | Private organisation | Single organisation | Telecom/municipality or large organisation | Telecoms/ISPs/consortia; the internet – no single owner |
+| **Media** | Bluetooth, USB, NFC | UTP, fibre, Wi-Fi | Fibre backbone, Wi-Fi | Fibre, microwave, cellular | Fibre, submarine cable, satellite, cellular |
+| **Error rate / reliability** | Low | Low; fully controlled | Low | Moderate | Higher; depends on carriers |
+| **Examples** | Earbuds + phone | Lab, home, office | University, hospital | City fibre ring | Bank network, internet |
+
+Trend: as coverage grows, speed per user and control **decrease** while cost, latency and complexity **increase**.
+
+> EXAMPLE:
+  **University of Douala.** Each faculty building has a LAN (switches, Wi-Fi). A fibre backbone joins buildings into a **CAN**. A leased link to the IUT campus across town creates a **MAN** segment. The connection to the RENATER-style national research network and to the internet is the **WAN**. A lecturer's laptop, phone and Bluetooth mouse form a **PAN** on top of it all – five network types in one morning.
+
+> VISUAL:
+  **Figure 10.1 – Concentric coverage diagram**: PAN (person) inside LAN (building) inside CAN (campus) inside MAN (city) inside WAN (globe), with typical distances, speeds and example icons. **Figure 10.2 – Scale vs speed/cost graph**: x-axis coverage, two curves (speed per user falling, cost rising). **Figure 10.3 – Cameroon map** with submarine cable landings (Kribi, Limbe), national fibre backbone, a metro ring in Douala and a campus inset.
+
+> MISCONCEPTION:
+  "Wi-Fi is a WAN because it is wireless." Wi-Fi is a LAN technology; wireless WANs use cellular or satellite. "The internet is a very large LAN." It is a network of networks spanning WAN links.
+
+> ACTIVITY:
+  **Classify and compare (35 min).** (1) 15 scenario cards → PAN/LAN/CAN/MAN/WAN with justification; identify combinations. (2) Measure: use the lab's LAN speed (file transfer or iperf/LAN speed test) vs internet speed test – relate to the comparison table. (3) Build a physical concentric model on the classroom floor with string and labels; each learner places a device card at the right ring.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe PAN, LAN, CAN, MAN and WAN with coverage and one example of each.
+  2. Classify: a home Wi-Fi with phones and a Bluetooth speaker; a university with eight buildings; a supermarket chain across Cameroon; a town-wide council network. Justify.
+  3. Compare LAN and WAN on coverage, speed, cost, users and ownership.
+  4. Why does latency increase with coverage? Which type has the lowest cost per device?
+  5. Which network types does a lecturer use when e-mailing from a campus Wi-Fi laptop with a Bluetooth mouse to a colleague abroad?
+  **Homework:** Identify five networks you use in a week and classify each, with coverage estimate, technology and owner in a table.
+
+---
+
+# Lesson 11: Choosing the Right Network for an Organisation
+
+> OBJ:
+  - Identify the networking needs of different types of organisations.
+  - Select the most appropriate network type for a given organisational scenario.
+  - Evaluate the key factors involved in choosing one network type over another for a specific organization's needs.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 6 min | Two clients: a tailoring shop with two PCs and a microfinance with 20 branches – same network? | React. |
+| Core 1 | 30 min | Needs analysis: organisation types (small business, school, hospital, bank, university, government office, NGO, farm cooperative, home office) and their needs – users/devices, sites, applications (file sharing, POS, database, VoIP, video, LMS, telemedicine), bandwidth, availability, security/compliance, mobility, growth, budget, skills, power/connectivity context; requirement-gathering questions. | Needs profile for two organisations. |
+| Core 2 | 30 min | Selecting the type: decision tree (one room → LAN; several buildings → CAN; city sites → MAN or VPN over WAN; national → WAN/VPN; personal devices → PAN); combining types; wired vs wireless within type; cloud vs on-premises services; scenario practice with justification. | Solve five scenarios. |
+| Core 3 | 26 min | Evaluating factors: cost (capital vs operating), performance, scalability, reliability/availability, security, manageability, geography, existing infrastructure, regulatory, vendor/ISP availability in Cameroon; weighted decision matrix; trade-offs. | Weighted matrix for a case. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 11.1 Networking needs of different organisations
+
+| Organisation | Typical users/sites | Key applications | Critical needs |
+| **Small business / shop** | 2–10 users, one site | Invoicing, POS, e-mail, mobile money, printing | Low cost, simplicity, internet sharing, basic security |
+| **Secondary school** | 50–2,000 learners, staff; one campus, several blocks | Computer lab, LMS, admin/MIS, Wi-Fi for staff, e-library, exam registration | Content filtering, learner/staff separation, affordability, robustness, power backup |
+| **University** | Thousands; multiple buildings/campuses | E-learning, research (high bandwidth), library, student portal, Wi-Fi everywhere, labs | High capacity backbone, campus Wi-Fi, authentication (eduroam), scalability, inter-campus links |
+| **Hospital / health centre** | Dozens–hundreds; wards, labs, pharmacy | Patient records, imaging (large files), telemedicine, lab systems, Wi-Fi for tablets | High availability, strict security/privacy, low latency, redundancy, isolation of medical devices |
+| **Bank / microfinance** | Many branches nationwide, ATMs | Core banking (real-time), ATMs, mobile money, e-mail, video | Very high security and availability, encrypted WAN, redundancy, compliance (COBAC) |
+| **Government office / council** | Several offices, public counters | E-government platforms, records, e-mail, public Wi-Fi | Security, reliability, interoperability with national systems, citizen access |
+| **NGO / cooperative** | Small teams in several towns, field agents | Cloud collaboration, data collection on phones, VoIP | Low cost, mobility, works on 4G, cloud-based |
+| **Manufacturing / plant** | Office + factory floor | ERP, machine control (OT), CCTV, sensors | Segregation of industrial network, reliability, environmental robustness |
+| **Home office / freelancer** | 1–4 users | Internet, video calls, cloud, printing, streaming | Cheap, simple, adequate bandwidth |
+
+Requirement-gathering questions: How many users/devices now and in five years? How many sites and how far apart? Which applications and their bandwidth/latency needs? Required uptime? Sensitive data and regulations? Mobility (Wi-Fi, remote work)? Budget (initial and monthly)? Available power, ISPs and technicians? Existing equipment?
+
+### 11.2 Selecting the appropriate network type
+
+| Scenario | Recommended type(s) | Justification |
+| Tailoring shop, 2 PCs + printer + phones, one room | **LAN** (small Wi-Fi router with Ethernet ports) + PAN for phone/printer Bluetooth | Single room, low cost, shared internet/printer |
+| Lycée with 4 blocks 200 m apart, lab + admin + staff Wi-Fi | **CAN** (fibre or outdoor point-to-point Wi-Fi between blocks, LAN per block) | Several buildings, one site; VLANs for learners/staff/admin |
+| Microfinance with HQ in Bafoussam and 20 branches in the West Region | **WAN** – VPN over ISP links (4G/fibre) with MPLS or leased line for HQ; LAN per branch | Distant sites, real-time secure transactions |
+| Hospital campus with 6 buildings | **CAN** with redundant fibre backbone, medical-device VLANs | Availability and isolation |
+| Council offices across Limbe + public Wi-Fi hotspots | **MAN** (municipal fibre/microwave) | City scale, own infrastructure |
+| NGO with 5 field offices in different regions | **WAN via internet + cloud** (Google Workspace, VPN); small LANs/4G routers per office | Low budget, mobility |
+| University with 2 campuses in the same city | **CAN** per campus + **MAN** link (leased fibre) + WAN to the internet/research networks | Scale and geography |
+| Freelancer at home | **LAN** (Wi-Fi) + PAN | Simplicity |
+
+Within the type, also decide: **wired vs wireless** (speed/security vs mobility/cost), **on-premises servers vs cloud** (control vs low upkeep), **ISP technology** (fibre, 4G/5G, VSAT for remote areas), redundancy (two ISPs, UPS).
+
+### 11.3 Evaluating the key factors
+
+| Factor | Questions | Influence on choice |
+| **Cost** | Capital (equipment, cabling, installation) and operating (subscriptions, power, staff, maintenance); total cost of ownership over 5 years | Small budgets favour LAN + cloud + 4G; WAN leases are costly |
+| **Performance** | Required bandwidth and latency per application (video/imaging vs e-mail) | Fibre CAN/MAN for heavy data; avoid satellite for real-time |
+| **Scalability** | Growth in users, sites and services | Choose modular switches, structured cabling, scalable IP plan |
+| **Reliability / availability** | Tolerable downtime; redundancy needs | Banks/hospitals need redundant links and power |
+| **Security & compliance** | Data sensitivity, regulations (Law 2024/017, banking rules) | Encrypted WAN/VPN, segmentation, private links |
+| **Geography & distance** | Number and distance of sites, terrain, right of way for cables | Determines LAN/CAN/MAN/WAN and media (fibre vs wireless) |
+| **Existing infrastructure & ISP availability** | Fibre in the street? 4G coverage? Ducts/buildings? | Reuse; VSAT where nothing else |
+| **Manageability & skills** | In-house staff or outsourced? | Simple, cloud-managed equipment where skills are scarce |
+| **Mobility & user experience** | BYOD, field agents, guests | Wi-Fi, 4G routers, VPN clients |
+| **Environment & power** | Outages, lightning, dust, heat | UPS, surge protection, solar, ruggedised outdoor links |
+| **Time to deploy** | Urgency | Wireless links faster than trenching fibre |
+
+**Weighted decision matrix:** list options (e.g., fibre CAN vs wireless bridges vs 4G routers per block), weight factors (cost 30 %, performance 25 %, reliability 20 %, security 15 %, scalability 10 %), score each 1–5, multiply and total; discuss trade-offs rather than only the number.
+
+> EXAMPLE:
+  **Case: "Espoir" microfinance.** Needs: real-time transactions at 20 branches, high security, 99.5 % uptime, limited technicians outside Bafoussam. Options: (A) MPLS leased lines to every branch – excellent but 3 million XAF/month; (B) VPN over dual 4G/fibre internet per branch with cloud-managed routers – 700,000 XAF/month, encrypted, redundant; (C) VSAT everywhere – costly, high latency. Weighted matrix favours B with MPLS only for HQ and the data centre, plus a UPS in each branch – the "right" network balances factors, it is not the biggest.
+
+> VISUAL:
+  **Figure 11.1 – Needs-to-network decision tree**: sites/distance → LAN/CAN/MAN/WAN; then branches for wired/wireless, cloud/on-premises, redundancy. **Figure 11.2 – Weighted decision matrix** example filled for the microfinance case. **Figure 11.3 – Organisation gallery**: shop, school, hospital, bank, NGO, each with its network type badge and top-two critical factors.
+
+> MISCONCEPTION:
+  "Bigger/faster is always better." Over-provisioning wastes scarce budget; match to needs and growth. "Wireless is free." Outdoor links need masts, licences (for some bands), power and maintenance.
+
+> ACTIVITY:
+  **Consultancy challenge (45 min, groups).** Each group draws an organisation card with needs details. Produce: a needs profile (users, sites, applications, constraints), the selected network type(s) with a sketch, a weighted decision matrix comparing two implementation options, and a two-minute recommendation. Peer panel scores using the factor list; whole class discusses trade-offs that differed between groups.
+
+## Formative assessment
+
+> ASSESS:
+  1. Identify the networking needs of a secondary school, a hospital and a microfinance institution (three each).
+  2. Select and justify the most appropriate network type for: a 3-block lycée; a supermarket chain in five cities; a home office; council offices across a town.
+  3. Evaluate five key factors in choosing a network type and explain a trade-off between two of them.
+  4. What is a weighted decision matrix and why is it useful?
+  5. Why might an NGO choose cloud services over an on-premises server?
+  **Homework:** Write a one-page network recommendation for an organisation you know (church, clinic, shop): needs, chosen type, factors evaluated, rough monthly cost.
+
+---
+
+# Lesson 12: Integration Activities — Classifying and Choosing Networks for Organisations
+
+> ACTIVITY:
+  **Context.** The Divisional Delegation of Secondary Education plans to connect three institutions: a lycée with five blocks; a bilingual college with one building; and the Delegation office in town, 6 km away – and wants staff phones and tablets to work everywhere.
+  **Task (groups of 3–4, 2 periods).**
+  1. **Classify** (Lesson 10) every network segment involved (PAN for personal devices, LAN per building, CAN for the lycée, MAN/WAN link to the Delegation, WAN to the internet) in a labelled map with coverage, expected speed and media.
+  2. **Compare** the segments in a table (coverage, speed, cost, users, ownership).
+  3. **Select** (Lesson 11) the appropriate type and implementation for each institution and the inter-site link using a needs profile and a weighted decision matrix (at least two options for the 6 km link: leased fibre, microwave/point-to-point wireless, VPN over 4G/fibre internet).
+  4. **Evaluate** the key factors and constraints (budget, power, ISP availability, security of learner data, scalability for exam periods).
+  5. **Deliver** a three-page proposal with diagrams, tables and a cost estimate, plus a 5-minute presentation.
+  **Criteria.** Correct classification of all segments; accurate comparison; justified selection with matrix; realistic evaluation of factors; quality of documents and presentation.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Classification & map | All segments correctly classified with coverage/speed/media | Minor errors | Several errors | Incorrect |
+| Comparison table | Complete and accurate | Mostly accurate | Partial | Missing |
+| Selection & decision matrix | Well-justified, ≥ 2 options weighed | Justified | Weak justification | Unjustified |
+| Factor evaluation | Realistic, context-specific, trade-offs explained | Adequate | Generic | Absent |
+| Proposal & presentation | Professional, clear, within time | Clear | Basic | Weak |
+
+---
+
+# Lesson 13: Network Architecture (Peer-to-Peer and Client/Server)
+
+> OBJ:
+  - Explain network types based on the logical relationship between nodes.
+  - Compare the advantages and disadvantages of each configuration.
+  - Choose the appropriate network design for a given organisation.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Two ways to share notes: everyone photocopies from each other vs one library desk. Which is which? | Map to computing. |
+| Core 1 | 30 min | Logical relationship vs physical layout; **peer-to-peer (P2P)**: all nodes equal, each shares/consumes; workgroup; examples (home sharing, small office, BitTorrent, blockchain); **client/server**: dedicated servers provide services to clients; domain; server types (file, print, web, mail, database, DHCP/DNS, application, authentication/directory); thin/thick clients; hybrid; cloud as client/server at scale. | Diagrams. |
+| Core 2 | 30 min | Advantages/disadvantages: cost, set-up, administration, security, backup, scalability, performance, reliability/single point of failure, user limits (~10 for P2P). Demonstration: Windows workgroup share vs domain login (or Ubuntu Samba). | Comparison table; observe demo. |
+| Core 3 | 27 min | Choosing a design: criteria (size, security, data centralisation, budget, skills, growth, applications); scenarios (home, 5-PC shop, 40-PC school lab, hospital, bank); hybrid choices (P2P lab printing + central file server); cloud-hosted servers. | Decide five cases. |
+| Conclusion | 8 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 13.1 Network types by logical relationship between nodes
+
+> DEF:
+  **Network architecture** (logical design) describes **how nodes relate and share responsibility** – independent of cabling. In a **peer-to-peer (P2P) network** every node is equal: each can act as both **client** (requesting) and **server** (providing) resources. In a **client/server network** dedicated, more powerful **servers** provide services (files, printing, authentication, web, e-mail, databases) to **clients** that request them; management is centralised.
+
+| Aspect | Peer-to-peer | Client/server |
+| Roles | All equal; resources on individual PCs | Servers provide, clients consume |
+| Management | Each user manages own machine, accounts and shares (**workgroup**) | Central administration – **domain**/directory (Active Directory, LDAP), policies |
+| Authentication | Local accounts on each PC | Central accounts; single login everywhere |
+| Typical size | 2–10 nodes | 10s to 100,000s |
+| Examples | Home file/printer sharing, small office workgroup, LAN games, **BitTorrent**, blockchain networks, Wi-Fi Direct/AirDrop | School lab with a server, businesses, banks, web (browser ↔ web server), e-mail, cloud services, LMS |
+| Server types (client/server) | – | **File**, **print**, **web**, **mail**, **database**, **application**, **DHCP/DNS**, **authentication/directory**, proxy/firewall, backup, media; physical, virtual or cloud |
+| Clients | – | **Thick/fat** (full PCs running applications) vs **thin** (rely on server – terminals, Chromebooks, virtual desktops) |
+| Hybrid | Common: central server for files/accounts while peers share printers or play LAN games | Peer-assisted delivery (Windows Update delivery optimisation, video CDNs) |
+
+### 13.2 Advantages and disadvantages
+
+| Criterion | Peer-to-peer | Client/server |
+| **Cost** | Low – no server hardware/NOS licence | Higher – server, NOS/licences, possibly administrator |
+| **Set-up & skills** | Simple; users can do it | Requires planning and skilled administration |
+| **Administration** | Decentralised, becomes chaotic beyond ~10 PCs; each machine configured separately | Centralised accounts, policies, updates, monitoring |
+| **Security** | Weak – each PC protects itself; shared passwords; no central logs | Strong – central authentication, permissions, auditing, policies |
+| **Data & backup** | Scattered across machines; backups inconsistent | Centralised data; one backup point; version control |
+| **Performance** | Fine for small loads; a PC acting as server slows for its user | Dedicated, optimised servers; scales with load |
+| **Reliability** | No single point of failure, but resources vanish when a peer is off | Server is a single point of failure – mitigate with redundancy, UPS, backups |
+| **Scalability** | Poor | Excellent |
+| **Dependence** | Independent nodes | Clients depend on server and network |
+| **Best for** | Homes, very small offices, temporary set-ups, decentralised apps | Organisations needing security, central data, many users |
+
+### 13.3 Choosing the appropriate design
+
+| Scenario | Choice | Reasoning |
+| Family home: 2 laptops, printer, TV | **P2P** (Wi-Fi router, shared printer/folders) | Few nodes, low security needs, no admin |
+| Tailoring shop with 4 PCs sharing files and a printer | **P2P workgroup** (perhaps a NAS for files) | Cheap; < 10 users |
+| School lab: 40 PCs, learner accounts, shared folders, printing, LMS | **Client/server** (file/print/authentication server; maybe LMS server or cloud) | Central control, security, backups, many users |
+| Hospital records | **Client/server** with redundancy | Sensitive data, availability |
+| Bank | **Client/server** (data centre, thin clients in branches) | Security, control, scale |
+| NGO with 6 laptops in different towns | **Cloud client/server** (Google Workspace/Microsoft 365) + P2P locally | No local server skills; mobility |
+| LAN gaming tournament | **P2P** | Temporary, equal nodes |
+| Video-sharing platform | **Client/server** with CDN/peer-assisted delivery | Scale |
+
+Decision criteria: number of users/devices, security and privacy requirements, need for central data/backups, budget (capital + admin), available skills, growth, application requirements (databases need servers), reliability requirements, whether cloud can play the server role.
+
+> EXAMPLE:
+  **Lycée lab evolution.** Year 1: 20 PCs in a workgroup – learners saved work on random machines, shared folders had no passwords, a virus spread from a shared drive, printing worked only when "Poste 7" was on. Year 2: an Ubuntu server (Samba + LDAP, or Windows Server) provides personal home folders, class shares with permissions, central printing, nightly backup and one login per learner; the teacher deploys settings to all PCs at once. Cost: one refurbished server and a technician's week; benefit: order, security and time.
+
+> VISUAL:
+  **Figure 13.1 – P2P vs client/server diagrams**: left, five PCs in a mesh of arrows all sharing; right, clients pointing to a server rack labelled file/print/auth/DHCP with an admin console. **Figure 13.2 – Comparison radar chart**: cost, security, scalability, simplicity, reliability plotted for each architecture. **Figure 13.3 – Decision flow**: users ≤ 10? sensitive data? central backup needed? skills/budget? → P2P / client-server / cloud-hosted.
+
+> MISCONCEPTION:
+  "Client/server needs a star topology and P2P a bus." Architecture is logical; both can run over the same star-wired switch. "A server is a special expensive machine." Any capable computer running server software can be a server; the role is what matters.
+
+> ACTIVITY:
+  **Build both (45 min, lab).** (1) P2P: create a workgroup share on two PCs (Windows: share a folder, set permissions; or Ubuntu: Samba share), access it from the other, print via a shared printer; note what happens when one PC is switched off. (2) Client/server: log in with domain/LDAP accounts if a server exists, or simulate with one PC acting as file server with user accounts; compare account management. (3) Role-play: 8 learners as peers passing "file requests" vs one "server" – time and chaos comparison. (4) Decide the architecture for five scenario cards with two reasons each.
+
+## Formative assessment
+
+> ASSESS:
+  1. Explain peer-to-peer and client/server architectures in terms of the logical relationship between nodes.
+  2. Name six types of servers and their functions.
+  3. Compare the two architectures on cost, security, administration, scalability and reliability.
+  4. Why is P2P not recommended beyond about ten users?
+  5. Choose and justify a design for: a home; a 6-PC pharmacy; a 500-student school; a hospital.
+  6. Distinguish thin and thick clients; how does cloud computing relate to client/server?
+  **Homework:** Draw the logical architecture of your school or a business you know, identify the servers (physical or cloud) and clients, and suggest one improvement.
+
+---
+
+# Lesson 14: Types of Physical Network Topologies
+
+> OBJ:
+  - Describe the types of physical network topologies (mesh, star, ring, bus, tree).
+  - Identify the physical layout and connection pattern of each topology.
+  - Explain the advantages and disadvantages of each topology.
+
+## Lesson outline (2 periods, 100 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 5 min | Five learners hold strings in different patterns; class names the shapes. | Guess. |
+| Core 1 | 45 min | Define physical vs logical topology; **bus** (single backbone, terminators, coax history, collisions), **star** (central switch/hub, UTP, dominant today), **ring** (each node to two neighbours, token passing, FDDI, dual ring), **mesh** (full vs partial, formula n(n−1)/2 links, WAN backbones, wireless mesh Wi-Fi systems), **tree/hierarchical** (star-of-stars, core–distribution–access, campus networks); also hybrid and point-to-point notes. For each: layout, connection pattern, cabling, how data travels, failure behaviour. | Draw each; count links. |
+| Core 2 | 35 min | Advantages/disadvantages tables; cable length calculations; fault isolation exercises ("cut this link – who is affected?"). | Fault exercises. |
+| Conclusion | 15 min | Build the star topology in the lab (patch cables to switch); exit ticket. | Practise. |
+
+## Core content
+
+### 14.1 Physical topology
+
+> DEF:
+  A **physical topology** is the **actual layout and connection pattern** of the cables, devices and nodes in a network. The **logical topology** is how data flows (e.g., a hub-based star behaves logically like a bus). The main physical topologies are **bus, star, ring, mesh and tree**.
+
+| Topology | Layout & connection pattern | How data travels | Media/equipment | Where used |
+| **Bus** | All nodes attach by drop lines/T-connectors to a **single backbone cable** with **terminators** at both ends | Signal broadcast along the backbone in both directions; every node hears it, only the addressed node accepts; collisions handled by CSMA/CD | Coaxial (10BASE2/10BASE5) historically; today in some industrial/ vehicle buses (CAN bus), and logically in shared Wi-Fi | Early LANs (1980s–90s); small temporary networks; teaching |
+| **Star** | Every node connects by its **own cable to a central device** (switch, or hub historically); no node-to-node links | Sent to the central device, which forwards to the destination (switch) or broadcasts (hub) | UTP Cat 5e/6 with RJ-45, switch, patch panel; also Wi-Fi around an access point | **Dominant LAN topology** today: labs, offices, homes |
+| **Ring** | Each node connects to **exactly two neighbours**, forming a closed loop | Data (often a **token**) travels in one direction node to node; each repeats the signal; **dual ring** (FDDI, SONET) adds a counter-rotating backup | Token Ring (IBM, twisted pair via MAU), FDDI (fibre), SONET/SDH metro rings | Legacy LANs; still in telecom/metro fibre rings and some industrial networks |
+| **Mesh** | Every node connects to **every other** (**full mesh**: n(n−1)/2 links) or to several others (**partial mesh**) | Multiple paths; routing chooses the best; traffic re-routes around failures | Point-to-point links (fibre, leased lines, radio); routers; **wireless mesh** (home mesh Wi-Fi, community networks, IoT Zigbee) | Internet/WAN backbones, data centres, military, critical sites, mesh Wi-Fi |
+| **Tree (hierarchical / extended star)** | **Stars connected to a central star** (or bus) in levels: **core → distribution → access** switches | Traffic climbs to the nearest common switch and descends | Fibre uplinks between switches, UTP to devices | Campus/school with several blocks, enterprises; most large LANs |
+| Hybrid | Combination (e.g., star-ring, star-bus) | – | – | Real networks |
+| Point-to-point | Two nodes directly linked | Direct | Cable/wireless bridge | Building-to-building links |
+
+**Link counts:** star = n links (n nodes + 1 central device); ring = n; bus = 1 backbone + n drops; full mesh = n(n−1)/2 (10 nodes → 45 links; 40 nodes → 780); tree = n − 1 within the hierarchy.
+
+### 14.2 Advantages and disadvantages
+
+| Topology | Advantages | Disadvantages |
+| **Bus** | Least cable; cheap and simple; easy to extend short distances; no central device | A backbone break or missing terminator **disables the whole network**; collisions limit performance as nodes increase; hard to troubleshoot; limited length and node count; security – all nodes see all traffic; obsolete for LANs |
+| **Star** | **Easy to install, manage and troubleshoot**; a cable/node failure affects only that node; easy to add/remove nodes; high performance with a switch (dedicated bandwidth per port); centralised monitoring and security | **Central device is a single point of failure**; more cable than bus/ring; cost of switch and cabling; limited by switch ports and 100 m cable runs |
+| **Ring** | Orderly access (token) – no collisions, predictable performance under load; each node regenerates the signal (long distances); equal access | A **single node/link failure can break the ring** (unless dual ring); adding/removing nodes disrupts the network; harder to troubleshoot; slower for small networks; legacy equipment |
+| **Mesh** | **Highest reliability/fault tolerance** – multiple paths; no single point of failure; high performance (dedicated links); privacy/security per link; easy fault isolation | **Most expensive and complex** – links, ports and cabling grow quadratically; difficult to install and manage; impractical for large full-mesh LANs |
+| **Tree** | **Scalable** for large sites; hierarchical management and segmentation (VLANs per block); fault in one branch isolated; uses standard star equipment; supports redundancy at the core | Depends on the **root/core** and uplinks; more cabling and switches; more complex design; distance/uplink bandwidth planning needed |
+
+> EXAMPLE:
+  **Topologies around one campus.** The lab is a **star** around a 48-port switch; the five blocks form a **tree** with fibre uplinks to a core switch in the admin block; the ISP's metro fibre is a **dual ring** through the city; the internet backbone linking Douala, Paris and Lagos is a **partial mesh**; the industrial workshop's machine controllers still use a **bus** (CAN); the home mesh Wi-Fi kit a teacher bought forms a wireless **mesh**.
+
+> VISUAL:
+  **Figure 14.1 – Five topology diagrams** side by side (bus with terminators, star with switch, ring with token arrow, full mesh with link count, tree with core/distribution/access levels), each annotated with "failure of X affects…". **Figure 14.2 – Cable-length comparison** for 8 nodes in a 10 m × 10 m room under each topology. **Figure 14.3 – Photo/sketch of a real star**: patch panel, switch, cables to desks.
+
+> MISCONCEPTION:
+  "Wi-Fi has no topology." Wireless LANs are logically bus-like (shared medium) around an access point in a star; mesh Wi-Fi is a mesh. "Star is fragile because of the switch." Switches are extremely reliable; redundancy is possible; per-node isolation makes star the most manageable.
+
+> ACTIVITY:
+  **Topology lab (45 min).** (1) String-and-people models of all five topologies; the teacher "cuts" a link – who is isolated? (2) Lab practice: connect five PCs to a switch (star) with patch cables, verify link lights and ping; then daisy-chain two switches (tree) and repeat. (3) Calculations: links for 6, 12 and 30 nodes in full mesh; cable totals for star vs bus in a given room plan. (4) Packet Tracer (if available): build each topology and simulate a failure.
+
+## Formative assessment
+
+> ASSESS:
+  1. Describe bus, star, ring, mesh and tree topologies with a diagram of each.
+  2. Identify the topology from descriptions: "each node connects to two neighbours"; "all nodes to one switch"; "stars connected to a central switch"; "single backbone with terminators".
+  3. Explain two advantages and two disadvantages of each topology.
+  4. How many links does a full mesh of 12 nodes need? Why is full mesh impractical for LANs?
+  5. What happens in bus, star and ring topologies when one cable breaks?
+  6. Why is star the dominant LAN topology and where are ring and mesh still used?
+  **Homework:** Sketch the physical topology of your school lab or a cybercafé, label devices and cables, name the topology and propose one improvement for reliability.
+
+---
+
+# Lesson 15: Comparing and Choosing Network Topologies
+
+> OBJ:
+  - Compare the different types of physical network topologies.
+  - Evaluate which topology suits specific organisational needs.
+  - Propose a suitable network topology for a given organisation.
+
+## Lesson outline (1 period, 50 min)
+
+| Phase | Time | Teacher activity | Learner activity |
+| Introduction | 4 min | "A clinic asks for the most reliable topology at the lowest cost – contradiction?" | Discuss. |
+| Core 1 | 16 min | Comparison matrix: cost, cabling, installation, scalability, reliability/fault tolerance, performance, troubleshooting, security, suitability; scoring. | Complete matrix. |
+| Core 2 | 16 min | Evaluation criteria for organisations (size, layout/building, budget, reliability requirement, growth, existing cabling, expertise, application traffic); matching topology to needs; hybrid proposals; documenting a proposal (floor plan, device list, cable schedule, justification). | Evaluate three scenarios. |
+| Core 3 | 10 min | Group proposals for given organisation. | Draft proposal. |
+| Conclusion | 4 min | Exit ticket. | Answer. |
+
+## Core content
+
+### 15.1 Comparison matrix
+
+| Criterion | Bus | Star | Ring | Mesh | Tree |
+| **Cabling cost** | Lowest | Moderate | Moderate | Highest | Moderate–high |
+| **Equipment cost** | Low (no central device) | Switch(es) | MAUs/legacy | Many ports/routers | Several switches |
+| **Ease of installation** | Easy (small) | Easy | Moderate | Hard | Moderate |
+| **Scalability** | Poor | Good (add ports/switches) | Poor (disruptive) | Very poor for full mesh | **Excellent** |
+| **Reliability / fault tolerance** | Poor – backbone failure kills all | Good – node faults isolated; switch is SPOF | Poor unless dual ring | **Excellent** | Good – branch faults isolated; core is SPOF |
+| **Performance under load** | Degrades (collisions) | High (switched) | Predictable, moderate | Highest | High, depends on uplinks |
+| **Troubleshooting** | Hard | **Easy** | Hard | Easy per link, complex overall | Moderate |
+| **Security (traffic isolation)** | Low (shared medium) | High with switches | Low–moderate | High | High (VLANs) |
+| **Typical size** | Small | Small–medium | Small–medium | Small core/WAN | Medium–large |
+| **Current relevance** | Legacy/industrial | **Standard LAN** | Telecom rings | Backbones, Wi-Fi mesh | Campus/enterprise |
+
+### 15.2 Evaluating suitability for organisational needs
+
+| Need / constraint | Favoured topology | Comment |
+| Single room, ≤ 48 devices, limited budget | **Star** | Simple, manageable |
+| Several buildings or floors, growth expected | **Tree** (extended star with fibre uplinks) | Scalable, segmentable |
+| Mission-critical availability (hospital core, bank data centre, ISP backbone) | **Mesh** (partial) at the core; **dual ring** for metro links | Redundant paths |
+| Temporary or very small ad-hoc set-up | Bus-like/Wi-Fi ad hoc or small star | Quick |
+| Wireless coverage of a large house/compound without cabling | **Wireless mesh** | Self-healing coverage |
+| Industrial machines/sensors | Fieldbus (bus) or ring for determinism | Legacy compatibility |
+| Easy troubleshooting with few technicians | **Star/tree** | Per-port diagnosis |
+| Minimal cable in a long corridor of few devices | Historically bus; today small star per zone | – |
+
+Proposal method: (1) collect requirements (devices per room, rooms/buildings, distances, growth, budget, reliability, applications); (2) map the site (floor plan, cable routes, distances ≤ 90 m for UTP); (3) choose topology per level (access star, campus tree, redundant core); (4) list equipment (switch ports + 20 % spare, cabling, patch panels, uplinks, UPS); (5) justify against criteria; (6) draw diagram and cable schedule; (7) estimate cost and phases.
+
+> EXAMPLE:
+  **Proposal for "Clinique La Grâce"** (two floors, 25 PCs, imaging machine, Wi-Fi tablets, 24/7 operation). Access layer: **star** per floor (24-port PoE switch each, UTP Cat 6, access points); distribution: a **tree** joining floor switches to a core switch by two fibre uplinks each (partial mesh at the core for redundancy); imaging on its own VLAN; UPS on all switches. Rejected: full mesh (cost), ring (disruption on changes), bus (fragile). Result: star-tree hybrid with redundant core — reliability where it matters, economy elsewhere.
+
+> VISUAL:
+  **Figure 15.1 – Heat-map comparison matrix** (green/amber/red cells) of the five topologies against criteria. **Figure 15.2 – Proposal drawing**: clinic floor plan with switch locations, cable runs, fibre uplinks, redundant core links, VLAN colours. **Figure 15.3 – Decision flow**: size → buildings → reliability need → budget → topology recommendation.
+
+> MISCONCEPTION:
+  "Choose one topology for the whole organisation." Real designs are hybrids: star at the edge, tree across the site, mesh/ring at the core. "Mesh is always the best because it is most reliable." Its cost and complexity are justified only where downtime is intolerable.
+
+> ACTIVITY:
+  **Topology proposal (35 min, groups).** Each group gets an organisation card with floor plan (primary school with 2 blocks; cybercafé; council office with 3 floors; radio station needing 24/7 uptime). Produce: comparison scoring for three candidate topologies against the organisation's top five criteria, a labelled topology drawing with equipment list and cable schedule, and a justified proposal presented in 3 minutes; class votes on the most convincing.
+
+## Formative assessment
+
+> ASSESS:
+  1. Compare star, ring, bus, mesh and tree topologies on cost, scalability, reliability and troubleshooting.
+  2. Which topology has no single point of failure, and at what cost?
+  3. Evaluate which topology suits: a 30-PC lab; a hospital core network; a house with poor Wi-Fi coverage; a lycée with four blocks.
+  4. Propose and justify a topology for a bank branch with 15 PCs, two ATMs and a requirement of high availability.
+  5. Why do real networks combine topologies? Give an example.
+  **Homework:** Prepare a one-page topology proposal (drawing + justification + equipment list) for a small business of your choice.
+
+---
+
+# Lesson 16: Integration Activities — Designing the Architecture and Topology of an Organisation's Network
+
+> ACTIVITY:
+  **Context.** A new bilingual secondary school opens next year with: an administration block (10 PCs, server room), two classroom blocks (each with a 30-PC lab and staff Wi-Fi), a library (8 PCs + Wi-Fi) and a boarding house 150 m away needing supervised evening Wi-Fi. Data: 1,200 learners, 80 staff, growth to 1,800 in three years.
+  **Task (groups of 3–4, 2 periods).**
+  1. **Architecture** (Lesson 13): choose peer-to-peer, client/server or hybrid for the whole school and for each area; specify the servers/services (file, print, authentication, DHCP/DNS, LMS – on-premises or cloud) and client types; justify with advantages/disadvantages.
+  2. **Topologies** (Lessons 14–15): propose the physical topology per block and for the campus (star/tree/mesh/ring elements), with a comparison table of at least three alternatives against the school's criteria (cost, reliability, scalability, troubleshooting, security), link counts and cable-length estimates, and the treatment of the 150 m boarding-house link (fibre vs wireless bridge).
+  3. **Drawings**: campus topology diagram and one detailed block diagram (switches, ports, uplinks, access points, server room).
+  4. **Equipment list and phased budget** (year 1 essentials, year 2–3 growth).
+  5. **Presentation** (6 min) to a "school board" panel; answer questions on failure scenarios ("what if the core switch fails?").
+  **Criteria.** Sound architecture with justified services; appropriate topology choices with quantitative comparison; correct, legible drawings; realistic equipment/budget; failure-scenario reasoning; presentation.
+
+## Rubric
+
+| Criterion | 4 – Excellent | 3 – Good | 2 – Developing | 1 – Beginning |
+| Architecture & services | Correct choice, complete server/service plan, strong justification | Minor gaps | Partial | Inappropriate |
+| Topology comparison & choice | ≥ 3 alternatives compared quantitatively; hybrid design well argued | Compared; adequate | Limited | Unjustified |
+| Diagrams | Clear campus and block diagrams with ports/uplinks/APs | Clear | Incomplete | Missing |
+| Equipment & budget | Realistic, phased, includes spares/UPS | Realistic | Rough | Absent |
+| Resilience reasoning | Failure scenarios answered convincingly | Mostly | Weak | None |
+| Presentation | Professional, shared roles | Clear | Uneven | Weak |
+
+---
