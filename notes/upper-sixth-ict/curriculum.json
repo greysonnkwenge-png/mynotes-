@@ -1,0 +1,607 @@
+{
+  "title": "Upper Sixth ICT — First Term Learning Notes",
+  "school_year": "2026–2027",
+  "weeks": 13,
+  "weekly_periods": 8,
+  "primary_source": "2026-2027 ICT Upper Sixth Progression Sheet.pdf",
+  "source_note": "The supplied file is named Upper Sixth but its printed heading says LOWERSIXTH. Its lesson sequence is used as supplied; the discrepancy is not silently treated as an official correction.",
+  "objectives_note": "Objectives transcribed from the supplied progression, with punctuation and capitalisation normalised. Integration lessons have no objectives printed in the sheet; their tasks and criteria are locally authored.",
+  "parts": [
+    {
+      "number": 1,
+      "title": "Applying artificial intelligence",
+      "file": "01-artificial-intelligence.md"
+    },
+    {
+      "number": 2,
+      "title": "Understanding and designing networks",
+      "file": "02-network-foundations.md"
+    },
+    {
+      "number": 3,
+      "title": "Building and protecting networks",
+      "file": "03-network-setup-and-security.md"
+    },
+    {
+      "number": 4,
+      "title": "Transmitting data reliably",
+      "file": "04-data-transmission.md"
+    },
+    {
+      "number": 5,
+      "title": "Using the Internet to communicate and collaborate",
+      "file": "05-internet-and-collaboration.md"
+    },
+    {
+      "number": 6,
+      "title": "Digital services, learning and HTML",
+      "file": "06-digital-services-and-html.md"
+    }
+  ],
+  "lessons": [
+    {
+      "number": 1,
+      "title": "The Concept of Artificial Intelligence",
+      "week": 1,
+      "progression_page": 1,
+      "part": 1,
+      "type": "lesson",
+      "objectives": [
+        "Define AI and explain its history and development.",
+        "Identify and describe the main types of AI.",
+        "Explain common application areas of AI."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "AI Ethics and Responsible Use",
+      "week": 1,
+      "progression_page": 1,
+      "part": 1,
+      "type": "lesson",
+      "objectives": [
+        "Explain ethical issues associated with AI.",
+        "Examine the potential risks and benefits of AI.",
+        "Discuss principles for the responsible use of AI."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "AI Techniques and Intelligent Systems",
+      "week": 1,
+      "progression_page": 1,
+      "part": 1,
+      "type": "lesson",
+      "objectives": [
+        "Describe common AI techniques and their applications.",
+        "Explain the characteristics of intelligent systems (smart school, smart city, smart health, smart home).",
+        "Compare AI techniques and intelligent systems based on their applications."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Machine Learning",
+      "week": 1,
+      "progression_page": 1,
+      "part": 1,
+      "type": "lesson",
+      "objectives": [
+        "Define Machine Learning (ML) and explain its relationship with AI.",
+        "Explain the basic principles of Machine Learning.",
+        "Build and test simple Machine Learning models using Teachable Machine."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Developing AI Systems",
+      "week": 2,
+      "progression_page": 1,
+      "part": 1,
+      "type": "lesson",
+      "objectives": [
+        "Describe the major stages involved in developing an AI system.",
+        "Identify programming languages and tools used in AI development.",
+        "Explain why Python is widely used in AI development."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Integration Activities — Applying AI to Improve Living and Working Standards",
+      "week": 2,
+      "progression_page": 2,
+      "part": 1,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 7,
+      "title": "Fundamentals of Computer Networks",
+      "week": 2,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Describe a computer network.",
+        "Compare networked computers with stand-alone systems.",
+        "Identify real-world examples of computer networks (e.g., home Wi-Fi, school labs, the internet) versus standalone computer setups."
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Network Complexity and Operational Challenges",
+      "week": 2,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Identify and discuss the benefits and limitations of networks.",
+        "Explain the complexity involved in setting up and maintaining data communication networks.",
+        "Explain the complexity of interoperability between heterogeneous systems."
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Integration Activities — Networking a Real Organisation: Description and Challenges",
+      "week": 3,
+      "progression_page": 2,
+      "part": 2,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 10,
+      "title": "Types of Networks by Coverage Area",
+      "week": 3,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Describe types of networks (LAN, MAN, WAN, CAN, PAN).",
+        "Classify properly based on coverage a given network (e.g., home Wi-Fi setup, a university).",
+        "Compare the network types in terms of coverage area, typical speed, cost, and number of devices/users supported."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Choosing the Right Network for an Organisation",
+      "week": 3,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Identify the networking needs of different types of organizations.",
+        "Select the most appropriate network type for a given organizational scenario.",
+        "Evaluate the key factors involved in choosing one network type over another for a specific organization's needs."
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Integration Activities — Classifying and Choosing Networks for Organisations",
+      "week": 3,
+      "progression_page": 2,
+      "part": 2,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 13,
+      "title": "Network Architecture (Peer-to-Peer and Client/Server)",
+      "week": 4,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Explain network types based on the logical relationship between nodes.",
+        "Compare the advantages and disadvantages of each configuration.",
+        "Choose the appropriate network design for a given organisation."
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Types of Physical Network Topologies",
+      "week": 4,
+      "progression_page": 2,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Describe the types of physical network topologies (mesh, star, ring, bus, tree).",
+        "Identify the physical layout and connection pattern of each topology.",
+        "Explain the advantages and disadvantages of each topology."
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Comparing and Choosing Network Topologies",
+      "week": 4,
+      "progression_page": 3,
+      "part": 2,
+      "type": "lesson",
+      "objectives": [
+        "Compare the different types of physical network topologies.",
+        "Evaluate which topology suits specific organisational needs.",
+        "Propose a suitable network topology for a given organisation."
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Integration Activities — Designing the Architecture and Topology of an Organisation's Network",
+      "week": 4,
+      "progression_page": 3,
+      "part": 2,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 17,
+      "title": "Network Equipment",
+      "week": 5,
+      "progression_page": 3,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Explain the role of key network components (modem, hub, router, NOS…).",
+        "Differentiate between the various network components based on their functions.",
+        "Identify the appropriate network components required for a computer network."
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Setting Up a Computer Network",
+      "week": 5,
+      "progression_page": 3,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Demonstrate the steps involved in setting up a basic computer network.",
+        "Identify the essential equipment and how they are interconnected.",
+        "Set up and test a peer-to-peer computer network."
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Selecting Equipment for Organisational Networks",
+      "week": 6,
+      "progression_page": 3,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Select appropriate network equipment for specific organizational needs (e.g., a school).",
+        "Explain the factors to consider when selecting network components.",
+        "Plan and design a network setup suitable for an organization's size and purpose."
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Integration Activities — From Design to a Working Network",
+      "week": 6,
+      "progression_page": 3,
+      "part": 3,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 21,
+      "title": "Intranet and Extranet",
+      "week": 6,
+      "progression_page": 3,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Explain the concept of an intranet and an extranet.",
+        "Explain the technologies and requirements used to implement intranets and extranets.",
+        "Contrast the uses of intranets and extranets in organisations."
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Virtual Private Networks (VPNs) and Privacy",
+      "week": 6,
+      "progression_page": 3,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Describe the principles of a Virtual Private Network (VPN).",
+        "Explain how protocols are used to ensure privacy and confidentiality during data transmission.",
+        "Set up a secured VPN using firewalls and digital signatures."
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Computer and Network Security",
+      "week": 7,
+      "progression_page": 4,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Explain concepts related to computer and data security (confidentiality, integrity, availability).",
+        "Identify security measures used to protect computer systems (including user accounts, passwords, authentication, firewalls and security protocols).",
+        "Explain how digital signatures, encryption and other security measures help protect computer systems."
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Data Protection and Access Control",
+      "week": 7,
+      "progression_page": 4,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Explain how encryption and access rights are used to protect computer data.",
+        "Describe methods used to control access to data and prevent unauthorised use.",
+        "Explain the importance of protecting data confidentiality, integrity and availability."
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Data Validation and Verification Techniques",
+      "week": 7,
+      "progression_page": 4,
+      "part": 3,
+      "type": "lesson",
+      "objectives": [
+        "Explain and contrast the concepts of data validation and verification.",
+        "Describe validation techniques (e.g., range check, format check, length check…).",
+        "Describe verification techniques such as visual check and double entry."
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Integration Activities — Securing an Organisation's Networked Information System",
+      "week": 7,
+      "progression_page": 4,
+      "part": 3,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 27,
+      "title": "Modes of Data Transmission",
+      "week": 8,
+      "progression_page": 4,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Explain logical topology methods (CSMA/CD, CSMA/CA).",
+        "Describe different transmission modes (simplex, half-duplex, full duplex).",
+        "Illustrate the direction of signal flow for a given data transmission scenario."
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Broadband and Narrowband Transmission",
+      "week": 8,
+      "progression_page": 4,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Define broadband and narrowband transmission.",
+        "Differentiate between broadband and narrowband transmissions.",
+        "Identify the appropriate transmission type used in a given communication situation."
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Types of Data Transmission",
+      "week": 8,
+      "progression_page": 4,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Explain and contrast serial and parallel data transmission methods.",
+        "Differentiate between synchronous and asynchronous transmission and identify their use in given situations.",
+        "Illustrate and differentiate between analog and digital signals."
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Transmission Media (Guided and Unguided)",
+      "week": 8,
+      "progression_page": 4,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Describe guided (wired) transmission media (e.g., copper wire, coaxial cable, optical fibre…).",
+        "Describe unguided (wireless) transmission media (e.g., Bluetooth, microwave, Wi-Fi…).",
+        "Choose an appropriate transmission medium for a given context."
+      ]
+    },
+    {
+      "number": 31,
+      "title": "Peripheral Device Control Mechanisms",
+      "week": 9,
+      "progression_page": 5,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Explain the meaning and role of buffers, interrupts, interrupt priorities, polling and handshaking in controlling peripheral devices.",
+        "Differentiate between the various techniques used to control communication between the computer and peripheral devices.",
+        "Determine the technique used to control a device in a given network scenario."
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Network Protocols and Their Roles in Data Transmission",
+      "week": 9,
+      "progression_page": 5,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Explain the meaning and role of network protocols in data transmission.",
+        "Discuss the functions of protocols (e.g., IP, TCP, HTTP…) in communication.",
+        "Evaluate how TCP/IP and other protocols facilitate reliable and efficient data transmission."
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Protocol Suites and the OSI Reference Model",
+      "week": 9,
+      "progression_page": 5,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Explain the role of protocol suites in network communication.",
+        "Describe the seven layers of the OSI reference model and their functions.",
+        "Relate network protocols to the appropriate layers of the OSI reference model."
+      ]
+    },
+    {
+      "number": 34,
+      "title": "Integration Activities — Analysing and Optimising Data Transmission for an Organisation",
+      "week": 9,
+      "progression_page": 5,
+      "part": 4,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 35,
+      "title": "Error Detection and Data Transfer Checks",
+      "week": 10,
+      "progression_page": 5,
+      "part": 4,
+      "type": "lesson",
+      "objectives": [
+        "Identify errors that may occur during data transmission.",
+        "Describe data transfer checking mechanisms used to detect transmission errors.",
+        "Explain parity checks as methods of error detection."
+      ]
+    },
+    {
+      "number": 36,
+      "title": "History and Development of the Internet",
+      "week": 10,
+      "progression_page": 5,
+      "part": 5,
+      "type": "lesson",
+      "objectives": [
+        "Define the Internet and explain its purpose.",
+        "Recall major events in the history of the Internet.",
+        "Explain factors that led to growth of the internet.",
+        "Explain advantages and disadvantages of the internet."
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Internet Connectivity Technologies and Requirements",
+      "week": 11,
+      "progression_page": 5,
+      "part": 5,
+      "type": "lesson",
+      "objectives": [
+        "Identify the technologies used to connect computers and networks to the Internet.",
+        "Describe the role of devices in providing Internet connectivity.",
+        "Use core features of a browser."
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Social Networks and Collaborative Environments",
+      "week": 11,
+      "progression_page": 6,
+      "part": 5,
+      "type": "lesson",
+      "objectives": [
+        "Define and identify examples of social media and collaborative environments.",
+        "Describe the positive and negative impacts of social networks and Internet use in the community.",
+        "Propose measures for the responsible and proper use of social media.",
+        "Demonstrate how collaborative platforms can be used for communication, learning and teamwork."
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Internet Services and Information Retrieval",
+      "week": 11,
+      "progression_page": 6,
+      "part": 5,
+      "type": "lesson",
+      "objectives": [
+        "Describe the major services provided through the Internet.",
+        "Create an e-mail account, attach a file to an e-mail and send it.",
+        "Research information on a particular topic using retrieval services."
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Internet Communication and Teleworking",
+      "week": 11,
+      "progression_page": 6,
+      "part": 5,
+      "type": "lesson",
+      "objectives": [
+        "Explain the concepts of teleworking, telecommuting and videoconferencing.",
+        "Explain the use of URLs and cookies when accessing web services.",
+        "Set up and use a teleconferencing platform for online communication."
+      ]
+    },
+    {
+      "number": 41,
+      "title": "Integration Activities — Connecting, Collaborating and Communicating Online",
+      "week": 12,
+      "progression_page": 6,
+      "part": 5,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 42,
+      "title": "Electronic Services: E-commerce, E-health and E-government",
+      "week": 12,
+      "progression_page": 6,
+      "part": 6,
+      "type": "lesson",
+      "objectives": [
+        "Define some major electronic services (e-commerce, e-health and e-government).",
+        "Describe some major electronic services.",
+        "Explain the advantages and disadvantages of using electronic services."
+      ]
+    },
+    {
+      "number": 43,
+      "title": "Applications, Benefits and Challenges of Electronic Services",
+      "week": 12,
+      "progression_page": 6,
+      "part": 6,
+      "type": "lesson",
+      "objectives": [
+        "Compare the applications of e-commerce, e-health and e-government in everyday life.",
+        "Identify e-government platforms and explain their advantages and limits.",
+        "Identify appropriate electronic services for solving common problems in the community."
+      ]
+    },
+    {
+      "number": 44,
+      "title": "Computer-Assisted Learning (CAL) and E-learning",
+      "week": 12,
+      "progression_page": 6,
+      "part": 6,
+      "type": "lesson",
+      "objectives": [
+        "Describe Computer-Assisted Learning (CAL) and its role in the learning process.",
+        "Identify different methods of course delivery (e.g., delivery through servers, CD-ROMs, e-books).",
+        "Explain the advantages and limitations of CAL and e-learning."
+      ]
+    },
+    {
+      "number": 45,
+      "title": "Integration Activities — Designing a Digital Services and Learning Programme",
+      "week": 13,
+      "progression_page": 6,
+      "part": 6,
+      "type": "integration",
+      "objectives": []
+    },
+    {
+      "number": 46,
+      "title": "Developing Simple Web Pages Using HTML",
+      "week": 13,
+      "progression_page": 6,
+      "part": 6,
+      "type": "lesson",
+      "objectives": [
+        "Identify the role of tags and attributes in a web page.",
+        "Implement basic HTML tags to structure a web page.",
+        "Create simple web pages using HTML and a text editor."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Office and PDF documents are binary assets, not line-oriented source files.
+# In particular, do not normalise line endings in generated PDF streams.
+*.pdf binary
+*.docx binary

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="220" viewBox="0 0 320 220" role="img" aria-labelledby="title desc">
+  <title id="title">Open book and circuit symbol</title>
+  <desc id="desc">An original classroom illustration for the fictional Mboa ICT club.</desc>
+  <rect x="4" y="4" width="312" height="212" rx="22" fill="#eef4fc" stroke="#2459a6" stroke-width="6"/>
+  <path d="M160 69 Q110 43 48 63 L48 168 Q110 147 160 179 Q210 147 272 168 L272 63 Q210 43 160 69 Z" fill="white" stroke="#192d46" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M160 69 V179 M66 91 Q112 78 140 93 M66 117 Q112 104 140 119 M66 143 Q112 130 140 145" fill="none" stroke="#2459a6" stroke-width="5" stroke-linecap="round"/>
+  <path d="M185 98 H220 V125 H249 M185 145 H206 V125" fill="none" stroke="#2459a6" stroke-width="6"/>
+  <g fill="white" stroke="#2459a6" stroke-width="5"><circle cx="185" cy="98" r="7"/><circle cx="249" cy="125" r="7"/><circle cx="185" cy="145" r="7"/></g>
+</svg>
